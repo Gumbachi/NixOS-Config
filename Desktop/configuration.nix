@@ -14,6 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.settings.auto-optimise-store = true;
+
   networking.hostName = "GOOMBAX8"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -67,8 +69,8 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
+    pulse.enable = true;    
+    # jack.enable = true; # If you want to use JACK applications, uncomment this
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -83,9 +85,32 @@
     isNormalUser = true;
     description = "Jared";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      vscodium
+      python3
+      rustup
+      gcc
+      steam
+      youtube-music
+      vesktop
+      android-studio
+      mangohud
+      gamemode
+      obs-studio
+      kdePackages.kdeconnect-kde
+      partition-manager # KDE Partition Manager
+      
+      # Quarantine
+      element-desktop
+      
+    ];
   };
 
+  # Enable Flatpak
+  services.flatpak.enable = true;
+
+  # Enable Partition Manager
+  programs.partition-manager.enable = true;
 
   # Fonts 
   fonts.packages = with pkgs; [
@@ -98,6 +123,7 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
+
   # Enable steam to work and scale
   programs.steam.enable = true;
   environment.sessionVariables = {
@@ -105,6 +131,9 @@
     MANGOHUD_CONFIG = "position=top-right,frame_timing=0";
   };
 
+  # Required to prevent asking for sudo privileges
+  programs.gamemode.enable = true;
+  
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -121,45 +150,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     fish
-    vscodium
     firefox
     git
-    kitty
     vlc
-    kdePackages.kdeconnect-kde
-
-    python3
-    rustup
-    gcc
-
-    steam
     neofetch
-    youtube-music
-    vesktop
-    bitwarden-desktop
-    android-studio
-    mangohud
-    libreoffice-qt
-    gimp
-    git-credential-manager
-
-    # gcc-unwrapped
-
-    # dunst
-    # waybar
-    # libnotify
-    # swww
-    # wofi
-    # polkit-kde-agent
-
-    # # Probably optional
-    # (pkgs.waybar.overrideAttrs (oldAttrs: {
-    #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    #   })
-    # )
-
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
