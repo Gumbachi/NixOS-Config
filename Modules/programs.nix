@@ -12,8 +12,6 @@
   programs.kdeconnect.enable = true;
 
   
-
-
   # User packages.
   users.users.jared.packages = with pkgs; [
   ];
