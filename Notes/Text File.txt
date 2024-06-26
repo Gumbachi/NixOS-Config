@@ -1,0 +1,5 @@
+ 
+/home/jared/.local/share/icons/Papirus-Dark/24x24/apps/applications-webbrowsers.svg
+
+points to
+/nix/store/xw8h3m80h96wyc0m9n6xkhw96b0lb1h2-floorp-11.12.2/share/applications/floorp.desktop
