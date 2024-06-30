@@ -11,6 +11,7 @@
     fastfetch
     tldr
     just
+    kitty
 
     # Media/Social
     vlc
