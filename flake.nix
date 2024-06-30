@@ -13,6 +13,7 @@
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     
     nixosConfigurations = {
+      
       GOOMBAX1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -28,6 +29,23 @@
           
         ];
       };
+
+      XPS15 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+
+          ./XPS15/System/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jared = import ./XPS15/home.nix;
+          }
+          
+        ];
+      };
+
     };
   };
 }

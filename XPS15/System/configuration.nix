@@ -5,32 +5,55 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
 
-    # My nix files
-    ../../Modules/fonts.nix
-    ../../Modules/programs.nix
-    ../../Modules/gaming.nix
-    ../../Modules/dev.nix
-    ../../Modules/fish.nix
-    # ../../Modules/sunshine.nix
-    # ../../Modules/obs.nix
-  ];
+      ../../Modules/fonts.nix
+      ../../Modules/fish.nix
+      ../../Modules/programs.nix
+
+    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Moonlander Support
-  hardware.keyboard.zsa.enable = true;
 
-  # Nix Store Config
-  nix.settings.auto-optimise-store = true;
-  system.autoUpgrade.enable = false;
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "America/New_York";
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.jared = {
+    isNormalUser = true;
+    description = "Jared";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  networking.hostName = "XPS15"; # Define your hostname.
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    nvidiaSettings = false;
+  };
+
+
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -50,21 +73,13 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Gnome if they ever fix their shit
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-
   # Enable the KDE Plasma Desktop Environment.
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
+
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "jared";
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -84,63 +99,23 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-
     # If you want to use JACK applications, uncomment this
-    # jack.enable = true;
+    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Make electron apps run on wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jared = {
-    isNormalUser = true;
-    description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
 
 
-
-  networking.hostName = "GOOMBAX1"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-  networking.firewall = { 
-    enable = true;
-    # allowedTCPPortRanges = [ 
-    #   { from = 1714; to = 1764; } # KDE Connect
-    # ];  
-    # allowedUDPPortRanges = [ 
-    #   { from = 1714; to = 1764; } # KDE Connect
-    # ];  
-  }; 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -162,4 +137,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
 }
