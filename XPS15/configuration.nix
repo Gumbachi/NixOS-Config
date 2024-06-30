@@ -9,9 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../../Modules/fonts.nix
-      ../../Modules/fish.nix
-      ../../Modules/programs.nix
+      ../Modules/fonts.nix
+      ../Modules/fish.nix
+      ../Modules/programs.nix
 
     ];
 
@@ -44,6 +44,9 @@
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+  # Moonlander Support
+  hardware.keyboard.zsa.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

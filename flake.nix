@@ -18,7 +18,7 @@
         system = "x86_64-linux";
         modules = [
 
-          ./GOOMBAX1/System/configuration.nix
+          ./GOOMBAX1/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -34,7 +34,7 @@
         system = "x86_64-linux";
         modules = [
 
-          ./XPS15/System/configuration.nix
+          ./XPS15/configuration.nix
 
           home-manager.nixosModules.home-manager
           {

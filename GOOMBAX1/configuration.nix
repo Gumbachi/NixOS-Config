@@ -9,13 +9,13 @@
     ./hardware-configuration.nix
 
     # My nix files
-    ../../Modules/fonts.nix
-    ../../Modules/programs.nix
-    ../../Modules/gaming.nix
-    ../../Modules/dev.nix
-    ../../Modules/fish.nix
-    # ../../Modules/sunshine.nix
-    # ../../Modules/obs.nix
+    ../Modules/fonts.nix
+    ../Modules/programs.nix
+    ../Modules/gaming.nix
+    ../Modules/dev.nix
+    ../Modules/fish.nix
+    # ../Modules/sunshine.nix
+    # ../Modules/obs.nix
   ];
 
   # Bootloader.
