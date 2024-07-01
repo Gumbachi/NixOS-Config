@@ -1,0 +1,81 @@
+{
+	"window-size": {
+		"width": 1432,
+		"height": 988
+	},
+	"window-maximized": false,
+	"window-position": {
+		"x": 0,
+		"y": 0
+	},
+	"url": "https://music.youtube.com/watch?v=j4CrtgshFWY&list=LM&index=0",
+	"options": {
+		"tray": false,
+		"appVisible": true,
+		"autoUpdates": true,
+		"alwaysOnTop": false,
+		"hideMenu": false,
+		"hideMenuWarned": false,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": false,
+		"removeUpgradeButton": true,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": false,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"likeButtons": "",
+		"proxy": "",
+		"startingPage": "",
+		"overrideUserAgent": false,
+		"usePodcastParticipantAsArtist": false,
+		"themes": []
+	},
+	"plugins": {
+		"notifications": {},
+		"video-toggle": {
+			"enabled": true,
+			"hideVideo": true,
+			"mode": "native",
+			"forceHide": false,
+			"align": "left"
+		},
+		"precise-volume": {
+			"enabled": true,
+			"steps": 1,
+			"arrowsShortcut": true,
+			"globalShortcuts": {
+				"volumeUp": "",
+				"volumeDown": ""
+			},
+			"savedVolume": 30
+		},
+		"discord": {
+			"listenAlong": true,
+			"enabled": false
+		},
+		"ambient-mode": {
+			"enabled": true
+		},
+		"compact-sidebar": {
+			"enabled": true
+		},
+		"exponential-volume": {
+			"enabled": true
+		},
+		"adblocker": {
+			"enabled": true,
+			"cache": true,
+			"blocker": "With blocklists",
+			"additionalBlockLists": [
+				"https://filters.adtidy.org/extension/ublock/filters/122_optimized.txt",
+				"https://ublockorigin.pages.dev/thirdparties/easylist.txt"
+			],
+			"disableDefaultLists": false
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.3.12"
+		}
+	}
+}

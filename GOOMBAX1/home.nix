@@ -10,7 +10,6 @@
     # Command line tools
     fastfetch
     tldr
-    just
     kitty
 
     # Media/Social
@@ -61,6 +60,32 @@
       "explorer.confirmDragAndDrop" = false;
     };
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.kitty = {
+    enable = true;
+    shellIntegration.enableFishIntegration = true;
+  };
+  
+
+  home.file = {
+
+    ".config/vesktop/settings/settings.json".source = ../Dotfiles/vesktop/settings.json;
+
+    ".config/Youtube Music/config.json".source = ../Dotfiles/youtube-music/config.json;
+
+
+  };
+
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
