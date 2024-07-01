@@ -8,7 +8,7 @@
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=j4CrtgshFWY&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=UKgvE8TFaX0&list=LM&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -19,7 +19,7 @@
 		"startAtLogin": false,
 		"disableHardwareAcceleration": false,
 		"removeUpgradeButton": true,
-		"restartOnConfigChanges": false,
+		"restartOnConfigChanges": true,
 		"trayClickPlayPause": false,
 		"autoResetAppCache": false,
 		"resumeOnStart": true,
@@ -47,7 +47,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 30
+			"savedVolume": 28
 		},
 		"discord": {
 			"listenAlong": true,
@@ -71,6 +71,87 @@
 				"https://ublockorigin.pages.dev/thirdparties/easylist.txt"
 			],
 			"disableDefaultLists": false
+		},
+		"visualizer": {
+			"enabled": true,
+			"type": "wave",
+			"butterchurn": {
+				"preset": "martin [shadow harlequins shape code] - fata morgana",
+				"renderingFrequencyInMs": 500,
+				"blendTimeInSeconds": 2.7
+			},
+			"vudio": {
+				"effect": "lighting",
+				"accuracy": 128,
+				"lighting": {
+					"maxHeight": 160,
+					"maxSize": 12,
+					"lineWidth": 1,
+					"color": "#49f3f7",
+					"shadowBlur": 2,
+					"shadowColor": "rgba(244,244,244,.5)",
+					"fadeSide": true,
+					"prettify": false,
+					"horizontalAlign": "center",
+					"verticalAlign": "middle",
+					"dottify": true
+				}
+			},
+			"wave": {
+				"animations": [
+					{
+						"type": "Cubes",
+						"config": {
+							"bottom": true,
+							"count": 30,
+							"cubeHeight": 5,
+							"fillColor": {
+								"gradient": [
+									"#FFFFFF"
+								]
+							},
+							"lineColor": "rgba(0,0,0,0)",
+							"radius": 20
+						}
+					},
+					{
+						"type": "Cubes",
+						"config": {
+							"top": true,
+							"count": 12,
+							"cubeHeight": 5,
+							"fillColor": {
+								"gradient": [
+									"#FFFFFF"
+								]
+							},
+							"lineColor": "rgba(0,0,0,0)",
+							"radius": 10
+						}
+					},
+					{
+						"type": "Circles",
+						"config": {
+							"lineColor": {
+								"gradient": [
+									"#FFFFFF"
+								],
+								"rotate": 90
+							},
+							"lineWidth": 4,
+							"diameter": 20,
+							"count": 10,
+							"frequencyBand": "base"
+						}
+					}
+				]
+			}
+		},
+		"downloader": {
+			"enabled": true
+		},
+		"in-app-menu": {
+			"enabled": false
 		}
 	},
 	"__internal__": {

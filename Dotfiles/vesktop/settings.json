@@ -312,7 +312,7 @@
             "enabled": false
         },
         "oneko": {
-            "enabled": false
+            "enabled": true
         },
         "OpenInApp": {
             "enabled": false,
@@ -607,6 +607,9 @@
         },
         "UserSettingsAPI": {
             "enabled": true
+        },
+        "ShowAllRoles": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -619,6 +622,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1719512217731
+        "settingsSyncVersion": 1719815664460
     }
 }

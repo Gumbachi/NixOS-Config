@@ -76,15 +76,22 @@
     shellIntegration.enableFishIntegration = true;
   };
   
+  # Files in ~/.config/
+  xdg.configFile = {
 
+    "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/youtube-music/config.json";
+
+    "vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/vesktop/settings.json";
+    
+  };
+
+  # Files in ~/
   home.file = {
 
-    ".config/vesktop/settings/settings.json".source = ../Dotfiles/vesktop/settings.json;
-
-    ".config/Youtube Music/config.json".source = ../Dotfiles/youtube-music/config.json;
-
-
   };
+
+  # direct symlink, an absolute path string is required if you're using flakes
+  # xdg.configFile.foo.source =  config.lib.file.mkOutOfStoreSymlink "/absolute/path/to/bar";
 
 
   home.stateVersion = "23.11";
