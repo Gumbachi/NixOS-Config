@@ -45,8 +45,8 @@
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
-      "workbench.iconTheme" = "catppuccin-macchiato";
-      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.iconTheme" = "catppuccin-mocha";
+      "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.fontFamily" = "'IBM Plex Mono', 'Consolas'";
       "editor.fontWeight" = "600";
       "explorer.confirmDelete" = false;
@@ -71,11 +71,13 @@
   # requires absolute path if using above
   xdg.configFile = {
 
-    "hypr/hyprland.conf".source = "../Dotfiles/hyprland.conf";
+    "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprland.conf";
 
-    "kitty/kitty.conf".source = "../Dotfiles/kitty.conf";
+    "hypr/hyprlock.conf".source = ../Dotfiles/hypr/hyprlock.conf;
 
-    "fish/config.fish".source = "../Dotfiles/config.fish";
+    "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/kitty.conf";
+
+    "fish/config.fish".source = ../Dotfiles/config.fish;
 
     "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/youtube-music/config.json";
 
