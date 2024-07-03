@@ -9,6 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ../Modules/hyprland.nix
+
+
       ../Modules/fonts.nix
       ../Modules/fish.nix
       ../Modules/programs.nix
@@ -73,14 +76,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # KDE
+  # services.desktopManager.plasma6.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
 
-  services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
