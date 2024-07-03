@@ -56,6 +56,38 @@
     };
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  # Files in ~/.config/
+  # Use config.lib.file.mkOutOfStoreSymlink if the program will edit the config file itself
+  # requires absolute path if using above
+  xdg.configFile = {
+
+    "hypr/hyprland.conf".source = "../Dotfiles/hyprland.conf";
+
+    "kitty/kitty.conf".source = "../Dotfiles/kitty.conf";
+
+    "fish/config.fish".source = "../Dotfiles/config.fish";
+
+    "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/youtube-music/config.json";
+
+    "vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/vesktop/settings.json";
+    
+  };
+
+  # Files in ~/
+  home.file = {
+
+  };
+
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 

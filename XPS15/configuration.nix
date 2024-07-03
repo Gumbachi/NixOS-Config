@@ -15,6 +15,7 @@
       ../Modules/fonts.nix
       ../Modules/fish.nix
       ../Modules/programs.nix
+      ../Modules/gaming.nix
 
     ];
 
