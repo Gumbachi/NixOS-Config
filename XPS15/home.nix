@@ -11,6 +11,7 @@
     fastfetch
     tldr
     just
+    killall
 
     # Media/Social
     vlc
@@ -27,6 +28,7 @@
     kitty
     krita
     inkscape
+    pavucontrol
   ];
 
   programs.git = {
@@ -48,7 +50,7 @@
       "telemetry.telemetryLevel" = "off";
       "workbench.iconTheme" = "catppuccin-mocha";
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'IBM Plex Mono', 'Consolas'";
+      "editor.fontFamily" = "'JetBrainsMono NF', 'Consolas'";
       "editor.fontWeight" = "600";
       "explorer.confirmDelete" = false;
       "workbench.startupEditor" = "none";
@@ -78,8 +80,6 @@
 
     "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/kitty/kitty.conf";
 
-    "waybar/".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/waybar/";
-    
 
     "fish/config.fish".source = ../Dotfiles/config.fish;
 
@@ -92,6 +92,11 @@
   # Files in ~/
   home.file = {
 
+    ".config/waybar" = {
+        recursive = true;
+        source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/waybar";
+    };
+    
   };
 
   home.stateVersion = "23.11";
