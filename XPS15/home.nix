@@ -25,7 +25,8 @@
     protonup-qt
     keymapp
     kitty
-
+    krita
+    inkscape
   ];
 
   programs.git = {
@@ -72,10 +73,13 @@
   xdg.configFile = {
 
     "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprland.conf";
-
-    "hypr/hyprlock.conf".source = ../Dotfiles/hypr/hyprlock.conf;
+    "hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprlock.conf";
+    "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprpaper.conf";
 
     "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/kitty/kitty.conf";
+
+    "waybar/".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/waybar/";
+    
 
     "fish/config.fish".source = ../Dotfiles/config.fish;
 

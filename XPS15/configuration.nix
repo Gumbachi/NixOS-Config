@@ -9,8 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../Modules/hyprland.nix
+      ../Modules/shared-configuration.nix
 
+      ../Modules/hyprland.nix
 
       ../Modules/fonts.nix
       ../Modules/fish.nix
@@ -79,6 +80,10 @@
 
   # KDE
   # services.desktopManager.plasma6.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "jared";
+  };
 
   
   services.displayManager.sddm = {
@@ -124,6 +129,10 @@
   catppuccin = {
     enable = true;
     flavor = "mocha";
+  };
+
+  environment.sessionVariables = {
+    CONFIG = "/home/jared/NixOS-Config";
   };
 
   # Some programs need SUID wrappers, can be configured further or are

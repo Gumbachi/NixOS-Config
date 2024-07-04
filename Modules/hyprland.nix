@@ -14,8 +14,12 @@
   environment.systemPackages = with pkgs; [
     cinnamon.nemo
     dunst
+    mako
     waybar
     rofi-wayland
+
+    gtk3
+    gtk4
 
     kdePackages.qt6ct
     nwg-look
@@ -29,5 +33,15 @@
 
     
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+    config.preferred.default = ["hyprland" "gtk"];
+    xdgOpenUsePortal = true;
+  };
 
 }

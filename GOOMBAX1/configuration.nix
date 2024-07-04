@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
 
     # My nix files
+    ../Modules/shared-configuration.nix
     ../Modules/fonts.nix
     ../Modules/programs.nix
     ../Modules/gaming.nix

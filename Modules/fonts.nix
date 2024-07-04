@@ -9,6 +9,7 @@
       fira-code-symbols
       jetbrains-mono
       ibm-plex
+      nerdfonts
     ];
   };
 

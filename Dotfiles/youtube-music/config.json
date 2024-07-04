@@ -1,9 +1,9 @@
 {
 	"window-size": {
-		"width": 1432,
-		"height": 988
+		"width": 1920,
+		"height": 1080
 	},
-	"window-maximized": false,
+	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
@@ -47,7 +47,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 28
+			"savedVolume": 26
 		},
 		"discord": {
 			"listenAlong": true,
