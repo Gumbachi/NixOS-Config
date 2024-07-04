@@ -80,9 +80,12 @@
   # KDE
   # services.desktopManager.plasma6.enable = true;
 
-
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -118,7 +121,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -75,7 +75,7 @@
 
     "hypr/hyprlock.conf".source = ../Dotfiles/hypr/hyprlock.conf;
 
-    "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/kitty.conf";
+    "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/kitty/kitty.conf";
 
     "fish/config.fish".source = ../Dotfiles/config.fish;
 
