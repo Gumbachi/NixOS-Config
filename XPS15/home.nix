@@ -74,30 +74,30 @@
   # requires absolute path if using above
   xdg.configFile = {
 
-    "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprland.conf";
-    "hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprlock.conf";
-    "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/hypr/hyprpaper.conf";
-
-    "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/kitty/kitty.conf";
-
-
-    "fish/config.fish".source = ../Dotfiles/config.fish;
-
-    "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/youtube-music/config.json";
-
-    "vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/vesktop/settings.json";
+    "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/hypr/hyprland.conf";
+    "hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/hypr/hyprlock.conf";
+    "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/hypr/hyprpaper.conf";
     
   };
 
-  # Files in ~/
-  home.file = {
+  home.file.".config/" = {
 
-    ".config/waybar" = {
-        recursive = true;
-        source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/Dotfiles/waybar";
-    };
-    
+    "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
+    "vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
+
+    "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
+    "fish/config.fish".source = ../.config/fish/config.fish;
+
   };
+
+  # # Sync entire .config
+  # home.file.".config" = {
+
+  #   recursive = true;
+  #   source = ../.config;
+  #   enable = true;
+    
+  # };
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
