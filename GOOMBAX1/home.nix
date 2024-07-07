@@ -74,11 +74,26 @@
 
   home.file = {
 
-    ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
-    ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
+    ".config/YouTube Music/config.json" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
+    };
 
-    ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
-    ".config/fish/config.fish".source = ../.config/fish/config.fish;
+    ".config/vesktop/settings/settings.json" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
+    };
+
+    ".config/kitty/kitty.conf" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
+    };
+
+    ".config/fish/config.fish" = {
+      enable = true;
+      source = ../.config/fish/config.fish;
+    };
+    
 
   };
 
