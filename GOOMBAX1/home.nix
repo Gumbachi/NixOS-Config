@@ -50,9 +50,9 @@
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
-      "workbench.iconTheme" = "catppuccin-macchiato";
-      "workbench.colorTheme" = "Catppuccin Macchiato";
-      "editor.fontFamily" = "'IBM Plex Mono', 'Consolas'";
+      "workbench.iconTheme" = "catppuccin-mocha";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "editor.fontFamily" = "'BlexMono Nerd Font', 'JetBrainsMono NF', 'Consolas'";
       "editor.fontWeight" = "600";
       "explorer.confirmDelete" = false;
       "workbench.startupEditor" = "none";
@@ -71,29 +71,17 @@
     enableFishIntegration = true;
   };
 
-  programs.kitty = {
-    enable = true;
-    shellIntegration.enableFishIntegration = true;
-  };
-  
-  # Files in ~/.config/
-  xdg.configFile = {
 
-    # TODO Remove
-    
-  };
-
-  home.file.".config/" = {
-
-    "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
-    "vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
-
-  };
-
-  # Files in ~/
   home.file = {
 
+    ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
+    ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
+
+    ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
+    ".config/fish/config.fish".source = ../.config/fish/config.fish;
+
   };
+
 
   # direct symlink, an absolute path string is required if you're using flakes
   # xdg.configFile.foo.source =  config.lib.file.mkOutOfStoreSymlink "/absolute/path/to/bar";
