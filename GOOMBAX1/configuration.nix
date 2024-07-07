@@ -143,6 +143,12 @@
     # ];  
   }; 
 
+  environment.sessionVariables = {
+    STEAM_FORCE_DESKTOPUI_SCALING = "1.5"; # Necessary for 4k Monitor
+  };
+
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

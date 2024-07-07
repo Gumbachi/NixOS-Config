@@ -50,7 +50,7 @@
       "telemetry.telemetryLevel" = "off";
       "workbench.iconTheme" = "catppuccin-mocha";
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'JetBrainsMono NF', 'Consolas'";
+      "editor.fontFamily" = "'BlexMono Nerd Font', 'JetBrainsMono NF', 'Consolas'";
       "editor.fontWeight" = "600";
       "explorer.confirmDelete" = false;
       "workbench.startupEditor" = "none";
@@ -80,13 +80,13 @@
     
   };
 
-  home.file.".config/" = {
+  home.file = {
 
-    "YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
-    "vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
+    ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
+    ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
 
-    "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
-    "fish/config.fish".source = ../.config/fish/config.fish;
+    ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
+    ".config/fish/config.fish".source = ../.config/fish/config.fish;
 
   };
 
