@@ -39,6 +39,8 @@
     xorg.xeyes
     lm_sensors
     killall
+
+    catppuccin-cursors
     
   ];
 
