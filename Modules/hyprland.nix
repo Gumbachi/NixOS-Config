@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
 
@@ -8,6 +8,7 @@
   security.pam.services.hyprlock = {};
 
   services.hypridle.enable = true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
@@ -17,9 +18,6 @@
     mako
     waybar
     rofi-wayland
-
-    gtk3
-    gtk4
 
     kdePackages.qt6ct
     nwg-look
@@ -31,17 +29,17 @@
 
     imv
 
+    kdePackages.ark
+    kdePackages.dolphin
+
+    pavucontrol
+    kdePackages.qtstyleplugin-kvantum
+    grimblast
+
+    xorg.xeyes
+    lm_sensors
+    killall
     
   ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-    config.preferred.default = ["hyprland" "gtk"];
-    xdgOpenUsePortal = true;
-  };
 
 }

@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 
+let
+  userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
+in
 {
 
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
   home.packages = with pkgs; [
-
     # Command line tools
     fastfetch
     tldr
@@ -18,7 +20,7 @@
     vesktop
 
     # Browsers
-    floorp
+    # floorp
     firefox
 
     # Office
@@ -58,6 +60,7 @@
       "workbench.startupEditor" = "none";
       "update.showReleaseNotes" = false;
       "explorer.confirmDragAndDrop" = false;
+      "window.menuBarVisibility" = "toggle";
     };
   };
 
@@ -76,31 +79,53 @@
 
     ".config/YouTube Music/config.json" = {
       enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/YouTube Music/config.json";
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
     };
 
     ".config/vesktop/settings/settings.json" = {
       enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/vesktop/settings/settings.json";
-    };
-
-    ".config/kitty/kitty.conf" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "/home/jared/NixOS-Config/.config/kitty/kitty.conf";
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
     ".config/fish/config.fish" = {
       enable = true;
-      source = ../.config/fish/config.fish;
+      source = ./.config/fish/config.fish;
     };
-    
+
+    ".config/kitty/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
+      recursive = true;
+    };
+
+    ".config/waybar/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
+      recursive = true;
+    };
+
+    ".config/hypr/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
+      recursive = true;
+    };
+
+    ".config/rofi/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
+      recursive = true;
+    };
 
   };
-
 
   # direct symlink, an absolute path string is required if you're using flakes
   # xdg.configFile.foo.source =  config.lib.file.mkOutOfStoreSymlink "/absolute/path/to/bar";
 
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;

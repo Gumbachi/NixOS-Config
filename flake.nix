@@ -3,29 +3,38 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     catppuccin.url = "github:catppuccin/nix";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, catppuccin, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, catppuccin, ... }: {
     
     nixosConfigurations = {
       
+      ######################################
+      #########      GOOMBAX1      #########
+      ######################################
+
       GOOMBAX1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-
           ./GOOMBAX1/configuration.nix
-
+          
           catppuccin.nixosModules.catppuccin
+          
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hmbak";
             home-manager.users.jared = {
               imports = [
                 ./GOOMBAX1/home.nix
@@ -36,6 +45,10 @@
           
         ];
       };
+
+      ######################################
+      ##########      XPS15       ##########
+      ######################################
 
       XPS15 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -48,6 +61,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
             home-manager.users.jared = {
               imports = [
                 ./XPS15/home.nix

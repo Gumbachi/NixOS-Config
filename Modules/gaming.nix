@@ -9,7 +9,8 @@
   # Steam
   programs.steam = {
     enable = true;
-    extraCompatPackages = [pkgs.proton-ge-bin];
+    # gamescopeSession.enable = true;
+    # extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
   # EGS needs this

@@ -8,6 +8,8 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    ../Modules/hyprland.nix
+
     # My nix files
     ../Modules/shared-configuration.nix
     ../Modules/fonts.nix
@@ -57,7 +59,7 @@
 
 
   # Enable the KDE Plasma Desktop Environment.
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 

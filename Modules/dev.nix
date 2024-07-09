@@ -3,8 +3,8 @@
 {
 
   # fix linking errors with python and other programs
-  programs.nix-ld.enable = true;
-  services.envfs.enable = true;
+  # programs.nix-ld.enable = true;
+  # services.envfs.enable = true;
 
   virtualisation.docker.enable = true;
 
