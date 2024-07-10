@@ -10,6 +10,7 @@
   # Options
   programs.partition-manager.enable = true;
   programs.kdeconnect.enable = true;
+  programs.thunar.enable = true;
 
   
   # User packages.

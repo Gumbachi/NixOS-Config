@@ -21,7 +21,6 @@ in
     vesktop
 
     # Browsers
-    # floorp
     firefox
 
     # Office
@@ -41,6 +40,8 @@ in
     userName = "Gumbachi";
     userEmail = "jaredremsberg@gmail.com";
   };
+
+  programs.fish.enable = true;
 
   programs.vscode = {
     enable = true;
@@ -68,11 +69,13 @@ in
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
 
@@ -119,13 +122,26 @@ in
 
   };
 
-  # direct symlink, an absolute path string is required if you're using flakes
-  # xdg.configFile.foo.source =  config.lib.file.mkOutOfStoreSymlink "/absolute/path/to/bar";
-
-
   catppuccin = {
     enable = true;
     flavor = "mocha";
+  };
+
+  qt.style.catppuccin = {
+    enable = true;
+  };
+
+  services.dunst.catppuccin = {
+    enable = true;
+  };
+
+  home.shellAliases = {
+    edit = "code ~/NixOS-Config";
+    rebuild = "sudo nixos-rebuild switch";
+    nix-list-generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+    nix-delete-old-generations = "sudo nix-collect-garbage --delete-older-than 2d && sudo nix-collect-garbage -d";
+    nix-update = "cd ~/NixOS-Config && sudo nix flake update && sudo nixos-rebuild switch";
+    nix-update-boot = "cd ~/NixOS-Config && sudo nix flake update && sudo nixos-rebuild boot";
   };
 
   home.stateVersion = "23.11";

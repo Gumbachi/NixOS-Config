@@ -41,7 +41,17 @@
     killall
 
     catppuccin-cursors
+    papirus-icon-theme
     
   ];
+
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [
+      
+  #   ];
+  #   config.preferred.default = ["hyprland" "gtk"];
+  #   # xdgOpenUsePortal = true;
+  # };
 
 }

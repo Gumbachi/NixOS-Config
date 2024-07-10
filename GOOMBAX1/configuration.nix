@@ -5,21 +5,29 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+  imports = [ 
+    ./hardware-configuration.nix # Include the results of the hardware scan.
+
+    ./modules/user-shell.nix
+    ./modules/gaming.nix
+    ./modules/android.nix
+    ./modules/env.nix
+    ./modules/fonts.nix
+    ./modules/programs.nix
+    ./modules/sound.nix
 
     ../Modules/hyprland.nix
 
     # My nix files
-    ../Modules/shared-configuration.nix
-    ../Modules/fonts.nix
-    ../Modules/programs.nix
-    ../Modules/gaming.nix
-    ../Modules/dev.nix
-    ../Modules/fish.nix
+    # ../Modules/fonts.nix
+    # ../Modules/programs.nix
+    # ../Modules/dev.nix
+    # ../Modules/fish.nix
     # ../Modules/sunshine.nix
     # ../Modules/obs.nix
   ];
+
+  networking.hostName = "GOOMBAX1";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -28,7 +36,7 @@
   # Moonlander Support
   hardware.keyboard.zsa.enable = true;
 
-  # disable man pages
+  # Disable man pages
   documentation.man.enable = false;
 
   # Nix Store Config
@@ -53,14 +61,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = false;
-
-  # Gnome if they ever fix their shit
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-
   # Enable the KDE Plasma Desktop Environment.
   # services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
@@ -81,24 +81,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  # sound.enable = true;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Make electron apps run on wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jared = {
@@ -106,7 +89,6 @@
     description = "Jared";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -116,9 +98,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
-
-  networking.hostName = "GOOMBAX1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -142,12 +121,6 @@
     #   { from = 1714; to = 1764; } # KDE Connect
     # ];  
   }; 
-
-  environment.sessionVariables = {
-    STEAM_FORCE_DESKTOPUI_SCALING = "1.5"; # Necessary for 4k Monitor
-  };
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
