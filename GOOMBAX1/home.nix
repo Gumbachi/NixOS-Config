@@ -13,6 +13,7 @@ in
     fastfetch
     tldr
     kitty
+    unzip
 
     # Media/Social
     vlc
