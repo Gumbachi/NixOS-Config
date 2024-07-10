@@ -35,13 +35,13 @@ window#waybar.hidden {
 	margin-right: 10px; */
 	border-radius: 10px;
 	transition: none;
-	background: @surface0;
+	background: @base;
 }
 
 #workspaces button {
 	font-size: 20px;
 	transition: none;
-	color: @rosewater;
+	color: @text;
 	background: transparent;
 	
 }
@@ -64,14 +64,14 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: @rosewater;
-	background: @surface0;
+	color: @text;
+	background: @base;
 }
 
 #mpd.disconnected,
 #mpd.stopped {
-	color: @rosewater;
-	background: @surface0;
+	color: @text;
+	background: @base;
 }
 
 #tray,
@@ -92,6 +92,6 @@ window#waybar.hidden {
 	padding-left: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: @rosewater;
-	background: @surface0;
+	color: @text;
+	background: @base;
 }

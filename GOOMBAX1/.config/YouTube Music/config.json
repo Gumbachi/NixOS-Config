@@ -1,21 +1,21 @@
 {
 	"window-size": {
-		"width": 2560,
-		"height": 1440
+		"width": 1440,
+		"height": 1255
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=pux0keVeFCU&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=oLXHUN68MfU&list=PL0waocdhUwjQxEpIq0HkfXCDYRThYhicQ&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
 		"autoUpdates": true,
 		"alwaysOnTop": false,
-		"hideMenu": false,
-		"hideMenuWarned": false,
+		"hideMenu": true,
+		"hideMenuWarned": true,
 		"startAtLogin": false,
 		"disableHardwareAcceleration": false,
 		"removeUpgradeButton": true,
@@ -25,10 +25,12 @@
 		"resumeOnStart": true,
 		"likeButtons": "",
 		"proxy": "",
-		"startingPage": "",
+		"startingPage": "Home",
 		"overrideUserAgent": false,
 		"usePodcastParticipantAsArtist": false,
-		"themes": []
+		"themes": [
+			"/home/jared/NixOS-Config/GOOMBAX1/.config/YouTube Music/mocha.css"
+		]
 	},
 	"plugins": {
 		"notifications": {},
@@ -54,7 +56,7 @@
 			"enabled": false
 		},
 		"ambient-mode": {
-			"enabled": true
+			"enabled": false
 		},
 		"compact-sidebar": {
 			"enabled": true
@@ -73,8 +75,8 @@
 			"disableDefaultLists": false
 		},
 		"visualizer": {
-			"enabled": true,
-			"type": "wave",
+			"enabled": false,
+			"type": "vudio",
 			"butterchurn": {
 				"preset": "martin [shadow harlequins shape code] - fata morgana",
 				"renderingFrequencyInMs": 500,
@@ -84,14 +86,14 @@
 				"effect": "lighting",
 				"accuracy": 128,
 				"lighting": {
-					"maxHeight": 160,
+					"maxHeight": 400,
 					"maxSize": 12,
 					"lineWidth": 1,
-					"color": "#49f3f7",
+					"color": "#cba6f7",
 					"shadowBlur": 2,
 					"shadowColor": "rgba(244,244,244,.5)",
 					"fadeSide": true,
-					"prettify": false,
+					"prettify": true,
 					"horizontalAlign": "center",
 					"verticalAlign": "middle",
 					"dottify": true
@@ -151,8 +153,11 @@
 			"enabled": true
 		},
 		"in-app-menu": {
-			"enabled": true,
+			"enabled": false,
 			"hideDOMWindowControls": true
+		},
+		"navigation": {
+			"enabled": false
 		}
 	},
 	"__internal__": {
