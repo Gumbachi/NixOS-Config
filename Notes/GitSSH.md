@@ -9,3 +9,7 @@
 4. Go to tokens on GitHub/Codeberg/Whatever and add token
 5. Test (Codeberg): `ssh -T git@codeberg.org`
    1. May need to type yes to contiue
+
+## Switch Repo to SSH from HTTPS
+
+`git remote set-url origin <ssh link>`
