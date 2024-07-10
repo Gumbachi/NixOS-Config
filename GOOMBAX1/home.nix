@@ -94,6 +94,11 @@ in
       source = ./.config/fish/config.fish;
     };
 
+    ".config/mako/config" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
+    };
+
     ".config/kitty/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
@@ -123,6 +128,8 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
       recursive = true;
     };
+
+    
 
   };
 
