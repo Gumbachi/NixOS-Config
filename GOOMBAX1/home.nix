@@ -118,28 +118,17 @@ in
       recursive = true;
     };
 
+    ".config/Kvantum/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
+      recursive = true;
+    };
+
   };
 
   catppuccin = {
     enable = true;
     flavor = "mocha";
-  };
-
-  qt.style.catppuccin = {
-    enable = true;
-  };
-
-  services.dunst.catppuccin = {
-    enable = true;
-  };
-
-  home.shellAliases = {
-    edit = "code ~/NixOS-Config";
-    rebuild = "sudo nixos-rebuild switch";
-    nix-list-generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-    nix-delete-old-generations = "sudo nix-collect-garbage --delete-older-than 2d && sudo nix-collect-garbage -d";
-    nix-update = "cd ~/NixOS-Config && sudo nix flake update && sudo nixos-rebuild switch";
-    nix-update-boot = "cd ~/NixOS-Config && sudo nix flake update && sudo nixos-rebuild boot";
   };
 
   home.stateVersion = "23.11";

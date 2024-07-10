@@ -30,7 +30,6 @@
     imv
 
     kdePackages.ark
-    kdePackages.dolphin
 
     pavucontrol
     kdePackages.qtstyleplugin-kvantum
@@ -39,9 +38,6 @@
     xorg.xeyes
     lm_sensors
     killall
-
-    catppuccin-cursors
-    papirus-icon-theme
     
   ];
 
