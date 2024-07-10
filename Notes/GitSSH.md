@@ -1,6 +1,6 @@
 # How to: Git with SSH [LINK](https://docs.codeberg.org/security/ssh-key/)
 
-1. `ssh-keygen -t ed25519 -a 100 -C "codeberg"`
+1. `ssh-keygen -t ed25519 -a 100 -C "github"`
    1. `-t` = key type
    2. `-a` = key complexity (derivations)
    3. `-C` = comment (optional)

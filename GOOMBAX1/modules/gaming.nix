@@ -4,6 +4,7 @@
 
   users.users.jared.packages = with pkgs; [ 
     mangohud
+    lutris
   ];
 
   # Steam
