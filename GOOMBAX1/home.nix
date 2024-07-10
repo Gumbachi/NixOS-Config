@@ -41,8 +41,6 @@ in
     userEmail = "jaredremsberg@gmail.com";
   };
 
-  programs.fish.enable = true;
-
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [

@@ -8,7 +8,7 @@
   imports = [ 
     ./hardware-configuration.nix # Include the results of the hardware scan.
 
-    ./modules/user-shell.nix
+    ./modules/shells.nix
     ./modules/gaming.nix
     ./modules/android.nix
     ./modules/env.nix
