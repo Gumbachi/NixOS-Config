@@ -17,3 +17,7 @@ This is probably caused by playing on a 4k monitor
 2. Change reolution numbers to 1920 and 1080 instead of 3840 and 2160
 3. Dont change any other settings here and do it in game to be safe
 4. Launch game and graphics settings tab should work
+
+## No Worky
+
+put [this file](https://github.com/Lahvuun/sekirofpsunlock/blob/master/contrib/dxvk.confhttps:/) in the game folder

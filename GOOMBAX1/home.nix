@@ -17,6 +17,7 @@ in
 
     # Media/Social
     vlc
+    mpv
     youtube-music
     vesktop
 
@@ -89,7 +90,12 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
-    ".config/fish/config.fish" = {
+    ".config/btop/catppuccin_mocha.theme" = {
+      enable = true;
+      source = ./.config/btop/catppuccin_mocha.theme;
+    };
+
+    ".config/btop/config.fish" = {
       enable = true;
       source = ./.config/fish/config.fish;
     };
