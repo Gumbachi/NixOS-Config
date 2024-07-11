@@ -90,9 +90,9 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
-    ".config/btop/catppuccin_mocha.theme" = {
+    ".config/btop/themes/catppuccin_mocha.theme" = {
       enable = true;
-      source = ./.config/btop/catppuccin_mocha.theme;
+      source = ./.config/btop/themes/catppuccin_mocha.theme;
     };
 
     ".config/btop/config.fish" = {
