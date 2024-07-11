@@ -90,11 +90,6 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
-    ".config/btop/themes/catppuccin_mocha.theme" = {
-      enable = true;
-      source = ./.config/btop/themes/catppuccin_mocha.theme;
-    };
-
     ".config/btop/config.fish" = {
       enable = true;
       source = ./.config/fish/config.fish;
@@ -132,6 +127,12 @@ in
     ".config/Kvantum/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
+      recursive = true;
+    };
+
+    ".config/btop/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
       recursive = true;
     };
 
