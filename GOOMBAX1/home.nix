@@ -100,10 +100,17 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
     };
 
-    ".config/fish/" = {
+    ".config/fish/themes/mocha.theme" = {
       enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink  "${userConfig}/fish/config/";
+      source = ./.config/fish/themes/mocha.theme;
     };
+
+    ".config/fish/config.fish" = {
+      enable = true;
+      source = ./.config/fish/config.fish;
+    };
+
+
 
     ".config/kitty/" = {
       enable = true;
