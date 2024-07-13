@@ -21,6 +21,7 @@
     rofi-wayland
     hyprcursor
     hyprpaper
+    hypridle # the option does not work
 
     imv # Image Viewer
     pavucontrol # Sound Settings

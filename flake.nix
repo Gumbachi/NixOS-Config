@@ -7,6 +7,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,7 +19,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, catppuccin, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, catppuccin, ... }: {
     
     nixosConfigurations = {
       
@@ -24,6 +29,7 @@
 
       GOOMBAX1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; }; # this is the important part
         modules = [
           ./GOOMBAX1/configuration.nix
           

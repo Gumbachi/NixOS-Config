@@ -2,11 +2,10 @@
 
 * {
 	border: none;
-	border-radius: 0;
+	border-radius: 10px;
 	font-family: "BlexMono Nerd Font";
-	font-weight: 500;
+	font-weight: 600;
 	/* font-size: 18px; */
-	min-height: 24px;
 }
 
 window#waybar {
@@ -30,16 +29,16 @@ window#waybar.hidden {
 } */
 
 #workspaces {
-	margin: 5px;
+	margin: 3px;
 	/* margin-left: 10px;
 	margin-right: 10px; */
-	border-radius: 10px;
+	/* border-radius: 10px; */
 	transition: none;
 	background: @base;
 }
 
 #workspaces button {
-	font-size: 20px;
+	font-size: 24px;
 	transition: none;
 	color: @text;
 	background: transparent;
@@ -59,7 +58,7 @@ window#waybar.hidden {
 }
 
 #mpd {
-	margin: 5px;
+	margin: 6px;
 	padding-left: 10px;
 	padding-right: 10px;
 	border-radius: 10px;
@@ -81,16 +80,16 @@ window#waybar.hidden {
 #temperature,
 #battery,
 #cpu,
+#custom-ytm,
 #memory,
 #network,
 #idle_inhibitor,
 #custom-power,
 #clock {
-	font-size: 16px;
-	margin: 5px;
+	font-size: 18px;
+	margin: 3px;
 	padding-right: 10px;
 	padding-left: 10px;
-	border-radius: 10px;
 	transition: none;
 	color: @text;
 	background: @base;

@@ -7,11 +7,18 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+    ];
+  };
 
   programs.hyprlock.enable = true;
   security.pam.services.hyprlock = {};
 
+  # this is broken currently
   # services.hypridle.enable = true;
 
   environment.sessionVariables = {

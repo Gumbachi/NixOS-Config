@@ -59,7 +59,7 @@
             "enabled": true
         },
         "AlwaysAnimate": {
-            "enabled": true
+            "enabled": false
         },
         "AlwaysTrust": {
             "enabled": false
@@ -81,7 +81,8 @@
             "keepIcons": false,
             "closeAllFolders": false,
             "forceOpen": false,
-            "sidebarAnim": true
+            "sidebarAnim": true,
+            "closeOthers": false
         },
         "BetterGifAltText": {
             "enabled": false
@@ -627,6 +628,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1720632463066
+        "settingsSyncVersion": 1720682616686
     }
 }

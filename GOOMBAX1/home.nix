@@ -23,6 +23,7 @@ in
 
     # Browsers
     firefox
+    librewolf
 
     # Office
     libreoffice-qt6-fresh
@@ -41,6 +42,8 @@ in
     userName = "Gumbachi";
     userEmail = "jaredremsberg@gmail.com";
   };
+
+  programs.neovim.enable = true;
 
   programs.vscode = {
     enable = true;
@@ -90,7 +93,7 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
-    ".config/btop/config.fish" = {
+    ".config/fish/config.fish" = {
       enable = true;
       source = ./.config/fish/config.fish;
     };

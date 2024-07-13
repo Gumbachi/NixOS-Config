@@ -8,6 +8,7 @@
   imports = [ 
     ./hardware-configuration.nix # Include the results of the hardware scan.
 
+    ./modules/hyprland.nix
     ./modules/shells.nix
     ./modules/gaming.nix
     ./modules/android.nix
@@ -16,8 +17,7 @@
     ./modules/programs.nix
     ./modules/sound.nix
 
-    ../Modules/hyprland.nix
-
+  
     # My nix files
     # ../Modules/fonts.nix
     # ../Modules/programs.nix
@@ -81,7 +81,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  # hardware.amdgpu.opencl.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jared = {
