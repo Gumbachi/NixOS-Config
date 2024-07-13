@@ -35,6 +35,8 @@ in
     keymapp
     inkscape
 
+    kdePackages.plasma-systemmonitor
+
   ];
 
   programs.git = {
@@ -93,14 +95,14 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
-    ".config/fish/config.fish" = {
-      enable = true;
-      source = ./.config/fish/config.fish;
-    };
-
     ".config/mako/config" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
+    };
+
+    ".config/fish/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink  "${userConfig}/fish/config/";
     };
 
     ".config/kitty/" = {
