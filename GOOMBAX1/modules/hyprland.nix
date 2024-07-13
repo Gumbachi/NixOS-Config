@@ -10,7 +10,6 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    systemd.enable = true;
   };
 
   programs.hyprlock.enable = true;
@@ -28,10 +27,10 @@
   # do not touch
   xdg.portal = {
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
+      # xdg-desktop-portal-hyprland # Not needed is included by default
     ];
-    config.preferred.default = ["hyprland" "gtk"];
+    # config.preferred.default = ["hyprland" "gtk"];
   };
 
 }

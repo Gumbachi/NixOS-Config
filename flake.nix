@@ -6,12 +6,16 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,7 +23,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, catppuccin, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, catppuccin, ... }: {
     
     nixosConfigurations = {
       
