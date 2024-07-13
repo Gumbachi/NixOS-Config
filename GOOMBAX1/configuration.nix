@@ -8,7 +8,6 @@
   imports = [ 
     ./hardware-configuration.nix # Include the results of the hardware scan.
 
-    ./modules/hyprland.nix
     ./modules/shells.nix
     ./modules/gaming.nix
     ./modules/android.nix
@@ -16,6 +15,8 @@
     ./modules/fonts.nix
     ./modules/programs.nix
     ./modules/sound.nix
+
+    ./modules/hyprland.nix
 
   
     # My nix files

@@ -10,9 +10,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-    ];
+    systemd.enable = true;
   };
 
   programs.hyprlock.enable = true;
