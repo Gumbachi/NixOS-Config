@@ -4,6 +4,6 @@ end
 
 set fish_greeting
 
-fish_config theme save "Catppuccin Mocha"
+fish_config theme choose "mocha"
 
 zoxide init fish | source

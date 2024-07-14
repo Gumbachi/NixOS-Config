@@ -7,6 +7,7 @@
     packages = with pkgs; [
       ibm-plex
       nerdfonts
+      inter
     ];
   };
 

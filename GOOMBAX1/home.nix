@@ -17,13 +17,13 @@ in
 
     # Media/Social
     vlc
-    mpv
     youtube-music
     vesktop
 
     # Browsers
     firefox
     librewolf
+    floorp
 
     # Office
     libreoffice-qt6-fresh
@@ -34,8 +34,6 @@ in
     protonup-qt
     keymapp
     inkscape
-
-    kdePackages.plasma-systemmonitor
 
   ];
 
@@ -100,17 +98,16 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
     };
 
+    # Fish config files have to be individual to prevent populating the github repo
     ".config/fish/themes/mocha.theme" = {
       enable = true;
-      source = ./.config/fish/themes/mocha.theme;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
     };
 
     ".config/fish/config.fish" = {
       enable = true;
-      source = ./.config/fish/config.fish;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
     };
-
-
 
     ".config/kitty/" = {
       enable = true;

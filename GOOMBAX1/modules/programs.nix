@@ -3,8 +3,8 @@
 {
   
   # Options
-  programs.partition-manager.enable = true;
-  programs.kdeconnect.enable = true;
+  # programs.partition-manager.enable = true;
+  # programs.kdeconnect.enable = true;
   programs.thunar.enable = true;
 
   # System packages.
@@ -16,7 +16,7 @@
     libnotify
     glib
 
-
+    # Hyprland Stuff
     waybar
     rofi-wayland
     hyprcursor
@@ -29,12 +29,15 @@
     lm_sensors # Sensors
     btop # System Monitor
     xorg.xeyes # Xwayland check
+    kdePackages.ark
 
     # QT and GTK style
+    kdePackages.qtwayland
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
+    kdePackages.qtsvg
     nwg-look
-    
+
   ];
 
   # Enable media control
