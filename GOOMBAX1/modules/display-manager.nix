@@ -7,19 +7,21 @@
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
 
+  # Enable automatic login for the user.
+  # services.displayManager.autoLogin = {
+  #   enable = true;
+  #   user = "jared";
+  # };
+
   # Enable Display Manager
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
-        user = "greeter";
+    settings = rec {
+      initial_session = {
+        command = "Hyprland";
+        user = "jared";
       };
+      default_session = initial_session;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    greetd.tuigreet
-  ];
-  
 }

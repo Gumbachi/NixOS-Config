@@ -54,12 +54,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "jared";
-  };
-
   # Configure keymap in X11
   # services.xserver.xkb = {
   #   layout = "us";
