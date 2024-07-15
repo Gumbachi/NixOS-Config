@@ -11,7 +11,7 @@
 
       ./modules/hardware.nix
       ./modules/boot.nix
-      ./modules/display-mananger.nix
+      ./modules/display-manager.nix
       ./modules/sound.nix
       ./modules/fonts.nix
       ./modules/shells.nix
