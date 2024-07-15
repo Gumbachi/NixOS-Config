@@ -1,6 +1,21 @@
 # My NixOS/Hyprland Config
 
-Howdy
+
+| Function       | Package      |
+| ---------------- | :------------- |
+| OS             | NixOS        |
+| Window Manager | Hyprland     |
+| Shell          | Fish         |
+| Editor         | VSCode       |
+| Notifications  | Mako         |
+| Status Bar     | Waybar       |
+| Menu           | Rofi-Wayland |
+| System Monitor | Btop         |
+| File Manager   | Thunar       |
+| Cursors        | Hyprcursor   |
+| Lock Screen    | Hyprlock     |
+| Wallpapers     | Hyprpaper    |
+| Broswer        | Floorp       |
 
 ## Steps
 
@@ -39,51 +54,51 @@ Howdy
       2. `rm NixOS-Config/configuration.nix` not needed
       3. `mv NixOS-Config/hardware-configuration.nix NixOS-Config/GOOMBAX1/hardware-configuration.nix`
    9. `sudo nixos-rebuild switch` drives should auto-mount now
-1. Some apps need to be manually configured
-   1. Sound Devices
-   2. Floorp
-      1. Add Bitwarden extension and login
-      2. Add Ublock Origin extension
-   3. YouTube Music
-      1. Login with password from bitwarden
-   4. Vesktop
-      1. Login with QR Code
-      2. Settings > Voice > Disable AGC and Echo Cancellation
-   5. ProtonUp
-      1. Launch and install latest GE Proton
-   6. Steam
-      1. Settings > Interface > Choose Beta > Restart
-      2. Settings > Compatibility > Enable Proton > Restart > Set to GE Proton
-      3. Settings > Downloads > Allow downloads during gameplay > Allow background processing of vulkan shaders
-      4. Settings > Storage > Add storage locations
-      5. Rocket League > Force Use of Proton
-   7. Floorp Continued
-      1. Hide Bookmarks bar `Ctrl + Shift + B`
-      2. General Settings
-         1. Disable `Open previous windows and tabs`
-         2. Enable `When you open a link, image or media in a new tab, switch to it immediately`
-         3. Disable Container Tabs
-         4. Disable Floorp Notes Sync
-      3. Design
-         1. Select Proton UI
-         2. Select Vertical Tab Bar
-         3. Enable Collapse Vertical Tab Bar
-         4. Enable Show New Tab Button
-      4. Sidebar - Disable
-      5. Workspaces - Disable
-      6. Home
-         1. Floorp Home Background > Disable Background
-         2. Disable blur, release notes, image credit
-         3. Disable all Floorp Home Content except shortcuts. Diable sponsored shortcuts
-      7. Search
-         1. Set default search engine to duckduckgo
-      8. Privacy and Security
-         1. Diable ask to save logins and passwords
-      9. Remove New Tab, Floorp view, list tabs button from vert bar
-      10. Customize Toolbar
-         1. Enable Title Bar
-2. Set up Git SSH and change origin
-   1. `ssh-keygen -t ed25519 -a 100 -C "github"`
-   2. `cat ~/.ssh/id_ed25519.pub`
-   3. Copy output and add to Github SSH Tokens
-   4. `z NixOS-Config` and `git remote set-url origin git@github.com:Gumbachi/NixOS-Config.git`
+10. Some apps need to be manually configured
+    1. Sound Devices
+    2. Floorp
+       1. Add Bitwarden extension and login
+       2. Add Ublock Origin extension
+    3. YouTube Music
+       1. Login with password from bitwarden
+    4. Vesktop
+       1. Login with QR Code
+       2. Settings > Voice > Disable AGC and Echo Cancellation
+    5. ProtonUp
+       1. Launch and install latest GE Proton
+    6. Steam
+       1. Settings > Interface > Choose Beta > Restart
+       2. Settings > Compatibility > Enable Proton > Restart > Set to GE Proton
+       3. Settings > Downloads > Allow downloads during gameplay > Allow background processing of vulkan shaders
+       4. Settings > Storage > Add storage locations
+       5. Rocket League > Force Use of Proton
+    7. Floorp Continued
+       1. Hide Bookmarks bar `Ctrl + Shift + B`
+       2. General Settings
+          1. Disable `Open previous windows and tabs`
+          2. Enable `When you open a link, image or media in a new tab, switch to it immediately`
+          3. Disable Container Tabs
+          4. Disable Floorp Notes Sync
+       3. Design
+          1. Select Proton UI
+          2. Select Vertical Tab Bar
+          3. Enable Collapse Vertical Tab Bar
+          4. Enable Show New Tab Button
+       4. Sidebar - Disable
+       5. Workspaces - Disable
+       6. Home
+          1. Floorp Home Background > Disable Background
+          2. Disable blur, release notes, image credit
+          3. Disable all Floorp Home Content except shortcuts. Diable sponsored shortcuts
+       7. Search
+          1. Set default search engine to duckduckgo
+       8. Privacy and Security
+          1. Diable ask to save logins and passwords
+       9. Remove New Tab, Floorp view, list tabs button from vert bar
+       10. Customize Toolbar
+       11. Enable Title Bar
+11. Set up Git SSH and change origin
+    1. `ssh-keygen -t ed25519 -a 100 -C "github"`
+    2. `cat ~/.ssh/id_ed25519.pub`
+    3. Copy output and add to Github SSH Tokens
+    4. `z NixOS-Config` and `git remote set-url origin git@github.com:Gumbachi/NixOS-Config.git`
