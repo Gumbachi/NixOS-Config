@@ -33,6 +33,7 @@ in
     protonup-qt
     keymapp
     inkscape
+    kdePackages.gwenview
 
   ];
 
