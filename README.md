@@ -43,7 +43,7 @@
       2. `rm NixOS-Config/configuration.nix` not needed
       3. `mv NixOS-Config/hardware-configuration.nix NixOS-Config/GOOMBAX1/hardware-configuration.nix`
    9. `sudo nixos-rebuild switch` drives should auto-mount now
-10. Some apps need to be manually configured
+1. Some apps need to be manually configured
    1. Sound Devices
    2. Floorp
       1. Add Bitwarden extension and login
@@ -86,7 +86,7 @@
       9. Remove New Tab, Floorp view, list tabs button from vert bar
       10. Customize Toolbar
          1. Enable Title Bar
-11. Set up Git SSH and change origin
+2. Set up Git SSH and change origin
    1. `ssh-keygen -t ed25519 -a 100 -C "github"`
    2. `cat ~/.ssh/id_ed25519.pub`
    3. Copy output and add to Github SSH Tokens
