@@ -14,12 +14,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6ec71853-4e81-4c99-9517-12e14d29690d";
+    { device = "/dev/disk/by-uuid/66144ab6-9328-4d9d-b1f7-6623cf66f37a";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8EC9-FF97";
+    { device = "/dev/disk/by-uuid/9653-C5D9";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
@@ -41,7 +41,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
