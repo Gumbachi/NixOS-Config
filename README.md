@@ -4,3 +4,6 @@
    `sudo mv /etc/nixos/ /etc/nixos.bak`
 3. Link /etc/nixos to ~/NixOS-Config  
    `sudo ln -s ~/NixOS-Config/ /etc/nixos`
+
+## Notes  
+Dont forget to swap `hardware-configuration.nix` and set stateVersion
