@@ -9,29 +9,20 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
   };
 
+  # security.pam.services.hyprlock = {};
   programs.hyprlock.enable = true;
-  security.pam.services.hyprlock = {};
-
-  # this is broken currently
-  # services.hypridle.enable = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   # Needed to make system file picker work
   # do not touch
-  xdg.portal = {
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      # xdg-desktop-portal-hyprland # Not needed is included by default
-    ];
-    config.preferred.default = ["hyprland" "gtk"];
-  };
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
 }

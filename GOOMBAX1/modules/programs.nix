@@ -22,6 +22,7 @@
     hyprcursor
     hyprpaper
     hypridle # the option does not work
+    hyprlock
 
     imv # Image Viewer
     pavucontrol # Sound Settings

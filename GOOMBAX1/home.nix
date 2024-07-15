@@ -22,7 +22,6 @@ in
 
     # Browsers
     firefox
-    librewolf
     floorp
 
     # Office
