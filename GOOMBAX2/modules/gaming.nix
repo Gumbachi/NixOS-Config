@@ -13,12 +13,6 @@
     # extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
-  # EGS needs this
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   # Gamemode
   programs.gamemode.enable = true;
 

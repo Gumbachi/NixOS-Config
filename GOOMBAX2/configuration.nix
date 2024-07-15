@@ -9,25 +9,17 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../Modules/shared-configuration.nix
-
-      ../Modules/hyprland.nix
-
-      ../Modules/fonts.nix
-      ../Modules/fish.nix
-      ../Modules/programs.nix
-      ../Modules/gaming.nix
+      ./modules/hardware.nix
+      ./modules/boot.nix
+      ./modules/display-manager.nix
+      ./modules/sound.nix
+      ./modules/fonts.nix
+      ./modules/shells.nix
+      ./modules/gaming.nix
+      ./modules/hyprland.nix
+      ./modules/programs.nix
 
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -42,25 +34,16 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  networking.hostName = "XPS15"; # Define your hostname.
+  networking.hostName = "GOOMBAX2"; # Define your hostname.
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-  # Moonlander Support
-  hardware.keyboard.zsa.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Disable man pages
+  documentation.man.enable = false;
 
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = false;
-  };
-
 
 
   # Select internationalisation properties.
@@ -78,45 +61,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # KDE
-  # services.desktopManager.plasma6.enable = true;
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "jared";
-  };
-
-  
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -126,14 +72,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
-
-  environment.sessionVariables = {
-    CONFIG = "/home/jared/NixOS-Config";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -53,24 +53,23 @@
       };
 
       ######################################
-      ##########      XPS15       ##########
+      #########     GOOMBAX2       ########
       ######################################
 
-      XPS15 = nixpkgs.lib.nixosSystem {
+      GOOMBAX2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        # specialArgs = { inherit inputs; }; # this is the important part
         modules = [
-          ./XPS15/configuration.nix
-
-          catppuccin.nixosModules.catppuccin
+          ./GOOMBAX2/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
+            home-manager.backupFileExtension = "hmbak";
             home-manager.users.jared = {
               imports = [
-                ./XPS15/home.nix
+                ./GOOMBAX2/home.nix
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
