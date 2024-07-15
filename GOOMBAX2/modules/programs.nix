@@ -12,14 +12,6 @@
   # programs.kdeconnect.enable = true;
   programs.thunar.enable = true;
 
-  
-  # User packages.
-  users.users.jared.packages = with pkgs; [
-  ];
-  
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
 
@@ -48,11 +40,9 @@
     kdePackages.qtstyleplugin-kvantum
     kdePackages.qtsvg
     nwg-look
+
+    brightnessctl
+
   ];
 
-  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
-  #   oxygen
-  # ];
-
-  
 }

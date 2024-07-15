@@ -9,25 +9,17 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ./modules/hardware.nix
+      ./modules/boot.nix
+      ./modules/display-mananger.nix
       ./modules/sound.nix
       ./modules/fonts.nix
       ./modules/shells.nix
-
       ./modules/gaming.nix
-
-      ../Modules/hyprland.nix
-      ../Modules/programs.nix
+      ./modules/hyprland.nix
+      ./modules/programs.nix
 
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -47,24 +39,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-  # Moonlander Support
-  hardware.keyboard.zsa.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Disable man pages
+  documentation.man.enable = false;
 
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = false;
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
 
 
   # Select internationalisation properties.
@@ -82,26 +61,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # KDE
-  # services.desktopManager.plasma6.enable = true;
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "jared";
-  };
-
-  
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -113,9 +72,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  environment.sessionVariables = {
-    CONFIG = "/home/jared/NixOS-Config";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

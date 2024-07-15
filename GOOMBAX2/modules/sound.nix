@@ -12,5 +12,9 @@
       support32Bit = true;
     };
   };
+
+  # Enable media control
+  services.playerctld.enable = true;
+
   
 }

@@ -59,7 +59,7 @@
 
       GOOMBAX2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; # this is the important part
+        # specialArgs = { inherit inputs; }; # this is the important part
         modules = [
           ./GOOMBAX2/configuration.nix
 
