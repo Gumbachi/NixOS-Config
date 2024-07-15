@@ -86,3 +86,8 @@
       9. Remove New Tab, Floorp view, list tabs button from vert bar
       10. Customize Toolbar
          1. Enable Title Bar
+11. Set up Git SSH and change origin
+   1. `ssh-keygen -t ed25519 -a 100 -C "github"`
+   2. `cat ~/.ssh/id_ed25519.pub`
+   3. Copy output and add to Github SSH Tokens
+   4. `z NixOS-Config` and `git remote set-url origin git@github.com:Gumbachi/NixOS-Config.git`
