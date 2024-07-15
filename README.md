@@ -72,6 +72,7 @@
        3. Settings > Downloads > Allow downloads during gameplay > Allow background processing of vulkan shaders
        4. Settings > Storage > Add storage locations
        5. Rocket League > Force Use of Proton
+       6. Add desktop files as needed
     7. Floorp Continued
        1. Hide Bookmarks bar `Ctrl + Shift + B`
        2. General Settings

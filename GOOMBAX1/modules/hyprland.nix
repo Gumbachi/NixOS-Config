@@ -9,11 +9,9 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    xwayland.enable = true;
   };
 
-  # security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = {};
   programs.hyprlock.enable = true;
 
   environment.sessionVariables = {

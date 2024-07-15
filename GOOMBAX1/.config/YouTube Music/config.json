@@ -1,14 +1,14 @@
 {
 	"window-size": {
-		"width": 2560,
-		"height": 1440
+		"width": 1440,
+		"height": 1247
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=DzxkR8MO8xY&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=jnStLeCRxR0&list=LM&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -67,7 +67,7 @@
 		"adblocker": {
 			"enabled": true,
 			"cache": true,
-			"blocker": "With blocklists",
+			"blocker": "In player",
 			"additionalBlockLists": [
 				"https://filters.adtidy.org/extension/ublock/filters/122_optimized.txt",
 				"https://ublockorigin.pages.dev/thirdparties/easylist.txt"

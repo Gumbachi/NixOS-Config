@@ -14,6 +14,7 @@
     ./modules/sound.nix
     ./modules/env.nix
     ./modules/fonts.nix
+    ./modules/hardware.nix
     ./modules/hyprland.nix
 
 
@@ -25,9 +26,6 @@
   ];
 
   networking.hostName = "GOOMBAX1";
-
-  # Moonlander Support
-  hardware.keyboard.zsa.enable = true;
 
   # Disable man pages
   documentation.man.enable = false;
@@ -56,12 +54,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-  # hardware.amdgpu.opencl.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jared = {
