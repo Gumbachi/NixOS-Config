@@ -10,7 +10,14 @@ error_symbol = "[[](red) ❯](red)"
 [directory]
 home_symbol = " "
 truncation_length = 4
-style = "bold lavender"
+style = "bold teal"
+
+[git_branch]
+symbol = ' '
+style = 'bold pink'
+
+[git_status]
+style = 'bold peach'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
