@@ -145,6 +145,12 @@ in
       recursive = true;
     };
 
+    ".config/yazi/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/";
+      recursive = true;
+    };
+
     
 
   };
