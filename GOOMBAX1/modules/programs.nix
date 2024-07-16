@@ -6,7 +6,7 @@
   # programs.partition-manager.enable = true;
   # programs.kdeconnect.enable = true;
   programs.thunar.enable = true;
-  programs.yazi.enable = true;
+  # programs.yazi.enable = true;
 
   # System packages.
   environment.systemPackages = with pkgs; [
@@ -39,6 +39,10 @@
     kdePackages.qtstyleplugin-kvantum
     kdePackages.qtsvg
     nwg-look
+
+    # Terminal
+    starship
+    yazi
 
   ];
 

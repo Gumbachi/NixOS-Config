@@ -93,6 +93,16 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
+    ".config/yazi/theme.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
+    };
+
+    ".config/starship.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
+    };
+
     ".config/mako/config" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
@@ -144,14 +154,6 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
       recursive = true;
     };
-
-    ".config/yazi/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/";
-      recursive = true;
-    };
-
-    
 
   };
 
