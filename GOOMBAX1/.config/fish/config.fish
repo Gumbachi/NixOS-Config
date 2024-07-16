@@ -15,4 +15,5 @@ set fish_greeting
 
 fish_config theme choose "mocha"
 
+starship init fish | source
 zoxide init fish | source
