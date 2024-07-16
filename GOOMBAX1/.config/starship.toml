@@ -1,5 +1,17 @@
 palette = "catppuccin_mocha"
 
+add_newline = true
+
+[character]
+# Note the use of Catppuccin color 'maroon'
+success_symbol = "[[](green) ❯](green)"
+error_symbol = "[[](red) ❯](red)"
+
+[directory]
+home_symbol = " "
+truncation_length = 4
+style = "bold lavender"
+
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"

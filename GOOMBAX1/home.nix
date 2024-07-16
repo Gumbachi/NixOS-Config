@@ -53,6 +53,7 @@ in
       bbenoist.nix
       ms-python.python
       zaaack.markdown-editor
+      tamasfe.even-better-toml
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
