@@ -35,6 +35,8 @@ in
     inkscape
     kdePackages.gwenview
 
+    imagemagick
+
   ];
 
   programs.git = {
@@ -69,47 +71,42 @@ in
     };
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-    enableBashIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-    enableBashIntegration = true;
-  };
-
+  programs.zoxide.enable = true;
+  programs.fzf.enable = true;
 
   home.file = {
 
+    # YouTube Music
     ".config/YouTube Music/config.json" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
     };
 
+    # Vesktop
     ".config/vesktop/settings/settings.json" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
+    # Yazi
     ".config/yazi/theme.toml" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
     };
 
+    # Starship
     ".config/starship.toml" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
     };
 
+    # Mako
     ".config/mako/config" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
     };
 
-    # Fish config files have to be individual to prevent populating the github repo
+    # Fish -- config files have to be individual to prevent populating the github repo
     ".config/fish/themes/mocha.theme" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
@@ -120,39 +117,52 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
     };
 
+    # Kitty
     ".config/kitty/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
       recursive = true;
     };
 
+    # Waybar
     ".config/waybar/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
       recursive = true;
     };
 
+    # Hyprland, Hypridle, Hyprpaper, Hyprlock
     ".config/hypr/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
       recursive = true;
     };
 
+    # Rofi
     ".config/rofi/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
       recursive = true;
     };
 
+    # Kvantum
     ".config/Kvantum/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
       recursive = true;
     };
 
+    # Btop
     ".config/btop/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
+      recursive = true;
+    };
+
+    # Wlogout
+    ".config/wlogout/" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/wlogout/";
       recursive = true;
     };
 

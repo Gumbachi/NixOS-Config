@@ -15,5 +15,11 @@ set fish_greeting
 
 fish_config theme choose "mocha"
 
-starship init fish | source
+function starship_transient_prompt_func
+  starship module character
+end
+
 zoxide init fish | source
+
+starship init fish | source
+enable_transience

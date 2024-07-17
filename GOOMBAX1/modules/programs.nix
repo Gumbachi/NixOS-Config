@@ -6,7 +6,6 @@
   # programs.partition-manager.enable = true;
   # programs.kdeconnect.enable = true;
   programs.thunar.enable = true;
-  # programs.yazi.enable = true;
 
   # System packages.
   environment.systemPackages = with pkgs; [
@@ -24,6 +23,7 @@
     hyprpaper
     hypridle # the option does not work
     hyprlock
+    wlogout
 
     imv # Image Viewer
     pavucontrol # Sound Settings

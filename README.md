@@ -67,7 +67,7 @@
     5. ProtonUp
        1. Launch and install latest GE Proton
     6. Steam
-       1. Settings > Interface > Choose Beta > Restart
+       1. Settings > Interface > Start Location: Library > Choose Beta > Restart
        2. Settings > Compatibility > Enable Proton > Restart > Set to GE Proton
        3. Settings > Downloads > Allow downloads during gameplay > Allow background processing of vulkan shaders
        4. Settings > Storage > Add storage locations
