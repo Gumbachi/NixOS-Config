@@ -35,8 +35,8 @@
    2. Disable GPU devices and set Astro A50 to game output and Yeti to Analog Stereo Input
    3. Set Volumes in Input and Output tabs
 8. Icons & Cursors
-   1. `./NixOS-Config/GOOMBAX1/scripts/papirus-icons.sh`
-   2. `./NixOS-Config/GOOMBAX1/scripts/catppuccin-cursors.sh`
+   1. `./NixOS-Config/scripts/papirus-icons.sh`
+   2. `./NixOS-Config/scripts/catppuccin-cursors.sh`
    3. Open nwg-look
       1. Mouse cursor > Catppuccin-Mauve Size 32
       2. Icon theme > Papirus-Dark
@@ -57,8 +57,7 @@
 10. Some apps need to be manually configured
     1. Sound Devices
     2. Floorp
-       1. Add Bitwarden extension and login
-       2. Add Ublock Origin extension
+       1. Extensions: Bitwarden, Ublock, Firefox Color
     3. YouTube Music
        1. Login with password from bitwarden
     4. Vesktop
@@ -98,6 +97,7 @@
        9. Remove New Tab, Floorp view, list tabs button from vert bar
        10. Customize Toolbar
        11. Enable Title Bar
+       12. https://github.com/catppuccin/firefox 
 11. Set up Git SSH and change origin
     1. `ssh-keygen -t ed25519 -a 100 -C "github"`
     2. `cat ~/.ssh/id_ed25519.pub`

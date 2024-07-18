@@ -5,21 +5,26 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
 
-      ./modules/hardware.nix
-      ./modules/boot.nix
-      ./modules/display-manager.nix
-      ./modules/sound.nix
-      ./modules/fonts.nix
-      ./modules/shells.nix
-      ./modules/gaming.nix
-      ./modules/hyprland.nix
-      ./modules/programs.nix
+    # GOOMBAX2 Specific
+    ./modules/hardware.nix
+    ./modules/boot.nix
+    ./modules/display-manager.nix
+    # ./modules/sound.nix
+    # ./modules/fonts.nix
+    # ./modules/shells.nix
+    ./modules/gaming.nix
+    ./modules/hyprland.nix
+    ./modules/programs.nix
 
-    ];
+    # Shared
+    ../modules/shared/fonts.nix
+    ../modules/shared/shells.nix
+    ../modules/shared/sound.nix
+
+  ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";

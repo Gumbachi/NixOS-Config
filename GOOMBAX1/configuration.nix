@@ -8,27 +8,33 @@
   imports = [ 
     ./hardware-configuration.nix # Include the results of the hardware scan.
 
+    # GOOMBAX1 Specific
     ./modules/boot.nix
     ./modules/display-manager.nix
-    ./modules/shells.nix
-    ./modules/sound.nix
+    # ./modules/shells.nix
+    # ./modules/sound.nix
     ./modules/env.nix
-    ./modules/fonts.nix
+    # ./modules/fonts.nix
     ./modules/hardware.nix
     ./modules/hyprland.nix
-
-
     ./modules/gaming.nix
     ./modules/android.nix
     ./modules/programs.nix
+
+    # Shared 
+    ../shared/modules/shells.nix
+    ../shared/modules/fonts.nix
+    ../shared/modules/sound.nix
+    ../shared/modules/obs.nix
+    ../shared/modules/sunshine.nix
     
 
   ];
 
   networking.hostName = "GOOMBAX1";
 
-  # Disable man pages
-  documentation.man.enable = false;
+  # Enable/Disable man pages
+  documentation.man.enable = true;
 
   # Nix Store Config
   nix.settings.auto-optimise-store = true;
@@ -75,6 +81,12 @@
 
   # Firewall
   networking.firewall.enable = true;
+
+  # Just leave this
+  programs.nix-ld {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

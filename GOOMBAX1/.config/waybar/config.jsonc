@@ -13,29 +13,14 @@
         "memory",
         "temperature",
         "pulseaudio"
-        // "hyprland/window"
-        // "custom/ytm"
-        // "mpd"
-        // "custom/media"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "idle_inhibitor"
     ],
     "modules-right": [
-        
-        "clock",
-        // "idle_inhibitor",
-        
-        // "network",
-        // "power-profiles-daemon",
-        
-        // "backlight",
-        // "keyboard-state",
-        // "sway/language",
-        // "battery",
-        // "battery#bat2",
-        "tray"
-        // "custom/power"
+        "tray",
+        "clock"
     ],
     // Modules configuration
     "hyprland/workspaces": {

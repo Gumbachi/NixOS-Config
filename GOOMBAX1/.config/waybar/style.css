@@ -80,7 +80,7 @@ window#waybar.hidden {
 }
 
 /* Outer Modules to match hyprland gapsout */
-#tray {
+#clock {
 	margin-right: 10px;
 }
 

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -10,11 +10,7 @@
     ];
   };
 
-  # User packages.
-  users.users.jared.packages = with pkgs; [
-    sunshine
-    moonlight-qt
-  ];
+  environment.systemPackages = [ pkgs.sunshine ];
 
   security.wrappers.sunshine = {
     owner = "root";

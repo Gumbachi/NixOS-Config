@@ -88,12 +88,6 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
     };
 
-    # Yazi
-    ".config/yazi/theme.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
-    };
-
     # Starship
     ".config/starship.toml" = {
       enable = true;
@@ -106,7 +100,7 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
     };
 
-    # Fish -- config files have to be individual to prevent populating the github repo
+    # Fish -- config files have to be individual
     ".config/fish/themes/mocha.theme" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
@@ -115,6 +109,12 @@ in
     ".config/fish/config.fish" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
+    };
+
+    # Yazi -- config files have to be individual
+    ".config/yazi/theme.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
     };
 
     # Kitty

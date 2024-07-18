@@ -5,10 +5,10 @@
     "keybind" : "l"
 }
 {
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Does Nothing",
-    "keybind" : "h"
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
 }
 {
     "label" : "logout",
@@ -24,13 +24,13 @@
 }
 {
     "label" : "suspend",
-    "action" : "hyprctl dispatch dpms off",
-    "text" : "Screen Off",
+    "action" : "echo howdy",
+    "text" : "Does Nothing",
     "keybind" : "u"
 }
 {
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot",
-    "keybind" : "r"
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Also Does Nothing",
+    "keybind" : "h"
 }

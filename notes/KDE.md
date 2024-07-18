@@ -44,12 +44,3 @@ Settings > Session > Desktop Session
 Right click title bar > More Actions > Special Window Rules > Add Property
 
 * Add Position Rule
-
-## Bind Super to Overview/KRunner
-
-Install kdePackages.kconfig > Open Terminal
-
-* `kwriteconfig6 --file kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.kglobalaccel,/component/kwin,,invokeShortcut,Overview"`
-* `kwriteconfig6 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.kglobalaccel,/component/org_kde_krunner_desktop,org.kde.kglobalaccel.Component,invokeShortcut,_launch"`
-* `qdbus org.kde.KWin /KWin reconfigure`
-* Reboot/Restart Kwin
