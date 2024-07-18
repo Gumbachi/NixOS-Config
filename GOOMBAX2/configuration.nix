@@ -20,9 +20,9 @@
     ./modules/programs.nix
 
     # Shared
-    ../modules/shared/fonts.nix
-    ../modules/shared/shells.nix
-    ../modules/shared/sound.nix
+    ../shared/modules/fonts.nix
+    ../shared/modules/shells.nix
+    ../shared/modules/sound.nix
 
   ];
 
