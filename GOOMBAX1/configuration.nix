@@ -83,7 +83,7 @@
   networking.firewall.enable = true;
 
   # Just leave this
-  programs.nix-ld {
+  programs.nix-ld = {
     enable = true;
     package = pkgs.nix-ld-rs;
   };
