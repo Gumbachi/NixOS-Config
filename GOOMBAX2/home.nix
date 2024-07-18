@@ -101,6 +101,18 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
     };
 
+    # Starship
+    ".config/starship.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
+    };
+
+    # Yazi -- config files have to be individual
+    ".config/yazi/theme.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
+    };
+
     ".config/kitty/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
@@ -131,6 +143,24 @@ in
       recursive = true;
     };
 
+    
+
+  };
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
+
+  gtk = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+      accent = "mauve";
+      size = "standard";
+      tweaks = [ "normal" ];
+    };
   };
 
   home.stateVersion = "23.11";
