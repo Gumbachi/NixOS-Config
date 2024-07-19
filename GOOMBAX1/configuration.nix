@@ -11,13 +11,9 @@
     # GOOMBAX1 Specific
     ./modules/boot.nix
     ./modules/display-manager.nix
-    # ./modules/shells.nix
-    # ./modules/sound.nix
     ./modules/env.nix
-    # ./modules/fonts.nix
     ./modules/hardware.nix
     ./modules/hyprland.nix
-    # ./modules/gaming.nix
     ./modules/android.nix
     ./modules/programs.nix
 
