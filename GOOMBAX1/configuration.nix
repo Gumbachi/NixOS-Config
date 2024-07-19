@@ -17,7 +17,7 @@
     # ./modules/fonts.nix
     ./modules/hardware.nix
     ./modules/hyprland.nix
-    ./modules/gaming.nix
+    # ./modules/gaming.nix
     ./modules/android.nix
     ./modules/programs.nix
 
@@ -25,6 +25,7 @@
     ../shared/modules/shells.nix
     ../shared/modules/fonts.nix
     ../shared/modules/sound.nix
+    ../shared/modules/gaming.nix
     ../shared/modules/obs.nix
     ../shared/modules/sunshine.nix
     

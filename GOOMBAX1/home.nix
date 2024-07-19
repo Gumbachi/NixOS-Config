@@ -30,7 +30,6 @@ in
     hunspellDicts.en_US
 
     # Other
-    protonup-qt
     keymapp
     inkscape
     kdePackages.gwenview
