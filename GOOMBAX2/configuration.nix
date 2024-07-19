@@ -20,9 +20,9 @@
     ./modules/programs.nix
 
     # Shared
-    ../modules/shared/fonts.nix
-    ../modules/shared/shells.nix
-    ../modules/shared/sound.nix
+    ../shared/modules/fonts.nix
+    ../shared/modules/shells.nix
+    ../shared/modules/sound.nix
 
   ];
 
@@ -73,6 +73,11 @@
     "nix-command"
     "flakes"
   ];
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

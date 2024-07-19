@@ -43,6 +43,9 @@
 
     brightnessctl
 
+    starship
+    yazi
+
   ];
 
 }
