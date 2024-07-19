@@ -1,14 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  
+
   hardware = {
 
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = [ pkgs.rocmPackages.rocm-smi ];
     };
-  # hardware.amdgpu.opencl.enable = true;
+    amdgpu.opencl.enable = true;
 
     cpu.amd.updateMicrocode = true;
 
@@ -18,7 +19,6 @@
       enable = true;
       enableGraphical = true;
     };
-
 
   };
   

@@ -38,7 +38,7 @@
 
   # Nix Store Config
   nix.settings.auto-optimise-store = true;
-  system.autoUpgrade.enable = false;
+  system.autoUpgrade.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -75,6 +75,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.rocmSupport = true;
 
   # Enable networking
   networking.networkmanager.enable = true;

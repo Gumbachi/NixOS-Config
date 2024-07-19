@@ -94,6 +94,17 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
     };
 
+    # Btop -- Theme file is tracked with absolute path
+    ".config/btop/btop.conf" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
+    };
+
+    ".config/btop/themes/mocha.theme" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
+    };
+
     # Mako
     ".config/mako/config" = {
       enable = true;
@@ -149,13 +160,6 @@ in
     ".config/Kvantum/" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
-      recursive = true;
-    };
-
-    # Btop
-    ".config/btop/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
       recursive = true;
     };
 

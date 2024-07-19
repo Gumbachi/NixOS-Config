@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-	background: @transparent;
+	background: transparent;
 }
 
 window#waybar.hidden {
@@ -80,20 +80,19 @@ window#waybar.hidden {
 }
 
 /* Outer Modules to match hyprland gapsout */
-#clock {
+#workspaces {
 	margin-right: 10px;
 }
 
-#cpu {
+#pulseaudio {
 	margin-left: 10px;
-	margin-bottom: 10px;
 }
 
 
 #workspaces {
 	margin-top: 0px;
 	margin-bottom: 10px;
-	padding-right: 0px;
+	padding-right: 5px;
 	padding-left: 0px;
 	transition: none;
 	background: @base;
@@ -107,7 +106,7 @@ window#waybar.hidden {
 	
 }
 
-#workspaces button.focused {
+#workspaces button.active {
 	color: @mauve;
 }
 
@@ -117,10 +116,9 @@ window#waybar.hidden {
 	text-shadow: inherit;
 	color: @mauve;
 	border-color: @mauve;
-	
 }
 
+/* Overrides all modules for border and box-shadow */
 window#waybar.bottom .module {
     border: 4px solid @surface0;
-	box-shadow: none;
 }

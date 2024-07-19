@@ -9,18 +9,19 @@
     "output": "DP-2",
 
     "modules-left": [
-        "cpu",
+        "pulseaudio",
         "memory",
-        "temperature",
-        "pulseaudio"
+        "cpu",
+        "temperature"
     ],
     "modules-center": [
-        "hyprland/workspaces",
+        "clock",
         "idle_inhibitor"
+        
     ],
     "modules-right": [
         "tray",
-        "clock"
+        "hyprland/workspaces"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -29,15 +30,20 @@
         "warp-on-scroll": false,
         "format": "{icon}", // "{name}: {icon}"
         "format-icons": {
-            // "1": "",
-            // "2": "",
-            // "3": "",
-            // "4": "",
-            // "5": "",
-            "urgent": "",
-            "focused": "", // "󰀨"
-            "default": "",  //""  "󰻂" "󰺕" "" "󰀨󰗠"
-            "active": ""
+            "1": "󱠇",
+            "2": "󰎆",
+            "3": "󰟒",
+            "4": "󰲦",
+            "5": "󰲨",
+            "6": "󰲪",
+            "7": "󰲬",
+            "8": "󰲮",
+            "9": "󰲰",
+            "10": "󰿬",
+            "urgent": "󰀨"
+            // "focused": "", // "󰀨"
+            // "default": ""  //""  "󰻂" "󰺕" "" "󰀨󰗠"
+            // "active": ""
             
         }
     },
@@ -91,7 +97,8 @@
     },
     "tray": {
         "icon-size": 24,
-        "spacing": 10
+        "spacing": 10,
+        "show-passive-items": true
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -104,8 +111,9 @@
         "on-click": "echo launch btop | kitty --session=-"
     },
     "memory": {
-        "format": "{}  ",
-        "on-click": "echo launch btop | kitty --session=-"
+        "format": "{used:0.1f}  ",
+        "on-click": "echo launch btop | kitty --session=-",
+        "interval": 5
     },
     "temperature": {
         // "thermal-zone": 2,
