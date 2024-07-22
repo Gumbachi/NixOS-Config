@@ -10,8 +10,8 @@
 
     # GOOMBAX1 Specific
     ./modules/boot.nix
-    ./modules/display-manager.nix
     ./modules/env.nix
+    ./modules/display-manager.nix
     ./modules/hardware.nix
     ./modules/hyprland.nix
     ./modules/android.nix
@@ -35,7 +35,7 @@
 
   # Nix Store Config
   nix.settings.auto-optimise-store = true;
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -71,8 +71,10 @@
   ];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.rocmSupport = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    rocmSupport = true;
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -81,10 +83,10 @@
   networking.firewall.enable = true;
 
   # Just leave this
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
+  # programs.nix-ld = {
+  #   enable = true;
+  #   package = pkgs.nix-ld-rs;
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

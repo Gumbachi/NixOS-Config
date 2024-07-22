@@ -19,7 +19,7 @@
   # Gamescope
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    # capSysNice = true;
   };
 
   # Possibly needed environment vars

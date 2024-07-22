@@ -4,8 +4,17 @@
   
   # Options
   # programs.partition-manager.enable = true;
-  # programs.kdeconnect.enable = true;
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.kdePackages.kdeconnect-kde;
+  };
+
   programs.thunar.enable = true;
+
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
 
   # System packages.
   environment.systemPackages = with pkgs; [
@@ -44,10 +53,15 @@
     starship
     yazi
 
+    radeontop
+    lxqt.lxqt-policykit
+
   ];
 
   # Enable media control
   services.playerctld.enable = true;
+
+  services.fwupd.enable = true;
 
   
 }
