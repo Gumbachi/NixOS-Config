@@ -7,7 +7,7 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = [ pkgs.rocmPackages.rocm-smi ];
+     # extraPackages = [ pkgs.rocmPackages.rocm-smi ];
     };
 
     keyboard.zsa.enable = true;

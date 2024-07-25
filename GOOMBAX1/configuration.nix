@@ -30,13 +30,6 @@
 
   networking.hostName = "GOOMBAX1";
 
-  # Enable/Disable man pages
-  documentation.man.enable = true;
-
-  # Nix Store Config
-  nix.settings.auto-optimise-store = true;
-  system.autoUpgrade.enable = false;
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -73,7 +66,7 @@
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    rocmSupport = true;
+    rocmSupport = false;
   };
 
   # Enable networking

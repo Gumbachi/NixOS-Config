@@ -22,11 +22,11 @@
 1. `sudo nano /etc/nixos/configuration.nix`
    1. Add `programs.git.enable = true;`
    2. Set `networking.hostname = "nixos";` to `"GOOMBAX1"` or other host
-   3. save and exit and reboot
+   3. save, rebuild, and reboot.
 2. `git clone https://github.com/Gumbachi/NixOS-Config.git`
    1. `sudo nano NixOS-Config/configuration.nix`
       1. Set `stateVersion` to the NixOS iso version
-3. `sudo mv /etc/nixos/hardware-configuration.nix ~/NixOS-Config/GOOMBAX1/hardware-configuration.nix`
+3. `sudo cp /etc/nixos/hardware-configuration.nix ~/NixOS-Config/GOOMBAX1/hardware-configuration.nix`
 4. `sudo mv /etc/nixos/ /etc/nixos.bak` Backup default config
 5. `sudo ln -s ~/NixOS-Config/ /etc/nixos` Link to flake
 6. `sudo nixos-rebuild boot` and reboot after finish

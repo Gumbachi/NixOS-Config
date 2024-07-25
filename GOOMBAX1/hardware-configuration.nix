@@ -8,29 +8,24 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/66144ab6-9328-4d9d-b1f7-6623cf66f37a";
+    { device = "/dev/disk/by-uuid/7b7f294e-0ee4-4c5f-b977-e7beebabefdb";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9653-C5D9";
+    { device = "/dev/disk/by-uuid/FE25-A5F6";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/jared/Drives/InlandPremium1TB" =
+  fileSystems."/home/jared/Games" =
     { device = "/dev/disk/by-uuid/1eaea05a-4e09-44c3-905b-bd85dfcad937";
-      fsType = "ext4";
-    };
-
-  fileSystems."/home/jared/Drives/Samsung1TB" =
-    { device = "/dev/disk/by-uuid/1ade289a-20dd-40fe-b3ad-b203f79194e4";
       fsType = "ext4";
     };
 
