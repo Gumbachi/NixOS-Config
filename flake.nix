@@ -6,6 +6,8 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    ags.url = "github:Aylur/ags";
+
     # hyprland = {
     #   type = "git";
     #   url = "https://github.com/hyprwm/Hyprland";
@@ -23,7 +25,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, catppuccin, ... }: {
+  outputs = { nixpkgs, home-manager, catppuccin, ags, ... }@inputs: {
     
     nixosConfigurations = {
       
@@ -45,6 +47,7 @@
               imports = [
                 ./GOOMBAX1/home.nix
                 catppuccin.homeManagerModules.catppuccin
+                ags.homeManagerModules.default
               ];
             };
           }
