@@ -159,6 +159,12 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
     };
 
+    # Helix
+    ".config/helix/config.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
+    };
+
     # Kitty
     ".config/kitty/" = {
       enable = true;

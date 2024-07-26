@@ -18,7 +18,7 @@
 
   users.users.jared.packages = with pkgs; [
     amdgpu_top
-    geekbench
+    helix
   ];
 
   # System packages.
