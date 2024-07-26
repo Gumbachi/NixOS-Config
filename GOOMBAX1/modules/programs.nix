@@ -16,6 +16,11 @@
     gpuOverclock.enable = true;
   };
 
+  users.users.jared.packages = with pkgs; [
+    amdgpu_top
+    geekbench
+  ];
+
   # System packages.
   environment.systemPackages = with pkgs; [
     wget
