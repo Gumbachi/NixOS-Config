@@ -55,6 +55,7 @@ in
       ms-python.python
       zaaack.markdown-editor
       tamasfe.even-better-toml
+      vscodevim.vim
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
