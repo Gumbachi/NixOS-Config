@@ -8,6 +8,22 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
+
+  gtk = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+      accent = "mauve";
+      size = "standard";
+      tweaks = [ "normal" ];
+    };
+  };
+
   home.packages = with pkgs; [
     # Command line tools
     fastfetch
@@ -172,19 +188,14 @@ in
 
   };
 
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
-
-  gtk = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "mauve";
-      size = "standard";
-      tweaks = [ "normal" ];
+  xdg.desktopEntries = {
+    yazi = {
+      name = "Yazi";
+      genericName = "File Explorer";
+      exec = "yazi";
+      terminal = true;
+      mimeType = [ "inode/directory" ];
+      icon = "file-system-manager";
     };
   };
 
