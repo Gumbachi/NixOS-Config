@@ -154,6 +154,11 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
     };
 
+    ".config/yazi/yazi.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
+    };
+
     # Kitty
     ".config/kitty/" = {
       enable = true;
