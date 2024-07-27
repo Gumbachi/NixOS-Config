@@ -22,11 +22,11 @@
   #   # "amdgpu.sched_jobs=64"
   #   # "amdgpu.sched_hw_submission=4"
 
-  #   # "amdgpu.mes=1"
-  #   # "amdgpu.mes_kiq=1"
+    "amdgpu.mes=1"
+    "amdgpu.mes_kiq=1"
   #   # "amdgpu.sched_policy=1"
   #   # "amdgpu.no_system_mem_limit=1"
-  #   # "amdgpu.smu_pptable_id=0"
+    "amdgpu.smu_pptable_id=0"
   ];
   
 }
