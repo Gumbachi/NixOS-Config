@@ -11,4 +11,6 @@
 
   services.blueman.enable = true;
 
+  services.playerctld.enable = true;
+
 }
