@@ -14,6 +14,7 @@
     ./modules/display-manager.nix
     ./modules/hyprland.nix
     ./modules/programs.nix
+    ./modules/services.nix
     ./modules/env.nix
 
     # Shared
