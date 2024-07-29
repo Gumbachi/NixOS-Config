@@ -30,6 +30,8 @@ in
     keymapp
     krita
     inkscape
+
+    moonlight-qt
   ];
 
   programs.git = {

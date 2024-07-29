@@ -8,14 +8,14 @@
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=R7klttNgGVI&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=i-ASmC1cUN8&list=LM&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
 		"autoUpdates": true,
 		"alwaysOnTop": false,
-		"hideMenu": false,
-		"hideMenuWarned": false,
+		"hideMenu": true,
+		"hideMenuWarned": true,
 		"startAtLogin": false,
 		"disableHardwareAcceleration": false,
 		"removeUpgradeButton": true,
@@ -25,10 +25,12 @@
 		"resumeOnStart": true,
 		"likeButtons": "",
 		"proxy": "",
-		"startingPage": "",
+		"startingPage": "Home",
 		"overrideUserAgent": false,
 		"usePodcastParticipantAsArtist": false,
-		"themes": []
+		"themes": [
+			"/home/jared/NixOS-Config/GOOMBAX2/.config/YouTube Music/mocha.css"
+		]
 	},
 	"plugins": {
 		"notifications": {},
@@ -47,14 +49,14 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 34
+			"savedVolume": 40
 		},
 		"discord": {
 			"listenAlong": true,
 			"enabled": false
 		},
 		"ambient-mode": {
-			"enabled": true
+			"enabled": false
 		},
 		"compact-sidebar": {
 			"enabled": true
@@ -65,7 +67,7 @@
 		"adblocker": {
 			"enabled": true,
 			"cache": true,
-			"blocker": "With blocklists",
+			"blocker": "In player",
 			"additionalBlockLists": [
 				"https://filters.adtidy.org/extension/ublock/filters/122_optimized.txt",
 				"https://ublockorigin.pages.dev/thirdparties/easylist.txt"
@@ -73,8 +75,8 @@
 			"disableDefaultLists": false
 		},
 		"visualizer": {
-			"enabled": true,
-			"type": "wave",
+			"enabled": false,
+			"type": "vudio",
 			"butterchurn": {
 				"preset": "martin [shadow harlequins shape code] - fata morgana",
 				"renderingFrequencyInMs": 500,
@@ -84,14 +86,14 @@
 				"effect": "lighting",
 				"accuracy": 128,
 				"lighting": {
-					"maxHeight": 160,
+					"maxHeight": 400,
 					"maxSize": 12,
 					"lineWidth": 1,
-					"color": "#49f3f7",
+					"color": "#cba6f7",
 					"shadowBlur": 2,
 					"shadowColor": "rgba(244,244,244,.5)",
 					"fadeSide": true,
-					"prettify": false,
+					"prettify": true,
 					"horizontalAlign": "center",
 					"verticalAlign": "middle",
 					"dottify": true
@@ -151,8 +153,11 @@
 			"enabled": true
 		},
 		"in-app-menu": {
-			"enabled": true,
+			"enabled": false,
 			"hideDOMWindowControls": true
+		},
+		"navigation": {
+			"enabled": false
 		}
 	},
 	"__internal__": {

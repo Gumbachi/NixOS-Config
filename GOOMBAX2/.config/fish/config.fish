@@ -6,4 +6,20 @@ set fish_greeting
 
 fish_config theme choose "mocha"
 
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
+function starship_transient_prompt_func
+  starship module character
+end
+
 zoxide init fish | source
+
+starship init fish | source
+enable_transience
