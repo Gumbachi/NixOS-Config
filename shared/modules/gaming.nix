@@ -4,14 +4,13 @@
 
   users.users.jared.packages = with pkgs; [ 
     mangohud
-    lutris
+    protonup-qt
   ];
 
   # Steam
   programs.steam = {
     enable = true;
     # gamescopeSession.enable = true;
-    # extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
   # Gamemode
@@ -20,12 +19,14 @@
   # Gamescope
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    # capSysNice = true;
   };
 
-  environment.sessionVariables = {
-    STEAM_FORCE_DESKTOPUI_SCALING = "1.5"; # Necessary for 4k Monitor
-    MANGOHUD_CONFIG = "position=top-right,frame_timing=0";
-  };
+  # Possibly needed environment vars
+  
+  # environment.sessionVariables = {
+  #   STEAM_FORCE_DESKTOPUI_SCALING = "1.5"; # Necessary for 4k Monitor
+  #   MANGOHUD_CONFIG = "position=top-right,frame_timing=0";
+  # };
 
 }

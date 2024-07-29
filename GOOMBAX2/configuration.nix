@@ -12,17 +12,15 @@
     ./modules/hardware.nix
     ./modules/boot.nix
     ./modules/display-manager.nix
-    # ./modules/sound.nix
-    # ./modules/fonts.nix
-    # ./modules/shells.nix
-    ./modules/gaming.nix
     ./modules/hyprland.nix
     ./modules/programs.nix
+    ./modules/env.nix
 
     # Shared
     ../shared/modules/fonts.nix
     ../shared/modules/shells.nix
     ../shared/modules/sound.nix
+    ../shared/modules/gaming.nix
 
   ];
 

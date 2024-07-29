@@ -8,6 +8,32 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
+
+  gtk = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+      accent = "mauve";
+      size = "standard";
+      tweaks = [ "normal" ];
+    };
+  };
+
+  programs.ags = {
+    enable = true;
+    configDir = ./.config/ags;
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
+  };
+
   home.packages = with pkgs; [
     # Command line tools
     fastfetch
@@ -30,7 +56,6 @@ in
     hunspellDicts.en_US
 
     # Other
-    protonup-qt
     keymapp
     inkscape
     kdePackages.gwenview
@@ -56,6 +81,7 @@ in
       ms-python.python
       zaaack.markdown-editor
       tamasfe.even-better-toml
+      vscodevim.vim
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
@@ -94,6 +120,17 @@ in
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
     };
 
+    # Btop -- Theme file is tracked with absolute path
+    ".config/btop/btop.conf" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
+    };
+
+    ".config/btop/themes/mocha.theme" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
+    };
+
     # Mako
     ".config/mako/config" = {
       enable = true;
@@ -115,6 +152,17 @@ in
     ".config/yazi/theme.toml" = {
       enable = true;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
+    };
+
+    ".config/yazi/yazi.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
+    };
+
+    # Helix
+    ".config/helix/config.toml" = {
+      enable = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
     };
 
     # Kitty
@@ -152,13 +200,6 @@ in
       recursive = true;
     };
 
-    # Btop
-    ".config/btop/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
-      recursive = true;
-    };
-
     # Wlogout
     ".config/wlogout/" = {
       enable = true;
@@ -168,19 +209,14 @@ in
 
   };
 
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
-
-  gtk = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "mauve";
-      size = "standard";
-      tweaks = [ "normal" ];
+  xdg.desktopEntries = {
+    yazi = {
+      name = "Yazi";
+      genericName = "File Explorer";
+      exec = "yazi";
+      terminal = true;
+      mimeType = [ "inode/directory" ];
+      icon = "file-system-manager";
     };
   };
 

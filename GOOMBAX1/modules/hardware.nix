@@ -1,24 +1,26 @@
 { config, pkgs, ... }:
 
 {
-  
+
   hardware = {
 
     graphics = {
       enable = true;
       enable32Bit = true;
+     # extraPackages = [ pkgs.rocmPackages.rocm-smi ];
     };
-  # hardware.amdgpu.opencl.enable = true;
 
-    cpu.amd.updateMicrocode = true;
+    amdgpu = {
+      initrd.enable = true;
+      amdvlk = {
+        enable = false;
+        support32Bit.enable = false;
+      };
+    };
 
     keyboard.zsa.enable = true;
 
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
-
+    logitech.wireless.enable = true;
 
   };
   

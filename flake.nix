@@ -6,16 +6,18 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
+    ags.url = "github:Aylur/ags";
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland = {
+    #   type = "git";
+    #   url = "https://github.com/hyprwm/Hyprland";
+    #   submodules = true;
+    # };
+
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -23,7 +25,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, catppuccin, ... }: {
+  outputs = { nixpkgs, home-manager, catppuccin, ags, ... }@inputs: {
     
     nixosConfigurations = {
       
@@ -45,6 +47,7 @@
               imports = [
                 ./GOOMBAX1/home.nix
                 catppuccin.homeManagerModules.catppuccin
+                ags.homeManagerModules.default
               ];
             };
           }

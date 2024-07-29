@@ -8,7 +8,7 @@
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=i-ASmC1cUN8&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=ANkxRGvl1VY&list=PL0waocdhUwjQrF88g_mRKPfU7uT23v6Qm&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -39,7 +39,7 @@
 			"hideVideo": true,
 			"mode": "native",
 			"forceHide": false,
-			"align": "left"
+			"align": "middle"
 		},
 		"precise-volume": {
 			"enabled": true,
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 40
+			"savedVolume": 50
 		},
 		"discord": {
 			"listenAlong": true,
@@ -162,7 +162,7 @@
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "3.3.12"
+			"version": "3.4.1"
 		}
 	}
 }

@@ -26,7 +26,6 @@ in
     firefox
 
     # Other
-    protonup-qt
     keymapp
     krita
     inkscape
