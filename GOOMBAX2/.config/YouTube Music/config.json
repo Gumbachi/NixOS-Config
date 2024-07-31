@@ -1,14 +1,14 @@
 {
 	"window-size": {
 		"width": 1920,
-		"height": 1080
+		"height": 1023
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=Yjvh13Hpca0&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=u8VHwezjk6w&list=LM&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 25
+			"savedVolume": 65
 		},
 		"discord": {
 			"listenAlong": true,

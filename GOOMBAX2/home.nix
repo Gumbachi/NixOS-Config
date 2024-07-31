@@ -8,31 +8,6 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  home.packages = with pkgs; [
-
-    # Command line tools
-    fastfetch
-    tldr
-    kitty
-    unzip
-
-    # Media/Social
-    vlc
-    youtube-music
-    vesktop
-
-    # Browsers
-    floorp
-    firefox
-
-    # Other
-    keymapp
-    krita
-    inkscape
-
-    moonlight-qt
-  ];
-
   programs.git = {
     enable = true;
     userName = "Gumbachi";
@@ -144,7 +119,10 @@ in
       recursive = true;
     };
 
-    
+    # Helix
+    ".config/helix/config.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
+    };
 
   };
 
