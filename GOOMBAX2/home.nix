@@ -8,6 +8,13 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
+  stylix.targets = {
+    hyprpaper.enable = false;
+    # gtk.enable = true; 
+    mangohud.enable = true;
+  };
+
+  
   programs.git = {
     enable = true;
     userName = "Gumbachi";
@@ -26,9 +33,6 @@ in
     userSettings = {
       "telemetry.telemetryLevel" = "off";
       "workbench.iconTheme" = "catppuccin-mocha";
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'BlexMono Nerd Font', 'JetBrainsMono NF', 'Consolas'";
-      "editor.fontWeight" = "600";
       "explorer.confirmDelete" = false;
       "workbench.startupEditor" = "none";
       "update.showReleaseNotes" = false;
@@ -102,7 +106,7 @@ in
     };
 
     ".config/hypr/" = {
-      enable = true;
+      enable = false;
       source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
       recursive = true;
     };

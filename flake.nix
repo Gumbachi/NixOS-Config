@@ -72,10 +72,11 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "hmbak";
             home-manager.users.jared = {
+
               imports = [
                 ./GOOMBAX2/home.nix
-                catppuccin.homeManagerModules.catppuccin
               ];
+
             };
           }
           

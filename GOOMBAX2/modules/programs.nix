@@ -6,7 +6,7 @@
   # programs.partition-manager.enable = true;
   # programs.kdeconnect.enable = true;
   programs.thunar.enable = true;
-
+  programs.dconf.enable = true;
 
   # User Packages
   users.users.jared.packages = with pkgs; [

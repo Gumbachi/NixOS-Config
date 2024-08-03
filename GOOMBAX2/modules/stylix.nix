@@ -2,12 +2,14 @@
 
 {
   stylix.enable = true;
+  stylix.autoEnable = false;
 
-  stylix.image = ../../images/wallpapers/geometric-sun.jpg;
+  # Doesnt really work with hyprland just use hyprpaper
+  stylix.image = ../../images/wallpapers/nix-gray.png;
 
-  # stylix.polarity = "dark";
+  stylix.polarity = "dark";
 
-  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
   stylix.fonts = {
     serif = {
@@ -29,5 +31,12 @@
       package = pkgs.noto-fonts-emoji;
       name = "Noto Color Emoji";
     };
+  };
+
+  stylix.targets = {
+    plymouth.enable = true;
+    gtk.enable = true;
+    grub.enable = true;
+    console.enable = true;
   };
 }
