@@ -3,10 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     catppuccin.url = "github:catppuccin/nix";
-
     ags.url = "github:Aylur/ags";
+    stylix.url = "github:danth/stylix";
 
     # hyprland = {
     #   type = "git";
@@ -25,7 +24,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ags, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, catppuccin, ags, stylix, ... }@inputs: {
     
     nixosConfigurations = {
       
@@ -65,6 +64,8 @@
         modules = [
           ./GOOMBAX2/configuration.nix
 
+          stylix.nixosModules.stylix
+          
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

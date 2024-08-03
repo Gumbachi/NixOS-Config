@@ -16,6 +16,7 @@
         "idle_inhibitor"
     ],
     "modules-right": [
+        "tray",
         "cpu",
         "memory",
         "temperature",

@@ -16,6 +16,7 @@
     ./modules/programs.nix
     ./modules/services.nix
     ./modules/env.nix
+    ./modules/stylix.nix
 
     # Shared
     ../shared/modules/fonts.nix

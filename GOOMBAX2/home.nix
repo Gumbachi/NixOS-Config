@@ -126,22 +126,6 @@ in
 
   };
 
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
-
-  gtk = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "mauve";
-      size = "standard";
-      tweaks = [ "normal" ];
-    };
-  };
-
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 
