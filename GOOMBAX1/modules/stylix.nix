@@ -38,6 +38,5 @@
     # gtk.enable = true;
     # grub.enable = true;
     console.enable = true;
-    mangohud.enable = true;
   };
 }
