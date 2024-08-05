@@ -4,25 +4,27 @@ let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
 in
 {
-
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
+  stylix.targets.gtk.enable = true;
 
-  gtk = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "mauve";
-      size = "standard";
-      tweaks = [ "normal" ];
-    };
-  };
+
+  # catppuccin = {
+  #   enable = true;
+  #   flavor = "mocha";
+  # };
+
+  # gtk = {
+  #   enable = true;
+  #   catppuccin = {
+  #     enable = true;
+  #     flavor = "mocha";
+  #     accent = "mauve";
+  #     size = "standard";
+  #     tweaks = [ "normal" ];
+  #   };
+  # };
 
   programs.ags = {
     enable = true;

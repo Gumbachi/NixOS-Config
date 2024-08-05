@@ -16,6 +16,7 @@
     ./modules/hyprland.nix
     ./modules/android.nix
     ./modules/programs.nix
+    ./modules/stylix.nix
 
     # Shared 
     ../shared/modules/shells.nix

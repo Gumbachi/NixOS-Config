@@ -26,63 +26,59 @@
 
   outputs = { nixpkgs, home-manager, catppuccin, ags, stylix, ... }@inputs: {
     
-    nixosConfigurations = {
-      
-      ######################################
-      #########      GOOMBAX1      #########
-      ######################################
+    nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
 
-      GOOMBAX1 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./GOOMBAX1/configuration.nix
+        # NixOS Modules
+        ./GOOMBAX1/configuration.nix
           
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hmbak";
-            home-manager.users.jared = {
-              imports = [
-                ./GOOMBAX1/home.nix
-                catppuccin.homeManagerModules.catppuccin
-                ags.homeManagerModules.default
-              ];
-            };
-          }
+        # Home Manager
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "hmbak";
+          };
+
+          home-manager.users.jared.imports = [
+            ./GOOMBAX1/home.nix
+            catppuccin.homeManagerModules.catppuccin
+            ags.homeManagerModules.default
+          ];
+        }
+
+        # Stylix
+        stylix.nixosModules.stylix
           
-        ];
-      };
-
-      ######################################
-      #########     GOOMBAX2       ########
-      ######################################
-
-      GOOMBAX2 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        # specialArgs = { inherit inputs; }; # this is the important part
-        modules = [
-          ./GOOMBAX2/configuration.nix
-
-          stylix.nixosModules.stylix
-          
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hmbak";
-            home-manager.users.jared = {
-
-              imports = [
-                ./GOOMBAX2/home.nix
-              ];
-
-            };
-          }
-          
-        ];
-      };
+      ];
 
     };
+
+    nixosConfigurations.GOOMBAX2 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./GOOMBAX2/configuration.nix
+
+        stylix.nixosModules.stylix
+          
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hmbak";
+          home-manager.users.jared = {
+            imports = [
+              ./GOOMBAX2/home.nix
+            ];
+
+          };
+        }
+          
+      ];
+
+    };
+
   };
 }
