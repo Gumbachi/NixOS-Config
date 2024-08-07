@@ -44,7 +44,8 @@
     initrd.verbose = false;
 
     plymouth.enable = true;
-        
+
+    extraModprobeConfig = '' options bluetooth disable_ertm=1 '';        
   };
  
 }

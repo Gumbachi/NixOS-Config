@@ -9,23 +9,6 @@ in
 
   stylix.targets.gtk.enable = true;
 
-
-  # catppuccin = {
-  #   enable = true;
-  #   flavor = "mocha";
-  # };
-
-  # gtk = {
-  #   enable = true;
-  #   catppuccin = {
-  #     enable = true;
-  #     flavor = "mocha";
-  #     accent = "mauve";
-  #     size = "standard";
-  #     tweaks = [ "normal" ];
-  #   };
-  # };
-
   programs.ags = {
     enable = true;
     configDir = ./.config/ags;
@@ -35,36 +18,6 @@ in
       accountsservice
     ];
   };
-
-  home.packages = with pkgs; [
-    # Command line tools
-    fastfetch
-    tldr
-    kitty
-    unzip
-
-    # Media/Social
-    vlc
-    youtube-music
-    vesktop
-
-    # Browsers
-    firefox
-    floorp
-
-    # Office
-    libreoffice-qt6-fresh
-    hunspell
-    hunspellDicts.en_US
-
-    # Other
-    keymapp
-    inkscape
-    kdePackages.gwenview
-
-    imagemagick
-
-  ];
 
   programs.git = {
     enable = true;

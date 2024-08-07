@@ -1,16 +1,16 @@
 {
 	"window-size": {
 		"width": 1440,
-		"height": 1247
+		"height": 1249
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=lbAkSvrM3l8&list=RDAMPLLM&index=0",
+	"url": "https://music.youtube.com/watch?v=zYXmZoteQ-Y&list=LM&index=0",
 	"options": {
-		"tray": false,
+		"tray": true,
 		"appVisible": true,
 		"autoUpdates": true,
 		"alwaysOnTop": false,
@@ -25,7 +25,7 @@
 		"resumeOnStart": true,
 		"likeButtons": "",
 		"proxy": "",
-		"startingPage": "Home",
+		"startingPage": "Library",
 		"overrideUserAgent": false,
 		"usePodcastParticipantAsArtist": false,
 		"themes": [
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 36
+			"savedVolume": 34
 		},
 		"discord": {
 			"listenAlong": true,
@@ -157,6 +157,32 @@
 			"hideDOMWindowControls": true
 		},
 		"navigation": {
+			"enabled": true
+		},
+		"picture-in-picture": {
+			"enabled": false,
+			"alwaysOnTop": true,
+			"savePosition": true,
+			"saveSize": false,
+			"hotkey": "P",
+			"pip-position": [
+				10,
+				10
+			],
+			"pip-size": [
+				450,
+				275
+			],
+			"isInPiP": false,
+			"useNativePiP": true
+		},
+		"shortcuts": {
+			"enabled": true
+		},
+		"blur-nav-bar": {
+			"enabled": true
+		},
+		"no-google-login": {
 			"enabled": false
 		}
 	},

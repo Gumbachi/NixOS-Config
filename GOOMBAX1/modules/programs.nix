@@ -1,15 +1,12 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   
-  # Options
   # programs.partition-manager.enable = true;
   programs.kdeconnect = {
     enable = true;
     package = pkgs.kdePackages.kdeconnect-kde;
   };
 
-  programs.thunar.enable = true;
+  programs.nix-ld.enable = true;
 
   programs.corectrl = {
     enable = true;
@@ -19,6 +16,38 @@
   users.users.jared.packages = with pkgs; [
     amdgpu_top
     helix
+    devenv
+    vulkan-tools
+    furmark
+    phoronix-test-suite
+
+    # Command line tools
+    fastfetch
+    tldr
+    kitty
+    unzip
+
+    # Media/Social
+    vlc
+    youtube-music
+    vesktop
+
+    # Browsers
+    firefox
+    floorp
+
+    # Office
+    libreoffice-qt6-fresh
+    hunspell
+    hunspellDicts.en_US
+
+    # Other
+    keymapp
+    inkscape
+    kdePackages.gwenview
+
+    imagemagick
+
   ];
 
   # System packages.
@@ -63,10 +92,4 @@
 
   ];
 
-  # Enable media control
-  services.playerctld.enable = true;
-
-  services.fwupd.enable = true;
-
-  
 }
