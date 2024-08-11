@@ -11,7 +11,6 @@ in
 
   programs.ags = {
     enable = true;
-    configDir = ./.config/ags;
     extraPackages = with pkgs; [
       gtksourceview
       webkitgtk
@@ -32,11 +31,8 @@ in
     extensions = with pkgs.vscode-extensions; [
       catppuccin.catppuccin-vsc-icons
       catppuccin.catppuccin-vsc
-      bbenoist.nix
       ms-python.python
       zaaack.markdown-editor
-      tamasfe.even-better-toml
-      vscodevim.vim
     ];
     userSettings = {
       "telemetry.telemetryLevel" = "off";
@@ -55,98 +51,56 @@ in
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
 
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   defaultApplications = {
+  #     "inode/directory" = "yazi.desktop";
+  #   };
+  # };  
+
   home.file = {
 
     # YouTube Music
-    ".config/YouTube Music/config.json" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
-    };
+    ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
 
     # Vesktop
-    ".config/vesktop/settings/settings.json" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
-    };
+    ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
+
+    # AGS
+    ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/ags/"; 
 
     # Starship
-    ".config/starship.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
-    };
+    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
 
     # Btop -- Theme file is tracked with absolute path
-    ".config/btop/btop.conf" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
-    };
-
-    ".config/btop/themes/mocha.theme" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
-    };
+    ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
+    ".config/btop/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
 
     # Mako
-    ".config/mako/config" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
-    };
+    ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
 
     # Fish -- config files have to be individual
-    ".config/fish/themes/mocha.theme" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
-    };
-
-    ".config/fish/config.fish" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
-    };
+    ".config/fish/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
+    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
 
     # Yazi -- config files have to be individual
-    ".config/yazi/theme.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
-    };
-
-    ".config/yazi/yazi.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
-    };
+    ".config/yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
+    ".config/yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
 
     # Helix
-    ".config/helix/config.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
-    };
+    ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
 
     # Kitty
-    ".config/kitty/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
-      recursive = true;
-    };
+    ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
 
     # Waybar
-    ".config/waybar/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
-      recursive = true;
-    };
+    ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
 
     # Hyprland, Hypridle, Hyprpaper, Hyprlock
-    ".config/hypr/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
-      recursive = true;
-    };
+    ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
 
     # Rofi
-    ".config/rofi/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
-      recursive = true;
-    };
+    ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
 
     # Kvantum
     ".config/Kvantum/" = {
@@ -168,7 +122,7 @@ in
     yazi = {
       name = "Yazi";
       genericName = "File Explorer";
-      exec = "yazi";
+      exec = "kitty";
       terminal = true;
       mimeType = [ "inode/directory" ];
       icon = "file-system-manager";

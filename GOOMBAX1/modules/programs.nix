@@ -10,7 +10,7 @@
 
   programs.corectrl = {
     enable = true;
-    gpuOverclock.enable = true;
+    gpuOverclock.enable = false;
   };
 
   users.users.jared.packages = with pkgs; [
@@ -19,7 +19,6 @@
     devenv
     vulkan-tools
     furmark
-    phoronix-test-suite
 
     # Command line tools
     fastfetch
@@ -47,6 +46,17 @@
     kdePackages.gwenview
 
     imagemagick
+
+    # Lanuage Servers
+    typescript-language-server # TS/JS
+    vscode-langservers-extracted # CSS/JSON/HTML
+    marksman # Markdown
+    nil # Nix
+    dockerfile-language-server-nodejs # Dockerfile
+    python312Packages.python-lsp-ruff # Python
+    python312Packages.python-lsp-server
+    rust-analyzer # Rust
+    taplo # TOML
 
   ];
 
@@ -86,6 +96,7 @@
     # Terminal
     starship
     yazi
+    nix-search-cli
 
     radeontop
     lxqt.lxqt-policykit

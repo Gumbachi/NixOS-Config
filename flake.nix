@@ -7,11 +7,11 @@
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
 
-    # hyprland = {
-    #   type = "git";
-    #   url = "https://github.com/hyprwm/Hyprland";
-    #   submodules = true;
-    # };
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
 
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";
@@ -28,6 +28,7 @@
     
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
 
         # NixOS Modules
@@ -44,7 +45,6 @@
 
           home-manager.users.jared.imports = [
             ./GOOMBAX1/home.nix
-            catppuccin.homeManagerModules.catppuccin
             ags.homeManagerModules.default
           ];
         }

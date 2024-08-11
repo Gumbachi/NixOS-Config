@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ inputs, pkgs, ... }: {
 
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
@@ -9,6 +7,7 @@
 
   programs.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
   security.pam.services.hyprlock = {};
@@ -21,6 +20,6 @@
 
   # Needed to make system file picker work
   # do not touch
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
 }
