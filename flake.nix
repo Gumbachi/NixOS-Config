@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    catppuccin.url = "github:catppuccin/nix";
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
 
@@ -24,7 +23,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ags, stylix, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, ags, stylix, ... }@inputs: {
     
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -59,23 +58,28 @@
     nixosConfigurations.GOOMBAX2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        # NixOS Config
         ./GOOMBAX2/configuration.nix
 
-        stylix.nixosModules.stylix
-          
         home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hmbak";
-          home-manager.users.jared = {
-            imports = [
-              ./GOOMBAX2/home.nix
-            ];
 
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "hmbak";
           };
+
+          home-manager.users.jared.imports = [
+            ./GOOMBAX2/home.nix
+            ags.homeManagerModules.default
+          ];
+
         }
           
+        # Stylix
+        stylix.nixosModules.stylix
+
       ];
 
     };

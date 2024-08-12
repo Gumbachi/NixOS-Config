@@ -8,37 +8,21 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  stylix.targets = {
-    hyprpaper.enable = false;
-    # gtk.enable = true; 
-    mangohud.enable = true;
+  stylix.targets.gtk.enable = true;
+  
+  programs.ags = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
   };
 
-  
   programs.git = {
     enable = true;
     userName = "Gumbachi";
     userEmail = "jaredremsberg@gmail.com";
-  };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc-icons
-      catppuccin.catppuccin-vsc
-      bbenoist.nix
-      ms-python.python
-      zaaack.markdown-editor
-    ];
-    userSettings = {
-      "telemetry.telemetryLevel" = "off";
-      "workbench.iconTheme" = "catppuccin-mocha";
-      "explorer.confirmDelete" = false;
-      "workbench.startupEditor" = "none";
-      "update.showReleaseNotes" = false;
-      "explorer.confirmDragAndDrop" = false;
-      "window.menuBarVisibility" = "toggle";
-    };
   };
 
   programs.zoxide = {
@@ -54,79 +38,40 @@ in
   home.file = {
 
     # YouTube Music
-    ".config/YouTube Music/config.json" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
-    };
+    ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
 
     # Vesktop
-    ".config/vesktop/settings/settings.json" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
-    };
+    ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
 
-    ".config/mako/config" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
-    };
+    ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
 
     # Fish config files have to be individual to prevent populating the github repo
-    ".config/fish/themes/mocha.theme" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
-    };
-
-    ".config/fish/config.fish" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
-    };
+    ".config/fish/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
+    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
 
     # Starship
-    ".config/starship.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
-    };
+    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
 
     # Yazi -- config files have to be individual
-    ".config/yazi/theme.toml" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
-    };
+    ".config/yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
 
-    ".config/kitty/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
-      recursive = true;
-    };
+    # Kitty
+    ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
 
-    ".config/waybar/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
-      recursive = true;
-    };
+    # Waybar
+    ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
 
-    ".config/hypr/" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
-      recursive = true;
-    };
+    # Hyprland, Hypridle, Hyprpaper, Hyprlock
+    ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
 
-    ".config/rofi/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
-      recursive = true;
-    };
+    # Rofi
+    ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
 
-    ".config/btop/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
-      recursive = true;
-    };
+    # Btop
+    ".config/btop/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/";
 
     # Helix
-    ".config/helix/config.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
-    };
+    ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
 
   };
 
