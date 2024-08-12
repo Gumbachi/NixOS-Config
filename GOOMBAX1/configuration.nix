@@ -16,6 +16,8 @@
     ./modules/hyprland.nix
     ./modules/android.nix
     ./modules/programs.nix
+    ./modules/stylix.nix
+    ./modules/services.nix
 
     # Shared 
     ../shared/modules/shells.nix
@@ -62,6 +64,9 @@
     "nix-command"
     "flakes"
   ];
+
+  # Needed for devenv shells
+  nix.extraOptions = '' trusted-users = root jared '';
 
   # Allow unfree packages
   nixpkgs.config = {

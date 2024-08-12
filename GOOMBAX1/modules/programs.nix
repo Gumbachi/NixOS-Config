@@ -1,24 +1,63 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   
-  # Options
   # programs.partition-manager.enable = true;
   programs.kdeconnect = {
     enable = true;
     package = pkgs.kdePackages.kdeconnect-kde;
   };
 
-  programs.thunar.enable = true;
+  programs.nix-ld.enable = true;
 
   programs.corectrl = {
     enable = true;
-    gpuOverclock.enable = true;
+    gpuOverclock.enable = false;
   };
 
   users.users.jared.packages = with pkgs; [
     amdgpu_top
     helix
+    devenv
+    vulkan-tools
+    furmark
+
+    # Command line tools
+    fastfetch
+    tldr
+    kitty
+    unzip
+
+    # Media/Social
+    vlc
+    youtube-music
+    vesktop
+
+    # Browsers
+    firefox
+    floorp
+
+    # Office
+    libreoffice-qt6-fresh
+    hunspell
+    hunspellDicts.en_US
+
+    # Other
+    keymapp
+    inkscape
+    kdePackages.gwenview
+
+    imagemagick
+
+    # Lanuage Servers
+    typescript-language-server # TS/JS
+    vscode-langservers-extracted # CSS/JSON/HTML
+    marksman # Markdown
+    nil # Nix
+    dockerfile-language-server-nodejs # Dockerfile
+    python312Packages.python-lsp-ruff # Python
+    python312Packages.python-lsp-server
+    rust-analyzer # Rust
+    taplo # TOML
+
   ];
 
   # System packages.
@@ -57,16 +96,11 @@
     # Terminal
     starship
     yazi
+    nix-search-cli
 
     radeontop
     lxqt.lxqt-policykit
 
   ];
 
-  # Enable media control
-  services.playerctld.enable = true;
-
-  services.fwupd.enable = true;
-
-  
 }

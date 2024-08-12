@@ -1,14 +1,14 @@
 {
 	"window-size": {
-		"width": 2560,
-		"height": 1440
+		"width": 1440,
+		"height": 1249
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=ANkxRGvl1VY&list=PL0waocdhUwjQrF88g_mRKPfU7uT23v6Qm&index=0",
+	"url": "https://music.youtube.com/watch?v=nn2t_MjN9a4&list=OLAK5uy_nBhsMIEQYG_KxW-W1vp_fzzHpE-B207e0&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -25,7 +25,7 @@
 		"resumeOnStart": true,
 		"likeButtons": "",
 		"proxy": "",
-		"startingPage": "Home",
+		"startingPage": "Library",
 		"overrideUserAgent": false,
 		"usePodcastParticipantAsArtist": false,
 		"themes": [
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 50
+			"savedVolume": 30
 		},
 		"discord": {
 			"listenAlong": true,
@@ -157,6 +157,32 @@
 			"hideDOMWindowControls": true
 		},
 		"navigation": {
+			"enabled": true
+		},
+		"picture-in-picture": {
+			"enabled": false,
+			"alwaysOnTop": true,
+			"savePosition": true,
+			"saveSize": false,
+			"hotkey": "P",
+			"pip-position": [
+				10,
+				10
+			],
+			"pip-size": [
+				450,
+				275
+			],
+			"isInPiP": false,
+			"useNativePiP": true
+		},
+		"shortcuts": {
+			"enabled": true
+		},
+		"blur-nav-bar": {
+			"enabled": true
+		},
+		"no-google-login": {
 			"enabled": false
 		}
 	},

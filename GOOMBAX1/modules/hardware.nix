@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -21,6 +21,12 @@
     keyboard.zsa.enable = true;
 
     logitech.wireless.enable = true;
+
+    
+    bluetooth = {
+      enable = true; # enables support for Bluetooth
+      powerOnBoot = true; # powers up the default Bluetooth controller on boot
+    };
 
   };
   
