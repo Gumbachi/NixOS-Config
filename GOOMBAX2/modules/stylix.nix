@@ -34,9 +34,6 @@
   };
 
   stylix.targets = {
-    plymouth.enable = true;
-    # gtk.enable = true;
-    # grub.enable = true;
     console.enable = true;
   };
 

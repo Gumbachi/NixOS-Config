@@ -25,6 +25,7 @@
     tldr
     kitty
     unzip
+    speedtest-cli
 
     # Media/Social
     vlc

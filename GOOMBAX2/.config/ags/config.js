@@ -1,81 +1,74 @@
+import { PowerMenu } from "./powermenu.js"
+import { Media } from "./mediaplayer.js"
+import { VolumeMenu } from "./controls.js"
+import { Time } from "./time.js" 
+import { Cpu, Memory } from "./system.js"
+import { Network } from "./network.js" 
+import { Workspaces } from "./workspaces.js" 
 
-console.log(App.configDir)
-
-const DASHBOARD_NAME = 'dashboard'
-
-const timeBox = Widget.Box({
-  class_name: "time",
-  spacing: 8,
-  vertical: true,
-  children: [
-    Widget.Label({
-      label: Utils.exec('date +%R'),
-      css: 'font-size: 36px; font-weight: bold'
-    }),
-    Widget.Label({
-      label: Utils.exec('date +"%A, %B %d %Y"'),
-      css: 'font-size: 24px;'
-    })
-  ],
-})
-
-const shutdownButton = Widget.Button({
-  child: Widget.Icon({
-    icon: 'system-shutdown',
-    size: 64
-  }),
-  onClicked: () => Utils.exec('systemctl poweroff')
-})
-
-const rebootButton = Widget.Button({
-  child: Widget.Icon({
-    icon: 'system-reboot',
-    size: 64 
-  }),
-  onClicked: () => Utils.exec('reboot')
-})
-
-
-const lockButton = Widget.Button({
-  child: Widget.Icon({
-    icon: 'system-lock-screen',
-    size: 64
-  }),
-  onClicked: () => Utils.exec('hyprlock')
-})
+// console.log(App.configDir)
 
 const dashboardBox = Widget.Box({
-  spacing: 8,
-  homogeneous: true,
-  vertical: false,
-  children: [
-    timeBox,
-    lockButton,
-    rebootButton,
-    shutdownButton
-  ]
+    spacing: 8,
+    class_name: "dashboard",
+    homogeneous: false,
+    vertical: true,
+    children: [
+        Widget.Box({
+            spacing: 8,
+            children: [
+                Network(),
+                Cpu(),
+                Memory(),
+                Workspaces()
+            ]
+        }),
+        Widget.Box({
+            spacing: 8,
+            children: [
+                Media(),
+                VolumeMenu()
+            ]
+        }),
+        Widget.Box({
+            spacing: 8,
+            hexpand: true,
+            children: [
+                Time(),
+                PowerMenu(),
+            ]
+        })
+    ]
 })
 
 const dashboardWindow = Widget.Window({
-  name: 'dashboard',
-  setup: self => self.keybind("Escape", () => {
-    App.closeWindow('dashboard')
-  }),
-  child: dashboardBox,
+    name: 'dashboard',
+    keymode: 'on-demand',
+    layer: 'overlay',
+    setup: self => {
+        self.keybind("Escape", () => { App.closeWindow('dashboard')})
+    },
+    child: dashboardBox,
 })
+
+// const testWindow = Widget.Window({
+//     name: "debugWindow",
+//     vexpand: true,
+//     hexpand: true,
+//     layer: "overlay",
+//     css: "background-color: red;",
+//     child: Widget.Label({
+//         wrap: true,
+//         css: "min-width: 1500px;",
+//         label: "howdy",
+//     })
+// })
 
 App.config({
-  style: './style.css',
-  windows: [dashboardWindow] 
+    style: './style.css',
+    windows: [
+        dashboardWindow
+    ] 
 })
 
 
-Utils.monitorFile(
-  `./style.css`,
-
-  function() {
-    const css = `./style.css`
-    App.resetCss()
-    App.applyCss(css)
-  },
-)

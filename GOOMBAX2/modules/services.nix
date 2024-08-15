@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   
@@ -12,5 +12,7 @@
   services.blueman.enable = true;
 
   services.playerctld.enable = true;
+
+  services.gvfs.enable = true;
 
 }

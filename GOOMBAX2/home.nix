@@ -43,6 +43,7 @@ in
     # Vesktop
     ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
 
+    # Mako
     ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
 
     # Fish config files have to be individual to prevent populating the github repo
@@ -73,6 +74,8 @@ in
     # Helix
     ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
 
+    # AGS
+    ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/ags/"; 
   };
 
   home.stateVersion = "23.11";

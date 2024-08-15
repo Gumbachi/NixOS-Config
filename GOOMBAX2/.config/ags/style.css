@@ -26,13 +26,34 @@
 @define-color crust #11111b;
 
 
-.time {
-  padding: 50px;
+window {
+  background-color: transparent;
+}
+
+.dashboard {
+  /* Overlay0 */
+  background-color: rgba(108, 112, 134, 0.6);
+  padding: 100px;
+  /* border-style: solid; */
+  border-radius: 10px;
+  /* border-width: 4px; */
+
+  /* surface0 */
+  /* border-color: rgba(49, 50, 68, 0.4); */
+}
+
+.time,
+.media,
+.memory,
+.volume,
+.network,
+.cpu {
   background-color: @base;
   border-width: 4px;
   border-style: solid;
   border-radius: 10px;
-  border-color: @mauve;
+  border-color: @surface0;
+  padding: 10px;
 }
 
 button {
@@ -40,5 +61,71 @@ button {
   border-width: 4px;
   border-style: solid;
   border-radius: 10px;
+  border-color: @surface0;
+}
+
+button:hover {
   border-color: @mauve;
+}
+
+.volume button {
+  min-height: 1.2em;
+  min-width: 1.2em;
+  padding: .3em;
+  border-width: 2px;
+  border-radius: 10px;
+}
+
+.player {
+  padding: 10px;
+  min-width: 350px;
+  background-color: @base
+}
+
+.player .img {
+  min-width: 100px;
+  min-height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 13px;
+  margin-right: 1em;
+}
+
+.player .title {
+  font-size: 1.1em;
+  color: @text
+}
+
+.player .artist {
+  font-size: 1.0em;
+  color: @subtext0;
+}
+
+.player scale.position {
+  padding: 0;
+  margin-bottom: .3em;
+}
+
+.player scale.position trough {
+  min-height: 8px;
+}
+
+.player scale.position highlight {
+  background-color: @blue;
+}
+
+.player scale.position slider {
+  all: unset;
+}
+
+.player button {
+  min-height: 1em;
+  min-width: 1em;
+  padding: .3em;
+  border-width: 2px;
+  border-radius: 100%;
+}
+
+.player button.play-pause {
+  margin: 0 .3em;
 }
