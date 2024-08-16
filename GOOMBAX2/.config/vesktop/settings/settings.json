@@ -604,9 +604,6 @@
         "Summaries": {
             "enabled": false
         },
-        "WatchTogetherAdblock": {
-            "enabled": true
-        },
         "UserSettingsAPI": {
             "enabled": true
         },
@@ -618,6 +615,9 @@
         },
         "MentionAvatars": {
             "enabled": false
+        },
+        "YoutubeAdblock": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -630,6 +630,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1722229039529
+        "settingsSyncVersion": 1723528197499
     }
 }

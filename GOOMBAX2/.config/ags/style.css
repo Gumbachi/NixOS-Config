@@ -1,0 +1,131 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+
+window {
+  background-color: transparent;
+}
+
+.dashboard {
+  /* Overlay0 */
+  background-color: rgba(108, 112, 134, 0.6);
+  padding: 100px;
+  /* border-style: solid; */
+  border-radius: 10px;
+  /* border-width: 4px; */
+
+  /* surface0 */
+  /* border-color: rgba(49, 50, 68, 0.4); */
+}
+
+.time,
+.media,
+.memory,
+.volume,
+.network,
+.cpu {
+  background-color: @base;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: @surface0;
+  padding: 10px;
+}
+
+button {
+  background-color: @base;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: @surface0;
+}
+
+button:hover {
+  border-color: @mauve;
+}
+
+.volume button {
+  min-height: 1.2em;
+  min-width: 1.2em;
+  padding: .3em;
+  border-width: 2px;
+  border-radius: 10px;
+}
+
+.player {
+  padding: 10px;
+  min-width: 350px;
+  background-color: @base
+}
+
+.player .img {
+  min-width: 100px;
+  min-height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 13px;
+  margin-right: 1em;
+}
+
+.player .title {
+  font-size: 1.1em;
+  color: @text
+}
+
+.player .artist {
+  font-size: 1.0em;
+  color: @subtext0;
+}
+
+.player scale.position {
+  padding: 0;
+  margin-bottom: .3em;
+}
+
+.player scale.position trough {
+  min-height: 8px;
+}
+
+.player scale.position highlight {
+  background-color: @blue;
+}
+
+.player scale.position slider {
+  all: unset;
+}
+
+.player button {
+  min-height: 1em;
+  min-width: 1em;
+  padding: .3em;
+  border-width: 2px;
+  border-radius: 100%;
+}
+
+.player button.play-pause {
+  margin: 0 .3em;
+}

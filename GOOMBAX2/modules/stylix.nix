@@ -34,9 +34,12 @@
   };
 
   stylix.targets = {
-    plymouth.enable = true;
-    gtk.enable = true;
-    grub.enable = true;
     console.enable = true;
+  };
+
+  
+  stylix.cursor = {
+    package = pkgs.catppuccin-cursors.mochaPeach;
+    name = "catppuccin-mocha-peach-cursors";
   };
 }
