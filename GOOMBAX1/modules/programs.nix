@@ -10,7 +10,7 @@
 
   programs.corectrl = {
     enable = true;
-    gpuOverclock.enable = false;
+    gpuOverclock.enable = true;
   };
 
   users.users.jared.packages = with pkgs; [
