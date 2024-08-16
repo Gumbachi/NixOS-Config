@@ -2,6 +2,7 @@ const network = await Service.import('network')
 
 const ICON_SIZE = 24
 const ICON_TEXT_SPACING = 16
+const WIRED_DEVICE_NAME = Utils.exec(`bash -c "echo $ETHERNET_DEVICE_NAME"`)
 
 const networkData = Widget.Label({
     label: network.connectivity
@@ -28,6 +29,54 @@ const networkStrength = Widget.Label({
     css: "font-size: 18px; font-weight: bold;",
     justification: "center",
     label: network.wifi.bind("strength").as(String)
+})
+
+const NetworkIndicator = () => Widget.Stack({
+    shown: network.bind("primary").as(p => p),
+    hpack: "center",
+    children: {
+        "wired": Widget.Box({
+            spacing: 8,
+            children: [
+                // Ethernet Icon
+                Widget.Icon({
+                    icon: "network-wired-symbolic",
+                    size: 24
+                }),
+
+                // Internal IP
+                Widget.Label({
+                    css: "font-size: 18px; font-weight: bold;",
+                    label: Utils.exec(`bash -c "ifconfig ${WIRED_DEVICE_NAME} | awk '/inet / {print $2}'"`)
+                })
+            ]
+        }),
+        "wifi": Widget.Box({
+            vertical: true,
+            spacing: 8,
+            children: [
+                // Network Name
+                Widget.Label({
+                    label: network.wifi.bind("ssid"),
+                    justification: "center",
+                    css: "font-size: 14px;"
+                }),
+
+                // Strength
+                Widget.Box({
+                    spacing: ICON_TEXT_SPACING,
+                    hpack: "center",
+                    children: [
+                        Widget.Icon({
+                            icon: "network-wireless-symbolic",
+                            size: ICON_SIZE
+                        }),
+                        networkStrength
+                    ]
+                }),
+            ]    
+        })
+    }
 })
 
 const upSpeed = Variable("0")
@@ -100,25 +149,7 @@ export const Network = () => Widget.Box({
             css: "font-weight: bold; font-size: 22px;"
         }),
 
-        // Network Name
-        Widget.Label({
-            label: network.wifi.bind("ssid"),
-            justification: "center",
-            css: "font-size: 14px;"
-        }),
-
-        // Strength
-        Widget.Box({
-            spacing: ICON_TEXT_SPACING,
-            hpack: "center",
-            children: [
-                Widget.Icon({
-                    icon: "network-wireless-symbolic",
-                    size: ICON_SIZE
-                }),
-                networkStrength
-            ]
-        }),
+        NetworkIndicator(),
 
         // Speed Test
         Widget.Box({

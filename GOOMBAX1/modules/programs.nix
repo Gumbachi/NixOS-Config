@@ -77,7 +77,6 @@
     hyprpaper
     hypridle # the option does not work
     hyprlock
-    wlogout
 
     imv # Image Viewer
     pavucontrol # Sound Settings

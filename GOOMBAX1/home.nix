@@ -2,6 +2,7 @@
 
 let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
+  nixosConfig = "/home/jared/NixOS-Config";
 in
 {
   home.username = "jared";
@@ -24,39 +25,15 @@ in
     userEmail = "jaredremsberg@gmail.com";
   };
 
-  programs.neovim.enable = true;
-
-  programs.vscode = {
+  programs.zoxide = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc-icons
-      catppuccin.catppuccin-vsc
-      ms-python.python
-      zaaack.markdown-editor
-    ];
-    userSettings = {
-      "telemetry.telemetryLevel" = "off";
-      "workbench.iconTheme" = "catppuccin-mocha";
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'BlexMono Nerd Font', 'JetBrainsMono NF', 'Consolas'";
-      "editor.fontWeight" = "600";
-      "explorer.confirmDelete" = false;
-      "workbench.startupEditor" = "none";
-      "update.showReleaseNotes" = false;
-      "explorer.confirmDragAndDrop" = false;
-      "window.menuBarVisibility" = "toggle";
-    };
+    enableFishIntegration = true;
   };
 
-  programs.zoxide.enable = true;
-  programs.fzf.enable = true;
-
-  # xdg.mimeApps = {
-  #   enable = true;
-  #   defaultApplications = {
-  #     "inode/directory" = "yazi.desktop";
-  #   };
-  # };  
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   home.file = {
 
@@ -67,7 +44,7 @@ in
     ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
 
     # AGS
-    ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/ags/"; 
+    ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/"; 
 
     # Starship
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
@@ -103,18 +80,7 @@ in
     ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
 
     # Kvantum
-    ".config/Kvantum/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
-      recursive = true;
-    };
-
-    # Wlogout
-    ".config/wlogout/" = {
-      enable = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/wlogout/";
-      recursive = true;
-    };
+    ".config/Kvantum/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
 
   };
 

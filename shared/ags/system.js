@@ -3,7 +3,7 @@ const battery = await Service.import('battery')
 
 // Thermal Zone for CPU temp
 // Found how to get here https://phoenixnap.com/kb/linux-cpu-temp
-const THERMAL_ZONE = 10
+const CPU_TEMP_FILE = Utils.exec(`bash -c "echo $CPU_TEMP_FILE"`)
 const ICON_SIZE = 24
 const ICON_TEXT_SPACING = 16
 
@@ -21,7 +21,7 @@ const cpuUsage = Widget.Label({
 const cpuTemp = Widget.Label({
     css: "font-size: 18px; font-weight: bold;"
 }).poll(2000, self => {
-    Utils.execAsync(`cat /sys/class/thermal/thermal_zone${THERMAL_ZONE}/temp`)
+    Utils.execAsync(`cat ${CPU_TEMP_FILE}`)
         .then(out => self.label = out.slice(0, -3) + "°C")
         .catch(err => print(err))
 })
