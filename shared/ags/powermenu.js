@@ -1,12 +1,12 @@
+import { Constants } from "./constants.js"
 
-const ICON_SIZE = 48;
 const IDLE_INHIBIT_ACTIVE = 'xapp-prefs-display-symbolic'
 const IDLE_INHIBIT_INACTIVE = 'image-red-eye-symbolic'
 
 const shutdownButton = Widget.Button({
     child: Widget.Icon({
         icon: 'system-shutdown-symbolic',
-        size: ICON_SIZE
+        size: Constants.LARGE_ICON_SIZE
     }),
     onClicked: () => Utils.exec('systemctl poweroff')
 })
@@ -14,7 +14,7 @@ const shutdownButton = Widget.Button({
 const rebootButton = Widget.Button({
     child: Widget.Icon({
         icon: 'system-reboot-symbolic',
-        size: ICON_SIZE 
+        size: Constants.LARGE_ICON_SIZE
     }),
     onClicked: () => Utils.exec('reboot')
 })
@@ -23,7 +23,7 @@ const rebootButton = Widget.Button({
 const lockButton = Widget.Button({
     child: Widget.Icon({
         icon: 'system-lock-screen-symbolic',
-        size: ICON_SIZE
+        size: Constants.LARGE_ICON_SIZE
     }),
     onClicked: () => Utils.exec('hyprlock')
 })
@@ -34,7 +34,7 @@ const idleIcon = Variable(idleInitialState)
 const idleInhibitor = Widget.Button({
     child: Widget.Icon({
         icon: idleIcon.bind(),
-        size: ICON_SIZE
+        size: Constants.LARGE_ICON_SIZE
     }),
         onClicked: () => {
         const idleRunning = Utils.exec('pidof hypridle')

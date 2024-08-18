@@ -87,9 +87,9 @@ const micSlider = Widget.Box({
 
 
 const label = Widget.Label({
+    class_name: "title",
     label: "Volume Controls",
     justification: "center",
-    css: "font-weight: bold; font-size: 24px;"
 })
 
 export function VolumeMenu() {

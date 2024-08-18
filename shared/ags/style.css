@@ -47,6 +47,7 @@ window {
 .memory,
 .volume,
 .network,
+.workspaces,
 .cpu {
   background-color: @base;
   border-width: 4px;
@@ -54,6 +55,11 @@ window {
   border-radius: 10px;
   border-color: @surface0;
   padding: 10px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
 }
 
 button {

@@ -1,3 +1,5 @@
+import { Constants } from "./constants.js";
+
 const hyprland = await Service.import('hyprland')
 
 const focusedTitle = Widget.Label({
@@ -8,9 +10,9 @@ const focusedTitle = Widget.Label({
 
 const dispatch = ws => hyprland.messageAsync(`dispatch workspace ${ws}`);
 
-export const Workspaces = () => Widget.EventBox({
-    onScrollUp: () => dispatch('+1'),
-    onScrollDown: () => dispatch('-1'),
+const WorkspacesButtons = () => Widget.EventBox({
+    // onScrollUp: () => dispatch('+1'),
+    // onScrollDown: () => dispatch('-1'),
     child: Widget.Box({
         children: Array.from({ length: 10 }, (_, i) => i + 1).map(i => Widget.Button({
             attribute: i,
@@ -23,4 +25,21 @@ export const Workspaces = () => Widget.EventBox({
             btn.visible = hyprland.workspaces.some(ws => ws.id === btn.attribute);
         })),
     }),
+})
+
+const WorkspacesTitle = () => Widget.Label({
+    class_name: "title",
+    label: "Workspaces",
+    hpack: "center",
+    justification: "center",
+})
+
+export const Workspaces = () => Widget.Box({
+    class_name: "workspaces",
+    spacing: Constants.MAIN_BOX_SPACING,
+    vertical: true,
+    children: [
+        WorkspacesTitle(),
+        WorkspacesButtons()
+    ]
 })

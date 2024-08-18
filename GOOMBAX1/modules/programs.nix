@@ -13,6 +13,11 @@
     gpuOverclock.enable = true;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   users.users.jared.packages = with pkgs; [
     amdgpu_top
     helix

@@ -1,7 +1,7 @@
+import { Constants } from "./constants.js"
+
 const network = await Service.import('network')
 
-const ICON_SIZE = 24
-const ICON_TEXT_SPACING = 16
 const WIRED_DEVICE_NAME = Utils.exec(`bash -c "echo $ETHERNET_DEVICE_NAME"`)
 
 const networkData = Widget.Label({
@@ -36,12 +36,12 @@ const NetworkIndicator = () => Widget.Stack({
     hpack: "center",
     children: {
         "wired": Widget.Box({
-            spacing: 8,
+            spacing: Constants.ICON_LABEL_SPACING,
             children: [
                 // Ethernet Icon
                 Widget.Icon({
                     icon: "network-wired-symbolic",
-                    size: 24
+                    size: Constants.SMALL_ICON_SIZE
                 }),
 
                 // Internal IP
@@ -64,12 +64,12 @@ const NetworkIndicator = () => Widget.Stack({
 
                 // Strength
                 Widget.Box({
-                    spacing: ICON_TEXT_SPACING,
+                    spacing: Constants.ICON_LABEL_SPACING,
                     hpack: "center",
                     children: [
                         Widget.Icon({
                             icon: "network-wireless-symbolic",
-                            size: ICON_SIZE
+                            size: Constants.SMALL_ICON_SIZE
                         }),
                         networkStrength
                     ]
@@ -84,7 +84,7 @@ const downSpeed = Variable("0")
 const isLoading = Variable("notloading")
 
 const downloadSpeed = Widget.Box({
-    spacing: 8,
+    spacing: Constants.ICON_LABEL_SPACING,
     children: [
         Widget.Icon({
             icon: "go-down-symbolic"
@@ -97,7 +97,7 @@ const downloadSpeed = Widget.Box({
 })
 
 const uploadSpeed = Widget.Box({
-    spacing: 8,
+    spacing: Constants.ICON_LABEL_SPACING,
     children: [
         Widget.Label({
             label: upSpeed.bind(),
@@ -139,14 +139,13 @@ const speedTest = Widget.Stack({
 
 export const Network = () => Widget.Box({
     class_name: "network",
-    spacing: 8,
     vertical: true,
     children: [
         // Title
         Widget.Label({
+            class_name: "title",
             label: "Network",
             justification: "center",
-            css: "font-weight: bold; font-size: 22px;"
         }),
 
         NetworkIndicator(),

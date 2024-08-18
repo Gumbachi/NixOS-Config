@@ -1,11 +1,11 @@
+import { Constants } from "./constants.js"
+
 const network = await Service.import('network')
 const battery = await Service.import('battery')
 
 // Thermal Zone for CPU temp
 // Found how to get here https://phoenixnap.com/kb/linux-cpu-temp
 const CPU_TEMP_FILE = Utils.exec(`bash -c "echo $CPU_TEMP_FILE"`)
-const ICON_SIZE = 24
-const ICON_TEXT_SPACING = 16
 
 const cpuUsage = Widget.Label({
     label: "69%",
@@ -38,25 +38,25 @@ const memoryUsage = Widget.Label({
 export const Cpu = () => Widget.Box({
     class_name: "cpu",
     vertical: true,
-    spacing: 16,
+    spacing: Constants.MAIN_BOX_SPACING,
     hpack: "center",
     css: "min-width: 120px;",
     children: [
         // Title
         Widget.Label({
+            class_name: "title",
             label: "CPU",
             justification: "center",
-            css: "font-weight: bold; font-size: 22px;"
         }),
 
         // Usage
         Widget.Box({
-            spacing: ICON_TEXT_SPACING,
+            spacing: Constants.ICON_LABEL_SPACING,
             hpack: "center",
             children: [
                 Widget.Icon({ 
                     icon: "cpu-symbolic",
-                    size: ICON_SIZE
+                    size: Constants.SMALL_ICON_SIZE
                 }),
                 cpuUsage
             ]
@@ -64,12 +64,12 @@ export const Cpu = () => Widget.Box({
 
         // Temperature
         Widget.Box({
-            spacing: ICON_TEXT_SPACING,
+            spacing: Constants.ICON_LABEL_SPACING,
             hpack: "center",
             children: [
                 Widget.Icon({
                     icon: "sensors-temperature-symbolic",
-                    size: ICON_SIZE
+                    size: Constants.SMALL_ICON_SIZE
                 }),
                 cpuTemp
             ]
@@ -79,28 +79,28 @@ export const Cpu = () => Widget.Box({
 })
 
 export const Memory = () => Widget.Box({
-    spacing: 16,
+    spacing: Constants.MAIN_BOX_SPACING,
     class_name: "memory",
     vertical: true,
     css: "min-width: 120px;",
     children: [
         // Title
         Widget.Label({
+            class_name: "title",
             label: "Memory",
             justification: "left",
-            css: "font-weight: bold; font-size: 22px;"
         }),
         
         // Usage
         Widget.Box({
-            spacing: ICON_TEXT_SPACING,
+            spacing: Constants.ICON_LABEL_SPACING,
             hpack: "center",
             vpack: "start",
             // vexpand: true
             children: [
                 Widget.Icon({
                     icon: "memory-symbolic",
-                    size: ICON_SIZE
+                    size: Constants.SMALL_ICON_SIZE
                 }),
                 memoryUsage
             ]
