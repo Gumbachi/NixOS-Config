@@ -159,6 +159,7 @@ export function Media() {
         children: players.as(players => {
             return players
                 .filter(player => player.name != "playerctld")
+                .filter(player => !player.name.startsWith("kdeconnect"))
                 .map(Player)
         }),
     }) 

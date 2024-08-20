@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -6,7 +6,9 @@
   programs.adb.enable = true;
   users.users.jared = {
     extraGroups = [ "adbusers" "kvm" ];
-    packages = with pkgs; [ androidStudioPackages.canary ];
+    packages = with pkgs; [ 
+      androidStudioPackages.canary
+    ];
   };
 
 }

@@ -16,6 +16,7 @@
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;
+    silent = true;
   };
 
   users.users.jared.packages = with pkgs; [
@@ -53,9 +54,12 @@
 
     imagemagick
 
+    # Blue light filter
+    wlsunset
+
     # Lanuage Servers
     typescript-language-server # TS/JS
-    vscode-langservers-extracted # CSS/JSON/HTML
+    # vscode-langservers-extracted # CSS/JSON/HTML
     marksman # Markdown
     nil # Nix
     dockerfile-language-server-nodejs # Dockerfile

@@ -5,6 +5,7 @@ import { Time } from "./time.js"
 import { Cpu, Memory } from "./system.js"
 import { Network } from "./network.js" 
 import { Workspaces } from "./workspaces.js" 
+import { NightLightMenu, NightLightButton } from "./nightlight.js"
 
 // console.log(App.configDir)
 
@@ -35,6 +36,7 @@ const dashboardBox = Widget.Box({
             hexpand: true,
             children: [
                 Time(),
+                NightLightButton(),
                 PowerMenu(),
             ]
         })

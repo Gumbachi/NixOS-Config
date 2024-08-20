@@ -88,7 +88,7 @@ in
     yazi = {
       name = "Yazi";
       genericName = "File Explorer";
-      exec = "kitty";
+      exec = "kitty yazi";
       terminal = true;
       mimeType = [ "inode/directory" ];
       icon = "file-system-manager";
