@@ -18,17 +18,17 @@ const dashboardBox = Widget.Box({
         Widget.Box({
             spacing: 8,
             children: [
+                VolumeMenu(),
                 Network(),
                 Cpu(),
                 Memory(),
-                Workspaces()
             ]
         }),
         Widget.Box({
             spacing: 8,
             children: [
                 Media(),
-                VolumeMenu()
+                Workspaces()
             ]
         }),
         Widget.Box({

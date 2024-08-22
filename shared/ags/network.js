@@ -119,7 +119,7 @@ const speedTest = Widget.Stack({
             onClicked: () => {
                 print("speedtest")
                 isLoading.value = "loading"
-                Utils.execAsync('bash -c "speedtest --simple"')
+                Utils.execAsync('bash -c "speedtest-cli --simple --secure"')
                     .then(out => {
                         // Parse speedtest output
                         const [ping, down, up] = out.split("\n", 3)

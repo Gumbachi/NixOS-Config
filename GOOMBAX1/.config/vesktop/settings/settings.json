@@ -62,7 +62,9 @@
             "enabled": false
         },
         "AlwaysTrust": {
-            "enabled": false
+            "enabled": true,
+            "domain": true,
+            "file": true
         },
         "AnonymiseFileNames": {
             "enabled": false
@@ -631,6 +633,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1723775552149
+        "settingsSyncVersion": 1724289965724
     }
 }
