@@ -138,7 +138,7 @@ const speedTest = Widget.Stack({
 })
 
 export const Network = () => Widget.Box({
-    class_name: "network",
+    class_name: "network container",
     vertical: true,
     children: [
         // Title

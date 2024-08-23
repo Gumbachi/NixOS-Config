@@ -1,7 +1,8 @@
 
 export const Title = (title) => Widget.Label({
     label: title,
-    class_name: "title"
+    class_name: "title",
+    justification: "center",
 })
 
 

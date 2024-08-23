@@ -1,4 +1,5 @@
 import { Constants } from "./constants.js";
+import { Title } from "./components.js"; 
 
 const hyprland = await Service.import('hyprland')
 
@@ -10,36 +11,77 @@ const focusedTitle = Widget.Label({
 
 const dispatch = ws => hyprland.messageAsync(`dispatch workspace ${ws}`);
 
+const workspaceLabels = {
+    1: "1"
+}
+
 const WorkspacesButtons = () => Widget.EventBox({
     // onScrollUp: () => dispatch('+1'),
     // onScrollDown: () => dispatch('-1'),
     child: Widget.Box({
-        children: Array.from({ length: 10 }, (_, i) => i + 1).map(i => Widget.Button({
-            attribute: i,
-            label: `${i}`,
-            onClicked: () => dispatch(i),
-        })),
+        vertical: true,
+        spacing: 8,
+        children: [
+            Widget.Box({
+                spacing: 4,
+                children: [1, 2, 3, 4, 5].map(i => Widget.Button({
+                    attribute: i,
+                    label: `${i}`,
+                    onClicked: () => dispatch(i),
+                })),
 
-        // remove this setup hook if you want fixed number of buttons
-        setup: self => self.hook(hyprland, () => self.children.forEach(btn => {
-            btn.visible = hyprland.workspaces.some(ws => ws.id === btn.attribute);
-        })),
+                // remove this setup hook if you want fixed number of buttons
+                setup: self => { 
+                    self.hook(hyprland, () => self.children.forEach(btn => {
+                        if (!hyprland.workspaces.some(ws => ws.id === btn.attribute)) {
+                            btn.css = "opacity: 0.5;"
+                        } else {
+                            btn.css = "opacity: 1.0;"
+                        }
+                    }))
+                    .hook(hyprland.active.workspace, () => self.children.forEach(btn => {
+                        if (hyprland.active.workspace.id == btn.attribute) {
+                            btn.css = "padding: 50px;"
+                        } else {
+                            btn.css = "padding: 0px;"
+                        }
+                    }))
+
+                }
+                
+            }),    
+
+            Widget.Box({
+                spacing: 4,
+                children: [6, 7, 8, 9, 10].map(i => Widget.Button({
+                    attribute: i,
+                    label: `${i}`,
+                    onClicked: () => dispatch(i),
+                })),
+
+                // remove this setup hook if you want fixed number of buttons
+                setup: self => self.hook(hyprland, () => self.children.forEach(btn => {
+                    if (!hyprland.workspaces.some(ws => ws.id === btn.attribute)) {
+                        btn.css = "opacity: 0.5;"
+                    } else {
+                        btn.css = "opacity: 1.0;"
+                    }
+                }))
+            }),    
+        ]
     }),
 })
 
-const WorkspacesTitle = () => Widget.Label({
-    class_name: "title",
-    label: "Workspaces",
-    hpack: "center",
-    justification: "center",
-})
 
-export const Workspaces = () => Widget.Box({
-    class_name: "workspaces",
-    spacing: Constants.MAIN_BOX_SPACING,
-    vertical: true,
-    children: [
-        WorkspacesTitle(),
-        WorkspacesButtons()
-    ]
-})
+export function Workspaces() {
+        
+    return Widget.Box({
+        class_name: "workspaces container",
+        spacing: Constants.MAIN_BOX_SPACING,
+        vertical: true,
+        children: [
+            Title("Workspaces"),
+            WorkspacesButtons()
+        ]
+    })
+}

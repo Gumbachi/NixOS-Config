@@ -1,6 +1,7 @@
 
 
 const timeLabel = Widget.Label({
+    class_name: "time",
     label: Utils.exec('date +%R'),
     css: 'font-size: 36px; font-weight: bold'
 }).poll(1000, self => {
@@ -10,19 +11,18 @@ const timeLabel = Widget.Label({
 })
 
 const dateLabel = Widget.Label({
+    class_name: "date",
     label: Utils.exec('date +"%A, %B %d %Y"'),
     css: 'font-size: 24px;'
 })
 
-export function Time() {
-    return Widget.Box({
-        class_name: "time",
-        spacing: 8,
-        hexpand: true,
-        vertical: true,
-        children: [
-            timeLabel,
-            dateLabel
-        ],
-    })
-} 
+export const Datetime = () => Widget.Box({
+    class_name: "datetime container",
+    spacing: 8,
+    hexpand: true,
+    vertical: true,
+    children: [
+        timeLabel,
+        dateLabel
+    ],
+})

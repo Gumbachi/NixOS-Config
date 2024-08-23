@@ -25,31 +25,16 @@
 @define-color mantle #181825;
 @define-color crust #11111b;
 
+/*************\
+*** GENERAL ***
+\*************/
 
 window {
   background-color: transparent;
 }
 
-.dashboard {
-  /* Overlay0 */
-  background-color: rgba(108, 112, 134, 0.6);
-  padding: 100px;
-  /* border-style: solid; */
-  border-radius: 10px;
-  /* border-width: 4px; */
-
-  /* surface0 */
-  /* border-color: rgba(49, 50, 68, 0.4); */
-}
-
 .container,
-.time,
-.media,
-.memory,
-.volume,
-.network,
-.workspaces,
-.cpu {
+.media {
   background-color: @base;
   border-width: 4px;
   border-style: solid;
@@ -75,6 +60,50 @@ button:hover {
   border-color: @mauve;
 }
 
+
+/***************\
+*** DASHBOARD ***
+\***************/
+
+.dashboard {
+  background-color: rgba(108, 112, 134, 0.6); /* Overlay0 */
+  padding: 100px;
+  border-radius: 10px;
+  /* border-style: solid; */
+  /* border-width: 4px; */
+  /* border-color: rgba(49, 50, 68, 0.4); */  /* surface0 */
+}
+
+
+/**************\
+*** DATETIME ***
+\**************/
+
+.datetime .time {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.datetime .date {
+  font-size: 24px;
+}
+
+/*******************\
+*** NOTIFICATIONS ***
+\*******************/
+
+.notifications {
+  min-width: 250px;
+}
+
+/*********************\
+*** VOLUME CONTROLS ***
+\*********************/
+
+.volume {
+  min-width: 300px;
+}
+
 .volume button {
   min-height: 1.2em;
   min-width: 1.2em;
@@ -82,6 +111,64 @@ button:hover {
   border-width: 2px;
   border-radius: 10px;
 }
+
+.volume .value {
+  min-width: 40px;
+  font-weight: bold;
+}
+
+/*********\
+*** CPU ***
+\*********/
+
+.cpu {
+  min-width: 120px;
+}
+
+.cpu .usage .value,
+.cpu .temp .value {
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 50px;
+}
+
+/************\
+*** MEMORY ***
+\************/
+
+.memory {
+  min-width: 120px;
+}
+
+.memory .usage .value {
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 50px;
+}
+
+/*************\
+*** NETWORK ***
+\*************/
+
+.network {
+  
+}
+
+/****************\
+*** WORKSPACES ***
+\****************/
+
+.workspaces button {
+  min-height: 1.2em;
+  min-width: 1.2em;
+  padding: .3em;
+  border-width: 2px;
+  border-radius: 100%;
+}
+
+/******************\
+*** MEDIA PLAYER ***
+\******************/
 
 .player {
   padding: 10px;
