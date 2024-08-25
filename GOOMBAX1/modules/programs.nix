@@ -10,7 +10,7 @@
 
   programs.corectrl = {
     enable = true;
-    gpuOverclock.enable = true;
+    gpuOverclock.enable = false;
   };
 
   programs.direnv = {
@@ -20,7 +20,6 @@
   };
 
   users.users.jared.packages = with pkgs; [
-    amdgpu_top
     helix
     devenv
     vulkan-tools
@@ -39,7 +38,6 @@
     vesktop
 
     # Browsers
-    firefox
     floorp
 
     # Office
@@ -49,7 +47,6 @@
 
     # Other
     keymapp
-    inkscape
     kdePackages.gwenview
 
     imagemagick
@@ -59,7 +56,7 @@
 
     # Lanuage Servers
     typescript-language-server # TS/JS
-    # vscode-langservers-extracted # CSS/JSON/HTML
+    vscode-langservers-extracted # CSS/JSON/HTML
     marksman # Markdown
     nil # Nix
     dockerfile-language-server-nodejs # Dockerfile
@@ -92,8 +89,6 @@
     grimblast # Screenshot Utility
     lm_sensors # Sensors
     btop # System Monitor
-    xorg.xeyes # Xwayland check
-    kdePackages.ark
 
     # QT and GTK style
     kdePackages.qtwayland
@@ -107,8 +102,11 @@
     yazi
     nix-search-cli
 
-    radeontop
     lxqt.lxqt-policykit
+
+    # AMD GPU Stuff
+    amdgpu_top
+    lact
 
   ];
 
