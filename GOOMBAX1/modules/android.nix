@@ -7,7 +7,8 @@
   users.users.jared = {
     extraGroups = [ "adbusers" "kvm" ];
     packages = with pkgs; [ 
-      androidStudioPackages.canary
+      android-studio
+      # androidStudioPackages.canary
     ];
   };
 

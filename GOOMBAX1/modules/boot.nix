@@ -7,12 +7,16 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
+
 
     # https://docs.kernel.org/gpu/amdgpu/module-parameters.html
     kernelParams = [
-      # "video=DP-1:3840x2160@240"
-      # "video=DP-3:2560x1440@144"
+      "video=DP-1:3840x2160@240"
+      "video=DP-2:2560x1440@120"
+      "video=DP-3:2560x1440@120"
       # "amdgpu.msi=0"
       # "amdgpu.aspm=0"
       # "amdgpu.bapm=0"

@@ -18,11 +18,12 @@
     ./modules/programs.nix
     ./modules/stylix.nix
     ./modules/services.nix
+    ./modules/minecraft.nix
 
     # Shared 
     ../shared/modules/shells.nix
     ../shared/modules/fonts.nix
-    ../shared/modules/sound.nix
+    # ../shared/modules/sound.nix
     ../shared/modules/gaming.nix
     ../shared/modules/obs.nix
     ../shared/modules/sunshine.nix

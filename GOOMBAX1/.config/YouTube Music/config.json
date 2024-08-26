@@ -1,14 +1,14 @@
 {
 	"window-size": {
 		"width": 1440,
-		"height": 2560
+		"height": 1249
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=b1JFMObuiV0&list=PL0waocdhUwjSx-h0xv-mbIMu5baZkUdL1&index=0",
+	"url": "https://music.youtube.com/watch?v=A4iikWnsPnQ&list=RDAMPLPL0waocdhUwjQxEpIq0HkfXCDYRThYhicQ&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -17,7 +17,7 @@
 		"hideMenu": true,
 		"hideMenuWarned": true,
 		"startAtLogin": false,
-		"disableHardwareAcceleration": false,
+		"disableHardwareAcceleration": true,
 		"removeUpgradeButton": true,
 		"restartOnConfigChanges": true,
 		"trayClickPlayPause": false,
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 30
+			"savedVolume": 20
 		},
 		"discord": {
 			"listenAlong": true,

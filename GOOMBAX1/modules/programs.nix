@@ -9,7 +9,7 @@
   programs.nix-ld.enable = true;
 
   programs.corectrl = {
-    enable = true;
+    enable = false;
     gpuOverclock.enable = false;
   };
 
@@ -51,8 +51,6 @@
 
     imagemagick
 
-    # Blue light filter
-    wlsunset
 
     # Lanuage Servers
     typescript-language-server # TS/JS
@@ -108,6 +106,23 @@
     amdgpu_top
     lact
 
+    # Blue light filter
+    wlsunset
+
+    # minecraft
+    prismlauncher
+
   ];
+
+  # Needed for lact to work correctly
+  systemd.services.lact = {
+    description = "AMDGPU Control Daemon";
+    after = ["multi-user.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
 
 }
