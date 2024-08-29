@@ -18,7 +18,7 @@
     ./modules/programs.nix
     ./modules/stylix.nix
     ./modules/services.nix
-    ./modules/minecraft.nix
+#    ./modules/minecraft.nix
 
     # Shared 
     ../shared/modules/shells.nix
@@ -72,7 +72,7 @@
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    rocmSupport = false;
+    rocmSupport = true;
   };
 
   # Enable networking

@@ -4,11 +4,11 @@
 
   hardware = {
 
-    # graphics = {
-    #   enable = true;
-    #   enable32Bit = true;
-    #  # extraPackages = [ pkgs.rocmPackages.rocm-smi ];
-    # };
+     graphics = {
+       enable = true;
+       enable32Bit = true;
+     extraPackages = [ pkgs.rocmPackages.rocm-smi ];
+     };
 
     # amdgpu = {
     #   initrd.enable = false;

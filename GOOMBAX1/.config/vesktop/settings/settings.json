@@ -610,9 +610,6 @@
         "UserSettingsAPI": {
             "enabled": true
         },
-        "ShowAllRoles": {
-            "enabled": false
-        },
         "ConsoleJanitor": {
             "enabled": false
         },
@@ -620,6 +617,9 @@
             "enabled": false
         },
         "YoutubeAdblock": {
+            "enabled": false
+        },
+        "AlwaysExpandRoles": {
             "enabled": false
         }
     },
@@ -633,6 +633,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1724289965724
+        "settingsSyncVersion": 1724955979386
     }
 }

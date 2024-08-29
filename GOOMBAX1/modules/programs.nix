@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   
-  # programs.partition-manager.enable = true;
+  programs.partition-manager.enable = true;
   programs.kdeconnect = {
     enable = true;
     package = pkgs.kdePackages.kdeconnect-kde;
