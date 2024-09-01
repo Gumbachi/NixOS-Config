@@ -31,6 +31,7 @@
     kitty
     unzip
     speedtest-cli
+    lshw
 
     # Media/Social
     vlc
