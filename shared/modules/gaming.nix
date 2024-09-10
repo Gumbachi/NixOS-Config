@@ -19,6 +19,11 @@
   # Gamescope
   programs.gamescope = {
     enable = true;
+    args = [
+      "--expose-wayland"
+      "--adaptive-sync"
+      "-W 3840 -H 2160"
+    ];
     # capSysNice = true;
   };
 

@@ -25,15 +25,8 @@ in
     userEmail = "jaredremsberg@gmail.com";
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+  programs.zoxide.enable = true;
+  programs.fzf.enable = true;
 
   home.file = {
 

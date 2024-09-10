@@ -19,6 +19,7 @@
     ./modules/stylix.nix
     ./modules/services.nix
 #    ./modules/minecraft.nix
+    ./modules/nixvim.nix
 
     # Shared 
     ../shared/modules/shells.nix

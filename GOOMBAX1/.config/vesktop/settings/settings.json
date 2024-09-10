@@ -76,7 +76,7 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": true,
+            "enabled": false,
             "sidebar": true,
             "showFolderIcon": 1,
             "closeAllHomeButton": false,
@@ -128,7 +128,7 @@
             "enabled": false
         },
         "ColorSighted": {
-            "enabled": true
+            "enabled": false
         },
         "ConsoleShortcuts": {
             "enabled": false
@@ -257,7 +257,7 @@
             "enabled": false
         },
         "MoreCommands": {
-            "enabled": true
+            "enabled": false
         },
         "MoreKaomoji": {
             "enabled": false
@@ -383,7 +383,7 @@
             "enabled": false
         },
         "RoleColorEverywhere": {
-            "enabled": true,
+            "enabled": false,
             "chatMentions": true,
             "memberList": true,
             "voiceUsers": true,
@@ -457,13 +457,13 @@
             "enabled": false
         },
         "TypingIndicator": {
-            "enabled": true,
+            "enabled": false,
             "includeMutedChannels": false,
             "includeCurrentChannel": true,
             "indicatorMode": 3
         },
         "TypingTweaks": {
-            "enabled": true,
+            "enabled": false,
             "alternativeFormatting": true,
             "showRoleColors": true,
             "showAvatars": true
@@ -621,6 +621,19 @@
         },
         "AlwaysExpandRoles": {
             "enabled": false
+        },
+        "CopyFileContents": {
+            "enabled": true
+        },
+        "NoMaskedUrlPaste": {
+            "enabled": false
+        },
+        "StickerPaste": {
+            "enabled": false
+        },
+        "VolumeBooster": {
+            "enabled": true,
+            "multiplier": 2
         }
     },
     "notifications": {
@@ -633,6 +646,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1724955979386
+        "settingsSyncVersion": 1725919161956
     }
 }

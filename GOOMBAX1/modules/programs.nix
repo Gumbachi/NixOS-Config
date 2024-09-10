@@ -1,6 +1,10 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   
-  programs.partition-manager.enable = true;
+  programs.partition-manager = {
+    enable = true;
+    package = pkgs.kdePackages.partitionmanager;
+  };
+  
   programs.kdeconnect = {
     enable = true;
     package = pkgs.kdePackages.kdeconnect-kde;
@@ -40,6 +44,7 @@
 
     # Browsers
     floorp
+    inputs.zen-browser.packages."${system}".default
 
     # Office
     libreoffice-qt6-fresh
@@ -47,10 +52,13 @@
     hunspellDicts.en_US
 
     # Other
-    keymapp
+    keymapp # ZSA keymapp
+    kontroll # ZSA CLI
+    
     kdePackages.gwenview
 
     imagemagick
+    parsec-bin
 
 
     # Lanuage Servers

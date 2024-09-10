@@ -2,6 +2,7 @@
   description = "NixOS Config";
 
   inputs = {
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
@@ -12,11 +13,13 @@
       submodules = true;
     };
 
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +53,9 @@
 
         # Stylix
         stylix.nixosModules.stylix
+
+        # Nixvim
+        inputs.nixvim.nixosModules.nixvim
           
       ];
 
