@@ -18,7 +18,7 @@ max-icon-size=48
 default-timeout=5000
 ignore-timeout=1
 font=IBM Plex Sans 14
-anchor=top-center
+anchor=top-right
 
 [urgency=low]
 border-color=#89b4fa
