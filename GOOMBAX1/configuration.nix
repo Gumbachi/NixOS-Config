@@ -2,9 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ ... }: {
 
-{
   imports = [ 
     ./hardware-configuration.nix # Include the results of the hardware scan.
 
@@ -16,7 +15,7 @@
     ./modules/hyprland.nix
     ./modules/android.nix
     ./modules/programs.nix
-    ./modules/stylix.nix
+    # ./modules/stylix.nix
     ./modules/services.nix
 #    ./modules/minecraft.nix
     ./modules/nixvim.nix
@@ -24,10 +23,10 @@
     # Shared 
     ../shared/modules/shells.nix
     ../shared/modules/fonts.nix
-    # ../shared/modules/sound.nix
     ../shared/modules/gaming.nix
-    ../shared/modules/obs.nix
-    ../shared/modules/sunshine.nix
+    # ../shared/modules/sound.nix
+    # ../shared/modules/obs.nix
+    # ../shared/modules/sunshine.nix
     
 
   ];

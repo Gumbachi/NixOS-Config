@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ags, stylix, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
     
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -47,12 +47,12 @@
 
           home-manager.users.jared.imports = [
             ./GOOMBAX1/home.nix
-            ags.homeManagerModules.default
+            inputs.ags.homeManagerModules.default
           ];
         }
 
         # Stylix
-        stylix.nixosModules.stylix
+        inputs.stylix.nixosModules.stylix
 
         # Nixvim
         inputs.nixvim.nixosModules.nixvim
@@ -79,13 +79,13 @@
 
           home-manager.users.jared.imports = [
             ./GOOMBAX2/home.nix
-            ags.homeManagerModules.default
+            inputs.ags.homeManagerModules.default
           ];
 
         }
           
         # Stylix
-        stylix.nixosModules.stylix
+        inputs.stylix.nixosModules.stylix
 
       ];
 
