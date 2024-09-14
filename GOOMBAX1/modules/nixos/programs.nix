@@ -60,7 +60,6 @@
     imagemagick
     parsec-bin
 
-
     # Lanuage Servers
     typescript-language-server # TS/JS
     vscode-langservers-extracted # CSS/JSON/HTML

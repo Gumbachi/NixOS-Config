@@ -1,15 +1,29 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
   nixosConfig = "/home/jared/NixOS-Config";
+  homeModulesPath = ./modules/home;
 in
 {
+
+  imports = [
+    (homeModulesPath + /catppuccin.nix)
+  ];
 
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  stylix.targets.gtk.enable = true;
+  # Cursor Config
+  home.pointerCursor = {
+    package = lib.mkForce pkgs.catppuccin-cursors.mochaPeach;
+    name = lib.mkForce "catppuccin-mocha-peach-cursors";
+    size = 32;
+    gtk.enable = true;
+  };
+
+  # bruh-
+  # stylix.targets.gtk.enable = true;
 
   programs.ags = {
     enable = true;

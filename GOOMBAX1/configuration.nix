@@ -1,34 +1,34 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ ... }: 
 
-{ ... }: {
+let 
+  modulePath = ./modules/nixos;
+  sharedModulePath = ../shared/modules;
+in
+{
 
   imports = [ 
-    ./hardware-configuration.nix # Include the results of the hardware scan.
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix 
 
     # GOOMBAX1 Specific
-    ./modules/boot.nix
-    ./modules/env.nix
-    ./modules/display-manager.nix
-    ./modules/hardware.nix
-    ./modules/hyprland.nix
-    ./modules/android.nix
-    ./modules/programs.nix
-    ./modules/services.nix
-#    ./modules/minecraft.nix
-    ./modules/nixvim.nix
+    (modulePath + /boot.nix)
+    (modulePath + /env.nix)
+    (modulePath + /display-manager.nix)
+    (modulePath + /hardware.nix)
+    (modulePath + /hyprland.nix)
+    (modulePath + /android.nix)
+    (modulePath + /programs.nix)
+    (modulePath + /services.nix)
+    (modulePath + /nixvim.nix)
 
-    # Shared 
-    ../shared/modules/shells.nix
-    ../shared/modules/fonts.nix
-    ../shared/modules/gaming.nix
-    # ../shared/modules/sound.nix
-    # ../shared/modules/obs.nix
-    # ../shared/modules/sunshine.nix
+    # Shared - The same across systems 
+    (sharedModulePath + /shells.nix)
+    (sharedModulePath + /fonts.nix)
+    (sharedModulePath + /gaming.nix)
+
+    # (sharedModulePath + /obs.nix)
+    # (sharedModulePath + /sunshine.nix)
     
-    ./modules/stylix.nix
-
   ];
 
 

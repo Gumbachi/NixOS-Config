@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
+    catppuccin.url = "github:catppuccin/nix";
 
     hyprland = {
       type = "git";
@@ -26,17 +27,14 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, stylix, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
     
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
 
-        # Stylix
-        stylix.nixosModules.stylix
-
-        # NixOS Modules
+        # Main Config
         ./GOOMBAX1/configuration.nix
           
         # Home Manager
@@ -51,11 +49,18 @@
           home-manager.users.jared.imports = [
             ./GOOMBAX1/home.nix
             inputs.ags.homeManagerModules.default
+            inputs.catppuccin.homeManagerModules.catppuccin
           ];
         }
         
         # Nixvim
         inputs.nixvim.nixosModules.nixvim
+
+        # Catppuccin
+        inputs.catppuccin.nixosModules.catppuccin
+
+        # Stylix
+        # stylix.nixosModules.stylix
           
       ];
 
@@ -85,7 +90,7 @@
         }
           
         # Stylix
-        stylix.nixosModules.stylix
+        inputs.stylix.nixosModules.stylix
 
       ];
 

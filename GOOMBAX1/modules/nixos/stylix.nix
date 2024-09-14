@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  stylix.enable = true;
+  stylix.enable = false;
   stylix.autoEnable = false;
 
   # Doesnt really work with hyprland just use hyprpaper
