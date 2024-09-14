@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
@@ -9,39 +9,16 @@ in
 
   imports = [
     (homeModulesPath + /catppuccin.nix)
+    (homeModulesPath + /programs.nix)
   ];
 
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  # Cursor Config
-  home.pointerCursor = {
-    package = lib.mkForce pkgs.catppuccin-cursors.mochaPeach;
-    name = lib.mkForce "catppuccin-mocha-peach-cursors";
-    size = 32;
-    gtk.enable = true;
-  };
 
-  # bruh-
-  # stylix.targets.gtk.enable = true;
-
-  programs.ags = {
-    enable = true;
-    extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-    ];
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Gumbachi";
-    userEmail = "jaredremsberg@gmail.com";
-  };
-
-  programs.zoxide.enable = true;
-  programs.fzf.enable = true;
+  ################
+  ### SYMLINKS ###
+  ################
 
   home.file = {
 
@@ -91,6 +68,11 @@ in
     ".config/Kvantum/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
 
   };
+
+  
+  #######################
+  ### DESKTOP ENTRIES ###
+  #######################
 
   xdg.desktopEntries = {
     yazi = {
