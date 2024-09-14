@@ -15,7 +15,6 @@
     ./modules/hyprland.nix
     ./modules/android.nix
     ./modules/programs.nix
-    # ./modules/stylix.nix
     ./modules/services.nix
 #    ./modules/minecraft.nix
     ./modules/nixvim.nix
@@ -28,8 +27,10 @@
     # ../shared/modules/obs.nix
     # ../shared/modules/sunshine.nix
     
+    ./modules/stylix.nix
 
   ];
+
 
   networking.hostName = "GOOMBAX1";
 

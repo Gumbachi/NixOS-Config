@@ -5,6 +5,7 @@ let
   nixosConfig = "/home/jared/NixOS-Config";
 in
 {
+
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
@@ -88,7 +89,7 @@ in
     };
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
 }

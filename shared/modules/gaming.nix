@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  users.users.jared.packages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [ 
     mangohud
     protonup-qt
   ];
@@ -12,18 +12,18 @@
   };
 
   # Gamemode
-  programs.gamemode.enable = true;
+  # programs.gamemode.enable = true;
 
   # Gamescope
-  programs.gamescope = {
-    enable = true;
-    args = [
-      "--expose-wayland"
-      "--adaptive-sync"
-      "-W 3840 -H 2160"
-    ];
-    # capSysNice = true;
-  };
+  # programs.gamescope = {
+  #   enable = true;
+  #   args = [
+  #     "--expose-wayland"
+  #     "--adaptive-sync"
+  #     "-W 3840 -H 2160"
+  #   ];
+  #   # capSysNice = true;
+  # };
 
   # Possibly needed environment vars
   
