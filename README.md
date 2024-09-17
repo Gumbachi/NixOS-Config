@@ -6,13 +6,12 @@
 | OS             | NixOS        |
 | Window Manager | Hyprland     |
 | Shell          | Fish         |
-| Editor         | VSCode       |
+| Editor         | Helix        |
 | Notifications  | Mako         |
 | Status Bar     | Waybar       |
 | Menu           | Rofi-Wayland |
 | System Monitor | Btop         |
-| File Manager   | Thunar       |
-| Cursors        | Hyprcursor   |
+| File Manager   | Yazi         |
 | Lock Screen    | Hyprlock     |
 | Wallpapers     | Hyprpaper    |
 | Broswer        | Floorp       |

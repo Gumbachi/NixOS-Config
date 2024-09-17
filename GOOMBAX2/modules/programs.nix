@@ -47,6 +47,7 @@
     hyprcursor
     hyprpaper
     hypridle # the option doesnt work
+    hyprpicker
 
     imv # Image Viewer
     pavucontrol # Sound Settings
