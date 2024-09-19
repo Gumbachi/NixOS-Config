@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
@@ -9,11 +9,28 @@ in
 
   imports = [
     (homeModulesPath + /catppuccin.nix)
-    (homeModulesPath + /programs.nix)
   ];
 
   home.username = "jared";
   home.homeDirectory = "/home/jared";
+
+  programs.ags = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Gumbachi";
+    userEmail = "jaredremsberg@gmail.com";
+  };
+
+  programs.zoxide.enable = true;
+  programs.fzf.enable = true;
 
 
   ################

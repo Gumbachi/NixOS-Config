@@ -12,11 +12,6 @@
 
   programs.nix-ld.enable = true;
 
-  programs.corectrl = {
-    enable = false;
-    gpuOverclock.enable = false;
-  };
-
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;
@@ -35,7 +30,6 @@
     kitty
     unzip
     speedtest-cli
-    lshw
 
     # Media/Social
     vlc
@@ -81,6 +75,7 @@
     mako
     libnotify
     glib
+    libgtop
 
     # Hyprland Stuff
     waybar

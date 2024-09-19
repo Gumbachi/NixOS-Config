@@ -2,27 +2,33 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ ... }:
 
+let 
+  modulePath = ./modules/nixos;
+  sharedModulePath = ../shared/modules;
+in
 {
+
   imports = [
     ./hardware-configuration.nix
 
     # GOOMBAX2 Specific
-    ./modules/hardware.nix
-    ./modules/boot.nix
-    ./modules/display-manager.nix
-    ./modules/hyprland.nix
-    ./modules/programs.nix
-    ./modules/services.nix
-    ./modules/env.nix
-    ./modules/stylix.nix
+    (modulePath + /hardware.nix)
+    (modulePath + /modules/hardware.nix)
+    (modulePath + /modules/boot.nix)
+    (modulePath + /modules/display-manager.nix)
+    (modulePath + /modules/hyprland.nix)
+    (modulePath + /modules/services.nix)
+    (modulePath + /modules/programs.nix)
+    (modulePath + /modules/env.nix)
+    (modulePath + /modules/stylix.nix)
 
     # Shared
-    ../shared/modules/fonts.nix
-    ../shared/modules/shells.nix
-    ../shared/modules/sound.nix
-    ../shared/modules/gaming.nix
+    (sharedModulePath + /shells.nix)
+    (sharedModulePath + /fonts.nix)
+    (sharedModulePath + /gaming.nix)
+    (sharedModulePath + /sound.nix)
 
   ];
 

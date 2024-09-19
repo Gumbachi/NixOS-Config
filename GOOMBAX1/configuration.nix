@@ -10,22 +10,24 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix 
 
-    # GOOMBAX1 Specific
+    # GOOMBAX1 -- Mandatory
     (modulePath + /boot.nix)
-    (modulePath + /env.nix)
     (modulePath + /display-manager.nix)
     (modulePath + /hardware.nix)
     (modulePath + /hyprland.nix)
-    (modulePath + /android.nix)
+    (modulePath + /sound.nix)
+
+    # GOOMBAX1 -- Optional
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
+    (modulePath + /env.nix)
     (modulePath + /nixvim.nix)
+    (modulePath + /android.nix)
 
     # Shared - The same across systems 
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
-
     # (sharedModulePath + /obs.nix)
     # (sharedModulePath + /sunshine.nix)
     
@@ -81,12 +83,6 @@ in
 
   # Firewall
   networking.firewall.enable = true;
-
-  # Just leave this
-  # programs.nix-ld = {
-  #   enable = true;
-  #   package = pkgs.nix-ld-rs;
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
