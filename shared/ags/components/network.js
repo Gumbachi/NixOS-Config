@@ -1,4 +1,4 @@
-import { Constants } from "./constants.js"
+import { Constants } from "../constants.js"
 
 const network = await Service.import('network')
 
@@ -79,8 +79,8 @@ const NetworkIndicator = () => Widget.Stack({
     }
 })
 
-const upSpeed = Variable("0")
-const downSpeed = Variable("0")
+const upSpeed = Variable(0)
+const downSpeed = Variable(0)
 const isLoading = Variable("notloading")
 
 const downloadSpeed = Widget.Box({
@@ -90,7 +90,7 @@ const downloadSpeed = Widget.Box({
             icon: "go-down-symbolic"
         }),
         Widget.Label({
-            label: downSpeed.bind(),
+            label: downSpeed.bind().as(String),
             css: "font-weight: bold;"
         })
     ]    
@@ -100,7 +100,7 @@ const uploadSpeed = Widget.Box({
     spacing: Constants.ICON_LABEL_SPACING,
     children: [
         Widget.Label({
-            label: upSpeed.bind(),
+            label: upSpeed.bind().as(String),
             css: "font-weight: bold;"
         }),
         Widget.Icon({
@@ -123,11 +123,22 @@ const speedTest = Widget.Stack({
                     .then(out => {
                         // Parse speedtest output
                         const [ping, down, up] = out.split("\n", 3)
-                        upSpeed.value = up.split(" ")[1]
-                        downSpeed.value = down.split(" ")[1]
+
+                        // Convert String to Float to Int
+                        const uploadSpeed = Math.floor(Number(up.split(" ")[1]))
+                        const downloadSpeed = Math.floor(Number(down.split(" ")[1]))
+
+                        upSpeed.value = uploadSpeed
+                        downSpeed.value = downloadSpeed
 
                         // Re-enable button
                         isLoading.value = "notloading"
+                        Utils.notify({
+                            summary: "Speedtest Complete",
+                            body: `↓ ${downSpeed.value}\n↑ ${upSpeed.value}`,
+                            iconName: "network-wireless-symbolic",
+                            timeout: 5000
+                        })
                     })
                     .catch(err => print(err))
             }

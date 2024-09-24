@@ -1,4 +1,4 @@
-import { Constants } from "./constants.js"
+import { Constants } from "../constants.js"
 const audio = await Service.import("audio")
 
 const BOX_SPACING = 2
@@ -12,7 +12,7 @@ export function VolumeMenu() {
 
     const Title = () => Widget.Label({
         class_name: "title",
-        label: "Volume Controls",
+        label: "Volume",
         justification: "center"
     })
 

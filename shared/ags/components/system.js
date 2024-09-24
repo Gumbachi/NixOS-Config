@@ -1,4 +1,4 @@
-import { Constants } from "./constants.js";
+import { Constants } from "../constants.js";
 import { Title } from "./components.js";
 
 // Thermal Zone for CPU temp
@@ -76,6 +76,15 @@ export function Memory() {
             .catch(err => print(err))
     })  
 
+    const DiskUsage = () => Widget.Label({
+        class_name: "value",
+        justification: "fill"
+    }).poll(60000, self => {
+        Utils.execAsync(`bash -c "df -h / | awk '/dev/ {print $5}'"`)
+            .then(out => self.label = out)
+            .catch(err => print(err))
+    })  
+
     return Widget.Box({
         spacing: Constants.MAIN_BOX_SPACING,
         class_name: "memory container",
@@ -83,7 +92,7 @@ export function Memory() {
         children: [
             Title("Memory"),
     
-            // Usage
+            // Memory Usage
             Widget.Box({
                 class_name: "usage",
                 hpack: "center",
@@ -96,7 +105,20 @@ export function Memory() {
                     MemoryUsage()
                 ]
             }),
+
+            // Disk Usage
+            Widget.Box({
+                class_name: "usage",
+                hpack: "center",
+                spacing: 16,
+                children: [
+                    Widget.Icon({
+                        icon: "drive-harddisk-system-symbolic",
+                        size: Constants.SMALL_ICON_SIZE
+                    }),
+                    DiskUsage()
+                ]
+            }),
         ]
-    })
-    
+    })    
 } 

@@ -66,12 +66,42 @@ button:hover {
 \***************/
 
 .dashboard {
-  background-color: rgba(108, 112, 134, 0.6); /* Overlay0 */
-  padding: 100px;
+  background-color: rgba(108, 112, 134, 0.6);
+  /* background-color: transparent; */
+  /* Overlay0 */
+  padding: 50px;
   border-radius: 10px;
   /* border-style: solid; */
   /* border-width: 4px; */
-  /* border-color: rgba(49, 50, 68, 0.4); */  /* surface0 */
+  /* border-color: rgba(49, 50, 68, 0.4); */
+  /* surface0 */
+}
+
+/************\
+*** TIMERS ***
+\************/
+
+.timers {
+  min-width: 250px;
+}
+
+.timers .timer {
+  border-width: 2px;
+}
+
+.timers .timer .name {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.timers .timer .time {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.timers .timer button {
+  border-width: 2px;
 }
 
 
@@ -92,6 +122,65 @@ button:hover {
 *** NOTIFICATIONS ***
 \*******************/
 
+window.notification-popups box.notifications {
+  padding: .3em;
+}
+
+.icon {
+  min-width: 50px;
+  min-height: 50px;
+  margin-right: 1em;
+}
+
+.icon image {
+  font-size: 40px;
+  /* to center the icon */
+  margin: 5px;
+  color: @text;
+}
+
+.icon box {
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 10px;
+}
+
+.notification {
+  min-width: 300px;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 20px;
+  margin-top: 0px;
+  border: 4px solid @peach;
+  background-color: @theme_bg_color;
+}
+
+.notification.critical {
+  border: 1px solid lightcoral;
+}
+
+.title {
+  color: @text;
+  font-size: 1.2em;
+}
+
+.body {
+  color: @theme_unfocused_fg_color;
+}
+
+.actions .action-button {
+  margin: 0 .4em;
+  margin-top: .8em;
+}
+
+.actions .action-button:first-child {
+  margin-left: 0;
+}
+
+.actions .action-button:last-child {
+  margin-right: 0;
+}
+
 .notifications {
   min-width: 250px;
 }
@@ -101,7 +190,7 @@ button:hover {
 \*********************/
 
 .volume {
-  min-width: 300px;
+  min-width: 250px;
 }
 
 .volume button {
@@ -151,7 +240,7 @@ button:hover {
 \*************/
 
 .network {
-  
+  min-width: 200px;
 }
 
 /****************\
@@ -197,20 +286,23 @@ button:hover {
 
 .player scale.position {
   padding: 0;
-  margin-bottom: .3em;
+  margin-bottom: .5em;
 }
 
 .player scale.position trough {
   min-height: 8px;
+  border-radius: 10px;
 }
 
 .player scale.position highlight {
   background-color: @blue;
+  border-radius: 10px;
 }
 
-.player scale.position slider {
-  all: unset;
-}
+/* .player scale.position slider { */
+/* all: unset; */
+/* border-radius: 10px; */
+/* } */
 
 .player button {
   min-height: 1em;

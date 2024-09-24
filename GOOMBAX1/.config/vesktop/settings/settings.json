@@ -389,9 +389,6 @@
             "voiceUsers": true,
             "reactorsList": true
         },
-        "SearchReply": {
-            "enabled": false
-        },
         "SecretRingToneEnabler": {
             "enabled": false
         },
@@ -637,6 +634,9 @@
         },
         "AccountPanelServerProfile": {
             "enabled": false
+        },
+        "FullSearchContext": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -649,6 +649,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1726617209643
+        "settingsSyncVersion": 1726937481594
     }
 }

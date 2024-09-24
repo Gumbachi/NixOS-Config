@@ -1,4 +1,4 @@
-import { Constants } from "./constants.js"
+import { Constants } from "../constants.js"
 
 const IDLE_INHIBIT_ACTIVE = 'xapp-prefs-display-symbolic'
 const IDLE_INHIBIT_INACTIVE = 'image-red-eye-symbolic'

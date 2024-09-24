@@ -1,20 +1,10 @@
 const notifications = await Service.import("notifications")
-import { Constants } from './constants.js' 
-
-
-
-
-
-
+import { Constants } from '../constants.js'
+import { Title } from './components.js' 
 
 export function NotificationTray() {
 
-    const boxTitle = Widget.Label({
-        class_name: "title",
-        label: "Notifications"
-    })
-
-    const notificationContainer = Widget.Box({
+    const NotificationItem = () => Widget.Box({
         vertical: true,
         spacing: 8,
         children: [
@@ -28,7 +18,7 @@ export function NotificationTray() {
         vexpand: true,
         spacing: Constants.MAIN_BOX_SPACING,
         children: [
-            boxTitle
+            Title("Notifications")
         ]
     }) 
 } 
@@ -75,9 +65,8 @@ function Notification(n) {
         xalign: 0,
         justification: "left",
         hexpand: true,
-        max_width_chars: 24,
         truncate: "end",
-        wrap: true,
+        wrap: false,
         label: n.summary,
         use_markup: true,
     })
@@ -152,7 +141,7 @@ export function NotificationPopups(monitor = 0) {
         monitor,
         name: `notifications${monitor}`,
         class_name: "notification-popups",
-        anchor: ["top", "right"],
+        anchor: ["bottom", "right"],
         child: Widget.Box({
             css: "min-width: 2px; min-height: 2px;",
             class_name: "notifications",

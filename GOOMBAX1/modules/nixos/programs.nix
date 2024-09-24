@@ -72,7 +72,6 @@
     wget
 
     # Notifications
-    mako
     libnotify
     glib
     libgtop

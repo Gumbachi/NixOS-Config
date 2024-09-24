@@ -16,3 +16,4 @@ render = true
 
 [editor.file-picker]
 hidden = false
+parents = false

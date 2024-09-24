@@ -15,20 +15,19 @@ in
 
     # GOOMBAX2 Specific
     (modulePath + /hardware.nix)
-    (modulePath + /modules/hardware.nix)
+    (modulePath + /sound.nix)
     (modulePath + /modules/boot.nix)
-    (modulePath + /modules/display-manager.nix)
-    (modulePath + /modules/hyprland.nix)
-    (modulePath + /modules/services.nix)
-    (modulePath + /modules/programs.nix)
-    (modulePath + /modules/env.nix)
-    (modulePath + /modules/stylix.nix)
+    (modulePath + /display-manager.nix)
+    (modulePath + /hyprland.nix)
+    (modulePath + /services.nix)
+    (modulePath + /programs.nix)
+    (modulePath + /env.nix)
+    (modulePath + /stylix.nix)
 
     # Shared
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
-    (sharedModulePath + /sound.nix)
 
   ];
 

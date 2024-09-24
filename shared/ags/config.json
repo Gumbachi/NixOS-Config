@@ -1,0 +1,8 @@
+{
+  "timers": [
+    {
+      "name": "1 Minute Timer",
+      "time": 60
+    }
+  ]
+}

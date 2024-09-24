@@ -1,12 +1,13 @@
-import { PowerMenu } from "./powermenu.js"
-import { Media } from "./mediaplayer.js"
-import { VolumeMenu } from "./volume.js"
-import { Datetime } from "./time.js" 
-import { Cpu, Memory } from "./system.js"
-import { Network } from "./network.js" 
-import { Workspaces } from "./workspaces.js" 
-import { NightLightMenu, NightLightButton } from "./nightlight.js"
-import { NotificationPopups, NotificationTray } from "./notifications.js"
+import { PowerMenu } from "./components/powermenu.js"
+import { Media } from "./components/mediaplayer.js"
+import { VolumeMenu } from "./components/volume.js"
+import { Datetime } from "./components/time.js" 
+import { Cpu, Memory } from "./components/system.js"
+import { Network } from "./components/network.js" 
+import { Workspaces } from "./components/workspaces.js" 
+import { NightLightMenu, NightLightButton } from "./components/nightlight.js"
+import { NotificationPopups, NotificationTray } from "./components/notifications.js"
+import { Timers } from "./components/timers.js"
 
 const Dashboard = () => Widget.Box({
     spacing: 8,
@@ -14,6 +15,8 @@ const Dashboard = () => Widget.Box({
     homogeneous: false,
     vertical: false,
     children: [
+        Timers(),
+        
         Widget.Box({
             spacing: 8,
             vertical: true,
@@ -46,15 +49,17 @@ const Dashboard = () => Widget.Box({
             ]
         }),
 
-        NotificationTray()
+        // NotificationTray()
     ]
 })
 
 
-const dashboardWindow = Widget.Window({
+const DashboardWindow = (monitor = 0) => Widget.Window({
     name: 'dashboard',
     keymode: 'on-demand',
     layer: 'overlay',
+    monitor: monitor,
+    margins: [10, 10],
     setup: self => {
         self.keybind("Escape", () => { App.closeWindow('dashboard')})
     },
@@ -77,7 +82,7 @@ const dashboardWindow = Widget.Window({
 App.config({
     style: './style.css',
     windows: [
-        dashboardWindow,
+        DashboardWindow(),
         NotificationPopups()
     ] 
 })
