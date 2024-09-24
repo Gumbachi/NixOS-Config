@@ -3,11 +3,10 @@
 
 | Function       | Package      |
 | ---------------- | :------------- |
-| OS             | NixOS        |
 | Window Manager | Hyprland     |
 | Shell          | Fish         |
 | Editor         | Helix        |
-| Notifications  | Mako         |
+| Notifications  | AGS Custom   |
 | Status Bar     | Waybar       |
 | Menu           | Rofi-Wayland |
 | System Monitor | Btop         |
