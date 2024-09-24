@@ -6,9 +6,7 @@
    3. `-C` = comment (optional)
 2. Follow prompts for file path (I leave default path) and passphrase
 3. Copy token to clipboard (located in `~/.ssh/id_ed25519.pub`)
-4. Go to tokens on GitHub/Codeberg/Whatever and add token
-5. Test (Codeberg): `ssh -T git@codeberg.org`
-   1. May need to type yes to contiue
+4. Go to Settings > SSH and GPG Keys on GitHub and add SSH key
 
 ## Switch Repo to SSH from HTTPS
 
