@@ -2,12 +2,13 @@ import { PowerMenu } from "./components/powermenu.js"
 import { Media } from "./components/mediaplayer.js"
 import { VolumeMenu } from "./components/volume.js"
 import { Datetime } from "./components/time.js" 
-import { Cpu, Memory, System } from "./components/system.js"
+import { System } from "./components/system.js"
 import { Network } from "./components/network.js" 
 import { Workspaces } from "./components/workspaces.js" 
 import { NightLightMenu, NightLightButton } from "./components/nightlight.js"
 import { NotificationPopups, NotificationTray } from "./components/notifications.js"
 import { Timers } from "./components/timers.js"
+import { SystemTray } from "./components/tray.js"
 
 const Dashboard = () => Widget.Box({
     spacing: 8,
@@ -50,7 +51,7 @@ const Dashboard = () => Widget.Box({
             ]
         }),
 
-        // NotificationTray()
+        SystemTray()
     ]
 })
 

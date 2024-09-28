@@ -77,6 +77,14 @@ button:hover {
   /* surface0 */
 }
 
+/**********\
+*** TRAY ***
+\**********/
+
+.tray .item {
+  border-width: 2px;
+}
+
 /************\
 *** TIMERS ***
 \************/

@@ -20,6 +20,7 @@ in
       gtksourceview
       webkitgtk
       accountsservice
+      libdbusmenu-gtk3
     ];
   };
 
