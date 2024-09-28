@@ -1,14 +1,1 @@
-[
-  {
-    "name": "10 Seconds",
-    "duration": 10
-  },
-  {
-    "name": "5 Minutes",
-    "duration": 300
-  },
-  {
-    "name": "10 Minutes",
-    "duration": 600
-  }
-]
+[{"id":1727224777273,"name":"10 Minutes","duration":600,"remainingDuration":600,"isRunning":false},{"id":1727224791467,"name":"24 Minutes","duration":1440,"remainingDuration":1440,"isRunning":false},{"id":1727224913920,"name":"Click to edit","duration":60,"remainingDuration":60,"isRunning":false}]

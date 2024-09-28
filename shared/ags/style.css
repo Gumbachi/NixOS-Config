@@ -83,16 +83,40 @@ button:hover {
 
 .timers {
   min-width: 250px;
+  min-height: 405px;
+
+  /* Leave room for scrollbar */
+  padding-right: 0px;
 }
 
 .timers .timer {
   border-width: 2px;
+
+  /* leave room for the scrollbar */
+  margin-right: 12px;
+  margin-left: 2px;
+  padding-top: 0px;
+}
+
+.timers .add {
+  /* leave room for the scrollbar */
+  margin-right: 12px;
+  margin-left: 2px;
 }
 
 .timers .timer .name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
-  padding-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.timers .timer .name-edit {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .timers .timer .time {
@@ -100,8 +124,33 @@ button:hover {
   font-weight: bold;
 }
 
+.timers .timer .time-edit {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+}
+
 .timers .timer button {
   border-width: 2px;
+  font-size: 15px;
+  padding: .05em;
+  min-height: 1.8em;
+  min-width: 1.8em;
+  border-radius: 10px;
+}
+
+.timers .timer .delete {
+  min-height: 1em;
+  min-width: 1em;
+  margin: 0px;
+  padding: .1em;
+  border-width: 2px;
+  border-radius: 100%;
+}
+
+.timers .timer .delete:hover {
+  border-color: @red;
 }
 
 
@@ -206,34 +255,46 @@ window.notification-popups box.notifications {
   font-weight: bold;
 }
 
-/*********\
-*** CPU ***
-\*********/
-
-.cpu {
-  min-width: 120px;
-}
-
-.cpu .usage .value,
-.cpu .temp .value {
-  font-size: 18px;
-  font-weight: bold;
-  min-width: 50px;
-}
-
 /************\
-*** MEMORY ***
+*** SYSTEM ***
 \************/
 
-.memory {
-  min-width: 120px;
+.system {
+  min-width: 200px;
 }
 
-.memory .usage .value {
+.system .cpu,
+.system .memory,
+.system .cpu-temp,
+.system .disk {
   font-size: 18px;
   font-weight: bold;
+}
+
+.system .value {
   min-width: 50px;
 }
+
+/* .cpu { */
+/* min-width: 120px; */
+/* } */
+
+/* .cpu .usage .value, */
+/* .cpu .temp .value { */
+/* font-size: 18px; */
+/* font-weight: bold; */
+/* min-width: 50px; */
+/* } */
+
+/* .memory { */
+/* min-width: 120px; */
+/* } */
+
+/* .memory .usage .value { */
+/* font-size: 18px; */
+/* font-weight: bold; */
+/* min-width: 50px; */
+/* } */
 
 /*************\
 *** NETWORK ***

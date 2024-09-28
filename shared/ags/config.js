@@ -2,7 +2,7 @@ import { PowerMenu } from "./components/powermenu.js"
 import { Media } from "./components/mediaplayer.js"
 import { VolumeMenu } from "./components/volume.js"
 import { Datetime } from "./components/time.js" 
-import { Cpu, Memory } from "./components/system.js"
+import { Cpu, Memory, System } from "./components/system.js"
 import { Network } from "./components/network.js" 
 import { Workspaces } from "./components/workspaces.js" 
 import { NightLightMenu, NightLightButton } from "./components/nightlight.js"
@@ -26,8 +26,9 @@ const Dashboard = () => Widget.Box({
                     children: [
                         VolumeMenu(),
                         Network(),
-                        Cpu(),
-                        Memory(),
+                        System(),
+                        // Cpu(),
+                        // Memory(),
                     ]
                 }),
                 Widget.Box({
@@ -83,7 +84,7 @@ App.config({
     style: './style.css',
     windows: [
         DashboardWindow(),
-        NotificationPopups()
+        NotificationPopups(2)
     ] 
 })
 

@@ -141,7 +141,8 @@ export function NotificationPopups(monitor = 0) {
         monitor,
         name: `notifications${monitor}`,
         class_name: "notification-popups",
-        anchor: ["bottom", "right"],
+        layer: 'overlay',
+        anchor: ["top", "right"],
         child: Widget.Box({
             css: "min-width: 2px; min-height: 2px;",
             class_name: "notifications",

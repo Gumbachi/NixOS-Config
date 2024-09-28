@@ -38,7 +38,7 @@
 
     # Browsers
     floorp
-    inputs.zen-browser.packages."${pkgs.system}".default
+    inputs.zen-browser.packages."${system}".default
 
     # Office
     libreoffice-qt6-fresh
@@ -80,9 +80,12 @@
     waybar
     rofi-wayland
     hyprcursor
-    hyprpaper
     hypridle # the option does not work
     hyprlock
+
+    # Wallpapers
+    hyprpaper
+    waypaper
 
     imv # Image Viewer
     pavucontrol # Sound Settings
