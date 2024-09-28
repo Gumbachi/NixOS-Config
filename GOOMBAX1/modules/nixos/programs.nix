@@ -77,7 +77,6 @@
     libgtop
 
     # Hyprland Stuff
-    waybar
     rofi-wayland
     hyprcursor
     hypridle # the option does not work
