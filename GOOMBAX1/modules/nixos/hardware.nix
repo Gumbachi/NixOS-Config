@@ -18,10 +18,7 @@
     #   };
     # };
 
-    cpu.amd = {
-      updateMicrocode = true;
-      ryzen-smu.enable = true;
-    };
+    cpu.amd.updateMicrocode = true;
 
     keyboard.zsa.enable = true;
     logitech.wireless.enable = true;

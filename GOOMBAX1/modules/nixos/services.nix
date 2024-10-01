@@ -23,7 +23,8 @@
       # };
     };
 
-
+    power-profiles-daemon.enable = true;
+    auto-epp.enable = true;
 
   };
 }

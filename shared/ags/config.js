@@ -58,10 +58,11 @@ const Dashboard = () => Widget.Box({
 
 const DashboardWindow = (monitor = 0) => Widget.Window({
     name: 'dashboard',
-    keymode: 'on-demand',
+    keymode: "exclusive",
     layer: 'overlay',
+    exclusivity: "exclusive",
     monitor: monitor,
-    margins: [10, 10],
+    // margins: [10, 10],
     setup: self => {
         self.keybind("Escape", () => { App.closeWindow('dashboard')})
     },

@@ -28,6 +28,7 @@ in
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
+    (sharedModulePath + /virtualization.nix)
     # (sharedModulePath + /obs.nix)
     # (sharedModulePath + /sunshine.nix)
     
