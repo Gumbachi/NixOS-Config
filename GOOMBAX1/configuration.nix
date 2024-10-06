@@ -21,7 +21,7 @@ in
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
-    (modulePath + /nixvim.nix)
+    # (modulePath + /nixvim.nix)
     (modulePath + /android.nix)
 
     # Shared - The same across systems 
@@ -29,7 +29,7 @@ in
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
     (sharedModulePath + /docker.nix)
-    # (sharedModulePath + /virtualization.nix)
+    (sharedModulePath + /virtualization.nix)
     # (sharedModulePath + /obs.nix)
     # (sharedModulePath + /sunshine.nix)
     
@@ -79,6 +79,8 @@ in
     allowUnfree = true;
     rocmSupport = true;
   };
+
+  documentation.man.enable = false;
 
   # Enable networking
   networking.networkmanager.enable = true;

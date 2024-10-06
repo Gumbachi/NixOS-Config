@@ -1,6 +1,6 @@
 { ... }: {
 
-  virtualization.docker.enable = true;
+  virtualisation.docker.enable = true;
   users.users.jared.extraGroups = [ "docker" ];
 
 }

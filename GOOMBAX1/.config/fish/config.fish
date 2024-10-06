@@ -23,3 +23,5 @@ zoxide init fish | source
 
 starship init fish | source
 enable_transience
+# uv
+fish_add_path "/home/jared/.local/bin"

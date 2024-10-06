@@ -70,6 +70,10 @@
   # System packages.
   environment.systemPackages = with pkgs; [
     wget
+    ripgrep
+    fd
+    clipse
+    wl-clipboard
 
     # Notifications
     libnotify
@@ -81,6 +85,7 @@
     hyprcursor
     hypridle # the option does not work
     hyprlock
+    hyprpicker
 
     # Wallpapers
     hyprpaper
