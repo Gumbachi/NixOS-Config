@@ -9,6 +9,7 @@
     # Plugin configs
     ./plugins.nix
     ./lsp.nix
+    ./cmp.nix
     ./telescope.nix
     ./treesitter.nix
   ];

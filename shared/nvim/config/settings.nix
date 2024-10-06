@@ -9,10 +9,6 @@
     # Use the system clipboard
     clipboard = "unnamedplus";
 
-    # Number of spaces that represent a <TAB>
-    tabstop = 2;
-    softtabstop = 2;
-
     # Show tabline always
     showtabline = 2;
 
@@ -69,9 +65,6 @@
 
     # Open new split to the right of the current window
     splitright = true;
-
-    # Hide command line unless needed
-    cmdheight = 0;
 
     # Remove EOB
     fillchars = {

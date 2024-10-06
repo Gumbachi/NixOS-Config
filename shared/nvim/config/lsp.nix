@@ -7,7 +7,7 @@
     };
   };
 
-  plugins.lsp-format.eanble = true;
+  plugins.lsp-format.enable = true;
   plugins.lsp-status.enable = true;
   plugins.lsp-lines.enable = true;
 }

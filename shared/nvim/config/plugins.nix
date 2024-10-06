@@ -7,6 +7,7 @@
     lualine.enable = true;
     which-key.enable = true;
     rainbow-delimiters.enable = true;
+    nvim-autopairs.enable = true;
     
 
   };
