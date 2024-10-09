@@ -16,12 +16,14 @@ in
     (modulePath + /hardware.nix)
     (modulePath + /hyprland.nix)
     (modulePath + /sound.nix)
+    (modulePath + /networking.nix)
+
 
     # GOOMBAX1 -- Optional
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
-    # (modulePath + /nixvim.nix)
+    (modulePath + /minecraft.nix)
     (modulePath + /android.nix)
 
     # Shared - The same across systems 
@@ -36,7 +38,7 @@ in
   ];
 
 
-  networking.hostName = "GOOMBAX1";
+  
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -63,7 +65,13 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" ];
+  };
+
+  qt = {
+    enable = true;
+    style = "kvantum";
+    platformTheme = "qt5ct";
   };
 
   nix.settings.experimental-features = [
@@ -82,9 +90,7 @@ in
 
   documentation.man.enable = false;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

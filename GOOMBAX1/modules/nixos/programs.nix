@@ -40,6 +40,7 @@
     floorp
     inputs.zen-browser.packages."${system}".default
 
+
     # Office
     libreoffice-qt6-fresh
     hunspell
@@ -64,6 +65,7 @@
     python312Packages.python-lsp-server
     rust-analyzer # Rust
     taplo # TOML
+    hyprls
 
   ];
 
@@ -74,6 +76,9 @@
     fd
     clipse
     wl-clipboard
+
+    # My Nixvim config
+    inputs.nvim.packages."${system}".default
 
     # Notifications
     libnotify
@@ -120,6 +125,8 @@
 
     # minecraft
     prismlauncher
+    modrinth-app
+    jdk
 
   ];
 

@@ -12,8 +12,8 @@
     # File
     {
       mode = "n";
-      key = "<leader>ff";
-      action = "<CMD>Telescope find_files<CR>";
+      key = "<leader> ";
+      action = "<CMD>Telescope find_files hidden=true<CR>";
     }
     {
       key = "<leader>fm";
@@ -26,6 +26,7 @@
       action = "<CMD>Yazi<CR>";
       options.desc = "Open Yazi";
     }
+     
   ];
 
 }

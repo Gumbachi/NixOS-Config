@@ -12,9 +12,9 @@
       lsl = "ls -l";
       rebuild = "sudo nixos-rebuild switch";
       rebuild-boot = "sudo nixos-rebuild boot";
-      rebuild-update = "cd $CONFIG && nix flake update && sudo nixos-rebuild switch";
-      rebuild-update-boot = "cd $CONFIG && nix flake update && sudo nixos-rebuild boot";
-      rebuild-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild switch";
+      rebuild-update = "cd $CONFIG && sudo nix flake update && nixos-rebuild switch";
+      rebuild-update-boot = "cd $CONFIG && sudo nix flake update && nixos-rebuild boot";
+      rebuild-clean = "sudo nix-collect-garbage -d && nixos-rebuild switch";
     };
   };
 

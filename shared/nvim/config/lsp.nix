@@ -2,8 +2,10 @@
   plugins.lsp = {
     enable = true;
     servers = {
+      pylsp.enable = true; # Python
       ruff.enable = true; # Python 
       nil-ls.enable = true; # Nix
+      hyprls.enable = true; # Hyprlang
     };
   };
 

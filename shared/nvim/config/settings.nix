@@ -1,4 +1,10 @@
 {
+
+  globals = {
+    loaded_netrwPlugin = 1;
+    loaded_netrw = 1; 
+  };
+
   opts = {
     # Show line numbers
     number = true;

@@ -7,6 +7,7 @@
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
     catppuccin.url = "github:catppuccin/nix";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     hyprland = {
       type = "git";
@@ -15,11 +16,7 @@
     };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvim.url = "path:/home/jared/NixOS-Config/shared/nvim";
     
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -53,9 +50,6 @@
           ];
         }
         
-        # Nixvim
-        inputs.nixvim.nixosModules.nixvim
-
         # Catppuccin
         inputs.catppuccin.nixosModules.catppuccin
 
