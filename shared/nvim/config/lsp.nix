@@ -2,10 +2,23 @@
   plugins.lsp = {
     enable = true;
     servers = {
-      pylsp.enable = true; # Python
+      # basedpyright.enable = true; # Python
+      # pylsp.enable = true; # Python
       ruff.enable = true; # Python 
-      nil-ls.enable = true; # Nix
+      nil_ls.enable = true; # Nix
       hyprls.enable = true; # Hyprlang
+      dockerls.enable = true; # Docker
+      jsonls.enable = true; # JSON
+      eslint.enable = true; # Javascript
+      cssls.enable = true; # CSS
+      marksman.enable = true; # Markdown
+      # Rust
+      rust_analyzer = {
+        enable = true;
+        installRustc = true;
+        installCargo = true;
+      };
+
     };
   };
 

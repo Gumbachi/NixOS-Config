@@ -11,22 +11,22 @@
     servers = {
 
       vanilla-server = {
-        enable = false;
+        enable = true;
         package = pkgs.vanillaServers.vanilla-1_21_1;
         openFirewall = true;
  
         serverProperties = {
-          server-port = 43000;
+          server-port = 42999;
           difficulty = 3;
           gamemode = 1;
           max-players = 5;
-          motd = "NixOS Minecraft server!";
+          motd = "NixOS 42999";
         };
 
         whitelist = {/* */};
   
       };
-
+      
 
       # modded-server = {
       #   enable = true;

@@ -7,8 +7,16 @@
 
   networking.firewall = {
     enable = true;
+    allowedTCPPorts = [ 25565 ];
+    allowedTCPPortRanges = [
+      { from = 42999; to = 43001; } 
+    ];
+    allowedUDPPorts = [ 25565 ];
+    allowedUDPPortRanges = [
+      { from = 42999; to = 43001; } 
+    ];
   };
 
-  networking.nftables.enable = true;
+  networking.nftables.enable = false;
 
 }

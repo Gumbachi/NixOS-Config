@@ -26,11 +26,13 @@ in
     (modulePath + /minecraft.nix)
     (modulePath + /android.nix)
 
+
     # Shared - The same across systems 
+    (sharedModulePath + /nixvim.nix)
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
-    (sharedModulePath + /docker.nix)
+    # (sharedModulePath + /docker.nix)
     (sharedModulePath + /virtualization.nix)
     # (sharedModulePath + /obs.nix)
     # (sharedModulePath + /sunshine.nix)

@@ -56,16 +56,16 @@
     parsec-bin
 
     # Lanuage Servers
-    typescript-language-server # TS/JS
-    vscode-langservers-extracted # CSS/JSON/HTML
-    marksman # Markdown
-    nil # Nix
-    dockerfile-language-server-nodejs # Dockerfile
-    python312Packages.python-lsp-ruff # Python
-    python312Packages.python-lsp-server
-    rust-analyzer # Rust
-    taplo # TOML
-    hyprls
+    # typescript-language-server # TS/JS
+    # vscode-langservers-extracted # CSS/JSON/HTML
+    # marksman # Markdown
+    # nil # Nix
+    # dockerfile-language-server-nodejs # Dockerfile
+    # python312Packages.python-lsp-ruff # Python
+    # python312Packages.python-lsp-server
+    # rust-analyzer # Rust
+    # taplo # TOML
+    # hyprls
 
   ];
 
@@ -78,7 +78,7 @@
     wl-clipboard
 
     # My Nixvim config
-    inputs.nvim.packages."${system}".default
+    # inputs.nvim.packages."${pkgs.system}".default
 
     # Notifications
     libnotify
@@ -127,6 +127,8 @@
     prismlauncher
     modrinth-app
     jdk
+    
+    moonlight-qt
 
   ];
 

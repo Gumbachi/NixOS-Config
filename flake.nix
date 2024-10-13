@@ -16,7 +16,13 @@
     };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
-    nvim.url = "path:/home/jared/NixOS-Config/shared/nvim";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nvim.url = "path:/home/jared/NixOS-Config/shared/nvim";
     
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -52,6 +58,9 @@
         
         # Catppuccin
         inputs.catppuccin.nixosModules.catppuccin
+
+        # Nixvim
+        inputs.nixvim.nixosModules.nixvim
 
         # Stylix
         # stylix.nixosModules.stylix
