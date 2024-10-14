@@ -25,6 +25,7 @@ in
     (modulePath + /env.nix)
     (modulePath + /minecraft.nix)
     (modulePath + /android.nix)
+    (modulePath + /vr.nix)
 
 
     # Shared - The same across systems 

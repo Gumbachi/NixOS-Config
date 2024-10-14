@@ -65,12 +65,13 @@
       lsp-format.enable = true;
       lsp-status.enable = true;
       lsp-lines.enable = true;
+      lsp-signature.enable = true;
       lsp = {
         enable = true;
         servers = {
-          # basedpyright.enable = true; # Python
+          pyright.enable = true; # Python
           # pylsp.enable = true; # Python
-          ruff.enable = true; # Python 
+          # ruff.enable = true; # Python 
           nil_ls.enable = true; # Nix
           hyprls.enable = true; # Hyprlang
           dockerls.enable = true; # Docker
