@@ -6,7 +6,6 @@
 
      graphics = {
        enable = true;
-       enable32Bit = true;
        extraPackages = [ pkgs.rocmPackages.rocm-smi ];
      };
 
@@ -21,7 +20,8 @@
     cpu.amd.updateMicrocode = true;
 
     keyboard.zsa.enable = true;
-    logitech.wireless.enable = true;
+    
+    # logitech.wireless.enable = true;
 
     
     # bluetooth = {

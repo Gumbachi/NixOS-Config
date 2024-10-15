@@ -71,12 +71,6 @@ in
     extraGroups = [ "networkmanager" "wheel" "video" "minecraft" ];
   };
 
-  qt = {
-    enable = true;
-    style = "kvantum";
-    platformTheme = "qt5ct";
-  };
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

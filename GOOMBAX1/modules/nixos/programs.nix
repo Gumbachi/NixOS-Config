@@ -18,11 +18,12 @@
     silent = true;
   };
 
+  programs.java.enable = true;
+
   users.users.jared.packages = with pkgs; [
     helix
     devenv
     vulkan-tools
-    furmark
 
     # Command line tools
     fastfetch
@@ -37,7 +38,6 @@
     vesktop
 
     # Browsers
-    floorp
     inputs.zen-browser.packages."${system}".default
 
 
@@ -55,22 +55,11 @@
     imagemagick
     parsec-bin
 
-    # Lanuage Servers
-    # typescript-language-server # TS/JS
-    # vscode-langservers-extracted # CSS/JSON/HTML
-    # marksman # Markdown
-    # nil # Nix
-    # dockerfile-language-server-nodejs # Dockerfile
-    # python312Packages.python-lsp-ruff # Python
-    # python312Packages.python-lsp-server
-    # rust-analyzer # Rust
-    # taplo # TOML
-    # hyprls
-
   ];
 
   # System packages.
   environment.systemPackages = with pkgs; [
+
     wget
     ripgrep
     fd
@@ -112,7 +101,6 @@
     # Terminal
     starship
     yazi
-    nix-search-cli
 
     lxqt.lxqt-policykit
 
@@ -125,11 +113,10 @@
 
     # minecraft
     prismlauncher
-    modrinth-app
-    jdk
-    
-    moonlight-qt
 
+    # VR
+    wlx-overlay-s
+    
   ];
 
   # Needed for lact to work correctly

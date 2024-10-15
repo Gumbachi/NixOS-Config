@@ -5,6 +5,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.enableIPv6 = false;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 25565 ];
