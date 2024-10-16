@@ -2,18 +2,15 @@
 
 
 | Function       | Package      |
-| ---------------- | :------------- |
+| -------------- | ------------ |
 | Window Manager | Hyprland     |
-| Shell          | Fish         |
-| Editor         | Helix        |
-| Notifications  | AGS Custom   |
-| Status Bar     | Waybar       |
+| Editor         | NixVim       |
+| Notifications  | AGS          |
 | Menu           | Rofi-Wayland |
 | System Monitor | Btop         |
 | File Manager   | Yazi         |
 | Lock Screen    | Hyprlock     |
-| Wallpapers     | Hyprpaper    |
-| Broswer        | Floorp       |
+| Wallpapers     | Waypaper     |
 
 ## Steps
 
