@@ -17,6 +17,7 @@
       which-key.enable = true;
       rainbow-delimiters.enable = true;
       nvim-autopairs.enable = true;
+      markdown-preview.enable = true;
       comment.enable = true; 
       project-nvim = {
         enable = true;
@@ -186,6 +187,11 @@
         key = "<leader>e";
         action = "<CMD>Yazi<CR>";
         options.desc = "Open Yazi";
+      } 
+      {
+        key = "<leader>md";
+        action = "<CMD>MarkdownPreview<CR>";
+        options.desc = "Open the markdown preview";
       } 
     ];
 
