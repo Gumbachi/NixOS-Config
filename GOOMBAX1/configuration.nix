@@ -12,7 +12,6 @@ in
 
     # GOOMBAX1 -- Mandatory
     (modulePath + /boot.nix)
-    (modulePath + /display-manager.nix)
     (modulePath + /hardware.nix)
     (modulePath + /hyprland.nix)
     (modulePath + /sound.nix)

@@ -11,6 +11,7 @@
 
       # General Plugins
       bufferline.enable = true;
+      indent-blankline.enable = true;
       web-devicons.enable = true;
       yazi.enable = true;
       lualine.enable = true;
@@ -18,11 +19,23 @@
       rainbow-delimiters.enable = true;
       nvim-autopairs.enable = true;
       markdown-preview.enable = true;
+      markview.enable = true;
       comment.enable = true; 
+      chadtree.enable = true;
       project-nvim = {
         enable = true;
         enableTelescope = true;
         settings.show_hidden = true;
+        settings.patterns = [
+          ".git"
+          "tsconfig.json"
+          "_darcs"
+          ".hg"
+          ".bzr"
+          ".svn"
+          "Makefile"
+          "package.json"
+        ];
       };
 
       # Code Completion
@@ -31,6 +44,7 @@
         installArtifacts = true;
         settings = {
           auto_start = "shut-up";
+          completion.always = true;
         };
       };
 
@@ -63,23 +77,27 @@
       };
 
       # LSP
-      lsp-format.enable = true;
-      lsp-status.enable = true;
-      lsp-lines.enable = true;
+      # lsp-format.enable = true;
+      lsp-status.enable = false;
       lsp-signature.enable = true;
       lsp = {
         enable = true;
         servers = {
+          ts_ls.enable = true; # Typescript/Javascript
           pyright.enable = true; # Python
           # pylsp.enable = true; # Python
           # ruff.enable = true; # Python 
           nil_ls.enable = true; # Nix
-          hyprls.enable = true; # Hyprlang
           dockerls.enable = true; # Docker
           jsonls.enable = true; # JSON
-          eslint.enable = true; # Javascript
+          # emmet_ls.enable = true;
           cssls.enable = true; # CSS
           marksman.enable = true; # Markdown
+
+          hyprls = {
+            enable = true;
+            filetypes = [ "conf" ];
+          }; # Hyprlang
 
           # Rust
           rust_analyzer = {
@@ -106,17 +124,20 @@
       relativenumber = true; # Relative Line Numbers
       clipboard = "unnamedplus"; # Use the system clipboard
 
-      # Show tabline always
-      showtabline = 2;
+      # Show tabline never
+      showtabline = 0;
 
       # Use spaces instead of tabs
       expandtab = true;
+      shiftwidth = 2;
+      softtabstop = 2;
+      smarttab = true;
 
       # Enable smart indentation
       smartindent = true;
 
       # Number of spaces to use for each step of (auto)indent
-      shiftwidth = 2;
+      # shiftwidth = 2;
 
       # Enable break indent
       breakindent = true;
@@ -130,23 +151,20 @@
       # Enable mouse support
       mouse = "a";
 
-      # Set folding method to manual
+      # Set folding method to indent
       foldmethod = "manual";
 
       # Disable folding by default
-      foldenable = false;
+      # foldenable = false;
 
       # Wrap long lines at a character in 'breakat'
       linebreak = true;
-
-      # Disable spell checking
-      spell = false;
 
       # Disable swap file creation
       swapfile = false;
 
       # Time in milliseconds to wait for a mapped sequence to complete
-      timeoutlen = 300;
+      # timeoutlen = 300;
 
       # Enable 24-bit RGB color in the TUI
       termguicolors = true;
@@ -162,6 +180,16 @@
 
       # Open new split to the right of the current window
       splitright = true;
+
+      # Ignore case when searching unless uppercase is present
+      ignorecase = true;
+      smartcase = true;
+      
+      # Dunno what this does 
+      smoothscroll = true;
+
+      # Split or something
+      inccommand = "split";
 
     };
 
@@ -190,9 +218,14 @@
       } 
       {
         key = "<leader>md";
-        action = "<CMD>MarkdownPreview<CR>";
+        action = "<CMD>Markview<CR>"; # MarkdownPreview
         options.desc = "Open the markdown preview";
-      } 
+      }
+      {
+        key = "<C-n>";
+        action = "<CMD>CHADopen<CR>";
+        options.desc = "Open the tree";
+      }
     ];
 
    

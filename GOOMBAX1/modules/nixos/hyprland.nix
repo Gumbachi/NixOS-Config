@@ -11,7 +11,48 @@
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  ### Hyprland: Necessary Programs ###
+  environment.systemPackages = with pkgs; [
+    kitty # Terminal Emulator
+    clipse # Clipboard Manager
+    wl-clipboard # Clipboard backend
+    rofi-wayland # Launcher
+    hyprpicker # Color Picker
+    hyprpaper # Wallpaper Utility
+    waypaper # Wallpaper GUI
+    imv # Image Viewer
+    kdePackages.gwenview # Simple Image Editor
+    pavucontrol # Sound Settings
+    grimblast # Screenshots
+    kdePackages.qtwayland # Hyprland Dependency
+    # kdePackages.qt6ct # QT Style GUI
+    # kdePackages.qtstyleplugin-kvantum # QT Plugin for better Styling
+    nwg-look # GTK Style GUI
+    lxqt.lxqt-policykit # Polkit - Sudo Prompt
+  ];
+
+
+  qt = {
+    platformTheme = "qt5ct";
+    enable = true;
+  };
+
+  # Lock Screen 
   security.pam.services.hyprlock = {};
   programs.hyprlock.enable = true;
 
+  # Idle Daemon
+  services.hypridle.enable = true;
+
+  # Greetd: Autostart Hyprland on boot
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "Hyprland";
+        user = "jared";
+      };
+      default_session = initial_session;
+    };
+  };
 }

@@ -20,103 +20,50 @@
 
   programs.java.enable = true;
 
-  users.users.jared.packages = with pkgs; [
-    helix
-    devenv
-    vulkan-tools
-
-    # Command line tools
-    fastfetch
-    tldr
-    kitty
-    unzip
-    speedtest-cli
-
-    # Media/Social
-    vlc
-    youtube-music
-    vesktop
-
-    # Browsers
-    inputs.zen-browser.packages."${system}".default
-
-
-    # Office
-    libreoffice-qt6-fresh
-    hunspell
-    hunspellDicts.en_US
-
-    # Other
-    keymapp # ZSA keymapp
-    kontroll # ZSA CLI
-    
-    kdePackages.gwenview
-
-    imagemagick
-    parsec-bin
-
-  ];
-
-  # System packages.
   environment.systemPackages = with pkgs; [
 
-    wget
-    ripgrep
-    fd
-    clipse
-    wl-clipboard
+    inputs.zen-browser.packages."${system}".default # Browser
 
-    # My Nixvim config
-    # inputs.nvim.packages."${pkgs.system}".default
+    vlc # Video Player
+    youtube-music # Music App
+    vesktop # Discord Client
 
-    # Notifications
-    libnotify
-    glib
-    libgtop
+    libreoffice-qt6-fresh # Office Software
+    hunspell # Spellcheck for libreoffice
+    hunspellDicts.en_US # US Dictionary for spellcheck
 
-    # Hyprland Stuff
-    rofi-wayland
-    hyprcursor
-    hypridle # the option does not work
-    hyprlock
-    hyprpicker
+    fastfetch # System Info
+    tldr # Better Command Help
+    unzip # Unzipper
+    speedtest-cli # Network Speed CLI
 
-    # Wallpapers
-    hyprpaper
-    waypaper
+    helix # Text Editor
+    devenv # Automatic Dev Environments
 
-    imv # Image Viewer
-    pavucontrol # Sound Settings
-    grimblast # Screenshot Utility
+    keymapp # Moonlander Software
+    kontroll # Moonlander Control API
+
+    wget # Web Fetch
+    ripgrep # Fast search
+    fd # Another fast search
+    
+    libnotify # Send Test Notifications
+ 
     lm_sensors # Sensors
     btop # System Monitor
 
-    # QT and GTK style
-    kdePackages.qtwayland
-    kdePackages.qt6ct
-    kdePackages.qtstyleplugin-kvantum
-    kdePackages.qtsvg
-    nwg-look
+    starship # Terminal Styling
+    yazi # Terminal File Manager
 
-    # Terminal
-    starship
-    yazi
+    amdgpu_top # GPU Monitor
+    lact # GPU Manager
 
-    lxqt.lxqt-policykit
+    wlsunset # Blue Light Filter
+    prismlauncher # Minecraft Launcher
 
-    # AMD GPU Stuff
-    amdgpu_top
-    lact
-
-    # Blue light filter
-    wlsunset
-
-    # minecraft
-    prismlauncher
-
-    # VR
-    wlx-overlay-s
-    
+    imagemagick # Terminal Image Manipulation
+    parsec-bin # Desktop Streaming Client
+ 
   ];
 
   # Needed for lact to work correctly
