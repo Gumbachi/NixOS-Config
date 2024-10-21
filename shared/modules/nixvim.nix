@@ -2,26 +2,35 @@
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
-
+    
     #######################
     ### PLUGINS AND LSP ###
     #######################
-    
-    plugins = {
 
+    plugins = { 
       # General Plugins
       bufferline.enable = true;
-      indent-blankline.enable = true;
+      indent-blankline.enable = false;
       web-devicons.enable = true;
-      yazi.enable = true;
-      lualine.enable = true;
-      which-key.enable = true;
-      rainbow-delimiters.enable = true;
-      nvim-autopairs.enable = true;
-      markdown-preview.enable = true;
-      markview.enable = true;
-      comment.enable = true; 
+      yazi.enable = true; # File Management
+      lualine.enable = true; # Status Line
+      which-key.enable = true; # Input Hints
+      rainbow-delimiters.enable = true; # Rainbow Brackets
+      markview.enable = true; # Markdown Preview
+      markdown-preview.enable = true; # Alternate Markdown Preview 
+      comment.enable = true; # Enable easy commenting
+      nvim-colorizer.enable = true; # Highlight Hexcodes
       chadtree.enable = true;
+      noice.enable = true;
+ 
+      # nvim-autopairs.enable = true;
+      autoclose = {
+        enable = true;
+        options.pairSpaces = true;
+        options.autoIndent = true;
+      };
+
+      # Select root for project
       project-nvim = {
         enable = true;
         enableTelescope = true;
@@ -51,8 +60,8 @@
       # Treesitter
       treesitter = {
         enable = true;
-        settings.indent.enable = true;
-        settings.highlight.enable = true;
+        settings.indent.enable = false;
+        settings.highlight.enable = false;
       };
 
       # Telescope
@@ -124,29 +133,22 @@
       relativenumber = true; # Relative Line Numbers
       clipboard = "unnamedplus"; # Use the system clipboard
 
-      # Show tabline never
-      showtabline = 0;
-
       # Use spaces instead of tabs
       expandtab = true;
       shiftwidth = 2;
       softtabstop = 2;
-      smarttab = true;
 
       # Enable smart indentation
-      smartindent = true;
+      # smartindent = true;
 
-      # Number of spaces to use for each step of (auto)indent
-      # shiftwidth = 2;
-
-      # Enable break indent
-      breakindent = true;
+      # Keep wrapped lines on the same indent
+      breakindent = false; # Re-enable this
 
       # Highlight the screen line of the cursor
       cursorline = true;
 
       # Minimum number of screen lines to keep above and below the cursor
-      scrolloff = 10;
+      scrolloff = 8;
 
       # Enable mouse support
       mouse = "a";
@@ -184,13 +186,7 @@
       # Ignore case when searching unless uppercase is present
       ignorecase = true;
       smartcase = true;
-      
-      # Dunno what this does 
-      smoothscroll = true;
-
-      # Split or something
-      inccommand = "split";
-
+    
     };
 
     ################

@@ -3,6 +3,9 @@
   environment.systemPackages = with pkgs; [ 
     mangohud
     protonup-qt
+    protontricks
+    steamtinkerlaunch
+    wine
   ];
 
   # Steam
@@ -12,7 +15,10 @@
   };
 
   # Gamemode
-  # programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
 
   # Gamescope
   # programs.gamescope = {

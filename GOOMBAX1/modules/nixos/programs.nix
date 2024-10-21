@@ -5,6 +5,8 @@
     package = pkgs.kdePackages.partitionmanager;
   };
   
+  programs.thunar.enable = true;
+
   programs.kdeconnect = {
     enable = true;
     package = pkgs.kdePackages.kdeconnect-kde;
@@ -23,6 +25,7 @@
   environment.systemPackages = with pkgs; [
 
     inputs.zen-browser.packages."${system}".default # Browser
+    inputs.umu.packages.${pkgs.system}.umu
 
     vlc # Video Player
     youtube-music # Music App

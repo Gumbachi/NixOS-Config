@@ -25,17 +25,11 @@
     pavucontrol # Sound Settings
     grimblast # Screenshots
     kdePackages.qtwayland # Hyprland Dependency
-    # kdePackages.qt6ct # QT Style GUI
-    # kdePackages.qtstyleplugin-kvantum # QT Plugin for better Styling
+    kdePackages.qt6ct # QT Style GUI
+    kdePackages.qtstyleplugin-kvantum # QT Plugin for better Styling
     nwg-look # GTK Style GUI
     lxqt.lxqt-policykit # Polkit - Sudo Prompt
   ];
-
-
-  qt = {
-    platformTheme = "qt5ct";
-    enable = true;
-  };
 
   # Lock Screen 
   security.pam.services.hyprlock = {};

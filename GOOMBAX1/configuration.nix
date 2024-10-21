@@ -28,7 +28,7 @@ in
 
 
     # Shared - The same across systems 
-    (sharedModulePath + /nixvim.nix)
+    (sharedModulePath + /nixvimdebug.nix)
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
