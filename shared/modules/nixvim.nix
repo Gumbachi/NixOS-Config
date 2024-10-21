@@ -7,10 +7,8 @@
     ### PLUGINS AND LSP ###
     #######################
 
-    plugins = { 
-      # General Plugins
-      bufferline.enable = true;
-      indent-blankline.enable = false;
+    plugins = {
+      indent-blankline.enable = true;
       web-devicons.enable = true;
       yazi.enable = true; # File Management
       lualine.enable = true; # Status Line
@@ -20,7 +18,7 @@
       markdown-preview.enable = true; # Alternate Markdown Preview 
       comment.enable = true; # Enable easy commenting
       nvim-colorizer.enable = true; # Highlight Hexcodes
-      chadtree.enable = true;
+      chadtree.enable = false;
       noice.enable = true;
  
       # nvim-autopairs.enable = true;
@@ -47,21 +45,29 @@
         ];
       };
 
-      # Code Completion
-      coq-nvim = {
+      # Code Completion 
+      cmp = {
         enable = true;
-        installArtifacts = true;
-        settings = {
-          auto_start = "shut-up";
-          completion.always = true;
+        settings.sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        settings.mapping = {
+          "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<C-e>" = "cmp.mapping.close()";
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
         };
       };
-
+      
       # Treesitter
       treesitter = {
         enable = true;
-        settings.indent.enable = false;
-        settings.highlight.enable = false;
+        settings.highlight.enable = true;
       };
 
       # Telescope
@@ -86,20 +92,15 @@
       };
 
       # LSP
-      # lsp-format.enable = true;
-      lsp-status.enable = false;
       lsp-signature.enable = true;
       lsp = {
         enable = true;
         servers = {
           ts_ls.enable = true; # Typescript/Javascript
           pyright.enable = true; # Python
-          # pylsp.enable = true; # Python
-          # ruff.enable = true; # Python 
           nil_ls.enable = true; # Nix
           dockerls.enable = true; # Docker
           jsonls.enable = true; # JSON
-          # emmet_ls.enable = true;
           cssls.enable = true; # CSS
           marksman.enable = true; # Markdown
 
@@ -139,7 +140,7 @@
       softtabstop = 2;
 
       # Enable smart indentation
-      # smartindent = true;
+      cindent = true;
 
       # Keep wrapped lines on the same indent
       breakindent = false; # Re-enable this

@@ -16,7 +16,48 @@
       autoclose = {
         enable = true;
         options.pairSpaces = true;
-        options.autoIndent = true;
+      };
+
+      # Treesitter - Enabling indenting causes issues
+      treesitter = {
+        enable = true;
+        settings.highlight.enable = true;
+      };
+
+      # Select root for project
+      project-nvim = {
+        enable = true;
+        enableTelescope = true;
+        settings.show_hidden = true;
+        settings.patterns = [
+          ".git"
+          "tsconfig.json"
+          "_darcs"
+          ".hg"
+          ".bzr"
+          ".svn"
+          "Makefile"
+          "package.json"
+        ];
+      };
+
+      # Code Completion 
+      cmp = {
+        enable = true;
+        settings.sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        settings.mapping = {
+          "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<C-e>" = "cmp.mapping.close()";
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+        };
       };
 
       # Telescope
@@ -52,6 +93,15 @@
     ######################
 
     opts = {
+
+      cindent = true;
+
+
+      softtabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+
+      
       number = true; # Line Numbers
       relativenumber = true; # Relative Line Numbers
       clipboard = "unnamedplus"; # Use the system clipboard
