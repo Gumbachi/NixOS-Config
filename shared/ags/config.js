@@ -1,6 +1,6 @@
 import { PowerMenu } from "./components/powermenu.js"
 import { Media } from "./components/mediaplayer.js"
-import { VolumeMenu } from "./components/volume.js"
+import { VolumeMenu, MuteIndicators } from "./components/volume.js"
 import { Datetime } from "./components/time.js"
 import { System } from "./components/system.js"
 import { Network } from "./components/network.js"
@@ -86,7 +86,8 @@ App.config({
   style: './style.css',
   windows: [
     DashboardWindow(),
-    NotificationPopups(2)
+    NotificationPopups(2),
+    MuteIndicators(0)
   ]
 })
 

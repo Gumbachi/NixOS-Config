@@ -35,7 +35,6 @@ function restartSunset(start, end) {
 
 // Listen to button
 nightLightStatus.connect('changed', ({ value }) => {
-    print(`listener: ${value}`)
     if (value === "on") {
         restartSunset(nightLightStart.value, nightLightEnd.value)
     } else if (value === "off") {

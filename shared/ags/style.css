@@ -263,6 +263,22 @@ window.notification-popups box.notifications {
   font-weight: bold;
 }
 
+.muteindicators {
+  margin: 24px;
+  margin-right: 8px;
+}
+
+.muteindicators .icon {
+  /* background-color: red; */
+  opacity: 0.75;
+  background-color: @base;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 100%;
+  border-color: @red;
+  padding: 4px;
+}
+
 /************\
 *** SYSTEM ***
 \************/
