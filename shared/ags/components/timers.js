@@ -63,14 +63,9 @@ function TimerWidget(timer) {
   })
     .poll(1000, _ => {
 
-      // End Timer and alert
       if (timer.isDone) {
-        timer.end()
-        Utils.notify({
-          summary: "Timer Finished",
-          body: `${timer.name.value} is done`,
-          iconName: "timer-symbolic"
-        })
+        timer.end() 
+        timer.sendAlert()
       }
 
       // Tick time down by 1 second

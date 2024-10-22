@@ -62,6 +62,7 @@
     lact # GPU Manager
 
     wlsunset # Blue Light Filter
+    sox # Play audio from terminal
     prismlauncher # Minecraft Launcher
 
     imagemagick # Terminal Image Manipulation

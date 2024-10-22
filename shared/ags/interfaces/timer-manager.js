@@ -1,5 +1,7 @@
 
+// Config File these >
 const TIMERS_FILE = "/home/jared/NixOS-Config/shared/ags/settings/timers.json"
+const TIMER_AUDIO_FILE = "/home/jared/NixOS-Config/shared/ags/resources/ding.mp3"
 
 const generateId = () => (new Date()).getTime()
 
@@ -21,7 +23,7 @@ export class Timer {
   }
 
   get isDone() {
-    return this.durationRemaining.value === 0
+    return this.durationRemaining.value === 0 && this.isRunning.value === true
   }
 
   get canContinue() {
@@ -40,6 +42,15 @@ export class Timer {
 
   tick() {
     this.durationRemaining.value -= 1
+  }
+
+  sendAlert() {
+    Utils.notify({
+      summary: "Timer Finished",
+      body: `${this.name.value} is done`,
+      iconName: "timer-symbolic"
+    })
+    Utils.execAsync(`play ${TIMER_AUDIO_FILE}`)
   }
 
   toggleRunning() {
