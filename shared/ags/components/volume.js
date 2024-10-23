@@ -30,10 +30,10 @@ export function VolumeMenu() {
       self.tooltip_text = `Volume ${Math.floor(vol)}%`;
     }),
     on_clicked: () => {
+      print(audio[type].volume)
       // Turn on audio if clicking button and volume is 0
       if (audio[type].volume == 0) {
-        audio[type].volume = 1 // This could be set by config var
-        return
+        audio[type].volume = 1 // This value could be set by config var
       } 
 
       // Toggle mute
