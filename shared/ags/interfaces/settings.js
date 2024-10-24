@@ -1,11 +1,3 @@
+const CONFIG = "/home/jared/.config/ags/settings/config.json"
+export const Config = JSON.parse(Utils.readFile(CONFIG))
 
-const CONFIG = "./settings/config.json"
-const TIMERS = "./settings/timers.json"
-
-const timers = JSON.parse(Utils.readFile(TIMERS))
-const config = JSON.parse(Utils.readFile(CONFIG))
-
-export const Settings = {
-
-  
-} 

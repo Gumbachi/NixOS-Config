@@ -1,8 +1,7 @@
 import { Constants } from "../constants.js"
+import { Config } from "../interfaces/settings.js"
 
 const network = await Service.import('network')
-
-const WIRED_DEVICE_NAME = Utils.exec(`bash -c "echo $ETHERNET_DEVICE_NAME"`)
 
 const networkData = Widget.Label({
   label: network.connectivity
@@ -47,7 +46,7 @@ const NetworkIndicator = () => Widget.Stack({
         // Internal IP
         Widget.Label({
           css: "font-size: 18px; font-weight: bold;",
-          label: Utils.exec(`bash -c "ifconfig ${WIRED_DEVICE_NAME} | awk '/inet / {print $2}'"`)
+          label: Utils.exec(`bash -c "ifconfig ${Config.networkAdapter} | awk '/inet / {print $2}'"`)
         })
       ]
     }),

@@ -1,85 +1,59 @@
 import { Constants } from "../constants.js";
 import { Container, Title } from "./components.js";
+import { Config } from "../interfaces/settings.js";
 
 // Thermal Zone for CPU temp
 // Found how to get here https://phoenixnap.com/kb/linux-cpu-temp
 const CPU_TEMP_FILE = Utils.exec(`bash -c "echo $CPU_TEMP_FILE"`)
 
-const SystemIcon = (icon) => Widget.Icon({
-  icon: icon,
-  size: Constants.SMALL_ICON_SIZE
+
+const cpuPercent = Variable(0, {
+  poll: [
+    2000, // Interval
+    [`bash`, `-c`, `echo $[100-$(vmstat 1 2|tail -1|awk '{print $15}')]`],
+  ]
 })
 
-const boxDetails = {
+const memPercent = Variable(0, {
+  poll: [
+    2000,
+    `bash -c "free | awk '/Mem:/ {print $3/$2*100}'"`,
+    out => Math.round(out)
+  ]
+})
+
+const cpuTemp = Variable(0, {
+  poll: [
+    2000,
+    `cat ${Config.cpuTempFile}`,
+    out => parseInt(out.slice(0, -3))
+  ]
+})
+
+const diskPercent = Variable(0, {
+  poll: [
+    60000,
+    `bash -c "df -h / | awk '/dev/ {print $5}'"`,
+    out => out.replace("%", "")
+  ]
+})
+
+const SystemStat = (icon, label) => Widget.Box({
+  class_name: "stat",
   spacing: 16,
   hexpand: true,
-  hpack: "center"
-}
-
-const CpuUsage = () => Widget.Box({
-  ...boxDetails,
-  class_name: "cpu",
+  hpack: "center",
   children: [
-    SystemIcon("cpu-symbolic"),
+    Widget.Icon({
+      icon: icon,
+      size: Constants.SMALL_ICON_SIZE
+    }),
 
     Widget.Label({
       class_name: "value",
-      label: "0%", // Leave this as command takes a sec to get initial value
+      label: label,
       justification: "fill",
-      maxWidthChars: 4,
-    }).poll(2000, self => {
-      Utils.execAsync([`bash`, `-c`, `echo $[100-$(vmstat 1 2|tail -1|awk '{print $15}')]%`])
-        .then(out => self.label = out)
-        .catch(err => console.error(err))
-    })
-  ]
-})
-
-const CpuTemp = () => Widget.Box({
-  ...boxDetails,
-  class_name: "cpu-temp",
-  children: [
-    SystemIcon("sensors-temperature-symbolic"),
-    Widget.Label({
-      class_name: "value",
-      justification: "fill",
-    }).poll(2000, self => {
-      Utils.execAsync(`cat ${CPU_TEMP_FILE}`)
-        .then(out => self.label = out.slice(0, -3) + "°C")
-        .catch(err => console.error(err))
-    })
-  ]
-})
-
-const MemoryUsage = () => Widget.Box({
-  ...boxDetails,
-  class_name: "memory",
-  children: [
-    SystemIcon("memory-symbolic"),
-    Widget.Label({
-      class_name: "value",
-      justification: "fill"
-    }).poll(2000, self => {
-      Utils.execAsync(`bash -c "free | awk '/Mem:/ {print $3/$2*100}'"`)
-        .then(out => self.label = Math.round(out).toString() + "%")
-        .catch(err => console.error(err))
-    })
-  ]
-})
-
-const DiskUsage = () => Widget.Box({
-  ...boxDetails,
-  class_name: "disk",
-  children: [
-    SystemIcon("drive-harddisk-system-symbolic"),
-
-    Widget.Label({
-      class_name: "value",
-      justification: "fill"
-    }).poll(60000, self => {
-      Utils.execAsync(`bash -c "df -h / | awk '/dev/ {print $5}'"`)
-        .then(out => self.label = out)
-        .catch(err => console.error(err))
+      maxWidthChars: 5,
     })
   ]
 })
@@ -90,8 +64,17 @@ export function System() {
     vertical: true,
     spacing: 24,
     children: [
-      CpuUsage(),
-      CpuTemp()
+      // Cpu Usage
+      SystemStat(
+        "cpu-symbolic", 
+        cpuPercent.bind().as(u => `${u}%`)
+      ),
+
+      // Cpu Temperature
+      SystemStat(
+        "sensors-temperature-symbolic",
+        cpuTemp.bind().as(t => `${t}°C`)
+      )
     ]
   })
 
@@ -99,8 +82,17 @@ export function System() {
     vertical: true,
     spacing: 24,
     children: [
-      MemoryUsage(),
-      DiskUsage()
+      // Memory Usage
+      SystemStat(
+        "memory-symbolic",
+        memPercent.bind().as(u => `${u}%`)
+      ),
+
+      // Disk Usage
+      SystemStat(
+        "drive-harddisk-system-symbolic",
+        diskPercent.bind().as(u => `${u}%`)
+      )
     ]
   })
 
@@ -112,7 +104,7 @@ export function System() {
       Widget.Box({
         children: [
           cpu,
-          memdisk
+          memdisk,
         ]
       }),
     ]

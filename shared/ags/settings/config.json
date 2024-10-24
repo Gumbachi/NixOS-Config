@@ -1,4 +1,4 @@
 {
-        "networkAdapter": "enp5s0",
-        "what": "how"
+  "networkAdapter": "enp5s0",
+  "cpuTempFile": "/sys/class/hwmon/hwmon2/temp3_input"
 }

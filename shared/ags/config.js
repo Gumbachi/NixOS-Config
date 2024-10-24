@@ -28,8 +28,6 @@ const Dashboard = () => Widget.Box({
             VolumeMenu(),
             Network(),
             System(),
-            // Cpu(),
-            // Memory(),
           ]
         }),
         Widget.Box({

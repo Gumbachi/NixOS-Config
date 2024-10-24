@@ -287,38 +287,11 @@ window.notification-popups box.notifications {
   min-width: 200px;
 }
 
-.system .cpu,
-.system .memory,
-.system .cpu-temp,
-.system .disk {
+.system .value {
+  min-width: 50px;
   font-size: 18px;
   font-weight: bold;
 }
-
-.system .value {
-  min-width: 50px;
-}
-
-/* .cpu { */
-/* min-width: 120px; */
-/* } */
-
-/* .cpu .usage .value, */
-/* .cpu .temp .value { */
-/* font-size: 18px; */
-/* font-weight: bold; */
-/* min-width: 50px; */
-/* } */
-
-/* .memory { */
-/* min-width: 120px; */
-/* } */
-
-/* .memory .usage .value { */
-/* font-size: 18px; */
-/* font-weight: bold; */
-/* min-width: 50px; */
-/* } */
 
 /*************\
 *** NETWORK ***

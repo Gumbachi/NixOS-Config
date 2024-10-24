@@ -14,17 +14,17 @@ function isValidTime(t) {
 }
 
 function killSunset() {
-    print("Killing WLSunset")
+    console.log("Killing WLSunset")
     Utils.exec(`pkill wlsunset`)
 }
 
 function runSunset(start, end) {
-    print(`Running WLSunset start: ${start} end: ${end}`)
+    console.log(`Running WLSunset start: ${start} end: ${end}`)
     Utils.exec(`bash -c "wlsunset -l ${LAT} -L ${LONG} 1>/dev/null 2>/dev/null & disown"`)
 }
 
 function startSunset() {
-    print(`Running WLSunset`)
+    console.log(`Running WLSunset`)
     Utils.exec(`bash -c "wlsunset -l ${LAT} -L ${LONG} 1>/dev/null 2>/dev/null & disown"`)
 }
 

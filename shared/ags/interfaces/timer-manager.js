@@ -120,7 +120,7 @@ class TimerManager {
 
   _updateTimers(timers) {
     const converted = timers.map(t => t.stringify())
-    Utils.writeFile(JSON.stringify(converted), this.file)
+    Utils.writeFile(JSON.stringify(converted, null, 2), this.file)
       .then(_ => this.timers.setValue(timers))
       .catch(err => console.error(`Error writing file: ${err}`))
   }
