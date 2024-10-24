@@ -175,6 +175,7 @@ export function MuteIndicators(monitor = 0) {
     name: `muteindicators`,
     class_name: "muteindicatorswindow",
     layer: 'overlay',
+    clickThrough: true,
     keymode: "none",
     anchor: ["top", "right"],
     child: icons 
