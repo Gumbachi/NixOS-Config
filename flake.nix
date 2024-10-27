@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     hyprland = {
@@ -36,6 +36,11 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
+    
+    # Host Name = <GOOMBA><X/S><Number>
+    # GOOMBA = Name
+    # X/S = Desktop or Server
+    # Number = ID Number I Guess
     
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -102,6 +107,12 @@
 
       ];
 
+    };
+
+    nixosConfigurations.GOOMBAS1 = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = { inherit inputs; };
+      
     };
 
   };

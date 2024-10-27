@@ -19,7 +19,20 @@
       comment.enable = true; # Enable easy commenting
       nvim-colorizer.enable = true; # Highlight Hexcodes
       chadtree.enable = false;
-      noice.enable = true;
+      # noice.enable = true;
+
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "float";
+          float_opts = {
+            border = "curved";
+            height = 30;
+            width = 130;
+          };
+          open_mapping = "[[<c-/>]]";
+        }; 
+      };
  
       # nvim-autopairs.enable = true;
       autoclose = {

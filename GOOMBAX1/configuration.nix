@@ -25,6 +25,7 @@ in
     (modulePath + /minecraft.nix)
     (modulePath + /android.nix)
     (modulePath + /vr.nix)
+    (modulePath + /catppuccin.nix)
 
 
     # Shared - The same across systems 

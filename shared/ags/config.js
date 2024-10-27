@@ -85,7 +85,7 @@ App.config({
   windows: [
     DashboardWindow(),
     NotificationPopups(2),
-    MuteIndicators(0)
+    MuteIndicators(2)
   ]
 })
 
