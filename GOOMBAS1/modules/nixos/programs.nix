@@ -8,8 +8,13 @@
   };
 
   environment.systemPackages = with pkgs; [
+    kitty
     helix
     btop
+    zoxide
+    fzf
+    ripgrep
+    fd
   ];
 
 }

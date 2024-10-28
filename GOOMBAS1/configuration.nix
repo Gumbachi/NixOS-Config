@@ -21,6 +21,7 @@ in
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
+    (modulePath + /nixvim.nix)
     # (modulePath + /catppuccin.nix)
 
 
@@ -31,6 +32,13 @@ in
     # (sharedModulePath + /docker.nix)
   ];
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  nix.settings.auto-optimise-store = true;
+  
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
@@ -77,6 +85,8 @@ in
      isNormalUser = true;
      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
    };
+
+  documentation.man.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
