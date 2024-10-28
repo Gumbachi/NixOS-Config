@@ -112,7 +112,10 @@
     nixosConfigurations.GOOMBAS1 = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { inherit inputs; };
-      
+      modules = [
+        ./GOOMBAS1/configuration.nix
+        inputs.nixvim.nixosModules.nixvim
+      ];      
     };
 
   };
