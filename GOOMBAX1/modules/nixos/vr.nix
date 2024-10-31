@@ -5,9 +5,16 @@
     openFirewall = true;
   };
 
-  environment.systemPackages = [
-    pkgs.wlx-overlay-s 
+  environment.systemPackages = with pkgs; [
+    wlx-overlay-s 
+    # beatsabermodmanager # Something is broken / package outdated
   ];
+
+  users.users.jared.packages = with pkgs; [
+    beatsabermodmanager
+  ];
+
+  
   
   # boot.kernelPatches = [
   #   {

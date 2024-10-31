@@ -29,6 +29,6 @@ https://ublockorigin.pages.dev/filters/annoyances.min.txt
 
 ### Whitelisted Domains
 
-Google Play Store
+gvt[12].com$ - Play Store Updates
 
-gvt[12].com$
+s.youtube.com - Youtube History
