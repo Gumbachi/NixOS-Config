@@ -9,6 +9,8 @@
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -112,7 +114,11 @@
     nixosConfigurations.GOOMBAS1 = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { inherit inputs; };
-      
+      modules = [
+        ./GOOMBAS1/configuration.nix
+        inputs.nixos-hardware.nixosModules.raspberry-pi-4
+        inputs.nixvim.nixosModules.nixvim
+      ];      
     };
 
   };
