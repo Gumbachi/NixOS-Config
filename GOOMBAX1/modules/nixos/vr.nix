@@ -7,12 +7,14 @@
 
   environment.systemPackages = with pkgs; [
     wlx-overlay-s 
+    beatsabermodmanager
+    icu63
     # beatsabermodmanager # Something is broken / package outdated
   ];
 
-  users.users.jared.packages = with pkgs; [
-    beatsabermodmanager
-  ];
+  environment.sessionVariables = {
+    # DOTNET_SYSTEM_GLOBALIZATION_INVARIANT="1";
+  };
 
   
   
