@@ -8,7 +8,6 @@
     stylix.url = "github:danth/stylix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland = {
@@ -39,19 +38,21 @@
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     
-    # Host Name = <GOOMBA><X/S><Number>
+    # Host Name = <GOOMBA><X/S/L><Number>
     # GOOMBA = Name
-    # X/S = Desktop or Server
+    # X/S/L = Desktop, Server, Laptop
     # Number = ID Number I Guess
     
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
-      modules = [
+      modules = [ 
+        ./GOOMBAX1/configuration.nix # Main Config
+        
+        # Hardware Support
+        inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
+        inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
 
-        # Main Config
-        ./GOOMBAX1/configuration.nix
-          
         # Home Manager
         home-manager.nixosModules.home-manager
         {
@@ -73,15 +74,36 @@
 
         # Nixvim
         inputs.nixvim.nixosModules.nixvim
-
-        # Stylix
-        # stylix.nixosModules.stylix
           
       ];
 
     };
 
-    nixosConfigurations.GOOMBAX2 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.GOOMBAS2 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./GOOMBAS2/configuration.nix # Main Config
+        inputs.nixvim.nixosModules.nixvim # Nixvim
+          
+        # Home Manager
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "hmbak";
+          };
+
+          home-manager.users.jared.imports = [
+            ./GOOMBAS2/home.nix
+          ];
+        }
+
+      ];
+    };
+
+    nixosConfigurations.GOOMBAL1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
