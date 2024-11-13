@@ -4,6 +4,7 @@
   programs.java.enable = true;
 
   environment.systemPackages = with pkgs; [
+    kitty # Terminal
 
     fastfetch # System Info
     tldr # Better Command Help
