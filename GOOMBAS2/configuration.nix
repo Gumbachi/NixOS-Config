@@ -12,6 +12,7 @@ in
 
     # System Specific
     (modulePath + /networking.nix)
+    (modulePath + /boot.nix)
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
@@ -30,6 +31,24 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.getty.autologinUser = "jared";
+
+  # Greetd: Autostart Btop on boot
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "btop";
+        user = "jared";
+      };
+      default_session = initial_session;
+    };
+  };
+
+  catppuccin.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.open = false;
 
   time.timeZone = "America/New_York";
 

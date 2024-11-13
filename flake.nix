@@ -84,7 +84,8 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./GOOMBAS2/configuration.nix # Main Config
-        inputs.nixvim.nixosModules.nixvim # Nixvim
+        inputs.nixvim.nixosModules.nixvim # Nixvim 
+        inputs.catppuccin.nixosModules.catppuccin # Catppuccin
           
         # Home Manager
         home-manager.nixosModules.home-manager
