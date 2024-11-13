@@ -3,9 +3,9 @@
   environment.systemPackages = with pkgs; [ 
     mangohud
     protonup-qt
-    protontricks
-    steamtinkerlaunch
-    wine
+    # protontricks
+    # steamtinkerlaunch
+    # wine
   ];
 
   # Steam

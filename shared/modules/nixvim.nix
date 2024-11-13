@@ -8,7 +8,6 @@
     #######################
 
     plugins = {
-      indent-blankline.enable = true;
       web-devicons.enable = true;
       yazi.enable = true; # File Management
       lualine.enable = true; # Status Line
@@ -18,8 +17,11 @@
       markdown-preview.enable = true; # Alternate Markdown Preview 
       comment.enable = true; # Enable easy commenting
       nvim-colorizer.enable = true; # Highlight Hexcodes
-      chadtree.enable = false;
-      # noice.enable = true;
+
+      indent-blankline = {
+        enable = true;
+        settings.scope.enabled = false;
+      };
 
       toggleterm = {
         enable = true;
@@ -212,12 +214,12 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader> ";
+        key = "<leader>f";
         action = "<CMD>Telescope find_files hidden=true<CR>";
         options.desc = "Open Telescope";
       }
       {
-        key = "<leader>fm";
+        key = "<leader>l";
         action = "<CMD>lua vim.lsp.buf.format()<CR>";
         options.desc = "Format the current buffer";
       }
@@ -230,11 +232,6 @@
         key = "<leader>md";
         action = "<CMD>Markview<CR>"; # MarkdownPreview
         options.desc = "Open the markdown preview";
-      }
-      {
-        key = "<C-n>";
-        action = "<CMD>CHADopen<CR>";
-        options.desc = "Open the tree";
       }
     ];
 

@@ -5,9 +5,18 @@
     openFirewall = true;
   };
 
-  environment.systemPackages = [
-    pkgs.wlx-overlay-s 
+  environment.systemPackages = with pkgs; [
+    wlx-overlay-s 
+    beatsabermodmanager
+    icu63
+    # beatsabermodmanager # Something is broken / package outdated
   ];
+
+  environment.sessionVariables = {
+    # DOTNET_SYSTEM_GLOBALIZATION_INVARIANT="1";
+  };
+
+  
   
   # boot.kernelPatches = [
   #   {
