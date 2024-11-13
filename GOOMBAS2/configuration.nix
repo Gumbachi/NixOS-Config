@@ -60,6 +60,10 @@ in
   nixpkgs.config.allowUnfree = true;
 
   documentation.man.enable = false;
+
+    # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   
   system.stateVersion = "24.05"; # Did you read the comment? Yep
 
