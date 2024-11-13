@@ -21,7 +21,7 @@ in
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
-    (modulePath + /nixvim.nix)
+    # (modulePath + /nixvim.nix)
     # (modulePath + /catppuccin.nix)
 
 
@@ -46,6 +46,8 @@ in
 
   networking.hostName = "GOOMBAS1";
   networking.networkmanager.enable = true;
+
+  networking.firewall.enable = false;
 
   # Set your time zone.
    time.timeZone = "America/New_York";
