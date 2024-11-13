@@ -15,6 +15,9 @@
       rebuild-update = "cd $CONFIG && sudo nix flake update && nixos-rebuild switch";
       rebuild-update-boot = "cd $CONFIG && sudo nix flake update && nixos-rebuild boot";
       rebuild-clean = "sudo nix-collect-garbage -d && nixos-rebuild switch";
+
+      sshs1 = "ssh jared@192.168.69.1";
+      sshs2 = "ssh jared@192.168.69.2";
     };
   };
 
