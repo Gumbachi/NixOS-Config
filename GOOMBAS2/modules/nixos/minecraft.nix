@@ -4,14 +4,14 @@
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
   services.minecraft-servers = {
-    enable = true;
+    enable = false;
     eula = true; 
     # dataDir = "/home/jared/Minecraft";
  
     servers = {
 
       vanilla-server = {
-        enable = true;
+        enable = false;
         package = pkgs.vanillaServers.vanilla-1_21_1;
         openFirewall = true;
  

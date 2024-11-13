@@ -86,6 +86,11 @@
         ./GOOMBAS2/configuration.nix # Main Config
         inputs.nixvim.nixosModules.nixvim # Nixvim 
         inputs.catppuccin.nixosModules.catppuccin # Catppuccin
+
+        # Hardware Support
+        inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
+        inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+        inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           
         # Home Manager
         home-manager.nixosModules.home-manager
