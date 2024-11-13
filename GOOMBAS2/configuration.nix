@@ -17,6 +17,8 @@ in
     (modulePath + /services.nix)
     (modulePath + /env.nix)
     (modulePath + /minecraft.nix)
+    (modulePath + /adguardhome.nix)
+    (modulePath + /immich.nix)
 
 
     # Shared - The same across systems 
@@ -24,6 +26,7 @@ in
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /docker.nix)
+
     
   ];
 
