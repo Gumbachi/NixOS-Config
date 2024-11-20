@@ -31,7 +31,7 @@
     youtube-music # Music App
     vesktop # Discord Client
 
-    libreoffice-qt6-fresh # Office Software
+    libreoffice # Office Software
     hunspell # Spellcheck for libreoffice
     hunspellDicts.en_US # US Dictionary for spellcheck
 
