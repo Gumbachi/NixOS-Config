@@ -22,6 +22,8 @@
 
     starship # Terminal Styling
     yazi # Terminal File Manager
+
+    yt-dlp # YoutubeDL
  
   ];
 

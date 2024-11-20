@@ -16,14 +16,19 @@ in
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
-    (modulePath + /minecraft.nix)
 
+    # Dedicated Services
+    (modulePath + /adguardhome.nix)
+    (modulePath + /immich.nix)
+    (modulePath + /jellyfin.nix)
+    (modulePath + /minecraft.nix)
 
     # Shared - The same across systems 
     (sharedModulePath + /nixvim.nix)
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /docker.nix)
+
     
   ];
 
