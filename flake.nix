@@ -4,7 +4,7 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:aylur/ags/v1";
     stylix.url = "github:danth/stylix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";

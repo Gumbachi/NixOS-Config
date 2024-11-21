@@ -637,6 +637,12 @@
         },
         "UserMessagesPronouns": {
             "enabled": false
+        },
+        "DynamicImageModalAPI": {
+            "enabled": false
+        },
+        "FixImagesQuality": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -649,6 +655,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1729662041314
+        "settingsSyncVersion": 1732156390414
     }
 }
