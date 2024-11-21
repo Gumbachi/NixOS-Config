@@ -29,7 +29,7 @@
       2. Icon theme > Papirus-Dark
 7. Extra Drives
    1. Check drives with `sudo fdisk -l`
-  2. `sudo mount /dev/<drive_id> <Drive Location>`
+   2. `sudo mount /dev/<drive_id> <Drive Location>`
    3. Regenerate hardware config
       1. `nixos-generate-config`
       2. `rm NixOS-Config/configuration.nix` not needed
