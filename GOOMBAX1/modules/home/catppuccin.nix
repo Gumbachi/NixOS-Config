@@ -13,16 +13,15 @@
     enable = false; # Enable Globally
     flavor = "mocha";
     accent = "mauve";
-    # pointerCursor.enable = true;
   };
   
   gtk = {
     enable = true;
-    cursorTheme = {
-      name = "catppuccin-mocha-mauve-cursors";
-      size = 32;
-      package = pkgs.catppuccin-cursors.mochaMauve;
-    };
+    # cursorTheme = {
+    #   name = "catppuccin-mocha-mauve-cursors";
+    #   size = 28;
+    #   package = pkgs.catppuccin-cursors.mochaMauve;
+    # };
     catppuccin = {
       enable = true;
       gnomeShellTheme = true;

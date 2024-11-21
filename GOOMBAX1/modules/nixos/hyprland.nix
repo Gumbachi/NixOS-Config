@@ -31,6 +31,13 @@
     lxqt.lxqt-policykit # Polkit - Sudo Prompt
   ];
 
+  environment.sessionVariables = {
+    HYPRCURSOR_SIZE = 32;
+    HYPRCURSOR_THEME = "catppuccin-mocha-mauve-cursors";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORM = "wayland;xcb";
+  };
+
   # Lock Screen 
   security.pam.services.hyprlock = {};
   programs.hyprlock.enable = true;

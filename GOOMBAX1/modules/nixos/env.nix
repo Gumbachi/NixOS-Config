@@ -9,6 +9,7 @@
     EDITOR="nvim";
     CPU_TEMP_FILE="/sys/class/hwmon/hwmon2/temp3_input";
     ETHERNET_DEVICE_NAME="enp5s0";
+
   };
   
 }

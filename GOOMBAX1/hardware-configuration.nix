@@ -8,23 +8,23 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c7c1cca9-425f-442c-b795-4713bc0b358b";
+    { device = "/dev/disk/by-uuid/9bf9e3ec-ec64-4569-8302-0d8c16971a3a";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0279-4C2C";
+    { device = "/dev/disk/by-uuid/83A1-1B66";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/jared/Games" =
+  fileSystems."/home/jared/A" =
     { device = "/dev/disk/by-uuid/1803ee9b-c3d4-449f-b329-383b963a3581";
       fsType = "ext4";
     };
