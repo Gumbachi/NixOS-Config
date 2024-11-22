@@ -24,6 +24,8 @@
     yazi # Terminal File Manager
 
     yt-dlp # YoutubeDL
+
+    nvtopPackages.full # Nvidia Monitoring
  
   ];
 
