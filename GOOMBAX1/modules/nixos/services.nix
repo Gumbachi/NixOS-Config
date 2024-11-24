@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   
   services = {
 
@@ -17,10 +17,10 @@
       autoStart = false;
       capSysAdmin = true;
       openFirewall = true;
-      # settings = {
-      #   output_name = 2;
-      #   upnp = "on";
-      # };
+    };
+
+    openvpn.servers = {
+      home = { config = '' config /home/jared/Downloads/client.conf ''; };
     };
 
     power-profiles-daemon.enable = true;

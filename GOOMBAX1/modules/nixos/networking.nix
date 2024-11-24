@@ -1,11 +1,14 @@
-{ ... }: {
+{ pkgs, ... }: {
 
   networking.hostName = "GOOMBAX1";
 
   # Enable networking
-  networking.networkmanager.enable = true;
-
-  networking.enableIPv6 = false;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [ 
+      networkmanager-openvpn
+    ];
+  };
 
   networking.firewall = {
     enable = true;
@@ -19,6 +22,6 @@
     ];
   };
 
-  networking.nftables.enable = false;
+  networking.nftables.enable = true;
 
 }

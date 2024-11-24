@@ -26,6 +26,7 @@ in
     (modulePath + /android.nix)
     (modulePath + /vr.nix)
     (modulePath + /catppuccin.nix)
+    (modulePath + /mullvad.nix)
 
 
     # Shared - The same across systems 
@@ -42,7 +43,6 @@ in
 
 
   
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 

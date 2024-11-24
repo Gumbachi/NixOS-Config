@@ -21,6 +21,10 @@
 
     keyboard.zsa.enable = true;
     
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
     # logitech.wireless.enable = true;
 
     

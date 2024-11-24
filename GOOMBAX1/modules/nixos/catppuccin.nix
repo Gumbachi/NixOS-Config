@@ -1,6 +1,6 @@
 { ... }: {
   
-  boot.plymouth.catppuccin.enable = true;
+  # boot.plymouth.catppuccin.enable = true;
   console.catppuccin.enable = true;
 
 }

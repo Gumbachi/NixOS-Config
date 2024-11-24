@@ -4,7 +4,7 @@ import { Config } from "../interfaces/settings.js";
 
 // Thermal Zone for CPU temp
 // Found how to get here https://phoenixnap.com/kb/linux-cpu-temp
-const CPU_TEMP_FILE = Utils.exec(`bash -c "echo $CPU_TEMP_FILE"`)
+// const CPU_TEMP_FILE = Utils.exec(`bash -c "echo $CPU_TEMP_FILE"`)
 
 
 const cpuPercent = Variable(0, {
@@ -25,7 +25,8 @@ const memPercent = Variable(0, {
 const cpuTemp = Variable(0, {
   poll: [
     2000,
-    `cat ${Config.cpuTempFile}`,
+    `echo 0`,
+    // `cat ${Config.cpuTempFile} 2> /dev/null`,
     out => parseInt(out.slice(0, -3))
   ]
 })

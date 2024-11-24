@@ -40,6 +40,10 @@
     unzip # Unzipper
     speedtest-cli # Network Speed CLI
 
+    # openvpn3 # VPN Client
+    qbittorrent # Bittorrent client
+    # mullvad-vpn
+
     helix # Text Editor
     devenv # Automatic Dev Environments
 
