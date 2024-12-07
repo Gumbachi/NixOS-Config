@@ -20,7 +20,7 @@ It took me ages to get VR to work wirelessly via ALVR so I am writing this in th
     environment.systemPackages = [ pkgs.wlx-overlay-s ];
     ```
 
-## Linux Kernel Patch
+## Linux Kernel Patch -- Not Necessary as of 11/2024
 
 To allow for AMDGPU High Priority Queues the linux kernel needs to be modified on NixOS
 ```nix

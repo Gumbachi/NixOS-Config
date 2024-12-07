@@ -8,12 +8,12 @@
   networking.enableIPv6 = false;
 
   networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 25565 ];
+    enable = false;
+    allowedTCPPorts = [ 25565 3003 ];
     allowedTCPPortRanges = [
       { from = 42999; to = 43001; } 
     ];
-    allowedUDPPorts = [ 25565 ];
+    allowedUDPPorts = [ 25565 3003 ];
     allowedUDPPortRanges = [
       { from = 42999; to = 43001; } 
     ];

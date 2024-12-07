@@ -2,8 +2,8 @@
 
   services.adguardhome = {
     enable = true;
-    allowDHCP = false;
     openFirewall = true;
+    port = 3003;
   };
 
 }
