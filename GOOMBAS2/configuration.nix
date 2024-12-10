@@ -19,16 +19,17 @@ in
 
     # Dedicated Services
     (modulePath + /adguardhome.nix)
-    (modulePath + /immich.nix)
     (modulePath + /jellyfin.nix)
     (modulePath + /servarr.nix)
     (modulePath + /minecraft.nix)
+    (modulePath + /mullvad.nix)
+    (modulePath + /deluge.nix)
 
     # Shared - The same across systems 
     (sharedModulePath + /nixvim.nix)
     (sharedModulePath + /shells.nix)
-    (sharedModulePath + /fonts.nix)
-    # (sharedModulePath + /docker.nix)
+    # (sharedModulePath + /fonts.nix)
+    (sharedModulePath + /docker.nix)
 
     
   ];
@@ -61,7 +62,7 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" ];
   };
 
   nix.settings.experimental-features = [

@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+
+  services.flaresolverr = {
+    enable = false;
+  };
   
   services.prowlarr = {
     enable = true;
