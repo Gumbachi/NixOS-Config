@@ -13,14 +13,10 @@
 
     # Media streaming server
     sunshine = {
-      enable = true;
+      enable = false;
       autoStart = false;
       capSysAdmin = true;
       openFirewall = true;
-    };
-
-    openvpn.servers = {
-      home = { config = '' config /home/jared/Downloads/client.conf ''; };
     };
 
     power-profiles-daemon.enable = true;

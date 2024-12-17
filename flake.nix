@@ -16,24 +16,18 @@
       submodules = true;
     };
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # nvim.url = "path:/home/jared/NixOS-Config/shared/nvim";
     
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    umu = {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
@@ -50,8 +44,9 @@
         ./GOOMBAX1/configuration.nix # Main Config
         
         # Hardware Support
-        inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
+        # inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+        inputs.nixos-hardware.nixosModules.common-gpu-amd
 
         # Home Manager
         home-manager.nixosModules.home-manager

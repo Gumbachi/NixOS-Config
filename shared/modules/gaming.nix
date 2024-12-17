@@ -13,12 +13,12 @@
     enable = true;
     # gamescopeSession.enable = true;
   };
-
+  
   # Gamemode
-  programs.gamemode = {
-    enable = true;
-    enableRenice = true;
-  };
+  # programs.gamemode = {
+  #   enable = true;
+  #   enableRenice = true;
+  # };
 
   # Gamescope
   # programs.gamescope = {

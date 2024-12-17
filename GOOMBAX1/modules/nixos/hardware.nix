@@ -6,16 +6,9 @@
 
      graphics = {
        enable = true;
+       enable32Bit = true;
        extraPackages = [ pkgs.rocmPackages.rocm-smi ];
      };
-
-    # amdgpu = {
-    #   initrd.enable = false;
-    #   amdvlk = {
-    #     enable = false;
-    #     support32Bit.enable = false;
-    #   };
-    # };
 
     cpu.amd.updateMicrocode = true;
 
@@ -25,8 +18,6 @@
       enable = true;
       enableGraphical = true;
     };
-    # logitech.wireless.enable = true;
-
     
     # bluetooth = {
     #   enable = true; # enables support for Bluetooth

@@ -17,10 +17,12 @@ in
   programs.ags = {
     enable = true;
     extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-      libdbusmenu-gtk3
+      wlsunset
+      sox
+      # gtksourceview
+      # # webkitgtk
+      # accountsservice
+      # libdbusmenu-gtk3
     ];
   };
 
