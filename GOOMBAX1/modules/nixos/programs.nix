@@ -15,9 +15,6 @@
   programs.java.enable = true;
   programs.firefox.enable = true;
 
-  programs.yazi.enable = true;
-  programs.starship.enable = true;
-
   environment.systemPackages = with pkgs; [
 
     inputs.zen-browser.packages."${system}".default # Browser
@@ -37,6 +34,8 @@
     wget # Web Fetch
     ripgrep # Fast search
     fd # Another fast search
+    yazi # Terminal File Manager
+    starship # Terminal Styling
 
     lutris # Game Launcher // Application shortcut creator
 
