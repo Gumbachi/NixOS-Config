@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   
   programs.nix-ld.enable = true;
-  programs.java.enable = true;
+  programs.tmux.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty # Terminal
@@ -10,6 +10,7 @@
     tldr # Better Command Help
     unzip # Unzipper
     speedtest-cli # Network Speed CLI
+    systemctl-tui # Systemctl UI
 
     helix # Text Editor
 
@@ -26,6 +27,10 @@
     yt-dlp # YoutubeDL
 
     nvtopPackages.full # Nvidia Monitoring
+
+    jdk # Java 21
+    jdk8 # Java 8
+
  
   ];
 
