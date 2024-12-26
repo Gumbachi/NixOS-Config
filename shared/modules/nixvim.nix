@@ -16,7 +16,7 @@
       markview.enable = true; # Markdown Preview
       markdown-preview.enable = true; # Alternate Markdown Preview 
       comment.enable = true; # Enable easy commenting
-      nvim-colorizer.enable = true; # Highlight Hexcodes
+      colorizer.enable = true; # Highlight Hexcodes
 
       indent-blankline = {
         enable = true;

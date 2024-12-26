@@ -6,16 +6,39 @@ fi
 
 echo "### SYMLINK NIXOS-CONFIG ###"
 
+read -p "Username: " username
 read -p "Hostname: " hostname
+
+echo "Using Hostname: $username"
 echo "Using Hostname: $hostname"
 
+read -p "Press anything to continue..."
+
+cfg=/home/$username/NixOS-Config
+
 echo Copying hardware configuration...
-cp /etc/nixos/hardware-configuration.nix ~/NixOS-Config/$hostname/hardware-configuration.nix
+nixos-generate-config
+cp /etc/nixos/hardware-configuration.nix $cfg/$hostname/hardware-configuration.nix
+
 echo Creating backup for /etc/nixos/ ... 
 mv /etc/nixos/ /etc/nixos.bak
+
 echo Symlinking NixOS-Config to /etc/nixos/
-ln -s ~/NixOS-Config/ /etc/nixos
+ln -s $cfg/ /etc/nixos
+
+echo Installing Icons
+wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="/home/$username/.local/share/icons" sh
+
+echo Installing Cursors
+cd /home/$username/.local/share/icons
+
+curl -OJL "https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-mauve-cursors.zip"
+unzip -o "catppuccin-mocha-mauve-cursors.zip"
+rm "catppuccin-mocha-mauve-cursors.zip"
+
+cd
+
 echo Rebuilding config ...
-nixos-rebuild boot
+nixos-rebuild boot --flake "$cfg#GOOMBAX1"
 read -p "Reboot to apply changes. Press any key to exit." tmp
 

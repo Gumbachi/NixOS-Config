@@ -1,32 +1,27 @@
 { pkgs, ... }: {
 
+  # Temp fix for beatsabermodmanager
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "dotnet-runtime-wrapped-7.0.20"
+  #   "dotnet-runtime-7.0.20"
+  #   "dotnet-core-combined"
+  #   "dotnet-sdk-7.0.410"
+  #   "dotnet-sdk-6.0.428"
+  #   "dotnet-sdk-wrapped-7.0.410"
+  #   "dotnet-sdk-wrapped-6.0.428"
+  #   "dotnet-wrapped-combined"
+  #   "dotnet-combined"
+  # ];
+
   programs.alvr = {
     enable = true;
     openFirewall = true;
   };
 
   environment.systemPackages = with pkgs; [
-    wlx-overlay-s 
-    beatsabermodmanager
-    icu63
-    # beatsabermodmanager # Something is broken / package outdated
+    # wlx-overlay-s 
+    # beatsabermodmanager
   ];
 
-  environment.sessionVariables = {
-    # DOTNET_SYSTEM_GLOBALIZATION_INVARIANT="1";
-  };
-
-  
-  
-  # boot.kernelPatches = [
-  #   {
-  #     name = "amdgpu-ignore-ctx-privileges";
-  #     patch = pkgs.fetchpatch {
-  #       name = "cap_sys_nice_begone.patch";
-  #       url = "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
-  #       hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
-  #     };
-  #   }
-  # ];
 
 }

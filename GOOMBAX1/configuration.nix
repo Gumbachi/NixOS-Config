@@ -22,11 +22,12 @@ in
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
     (modulePath + /env.nix)
-    (modulePath + /minecraft.nix)
     (modulePath + /android.nix)
     (modulePath + /vr.nix)
     (modulePath + /catppuccin.nix)
     (modulePath + /mullvad.nix)
+    (modulePath + /lact.nix)
+
 
 
     # Shared - The same across systems 
@@ -36,8 +37,6 @@ in
     (sharedModulePath + /gaming.nix)
     # (sharedModulePath + /docker.nix)
     (sharedModulePath + /virtualization.nix)
-    # (sharedModulePath + /obs.nix)
-    # (sharedModulePath + /sunshine.nix)
     
   ];
 

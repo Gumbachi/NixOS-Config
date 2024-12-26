@@ -1,14 +1,5 @@
 { pkgs, ... }: {
 
-  # Cursor Config
-  # home.pointerCursor = {
-  #   package = pkgs.catppuccin-cursors.mochaMauve;
-  #   name = "catppuccin-mocha-mauve-cursors";
-  #   size = 32;
-  #   gtk.enable = true;
-  # };
-  # home.pointerCursor.size = 32;
-
   catppuccin = {
     enable = false; # Enable Globally
     flavor = "mocha";
@@ -17,11 +8,6 @@
   
   gtk = {
     enable = true;
-    # cursorTheme = {
-    #   name = "catppuccin-mocha-mauve-cursors";
-    #   size = 28;
-    #   package = pkgs.catppuccin-cursors.mochaMauve;
-    # };
     catppuccin = {
       enable = true;
       gnomeShellTheme = true;
