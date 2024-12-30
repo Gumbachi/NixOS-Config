@@ -13,9 +13,9 @@
 
     # https://docs.kernel.org/gpu/amdgpu/module-parameters.html
     kernelParams = [
-      "video=DP-1:3840x2160@240"
-      "video=DP-2:2560x1440@144"
-      "video=DP-3:2560x1440@144"
+      # "video=DP-1:3840x2160@240"
+      # "video=DP-2:2560x1440@144"
+      # "video=DP-3:2560x1440@144"
 
       # Silent Boot
       # "quiet"
@@ -32,7 +32,7 @@
 
     # plymouth.enable = false;
 
-    loader.timeout = 3;
+    # loader.timeout = 3;
 
     # extraModprobeConfig = '' options bluetooth disable_ertm=1 '';        
   };
