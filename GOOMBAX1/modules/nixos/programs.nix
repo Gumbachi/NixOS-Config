@@ -1,7 +1,5 @@
 { inputs, pkgs, ... }: {
   
-  programs.nix-ld.enable = true;
-
   programs.direnv = {
     enable = true;
     silent = true;
@@ -16,6 +14,8 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
+
+    zoom-us
 
     inputs.zen-browser.packages."${system}".default # Browser
 
@@ -37,8 +37,10 @@
     yazi # Terminal File Manager
     starship # Terminal Styling
 
-    lutris # Game Launcher // Application shortcut creator
+    # lutris # Game Launcher // Application shortcut creator
 
+
+    systemctl-tui # TUI for systemctl
     qbittorrent # Bittorrent client
     bitwarden-desktop # Password Vault
 

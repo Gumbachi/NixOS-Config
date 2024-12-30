@@ -3,7 +3,7 @@
   services = {
 
     # Automatic firmware updater
-    fwupd.enable = true;
+    fwupd.enable = false;
 
     # Media Control Service
     playerctld.enable = true;

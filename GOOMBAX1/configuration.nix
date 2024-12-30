@@ -1,4 +1,4 @@
-{ ... }: 
+{ inputs, ... }: 
 
 let 
   modulePath = ./modules/nixos;
@@ -41,10 +41,40 @@ in
   ];
 
 
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+    extraOptions = '' trusted-users = root jared ''; # Devenv shells
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L" # print build logs
+    ];
+    dates = "weekly";
+    randomizedDelaySec = "45min";
+  };
+
+  # Allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true;
+    rocmSupport = true;
+  };
   
   # Set your time zone.
   time.timeZone = "America/New_York";
-
+  
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -70,19 +100,6 @@ in
     extraGroups = [ "networkmanager" "wheel" "video" "minecraft" ];
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # Needed for devenv shells
-  nix.extraOptions = '' trusted-users = root jared '';
-
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    rocmSupport = true;
-  };
 
   documentation.man.enable = false;
 
