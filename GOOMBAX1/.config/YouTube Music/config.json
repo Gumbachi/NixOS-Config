@@ -1,14 +1,14 @@
 {
 	"window-size": {
-		"width": 2560,
-		"height": 1440
+		"width": 1440,
+		"height": 1280
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=0EuC4jUbITA&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=0HRIQctn3eA&list=LM&index=0",
 	"options": {
 		"tray": true,
 		"appVisible": true,
@@ -49,14 +49,14 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 30
+			"savedVolume": 35
 		},
 		"discord": {
 			"listenAlong": true,
 			"enabled": false
 		},
 		"ambient-mode": {
-			"enabled": false
+			"enabled": true
 		},
 		"compact-sidebar": {
 			"enabled": true
@@ -186,12 +186,15 @@
 			"enabled": false
 		},
 		"synced-lyrics": {
-			"enabled": false,
+			"enabled": true,
 			"preciseTiming": true,
 			"showLyricsEvenIfInexact": true,
 			"showTimeCodes": false,
 			"defaultTextString": "♪",
 			"lineEffect": "scale"
+		},
+		"lyrics-genius": {
+			"enabled": true
 		}
 	},
 	"__internal__": {

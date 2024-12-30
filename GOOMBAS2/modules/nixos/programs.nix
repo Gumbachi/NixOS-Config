@@ -14,6 +14,8 @@
 
     helix # Text Editor
 
+    # jdk8 # Java 8
+
     wget # Web Fetch
     ripgrep # Fast search
     fd # Another fast search
