@@ -31,7 +31,8 @@ in
 
 
     # Shared - The same across systems 
-    (sharedModulePath + /nixvim.nix)
+    # (sharedModulePath + /nixvim.nix)
+    (sharedModulePath + /nvf.nix)
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
@@ -45,6 +46,8 @@ in
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     extraOptions = '' trusted-users = root jared ''; # Devenv shells
     gc = {

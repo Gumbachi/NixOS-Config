@@ -3,18 +3,14 @@
 
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small"; # "github:nixos/nixpkgs/585f76290ed66a3fdc5aae0933b73f9fd3dca7e3"; #
     ags.url = "github:aylur/ags/v1";
     stylix.url = "github:danth/stylix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -22,6 +18,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf.url = "github:notashelf/nvf";
     
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -66,6 +64,9 @@
         
         # Catppuccin
         inputs.catppuccin.nixosModules.catppuccin
+
+        # NVF
+        inputs.nvf.nixosModules.default
 
         # Nixvim
         inputs.nixvim.nixosModules.nixvim

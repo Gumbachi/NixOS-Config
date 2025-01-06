@@ -8,7 +8,7 @@
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=0HRIQctn3eA&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=vuOwkKvHRtU&list=LM&index=0",
 	"options": {
 		"tray": true,
 		"appVisible": true,
@@ -190,8 +190,8 @@
 			"preciseTiming": true,
 			"showLyricsEvenIfInexact": true,
 			"showTimeCodes": false,
-			"defaultTextString": "♪",
-			"lineEffect": "scale"
+			"defaultTextString": "———",
+			"lineEffect": "fancy"
 		},
 		"lyrics-genius": {
 			"enabled": true
@@ -199,7 +199,7 @@
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "3.6.2"
+			"version": "3.7.1"
 		}
 	}
 }
