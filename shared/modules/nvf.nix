@@ -54,7 +54,7 @@
   # Languages
   programs.nvf.settings.vim.languages = {
 
-    # Plugins
+    # Language Defaults
     enableTreesitter = true;
     enableLSP = true;
     enableFormat = true;
@@ -64,6 +64,7 @@
     python.enable = true;
     markdown.enable = true;
     ts.enable = true;
+    css.enable = true;
   };
 
   programs.nvf.settings.vim.keymaps = [
