@@ -1,5 +1,4 @@
-{ ... }: {
-
+{pkgs, ...}: {
   programs.nvf.enable = true;
 
   programs.nvf.settings.vim.theme = {
@@ -11,8 +10,6 @@
   # Vim Settings
   programs.nvf.settings.vim = {
     vimAlias = true;
-    filetree.nvimTree.setupOpts.disable_netrw = true;
-    # filetree.neo-tree.setupOpts.filesystem.hijack_netrw_behavior = "disabled";
 
     # Plugins
     lsp.enable = true;
@@ -23,7 +20,15 @@
     autopairs.nvim-autopairs.enable = true;
     binds.whichKey.enable = true;
     ui.colorizer.enable = true;
-    filetree.nvimTree.enable = true;
+    dashboard.dashboard-nvim = {
+      enable = true;
+      setupOpts = {
+        theme = "hyper";
+        config = {
+          packages = { enable = true; };
+        };
+      };
+    };
 
     utility.preview.markdownPreview = {
       enable = true;
@@ -48,12 +53,10 @@
         ];
       };
     };
-
   };
 
   # Languages
   programs.nvf.settings.vim.languages = {
-
     # Language Defaults
     enableTreesitter = true;
     enableLSP = true;
@@ -73,7 +76,36 @@
       mode = "n";
       silent = true;
       action = ":Telescope find_files hidden=true<CR>";
-    } 
+    }
   ];
 
+  # Extra Plugins
+  programs.nvf.settings.vim.lazy.plugins = {
+    "yazi.nvim" = {
+     package = pkgs.vimPlugins.yazi-nvim;
+      setupModule = "yazi";
+      setupOpts = {
+        option_name = true;
+      };
+
+      # Explicitly mark plugin as lazy. You don't need this if you define one of
+      # the trigger "events" below
+      lazy = true;
+
+      # load on command
+      cmd = ["Yazi"];
+
+      # load on event
+      event = ["BufEnter"];
+
+      # load on keymap
+      keys = [
+        {
+          key = "<leader>e";
+          action = ":Yazi<CR>";
+          mode = "n";
+        }
+      ];
+    };
+  };
 }

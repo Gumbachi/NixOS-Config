@@ -31,12 +31,12 @@ in
 
 
     # Shared - The same across systems 
-    # (sharedModulePath + /nixvim.nix)
     (sharedModulePath + /nvf.nix)
+    (sharedModulePath + /yazi.nix)
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
-    # (sharedModulePath + /docker.nix)
+    (sharedModulePath + /docker.nix)
     (sharedModulePath + /virtualization.nix)
     
   ];
@@ -100,7 +100,7 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" ];
   };
 
 

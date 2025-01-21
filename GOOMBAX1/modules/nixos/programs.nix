@@ -34,7 +34,7 @@
     wget # Web Fetch
     ripgrep # Fast search
     fd # Another fast search
-    yazi # Terminal File Manager
+    # yazi # Terminal File Manager
     starship # Terminal Styling
 
     # lutris # Game Launcher // Application shortcut creator
