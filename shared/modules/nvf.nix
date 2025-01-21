@@ -1,6 +1,10 @@
 {pkgs, ...}: {
   programs.nvf.enable = true;
 
+  programs.nvf.settings.vim.globals = {
+    directory = "~/.nvim/swap//";
+  };
+
   programs.nvf.settings.vim.theme = {
     enable = true;
     name = "catppuccin";

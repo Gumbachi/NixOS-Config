@@ -33,6 +33,7 @@ in
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
+    (sharedModulePath + /starship.nix)
     (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)

@@ -35,10 +35,9 @@
     ripgrep # Fast search
     fd # Another fast search
     # yazi # Terminal File Manager
-    starship # Terminal Styling
+    # starship # Terminal Styling
 
     # lutris # Game Launcher // Application shortcut creator
-
 
     systemctl-tui # TUI for systemctl
     qbittorrent # Bittorrent client
