@@ -18,20 +18,14 @@ in
     (modulePath + /env.nix)
 
     # Dedicated Services
-    (modulePath + /adguardhome.nix)
-    (modulePath + /jellyfin.nix)
-    (modulePath + /servarr.nix)
     (modulePath + /minecraft.nix)
     (modulePath + /mullvad.nix)
     (modulePath + /deluge.nix)
 
     # Shared - The same across systems 
-    (sharedModulePath + /nixvim.nix)
+    (sharedModulePath + /nvf.nix)
     (sharedModulePath + /shells.nix)
-    # (sharedModulePath + /fonts.nix)
-    (sharedModulePath + /docker.nix)
-
-    
+    (sharedModulePath + /docker.nix)    
   ];
 
   services.getty.autologinUser = "jared";
