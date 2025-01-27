@@ -1,9 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   programs.nvf.enable = true;
 
-  programs.nvf.settings.vim.globals = {
-    directory = "~/.nvim/swap//";
-  };
+  # programs.nvf.settings.vim.globals = {
+  #   directory = "~/.nvim/swap//";
+  #   backupdir = "~/.nvim/backup//";
+  # };
+
+  # programs.nvf.settings.vim.options = {
+  #   backup = false;
+  # };
 
   programs.nvf.settings.vim.theme = {
     enable = true;
@@ -24,15 +30,10 @@
     autopairs.nvim-autopairs.enable = true;
     binds.whichKey.enable = true;
     ui.colorizer.enable = true;
-    dashboard.dashboard-nvim = {
-      enable = true;
-      setupOpts = {
-        theme = "hyper";
-        config = {
-          packages = { enable = true; };
-        };
-      };
-    };
+    visuals.rainbow-delimiters.enable = true;
+    dashboard.dashboard-nvim.enable = true;
+    mini.indentscope.enable = true;
+        
 
     utility.preview.markdownPreview = {
       enable = true;
@@ -62,7 +63,7 @@
   # Languages
   programs.nvf.settings.vim.languages = {
     # Language Defaults
-    enableTreesitter = true;
+    enableTreesitter = false;
     enableLSP = true;
     enableFormat = true;
 

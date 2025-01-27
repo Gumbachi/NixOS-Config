@@ -1,6 +1,7 @@
 {...}: {
   programs.starship = {
     enable = true;
+    interactiveOnly = false;
     settings = {
 
       palette = "catppuccin_mocha";

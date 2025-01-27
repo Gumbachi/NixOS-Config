@@ -31,7 +31,7 @@ in
 
 
     # Shared - The same across systems 
-    (sharedModulePath + /nvf.nix)
+    (sharedModulePath + /nvfdebug.nix)
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
     (sharedModulePath + /shells.nix)

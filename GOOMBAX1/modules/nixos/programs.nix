@@ -12,10 +12,9 @@
 
   programs.java.enable = true;
   programs.firefox.enable = true;
+  programs.thunderbird.enable = true;
 
   environment.systemPackages = with pkgs; [
-
-    zoom-us
 
     inputs.zen-browser.packages."${system}".default # Browser
 
@@ -34,6 +33,8 @@
     wget # Web Fetch
     ripgrep # Fast search
     fd # Another fast search
+    fzf # Fuzzy Finder
+    zoxide # better cd
     # yazi # Terminal File Manager
     # starship # Terminal Styling
 

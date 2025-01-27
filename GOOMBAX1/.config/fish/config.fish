@@ -15,13 +15,13 @@ set fish_greeting
 
 fish_config theme choose "mocha"
 
-function starship_transient_prompt_func
-  starship module character
-end
+# function starship_transient_prompt_func
+#   starship module character
+# end
 
 zoxide init fish | source
 
-starship init fish | source
-enable_transience
+# starship init fish | source
+# enable_transience
 # uv
 fish_add_path "/home/jared/.local/bin"
