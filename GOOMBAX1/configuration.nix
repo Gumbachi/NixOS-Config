@@ -31,10 +31,11 @@ in
 
 
     # Shared - The same across systems 
-    (sharedModulePath + /nvfdebug.nix)
+    (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
-    (sharedModulePath + /shells.nix)
+    (sharedModulePath + /nushell.nix)
+    # (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
     (sharedModulePath + /docker.nix)

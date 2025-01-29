@@ -2,14 +2,11 @@
 
   programs.nvf.enable = true;
 
-  # programs.nvf.settings.vim.globals = {
-  #   directory = "~/.nvim/swap//";
-  #   backupdir = "~/.nvim/backup//";
-  # };
-
-  # programs.nvf.settings.vim.options = {
-  #   backup = false;
-  # };
+  programs.nvf.settings.vim.options = {
+    tabstop = 2;
+    shiftwidth = 0;
+    expandtab = true;
+  };
 
   programs.nvf.settings.vim.theme = {
     enable = true;
@@ -19,10 +16,8 @@
 
   # Vim Settings
   programs.nvf.settings.vim = {
-    vimAlias = true;
 
     # Plugins
-    lsp.enable = true;
     statusline.lualine.enable = true;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
@@ -63,7 +58,7 @@
   # Languages
   programs.nvf.settings.vim.languages = {
     # Language Defaults
-    enableTreesitter = false;
+    enableTreesitter = true;
     enableLSP = true;
     enableFormat = true;
 

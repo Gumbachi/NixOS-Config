@@ -54,6 +54,10 @@ in
     # Starship
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
 
+    # Nushell
+    ".config/nushell/config.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/config.nu";
+    ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/env.nu";
+
     # Btop -- Theme file is tracked with absolute path
     ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
     ".config/btop/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";

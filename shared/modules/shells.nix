@@ -2,7 +2,7 @@
 
 {
 
-  users.defaultUserShell = pkgs.fish;
+  # users.defaultUserShell = pkgs.fish;
 
   # Fish
   programs.fish = {

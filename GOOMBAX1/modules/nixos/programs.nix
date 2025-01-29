@@ -16,6 +16,8 @@
 
   environment.systemPackages = with pkgs; [
 
+    zoom-us
+
     inputs.zen-browser.packages."${system}".default # Browser
 
     vlc # Video Player
@@ -36,7 +38,7 @@
     fzf # Fuzzy Finder
     zoxide # better cd
     # yazi # Terminal File Manager
-    # starship # Terminal Styling
+    starship # Terminal Styling
 
     # lutris # Game Launcher // Application shortcut creator
 
