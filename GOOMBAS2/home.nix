@@ -32,6 +32,10 @@ in
 
     # Starship
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${GOOMBAX1}/starship.toml";
+ 
+    # Nushell
+    ".config/nushell/config.nu".source = config.lib.file.mkOutOfStoreSymlink "${GOOMBAX1}/nushell/config.nu";
+    ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink "${GOOMBAX1}/nushell/env.nu";
 
     # Btop -- Theme file is tracked with absolute path
     ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${GOOMBAX1}/btop/btop.conf";
