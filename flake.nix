@@ -69,7 +69,7 @@
         inputs.nvf.nixosModules.default
 
         # Nixvim
-        inputs.nixvim.nixosModules.nixvim
+        # inputs.nixvim.nixosModules.nixvim
           
       ];
 
@@ -80,7 +80,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./GOOMBAS2/configuration.nix # Main Config
-        inputs.nixvim.nixosModules.nixvim # Nixvim 
+        # inputs.nixvim.nixosModules.nixvim # Nixvim 
         inputs.nvf.nixosModules.default # Neovim
         inputs.catppuccin.nixosModules.catppuccin # Catppuccin
 
@@ -142,7 +142,7 @@
       modules = [
         ./GOOMBAS1/configuration.nix
         inputs.nixos-hardware.nixosModules.raspberry-pi-4
-        inputs.nixvim.nixosModules.nixvim
+        # inputs.nixvim.nixosModules.nixvim
       ];      
     };
 

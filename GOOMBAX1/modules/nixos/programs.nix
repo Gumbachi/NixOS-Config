@@ -2,7 +2,7 @@
   
   programs.direnv = {
     enable = true;
-    silent = true;
+    silent = false;
   };
 
   programs.obs-studio = {
@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
 
-    zoom-us
+    # zoom-us
 
     inputs.zen-browser.packages."${system}".default # Browser
 
@@ -37,6 +37,7 @@
     fd # Another fast search
     fzf # Fuzzy Finder
     zoxide # better cd
+    eza # better ls
     # yazi # Terminal File Manager
     starship # Terminal Styling
 

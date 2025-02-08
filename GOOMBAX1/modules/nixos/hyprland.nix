@@ -26,7 +26,6 @@
     kdePackages.qt6ct # QT Style GUI
     kdePackages.qtstyleplugin-kvantum # QT Plugin for better Styling
     nwg-look # GTK Style GUI
-    kdePackages.xwaylandvideobridge
     # lxqt.lxqt-policykit # Polkit - Sudo Prompt
 
     hyprsunset # Blue Light Filter

@@ -102,11 +102,19 @@ in
     yazi = {
       name = "Yazi";
       genericName = "File Explorer";
-      exec = "kitty yazi";
+      exec = "yazi";
       terminal = true;
       mimeType = [ "inode/directory" ];
-      icon = "file-system-manager";
+      icon = "system-file-manager";
     };
+
+    vlc = {
+      name = "VLC";
+      genericName = "Media Player";
+      exec = "env -u DISPLAY vlc";
+      icon = "vlc";
+    };
+
   };
 
   home.stateVersion = "24.05";

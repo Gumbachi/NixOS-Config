@@ -1,4 +1,4 @@
-{ inputs, ... }: 
+{ inputs, pkgs, ... }: 
 
 let 
   modulePath = ./modules/nixos;
@@ -25,23 +25,25 @@ in
     (modulePath + /android.nix)
     (modulePath + /vr.nix)
     (modulePath + /catppuccin.nix)
-    (modulePath + /mullvad.nix)
+    # (modulePath + /mullvad.nix)
     (modulePath + /lact.nix)
-
 
 
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
+    (sharedModulePath + /fish.nix)
     (sharedModulePath + /nushell.nix)
-    # (sharedModulePath + /shells.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
     (sharedModulePath + /docker.nix)
-    (sharedModulePath + /virtualization.nix)
+    # (sharedModulePath + /virtualization.nix)
     
   ];
+
+
+  users.defaultUserShell = pkgs.fish;
 
 
   nix = {
@@ -59,17 +61,18 @@ in
     };
   };
 
-  system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L" # print build logs
-    ];
-    dates = "weekly";
-    randomizedDelaySec = "45min";
-  };
+  # # Dont use this
+  # system.autoUpgrade = {
+  #   enable = false;
+  #   flake = inputs.self.outPath;
+  #   flags = [
+  #     "--update-input"
+  #     "nixpkgs"
+  #     "-L" # print build logs
+  #   ];
+  #   dates = "weekly";
+  #   randomizedDelaySec = "45min";
+  # };
 
   # Allow unfree packages
   nixpkgs.config = {

@@ -25,9 +25,9 @@
     autopairs.nvim-autopairs.enable = true;
     binds.whichKey.enable = true;
     ui.colorizer.enable = true;
-    visuals.rainbow-delimiters.enable = true;
+    # visuals.rainbow-delimiters.enable = true;
     dashboard.dashboard-nvim.enable = true;
-    mini.indentscope.enable = true;
+    # mini.indentscope.enable = true;
         
 
     utility.preview.markdownPreview = {
