@@ -4,15 +4,15 @@
     virtualHosts = {
 
       "gumbachi.com".extraConfig = ''
-        respond "Hello, World!"
+        respond "Hi there. Nothing in here yet"
       '';
 
       "watch.gumbachi.com".extraConfig = ''
-        reverse_proxy http://goomba.tplinkdns.com:8096
+        reverse_proxy localhost:8096
       '';
 
       "photos.gumbachi.com".extraConfig = ''
-        reverse_proxy http://goomba.tplinkdns.com:2283
+        reverse_proxy localhost:2283
       '';
 
     };

@@ -19,12 +19,13 @@
     wget # Web Fetch
     ripgrep # Fast search
     fd # Another fast search
+    eza # better ls
     
     lm_sensors # Sensors
     btop # System Monitor
 
-    starship # Terminal Styling
-    yazi # Terminal File Manager
+    # starship # Terminal Styling
+    # yazi # Terminal File Manager
 
     yt-dlp # YoutubeDL
 

@@ -1,4 +1,4 @@
-{ ... }: 
+{ pkgs, ... }: 
 
 let 
   modulePath = ./modules/nixos;
@@ -19,16 +19,20 @@ in
 
     # Dedicated Services
     (modulePath + /minecraft.nix)
-    (modulePath + /mullvad.nix)
+    # (modulePath + /mullvad.nix)
     (modulePath + /caddy.nix) # Reverse Proxy Server
     (modulePath + /deluge.nix)
 
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
-    (sharedModulePath + /nushell.nix)
-    # (sharedModulePath + /shells.nix)
+    (sharedModulePath + /fish.nix)
+    (sharedModulePath + /starship.nix)
+    (sharedModulePath + /yazi.nix)
     (sharedModulePath + /docker.nix)    
   ];
+
+
+  users.defaultUserShell = pkgs.fish;
 
   services.getty.autologinUser = "jared";
 

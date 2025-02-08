@@ -1,4 +1,8 @@
-{...}: {
+{ pkgs, ... }: {
+
+  # Need this line to enable starship on path
+  environment.systemPackages = [ pkgs.starship ];
+
   programs.starship = {
     enable = true;
     interactiveOnly = false;

@@ -8,15 +8,8 @@
   networking.enableIPv6 = false;
 
   networking.firewall = {
-    enable = false;
-    allowedTCPPorts = [
-      # Jellyfin
-      8096
-
-      # Immich
-      2283 
-      3003
-    ];
+    enable = true;
+    # allowedTCPPorts = [];
     # allowedTCPPortRanges = [
     #   { from = 42999; to = 43001; } 
     # ];
