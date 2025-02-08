@@ -9,14 +9,21 @@
 
   networking.firewall = {
     enable = false;
-    allowedTCPPorts = [ 25565 3003 ];
-    allowedTCPPortRanges = [
-      { from = 42999; to = 43001; } 
+    allowedTCPPorts = [
+      # Jellyfin
+      8096
+
+      # Immich
+      2283 
+      3003
     ];
-    allowedUDPPorts = [ 25565 3003 ];
-    allowedUDPPortRanges = [
-      { from = 42999; to = 43001; } 
-    ];
+    # allowedTCPPortRanges = [
+    #   { from = 42999; to = 43001; } 
+    # ];
+    # allowedUDPPorts = [ 25565 3003 ];
+    # allowedUDPPortRanges = [
+    #   { from = 42999; to = 43001; } 
+    # ];
   };
 
   networking.nftables.enable = false;

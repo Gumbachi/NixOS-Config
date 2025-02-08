@@ -20,11 +20,13 @@ in
     # Dedicated Services
     (modulePath + /minecraft.nix)
     (modulePath + /mullvad.nix)
+    (modulePath + /caddy.nix) # Reverse Proxy Server
     (modulePath + /deluge.nix)
 
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
-    (sharedModulePath + /shells.nix)
+    (sharedModulePath + /nushell.nix)
+    # (sharedModulePath + /shells.nix)
     (sharedModulePath + /docker.nix)    
   ];
 
