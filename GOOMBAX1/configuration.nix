@@ -105,7 +105,7 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" ];
   };
 
 

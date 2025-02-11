@@ -13,13 +13,19 @@
           play = [
 	          { run = ''env -u DISPLAY vlc "$@"''; orphan = true; for = "unix"; }
           ];
-        };
-
-        open = {
-          rules = [
-            { mime = "video/*"; use = [ "play" "reveal" ]; }
+          edit = [
+	          { run = ''$EDITOR "$@"''; block = true; for = "unix"; }
+          ];
+          open = [
+            { run = ''xdg-open "$@"''; desc = "Open"; }
           ];
         };
+
+        # open = {
+        #   rules = [
+        #     { mime = "video/*"; use = [ "play" "reveal" ]; }
+        #   ];
+        # };
       };
 
       # Theme.toml

@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
 
-    # zoom-us
+    obsidian
 
     inputs.zen-browser.packages."${system}".default # Browser
 
@@ -38,8 +38,6 @@
     fzf # Fuzzy Finder
     zoxide # better cd
     eza # better ls
-    # yazi # Terminal File Manager
-    starship # Terminal Styling
 
     # lutris # Game Launcher // Application shortcut creator
 
