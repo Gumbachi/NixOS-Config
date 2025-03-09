@@ -105,11 +105,15 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" "wireshark" ];
   };
 
 
   documentation.man.enable = false;
+
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
   
   # This value determines the NixOS release from which the default

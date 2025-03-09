@@ -17,6 +17,8 @@
   # Vim Settings
   programs.nvf.settings.vim = {
 
+    useSystemClipboard = true;
+
     # Plugins
     statusline.lualine.enable = true;
     telescope.enable = true;

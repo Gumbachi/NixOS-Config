@@ -32,15 +32,21 @@ in
     userEmail = "jaredremsberg@gmail.com";
   };
 
-  # programs.zoxide.enable = true;
-  # programs.fzf.enable = true;
-
 
   ################
   ### SYMLINKS ###
   ################
 
   home.file = {
+
+    # Hyprland, Hypridle, Hyprpaper, Hyprlock
+    ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
+
+    # Rofi
+    ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
+
+    # Kitty
+    ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
 
     # YouTube Music
     ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
@@ -52,41 +58,33 @@ in
     ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/"; 
 
     # Starship
-    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
+    # ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
 
     # Nushell
-    ".config/nushell/config.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/config.nu";
-    ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/env.nu";
+    # ".config/nushell/config.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/config.nu";
+    # ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/env.nu";
 
     # Btop -- Theme file is tracked with absolute path
     ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
     ".config/btop/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
 
     # Mako
-    ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
+    # ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
 
     # Fish -- config files have to be individual
     ".config/fish/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
     ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
 
     # Yazi -- config files have to be individual
-    ".config/yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
-    ".config/yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
+    # ".config/yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
+    # ".config/yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
 
     # Helix
     ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
 
-    # Kitty
-    ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
-
     # Waybar
-    ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
+    # ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
 
-    # Hyprland, Hypridle, Hyprpaper, Hyprlock
-    ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
-
-    # Rofi
-    ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
 
     # Kvantum
     # ".config/Kvantum/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";

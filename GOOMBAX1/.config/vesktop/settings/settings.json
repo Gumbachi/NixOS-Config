@@ -1,6 +1,6 @@
 {
     "notifyAboutUpdates": true,
-    "autoUpdate": true,
+    "autoUpdate": false,
     "autoUpdateNotification": true,
     "useQuickCss": true,
     "themeLinks": [
@@ -122,7 +122,7 @@
             "enabled": false
         },
         "ClearURLs": {
-            "enabled": false
+            "enabled": true
         },
         "ClientTheme": {
             "enabled": false
@@ -231,7 +231,7 @@
             "enabled": false
         },
         "LoadingQuotes": {
-            "enabled": false,
+            "enabled": true,
             "replaceEvents": true,
             "enablePluginPresetQuotes": true,
             "enableDiscordPresetQuotes": false,
@@ -296,7 +296,7 @@
             "enabled": false
         },
         "NoTypingAnimation": {
-            "enabled": false
+            "enabled": true
         },
         "NoUnblockToJump": {
             "enabled": false
@@ -314,7 +314,7 @@
             "enabled": false
         },
         "oneko": {
-            "enabled": false
+            "enabled": true
         },
         "OpenInApp": {
             "enabled": false,
@@ -377,11 +377,13 @@
             "enabled": false
         },
         "RoleColorEverywhere": {
-            "enabled": false,
+            "enabled": true,
             "chatMentions": true,
             "memberList": true,
             "voiceUsers": true,
-            "reactorsList": true
+            "reactorsList": true,
+            "pollResults": true,
+            "colorChatMessages": false
         },
         "SecretRingToneEnabler": {
             "enabled": false
@@ -454,7 +456,7 @@
             "indicatorMode": 3
         },
         "TypingTweaks": {
-            "enabled": false,
+            "enabled": true,
             "alternativeFormatting": true,
             "showRoleColors": true,
             "showAvatars": true
@@ -475,7 +477,9 @@
             "enabled": false
         },
         "USRBG": {
-            "enabled": false
+            "enabled": false,
+            "nitroFirst": true,
+            "voiceBackground": true
         },
         "ValidUser": {
             "enabled": false
@@ -487,7 +491,7 @@
             "enabled": false
         },
         "VencordToolbox": {
-            "enabled": true
+            "enabled": false
         },
         "ViewIcons": {
             "enabled": false
@@ -503,7 +507,7 @@
             "addBack": true
         },
         "WebKeybinds": {
-            "enabled": true
+            "enabled": false
         },
         "WhoReacted": {
             "enabled": true
@@ -569,13 +573,13 @@
             "enabled": false
         },
         "ShowTimeoutDuration": {
-            "enabled": false
+            "enabled": true
         },
         "ValidReply": {
             "enabled": false
         },
         "ServerInfo": {
-            "enabled": false
+            "enabled": true
         },
         "MessageUpdaterAPI": {
             "enabled": false
@@ -605,10 +609,11 @@
             "enabled": false
         },
         "MentionAvatars": {
-            "enabled": false
+            "enabled": true,
+            "showAtSymbol": true
         },
         "YoutubeAdblock": {
-            "enabled": false
+            "enabled": true
         },
         "AlwaysExpandRoles": {
             "enabled": false
@@ -636,12 +641,18 @@
             "enabled": false
         },
         "DynamicImageModalAPI": {
-            "enabled": false
+            "enabled": true
         },
         "FixImagesQuality": {
             "enabled": false
         },
         "HideMedia": {
+            "enabled": false
+        },
+        "FullUserInChatbox": {
+            "enabled": false
+        },
+        "IrcColors": {
             "enabled": false
         }
     },
@@ -655,6 +666,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1738513114421
-    }
+        "settingsSyncVersion": 1740928869329
+    },
+    "eagerPatches": false
 }

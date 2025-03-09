@@ -13,16 +13,29 @@
   programs.java.enable = true;
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
+  programs.wireshark.enable = true;
+
 
   environment.systemPackages = with pkgs; [
 
-    obsidian
+    obsidian # Notes
+    wireshark
+
+    handbrake
+    losslesscut-bin
 
     inputs.zen-browser.packages."${system}".default # Browser
 
     vlc # Video Player
     youtube-music # Music App
+    
     vesktop # Discord Client
+
+    # Have to do this to fix screenshare on hyprland 0.47
+    # (vesktop.override {
+    #  electron = pkgs.electron_33;
+    # })
+
 
     libreoffice # Office Software
     hunspell # Spellcheck for libreoffice
