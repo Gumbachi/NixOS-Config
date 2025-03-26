@@ -8,7 +8,7 @@
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=qfkzdXDIZfE&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=IqIzoRNAojY&list=LM&index=0",
 	"options": {
 		"tray": true,
 		"appVisible": true,
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 30
+			"savedVolume": 24
 		},
 		"discord": {
 			"listenAlong": true,
@@ -157,7 +157,7 @@
 			"hideDOMWindowControls": true
 		},
 		"navigation": {
-			"enabled": true
+			"enabled": false
 		},
 		"picture-in-picture": {
 			"enabled": false,
@@ -195,6 +195,12 @@
 		},
 		"lyrics-genius": {
 			"enabled": true
+		},
+		"equalizer": {
+			"enabled": false
+		},
+		"amuse": {
+			"enabled": false
 		}
 	},
 	"__internal__": {

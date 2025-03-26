@@ -19,6 +19,7 @@
       group = "users";
     };
 
+
     # Media streaming server
     sunshine = {
       enable = false;
@@ -30,4 +31,8 @@
     power-profiles-daemon.enable = true;
 
   };
+
+    # Syncthing 
+    networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+    networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 }

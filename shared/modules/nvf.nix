@@ -27,9 +27,10 @@
     autopairs.nvim-autopairs.enable = true;
     binds.whichKey.enable = true;
     ui.colorizer.enable = true;
-    # visuals.rainbow-delimiters.enable = true;
+    visuals.rainbow-delimiters.enable = true;
     dashboard.dashboard-nvim.enable = true;
-    # mini.indentscope.enable = true;
+    mini.indentscope.enable = true;
+    terminal.toggleterm.enable = true;
         
 
     utility.preview.markdownPreview = {
@@ -70,6 +71,8 @@
     markdown.enable = true;
     ts.enable = true;
     css.enable = true;
+    rust.enable = true;
+    csharp.enable = true;
   };
 
   programs.nvf.settings.vim.keymaps = [

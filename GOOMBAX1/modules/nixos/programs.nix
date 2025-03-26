@@ -2,7 +2,7 @@
   
   programs.direnv = {
     enable = true;
-    silent = false;
+    silent = true;
   };
 
   programs.obs-studio = {
@@ -11,12 +11,21 @@
   };
 
   programs.java.enable = true;
+  programs.thunar.enable = true;
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
   programs.wireshark.enable = true;
 
 
   environment.systemPackages = with pkgs; [
+
+    dotnet-sdk
+
+    wireguard-tools
+
+    mgba
+
+    ryubing
 
     obsidian # Notes
     wireshark
@@ -31,12 +40,6 @@
     
     vesktop # Discord Client
 
-    # Have to do this to fix screenshare on hyprland 0.47
-    # (vesktop.override {
-    #  electron = pkgs.electron_33;
-    # })
-
-
     libreoffice # Office Software
     hunspell # Spellcheck for libreoffice
     hunspellDicts.en_US # US Dictionary for spellcheck
@@ -44,6 +47,8 @@
     fastfetch # System Info
     tldr # Better Command Help
     unzip # Unzipper
+    unrar # Unrarrer
+    unar # Better Unzip
     speedtest-cli # Network Speed CLI
     wget # Web Fetch
     ripgrep # Fast search

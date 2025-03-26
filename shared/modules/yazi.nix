@@ -19,19 +19,17 @@
           open = [
             { run = ''xdg-open "$@"''; desc = "Open"; }
           ];
+          unzip = [
+            { run = ''unar -d "$0"''; block = true; desc = "Unzip"; }
+          ];
         };
 
-        # open = {
-        #   rules = [
-        #     { mime = "video/*"; use = [ "play" "reveal" ]; }
-        #   ];
-        # };
+        open = {
+          prepend_rules = [
+            { name = "*.zip"; use = "unzip"; }
+          ];
+        };
       };
-
-      # Theme.toml
-      # theme = {
-      #
-      # };
 
     };
   };

@@ -8,7 +8,7 @@
     ],
     "enabledThemes": [],
     "enableReactDevtools": false,
-    "frameless": true,
+    "frameless": false,
     "transparent": false,
     "winCtrlQ": false,
     "disableMinSize": false,
@@ -666,7 +666,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1740928869329
+        "settingsSyncVersion": 1741565556038
     },
     "eagerPatches": false
 }
