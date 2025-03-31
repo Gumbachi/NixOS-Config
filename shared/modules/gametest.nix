@@ -52,30 +52,41 @@ in {
     };
   };
 
-  config = {
-    programs.steam.enable = lib.mkIf gcfg.steam.enable;
+  config = lib.mkMerge [
+    { environment.sessionVariables.HOWDY = "Howdy"; }
+    { environment.sessionVariables.PARTNER = "Partner"; }
+    { environment.sessionVariables.STEAMENABLED = "true"; }
+  ];
 
-    environment.systemPackages = [
-      lib.mkIf gcfg.mangohud.enable pkgs.mangohud
-      lib.mkIf gcfg.protonup.enable pkgs.protonup-qt
-      lib.mkIf gcfg.minecraft.enable pkgs.prismlauncher
-
-      lib.mkIf ecfg.switch.ryubing.enable pkgs.ryubing
-      lib.mkIf ecfg.gba.mgba.enable pkgs.mgba
-
-      lib.mkIf ecfg.retroarch.enable (
-        pkgs.retroarch.withCores (cores: with cores; [
-          melonds
-          mgba
-          citra
-        ])
-      )
-    ];
-
-    environment.sessionVariables = lib.mkIf gcfg.mangohud.enable {
-      MANGOHUD_CONFIG = gcfg.mangohud.config;
-    };
-
-  };
+  # config = lib.mkMerge [
+  #   lib.mkIf gcfg.steam.enable {
+  #     programs.steam.enable = true;
+  #   }
+  #
+  #   # Mangohud config
+  #   lib.mkIf gcfg.mangohud.enable {
+  #     environment.sessionVariables.MANGOHUD_CONFIG = gcfg.mangohud.config;
+  #     environment.systemPackages = [ pkgs.mangohud ];
+  #     # environment.sessionVariables = lib.mkIf gcfg.mangohud.enable {
+  #     #   MANGOHUD_CONFIG = gcfg.mangohud.config; 
+  #   }
+  #
+  #   # environment.systemPackages = lib.mkMerge [
+  #   #   lib.mkIf gcfg.mangohud.enable [pkgs.mangohud]
+  #   #   lib.mkIf gcfg.protonup.enable [pkgs.protonup-qt]
+  #   #   # lib.mkIf gcfg.minecraft.enable pkgs.prismlauncher
+  #   #   #
+  #   #   # lib.mkIf ecfg.switch.ryubing.enable pkgs.ryubing
+  #   #   # lib.mkIf ecfg.gba.mgba.enable pkgs.mgba
+  #   #   #
+  #   #   # lib.mkIf ecfg.retroarch.enable (
+  #   #   #   pkgs.retroarch.withCores (cores: with cores; [
+  #   #   #     melonds
+  #   #   #     mgba
+  #   #   #     citra
+  #   #   #   ])
+  #   #   # )
+  #   # ];
+  # ];
 
 }
