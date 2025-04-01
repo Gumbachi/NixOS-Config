@@ -31,7 +31,11 @@ in
 
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
+
     (sharedModulePath + /gametest.nix)
+    (sharedModulePath + /emulation.nix)
+    (sharedModulePath + /personalization.nix)
+
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
     (sharedModulePath + /fish.nix)
@@ -45,8 +49,21 @@ in
   ];
 
 
-  users.defaultUserShell = pkgs.fish;
+  wallpaper.waypaper = {
+    enable = true;
+    wallpaperDir = ~/NixOS-Config/images/wallpapers;
+    # randomizeOnLaunch = true;
+    rotateWallpaper = {
+      enable = true;
+      interval = 1;
+    };
+  };
 
+
+  emulation.gba.mgba.enable = true;
+
+
+  users.defaultUserShell = pkgs.fish;
 
   nix = {
     settings = {

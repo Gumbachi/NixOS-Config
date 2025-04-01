@@ -27,7 +27,7 @@ in
     })
 
     # GBA Multiplayer emulation mGBA
-    (lib.mkIf cfg.mgba.enable {
+    (lib.mkIf cfg.gba.mgba.enable {
       environment.systemPackages = [ pkgs.mgba ];
     })
 
