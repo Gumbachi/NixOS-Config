@@ -31,20 +31,39 @@ in
 
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
+
+    (sharedModulePath + /gametest.nix)
+    (sharedModulePath + /emulation.nix)
+    (sharedModulePath + /personalization.nix)
+
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
     (sharedModulePath + /fish.nix)
     (sharedModulePath + /nushell.nix)
     (sharedModulePath + /fonts.nix)
     (sharedModulePath + /gaming.nix)
+    (sharedModulePath + /retroarch.nix)
     (sharedModulePath + /docker.nix)
-    # (sharedModulePath + /virtualization.nix)
+    (sharedModulePath + /virtualization.nix)
     
   ];
 
 
-  users.defaultUserShell = pkgs.fish;
+  wallpaper.waypaper = {
+    enable = true;
+    wallpaperDir = "~/NixOS-Config/images/wallpapers";
+    randomizeOnLaunch = true;
+    rotateWallpaper = {
+      enable = true;
+      interval = 20;
+    };
+  };
 
+
+  emulation.gba.mgba.enable = true;
+
+
+  users.defaultUserShell = pkgs.fish;
 
   nix = {
     settings = {

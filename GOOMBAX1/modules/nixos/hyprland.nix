@@ -1,7 +1,13 @@
-{ inputs, pkgs, ... }: {
-
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
@@ -41,14 +47,16 @@
   };
 
   # Greetd: Autostart Hyprland on boot
-  services.greetd = {
+  services.greetd = let
+    session = {
+      command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+      user = "jared";
+    };
+  in {
     enable = true;
-    settings = rec {
-      initial_session = {
-        command = "Hyprland";
-        user = "jared";
-      };
-      default_session = initial_session;
+    settings = {
+      initial_session = session;
+      default_session = session;
     };
   };
 }

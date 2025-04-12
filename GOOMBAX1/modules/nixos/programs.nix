@@ -1,9 +1,14 @@
-{ inputs, pkgs, ... }: {
-  
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.direnv = {
     enable = true;
-    silent = false;
+    silent = true;
   };
+
+  programs.nix-ld.enable = true;
 
   programs.obs-studio = {
     enable = true;
@@ -11,12 +16,28 @@
   };
 
   programs.java.enable = true;
-  programs.firefox.enable = true;
+  programs.thunar.enable = true;
+  # programs.firefox.enable = true;
   programs.thunderbird.enable = true;
   programs.wireshark.enable = true;
 
-
   environment.systemPackages = with pkgs; [
+    inputs.overway.packages.${system}.default
+    inputs.astal.packages.${system}.default
+
+    dotnet-sdk
+
+    wireguard-tools
+    qutebrowser
+
+    just
+
+    # vscodium
+    # typescript
+
+    # mgba
+
+    ryubing
 
     obsidian # Notes
     wireshark
@@ -24,18 +45,12 @@
     handbrake
     losslesscut-bin
 
-    inputs.zen-browser.packages."${system}".default # Browser
+    inputs.zen-browser.packages.${system}.default # Browser
 
     vlc # Video Player
     youtube-music # Music App
-    
+
     vesktop # Discord Client
-
-    # Have to do this to fix screenshare on hyprland 0.47
-    # (vesktop.override {
-    #  electron = pkgs.electron_33;
-    # })
-
 
     libreoffice # Office Software
     hunspell # Spellcheck for libreoffice
@@ -43,7 +58,9 @@
 
     fastfetch # System Info
     tldr # Better Command Help
-    unzip # Unzipper
+    # unzip # Unzipper
+    unrar # Unrarrer
+    unar # Better Unzip
     speedtest-cli # Network Speed CLI
     wget # Web Fetch
     ripgrep # Fast search
@@ -51,6 +68,7 @@
     fzf # Fuzzy Finder
     zoxide # better cd
     eza # better ls
+    bat # better cat
 
     # lutris # Game Launcher // Application shortcut creator
 
@@ -72,7 +90,5 @@
 
     # bottles # Wine Prefix Manager
     r2modman # Thunderstore mod Manager
-
   ];
-
 }

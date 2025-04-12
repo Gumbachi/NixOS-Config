@@ -8,7 +8,7 @@
     ],
     "enabledThemes": [],
     "enableReactDevtools": false,
-    "frameless": true,
+    "frameless": false,
     "transparent": false,
     "winCtrlQ": false,
     "disableMinSize": false,
@@ -314,7 +314,7 @@
             "enabled": false
         },
         "oneko": {
-            "enabled": true
+            "enabled": false
         },
         "OpenInApp": {
             "enabled": false,
@@ -654,6 +654,9 @@
         },
         "IrcColors": {
             "enabled": false
+        },
+        "DisableDeepLinks": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -666,7 +669,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1740928869329
+        "settingsSyncVersion": 1744315809056
     },
     "eagerPatches": false
 }
