@@ -14,6 +14,17 @@
 
     helix # Text Editor
 
+    # DV recording Tools
+    dvgrab
+    ffmpeg-headless
+
+    pciutils
+    lshw
+
+    # Networking Tools
+    openssl
+    dnsutils
+
     # jdk8 # Java 8
 
     wget # Web Fetch

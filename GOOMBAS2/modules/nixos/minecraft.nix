@@ -5,12 +5,12 @@
 
   # Sky Factory 4 Minecraft Server
   systemd.services.sky-factory-4 = {
-    enable = true;
+    enable = false;
     wantedBy = [ "multi-user.target" ];
     description = "Minecraft Server";
     serviceConfig = {
         Type = "simple";
-        Restart = "always";
+        # Restart = "always";
         RestartSec = "60";
         Environment = "JAVA_HOME=${pkgs.jdk8}";
         WorkingDirectory = "/home/jared/A/Minecraft/SkyFactory-4_Server_4_2_4";

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
 
@@ -20,6 +20,8 @@
     loader.timeout = 0;
 
     # kernelPackages = pkgs.linuxPackages_latest;
+
+    swraid.enable = true;
 
     # https://docs.kernel.org/gpu/amdgpu/module-parameters.html
     kernelParams = [

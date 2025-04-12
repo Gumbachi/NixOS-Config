@@ -87,7 +87,7 @@
         # Hardware Support
         inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-        inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+        # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           
         # Home Manager
         home-manager.nixosModules.home-manager

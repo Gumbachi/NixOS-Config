@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, config, ... }: 
 
 let 
   modulePath = ./modules/nixos;
@@ -21,7 +21,7 @@ in
     (modulePath + /minecraft.nix)
     # (modulePath + /mullvad.nix)
     (modulePath + /caddy.nix) # Reverse Proxy Server
-    (modulePath + /deluge.nix)
+    # (modulePath + /deluge.nix)
 
     # Shared - The same across systems 
     (sharedModulePath + /nvf.nix)
@@ -32,13 +32,26 @@ in
   ];
 
 
+  boot.initrd.luks.mitigateDMAAttacks = false;
+
+
   users.defaultUserShell = pkgs.fish;
 
   services.getty.autologinUser = "jared";
 
   catppuccin.enable = true;
 
-  hardware.nvidia.open = false;
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware = {
+    graphics.enable = true;
+    nvidia-container-toolkit.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.finegrained = false;
+      open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
 
   time.timeZone = "America/New_York";
 

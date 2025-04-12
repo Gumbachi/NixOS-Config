@@ -5,20 +5,18 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  networking.enableIPv6 = false;
-
   networking.firewall = {
     enable = true;
-    # allowedTCPPorts = [];
-    # allowedTCPPortRanges = [
-    #   { from = 42999; to = 43001; } 
-    # ];
-    # allowedUDPPorts = [ 25565 3003 ];
-    # allowedUDPPortRanges = [
-    #   { from = 42999; to = 43001; } 
-    # ];
+    allowedTCPPorts = [ 
+      8123 # No idead
+      43002 # Sky Factory
+      22000 # Syncthing
+    ];
+    allowedUDPPorts = [ 
+      8123 # No clue
+      43002 # Sky factory
+      22000 21027 # Syncthing
+    ];
   };
-
-  networking.nftables.enable = false;
 
 }

@@ -15,6 +15,21 @@
         reverse_proxy localhost:2283
       '';
 
+      "sync.gumbachi.com".extraConfig = ''
+        reverse_proxy localhost:8384
+      '';
+
+      "home.gumbachi.com".extraConfig = ''
+        reverse_proxy 192.168.69.2:8123
+      '';
+
+      "alias.gumbachi.com".extraConfig = ''
+        reverse_proxy localhost:8000
+      '';
+
+
+      
+
     };
   };
 
