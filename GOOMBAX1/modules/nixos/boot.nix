@@ -1,13 +1,10 @@
-{ pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    
+
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
 
@@ -34,7 +31,6 @@
 
     # loader.timeout = 3;
 
-    # extraModprobeConfig = '' options bluetooth disable_ertm=1 '';        
+    # extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
   };
- 
 }

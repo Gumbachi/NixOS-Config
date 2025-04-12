@@ -51,11 +51,11 @@ in
 
   wallpaper.waypaper = {
     enable = true;
-    wallpaperDir = ~/NixOS-Config/images/wallpapers;
-    # randomizeOnLaunch = true;
+    wallpaperDir = "~/NixOS-Config/images/wallpapers";
+    randomizeOnLaunch = true;
     rotateWallpaper = {
       enable = true;
-      interval = 1;
+      interval = 20;
     };
   };
 

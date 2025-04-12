@@ -1,10 +1,9 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   programs.nvf.enable = true;
 
   programs.nvf.settings.vim.options = {
-    tabstop = 2;
-    shiftwidth = 0;
+    tabstop = 4;
+    shiftwidth = 4;
     expandtab = true;
   };
 
@@ -16,12 +15,10 @@
 
   # Vim Settings
   programs.nvf.settings.vim = {
-
     useSystemClipboard = true;
 
     # Plugins
     statusline.lualine.enable = true;
-    telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
     comments.comment-nvim.enable = true;
     autopairs.nvim-autopairs.enable = true;
@@ -30,8 +27,31 @@
     visuals.rainbow-delimiters.enable = true;
     dashboard.dashboard-nvim.enable = true;
     mini.indentscope.enable = true;
-    terminal.toggleterm.enable = true;
-        
+
+    telescope = {
+      enable = true;
+      setupOpts = {
+        defaults = {
+          # path_display = ["absolute" "smart"];
+          hidden = true;
+        };
+      };
+    };
+
+    terminal.toggleterm = {
+      enable = true;
+      mappings.open = "<leader>t";
+      setupOpts = {
+        direction = "float";
+        border = "curved";
+      };
+    };
+
+    utility.yazi-nvim = {
+      enable = true;
+      mappings.openYazi = "<leader> ";
+      # setupOpts.open_for_directories = true;
+    };
 
     utility.preview.markdownPreview = {
       enable = true;
@@ -58,6 +78,12 @@
     };
   };
 
+  programs.nvf.settings.vim.lsp = {
+    enable = true;
+    formatOnSave = true;
+    null-ls.enable = true;
+  };
+
   # Languages
   programs.nvf.settings.vim.languages = {
     # Language Defaults
@@ -66,7 +92,10 @@
     enableFormat = true;
 
     # Languages
-    nix.enable = true;
+    nix = {
+      enable = true;
+      lsp.server = "nixd";
+    };
     python.enable = true;
     markdown.enable = true;
     ts.enable = true;
@@ -80,37 +109,18 @@
       key = "<leader>f";
       mode = "n";
       silent = true;
-      action = ":Telescope find_files hidden=true<CR>";
+      action = ":Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>";
     }
   ];
 
-  # Extra Plugins
-  programs.nvf.settings.vim.lazy.plugins = {
-    "yazi.nvim" = {
-     package = pkgs.vimPlugins.yazi-nvim;
-      setupModule = "yazi";
-      setupOpts = {
-        option_name = true;
-      };
-
-      # Explicitly mark plugin as lazy. You don't need this if you define one of
-      # the trigger "events" below
-      lazy = true;
-
-      # load on command
-      cmd = ["Yazi"];
-
-      # load on event
+  programs.nvf.settings.vim.autocmds = [
+    {
+      desc = "2 Spacers";
+      command = "setlocal shiftwidth=2 | setlocal tabstop=2";
       event = ["BufEnter"];
-
-      # load on keymap
-      keys = [
-        {
-          key = "<leader>e";
-          action = ":Yazi<CR>";
-          mode = "n";
-        }
+      pattern = [
+        "*.nix"
       ];
-    };
-  };
+    }
+  ];
 }

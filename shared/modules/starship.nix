@@ -1,20 +1,18 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   # Need this line to enable starship on path
-  environment.systemPackages = [ pkgs.starship ];
+  environment.systemPackages = [pkgs.starship];
 
   programs.starship = {
     enable = true;
     interactiveOnly = false;
     settings = {
-
       palette = "catppuccin_mocha";
       add_newline = true;
 
-      format = ''
-        $directory$git_branch$git_commit$git_state$git_metrics$git_status$time
-        $character
-      '';
+      # format = ''
+      #   $directory$git_branch$git_commit$git_state$git_metrics$git_status$time
+      #   $character
+      # '';
 
       character = {
         success_symbol = "[[](green) ❯](green)";
@@ -75,6 +73,5 @@
         crust = "#11111b";
       };
     };
-
   };
 }

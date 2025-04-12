@@ -14,17 +14,17 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  programs.ags = {
-    enable = true;
-    extraPackages = with pkgs; [
-      wlsunset
-      sox
-      # gtksourceview
-      # # webkitgtk
-      # accountsservice
-      # libdbusmenu-gtk3
-    ];
-  };
+  # programs.ags = {
+  #   enable = true;
+  #   extraPackages = with pkgs; [
+  #     wlsunset
+  #     sox
+  #     # gtksourceview
+  #     # # webkitgtk
+  #     # accountsservice
+  #     # libdbusmenu-gtk3
+  #   ];
+  # };
 
   programs.git = {
     enable = true;
@@ -55,7 +55,7 @@ in
     ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
 
     # AGS
-    ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/"; 
+    # ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/"; 
 
     # Starship
     # ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
