@@ -1,20 +1,15 @@
-{ pkgs, ... }:{
-
+{...}: {
   services.jellyfin = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     user = "jared";
+    configDir = "/home/jared/B/Config/Jellyfin";
   };
-  
-  environment.systemPackages = with pkgs; [
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
-  ];  
 
   services.jellyseerr = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
+    # Below line causes jellyseerr to crash for some reason
+    # configDir = "/home/jared/B/Config/Jellyseerr/";
   };
-
 }

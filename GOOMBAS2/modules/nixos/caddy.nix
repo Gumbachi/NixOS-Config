@@ -1,14 +1,17 @@
-{ ... }: {
+{...}: {
   services.caddy = {
     enable = true;
     virtualHosts = {
-
       "gumbachi.com".extraConfig = ''
         respond "Hi there. Nothing in here yet"
       '';
 
       "watch.gumbachi.com".extraConfig = ''
         reverse_proxy localhost:8096
+      '';
+
+      "request.gumbachi.com".extraConfig = ''
+        reverse_proxy localhost:5055
       '';
 
       "photos.gumbachi.com".extraConfig = ''
@@ -26,12 +29,8 @@
       "alias.gumbachi.com".extraConfig = ''
         reverse_proxy localhost:8000
       '';
-
-
-      
-
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [80 443];
 }

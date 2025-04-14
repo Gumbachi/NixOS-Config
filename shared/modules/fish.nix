@@ -1,4 +1,8 @@
-{ ... }: {
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs.fishPlugins; [
+    transient-fish
+    sponge
+  ];
 
   programs.fish = {
     enable = true;
@@ -19,8 +23,26 @@
 
       yt-dlp-audio = "yt-dlp -x --audio-format mp3 -f bestaudio -o '%(title)s.%(ext)s'";
       yt-dlp-video = "yt-dlp -f bestvideo+bestaudio -o '%(title)s.%(ext)s'";
-
     };
-  };
 
+    shellAbbrs = {
+      nixgc = "sudo nix-collect-garbage -d";
+    };
+
+    shellInit = ''
+      set fish_greeting
+      fish_config theme choose "mocha"
+
+      function yy
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        yazi $argv --cwd-file="$tmp"
+        if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+          cd -- "$cwd"
+        end
+        rm -f -- "$tmp"
+      end
+
+      zoxide init fish | source
+    '';
+  };
 }

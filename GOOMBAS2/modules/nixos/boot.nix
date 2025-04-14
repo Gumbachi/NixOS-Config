@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   # Greetd: Autostart Btop on boot
   services.greetd = {
     enable = true;
@@ -21,7 +18,10 @@
 
     # kernelPackages = pkgs.linuxPackages_latest;
 
-    swraid.enable = true;
+    swraid = {
+      enable = true;
+      mdadmConf = "MAILADDR mdadm@gumbachi.com";
+    };
 
     # https://docs.kernel.org/gpu/amdgpu/module-parameters.html
     kernelParams = [
@@ -41,7 +41,5 @@
     # initrd.verbose = false;
 
     # plymouth.enable = true;
-
   };
- 
 }

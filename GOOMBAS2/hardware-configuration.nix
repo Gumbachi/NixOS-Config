@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "firewire_ohci" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -24,8 +24,8 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/jared/A" =
-    { device = "/dev/disk/by-uuid/dd65d005-1816-42d2-881a-dd31cdc31d57";
+  fileSystems."/home/jared/B" =
+    { device = "/dev/disk/by-uuid/61c04bdb-2343-42a6-af9c-ecb46c6ae567";
       fsType = "ext4";
     };
 
@@ -36,8 +36,16 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-335b253b5c78.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-f41726cf13de.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth8d6f033.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethfb706b3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  boot.swraid.enable = true;
+
+
 }

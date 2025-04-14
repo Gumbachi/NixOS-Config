@@ -7,7 +7,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    overway.url = "path:/home/jared/Code/Overway";
+    # overway.url = "path:/home/jared/Code/Overway";
     astal.url = "github:aylur/astal";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -88,7 +88,7 @@
         inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
         # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-          
+
         # Home Manager
         home-manager.nixosModules.home-manager
         {
