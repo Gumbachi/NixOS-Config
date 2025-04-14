@@ -7,7 +7,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # overway.url = "path:/home/jared/Code/Overway";
+    overway.url = "github:Gumbachi/Overway";
     astal.url = "github:aylur/astal";
 
     hyprland.url = "github:hyprwm/Hyprland";
