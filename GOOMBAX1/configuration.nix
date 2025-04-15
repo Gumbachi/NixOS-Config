@@ -1,14 +1,14 @@
-{ inputs, pkgs, ... }: 
-
-let 
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   modulePath = ./modules/nixos;
   sharedModulePath = ../shared/modules;
-in
-{
-
-  imports = [ 
+in {
+  imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix 
+    ./hardware-configuration.nix
 
     # GOOMBAX1 -- Mandatory
     (modulePath + /boot.nix)
@@ -17,7 +17,6 @@ in
     (modulePath + /sound.nix)
     (modulePath + /networking.nix)
 
-
     # GOOMBAX1 -- Optional
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
@@ -25,29 +24,22 @@ in
     (modulePath + /android.nix)
     (modulePath + /vr.nix)
     (modulePath + /catppuccin.nix)
-    # (modulePath + /mullvad.nix)
     (modulePath + /lact.nix)
 
-
-    # Shared - The same across systems 
-    (sharedModulePath + /nvf.nix)
-
-    (sharedModulePath + /gametest.nix)
+    # Shared - The same across systems
+    (sharedModulePath + /gaming.nix)
+    (sharedModulePath + /terminal-tools.nix)
     (sharedModulePath + /emulation.nix)
     (sharedModulePath + /personalization.nix)
 
+    (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
     (sharedModulePath + /fish.nix)
-    (sharedModulePath + /nushell.nix)
     (sharedModulePath + /fonts.nix)
-    (sharedModulePath + /gaming.nix)
-    (sharedModulePath + /retroarch.nix)
     (sharedModulePath + /docker.nix)
     (sharedModulePath + /virtualization.nix)
-    
   ];
-
 
   wallpaper.waypaper = {
     enable = true;
@@ -59,20 +51,18 @@ in
     };
   };
 
-
   emulation.gba.mgba.enable = true;
-
 
   users.defaultUserShell = pkgs.fish;
 
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
-    extraOptions = '' trusted-users = root jared ''; # Devenv shells
+    extraOptions = ''trusted-users = root jared ''; # Devenv shells
     gc = {
       automatic = true;
       dates = "weekly";
@@ -80,28 +70,15 @@ in
     };
   };
 
-  # # Dont use this
-  # system.autoUpgrade = {
-  #   enable = false;
-  #   flake = inputs.self.outPath;
-  #   flags = [
-  #     "--update-input"
-  #     "nixpkgs"
-  #     "-L" # print build logs
-  #   ];
-  #   dates = "weekly";
-  #   randomizedDelaySec = "45min";
-  # };
-
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
     rocmSupport = true;
   };
-  
+
   # Set your time zone.
   time.timeZone = "America/New_York";
-  
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -124,17 +101,14 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" "wireshark" ];
+    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" "wireshark"];
   };
 
-
   documentation.man.enable = false;
-
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

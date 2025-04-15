@@ -3,9 +3,28 @@
   pkgs,
   ...
 }: {
-  programs.direnv = {
-    enable = true;
-    silent = true;
+  # Pretty much just a namespace see terminal-tools.nix for options
+  terminal = {
+    eza.enable = true;
+    bat.enable = true;
+    zoxide.enable = true;
+    fd.enable = true;
+    ripgrep.enable = true;
+    fastfetch.enable = true;
+    fzf.enable = true;
+    systemctl-tui.enable = true;
+    devenv.enable = true;
+    direnv.enable = true;
+    wget.enable = true;
+    unar.enable = true;
+    unrar.enable = true;
+  };
+
+  gaming = {
+    steam.enable = true;
+    mangohud.enable = true;
+    protonup.enable = true;
+    minecraft.enable = true;
   };
 
   programs.nix-ld.enable = true;
@@ -32,9 +51,6 @@
 
     just
 
-    # vscodium
-    # typescript
-
     # mgba
 
     ryubing
@@ -48,7 +64,7 @@
     inputs.zen-browser.packages.${system}.default # Browser
 
     vlc # Video Player
-    youtube-music # Music App
+    # youtube-music # Music App
 
     vesktop # Discord Client
 
@@ -56,34 +72,12 @@
     hunspell # Spellcheck for libreoffice
     hunspellDicts.en_US # US Dictionary for spellcheck
 
-    fastfetch # System Info
-    tldr # Better Command Help
-    # unzip # Unzipper
-    unrar # Unrarrer
-    unar # Better Unzip
-    speedtest-cli # Network Speed CLI
-    wget # Web Fetch
-    ripgrep # Fast search
-    fd # Another fast search
-    fzf # Fuzzy Finder
-    zoxide # better cd
-    eza # better ls
-    bat # better cat
-
     # lutris # Game Launcher // Application shortcut creator
 
-    systemctl-tui # TUI for systemctl
-    qbittorrent # Bittorrent client
-    bitwarden-desktop # Password Vault
-
-    helix # Text Editor
-    devenv # Automatic Dev Environments
+    # qbittorrent # Bittorrent client
 
     keymapp # Moonlander Software
-
     btop # System Monitor
-
-    prismlauncher # Minecraft Launcher
 
     # imagemagick # Terminal Image Manipulation
     # parsec-bin # Desktop Streaming Client

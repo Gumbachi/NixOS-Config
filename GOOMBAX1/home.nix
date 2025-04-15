@@ -1,30 +1,20 @@
-{ pkgs, config, ... }:
-
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
   nixosConfig = "/home/jared/NixOS-Config";
   homeModulesPath = ./modules/home;
-in
-{
-
+  sharedHomeModules = ../shared/modules/home;
+in {
   imports = [
     (homeModulesPath + /catppuccin.nix)
+    (sharedHomeModules + /multimedia.nix)
   ];
 
   home.username = "jared";
   home.homeDirectory = "/home/jared";
-
-  # programs.ags = {
-  #   enable = true;
-  #   extraPackages = with pkgs; [
-  #     wlsunset
-  #     sox
-  #     # gtksourceview
-  #     # # webkitgtk
-  #     # accountsservice
-  #     # libdbusmenu-gtk3
-  #   ];
-  # };
 
   programs.git = {
     enable = true;
@@ -32,13 +22,22 @@ in
     userEmail = "jaredremsberg@gmail.com";
   };
 
+  multimedia = {
+    youtube-music = {
+      enable = true;
+      extraConfig = {
+        plugins.discord.enabled = true;
+      };
+    };
+  };
+
+
 
   ################
   ### SYMLINKS ###
   ################
 
   home.file = {
-
     # Hyprland, Hypridle, Hyprpaper, Hyprlock
     ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
 
@@ -55,7 +54,7 @@ in
     ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
 
     # AGS
-    # ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/"; 
+    # ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/";
 
     # Starship
     # ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
@@ -85,13 +84,10 @@ in
     # Waybar
     # ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
 
-
     # Kvantum
     # ".config/Kvantum/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
-
   };
 
-  
   #######################
   ### DESKTOP ENTRIES ###
   #######################
@@ -102,7 +98,7 @@ in
       genericName = "File Explorer";
       exec = "yazi";
       terminal = true;
-      mimeType = [ "inode/directory" ];
+      mimeType = ["inode/directory"];
       icon = "system-file-manager";
     };
 
@@ -112,10 +108,8 @@ in
       exec = "env -u DISPLAY vlc";
       icon = "vlc";
     };
-
   };
 
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
-
 }

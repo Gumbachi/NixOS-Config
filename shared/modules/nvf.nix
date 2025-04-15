@@ -94,6 +94,7 @@
     # Languages
     nix = {
       enable = true;
+      format.enable = false;
       lsp.server = "nixd";
     };
     python.enable = true;

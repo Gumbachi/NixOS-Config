@@ -1,41 +1,59 @@
-{ pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.gaming;
+in {
+  # TODO: Add options for VR
+  options.gaming = {
+    # Minecraft
+    minecraft.enable = lib.mkEnableOption "Install Prism Launcher for Minecraft.";
 
-  environment.systemPackages = with pkgs; [ 
-    mangohud
-    protonup-qt
-    # protontricks
-    # steamtinkerlaunch
-    # wine
-  ];
+    # Steam
+    steam.enable = lib.mkEnableOption "Install Steam.";
 
-  # Steam
-  programs.steam = {
-    enable = true;
-    # gamescopeSession.enable = true;
+    # Mangohud
+    mangohud = {
+      enable = lib.mkEnableOption "Install Mangohud.";
+      config = lib.mkOption {
+        default = "
+          position=top-right,
+          frame_timing=0,
+          round_corners=10.0,
+          frametime=0,
+          hud_no_margin,
+          background_alpha=0,
+          table_columns=2
+        ";
+        type = lib.types.string;
+        description = "Mangohud config environment variable.";
+      };
+    };
+
+    # ProtonUP
+    protonup.enable = lib.mkEnableOption "Install proton version manager.";
   };
-  
-  # Gamemode
-  # programs.gamemode = {
-  #   enable = true;
-  #   enableRenice = true;
-  # };
 
-  # Gamescope
-  # programs.gamescope = {
-  #   enable = true;
-  #   args = [
-  #     "--expose-wayland"
-  #     "--adaptive-sync"
-  #     "-W 3840 -H 2160"
-  #   ];
-  #   # capSysNice = true;
-  # };
+  config = lib.mkMerge [
+    # Steam
+    (lib.mkIf cfg.steam.enable {programs.steam.enable = true;})
 
-  # Possibly needed environment vars
-  
-  # environment.sessionVariables = {
-  #   STEAM_FORCE_DESKTOPUI_SCALING = "1.5"; # Necessary for 4k Monitor
-  #   MANGOHUD_CONFIG = "position=top-right,frame_timing=0";
-  # };
+    # Mangohud
+    (lib.mkIf cfg.mangohud.enable {
+      environment.systemPackages = [pkgs.mangohud];
+      environment.sessionVariables.MANGOHUD_CONFIG = cfg.mangohud.config;
+    })
 
+    # ProtonUP
+    (lib.mkIf cfg.protonup.enable {
+      environment.systemPackages = [pkgs.protonup-qt];
+    })
+
+    # Minecraft
+    (lib.mkIf cfg.minecraft.enable {
+      environment.systemPackages = [pkgs.prismlauncher];
+    })
+  ];
 }
