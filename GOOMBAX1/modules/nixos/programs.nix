@@ -1,15 +1,21 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{ inputs, pkgs, ... }: {
+
   # Pretty much just a namespace see terminal-tools.nix for options
   terminal = {
-    eza.enable = true;
-    bat.enable = true;
+    eza = {
+      enable = true;
+      createFishAlias = true;
+    };
+    bat = {
+      enable = true;
+      createFishAlias = true;
+    };
+    ripgrep = {
+      enable = true;
+      createFishAlias = true;
+    };
     zoxide.enable = true;
     fd.enable = true;
-    ripgrep.enable = true;
     fastfetch.enable = true;
     fzf.enable = true;
     systemctl-tui.enable = true;
@@ -21,7 +27,10 @@
   };
 
   gaming = {
-    steam.enable = true;
+    steam = {
+      enable = true;
+      forceDesktopScaling = true;
+    };
     mangohud.enable = true;
     protonup.enable = true;
     minecraft.enable = true;
@@ -46,6 +55,13 @@
 
     dotnet-sdk
 
+    ntfs3g
+    btrfs-progs
+    exfat
+    exfatprogs
+
+    smartmontools
+
     wireguard-tools
     qutebrowser
 
@@ -65,8 +81,7 @@
 
     vlc # Video Player
     # youtube-music # Music App
-
-    vesktop # Discord Client
+    # vesktop # Discord Client
 
     libreoffice # Office Software
     hunspell # Spellcheck for libreoffice

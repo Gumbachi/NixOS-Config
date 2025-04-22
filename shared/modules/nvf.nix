@@ -2,8 +2,8 @@
   programs.nvf.enable = true;
 
   programs.nvf.settings.vim.options = {
-    tabstop = 4;
-    shiftwidth = 4;
+    tabstop = 2;
+    shiftwidth = 2;
     expandtab = true;
   };
 
@@ -19,23 +19,29 @@
 
     # Plugins
     statusline.lualine.enable = true;
-    autocomplete.nvim-cmp.enable = true;
-    comments.comment-nvim.enable = true;
-    autopairs.nvim-autopairs.enable = true;
     binds.whichKey.enable = true;
     ui.colorizer.enable = true;
     visuals.rainbow-delimiters.enable = true;
     dashboard.dashboard-nvim.enable = true;
-    mini.indentscope.enable = true;
+    telescope.enable = true;
 
-    telescope = {
+    treesitter = {
       enable = true;
-      setupOpts = {
-        defaults = {
-          # path_display = ["absolute" "smart"];
-          hidden = true;
-        };
+    };
+
+    autocomplete.nvim-cmp = {
+      enable = true;
+      mappings = {
+        confirm = "<Tab>";
+        next = "<Down>";
+        previous = "<Up>";
       };
+    };
+
+    mini = {
+      indentscope.enable = true;
+      pairs.enable = true;
+      comment.enable = true;
     };
 
     terminal.toggleterm = {
@@ -87,7 +93,7 @@
   # Languages
   programs.nvf.settings.vim.languages = {
     # Language Defaults
-    enableTreesitter = true;
+    enableTreesitter = false;
     enableLSP = true;
     enableFormat = true;
 
@@ -97,9 +103,13 @@
       format.enable = false;
       lsp.server = "nixd";
     };
+    ts = {
+      enable = true; 
+      format.type = "biome";
+      format.enable = false;
+    };
     python.enable = true;
     markdown.enable = true;
-    ts.enable = true;
     css.enable = true;
     rust.enable = true;
     csharp.enable = true;
@@ -116,11 +126,11 @@
 
   programs.nvf.settings.vim.autocmds = [
     {
-      desc = "2 Spacers";
-      command = "setlocal shiftwidth=2 | setlocal tabstop=2";
+      desc = "4 Spacers";
+      command = "setlocal shiftwidth=4 | setlocal tabstop=4";
       event = ["BufEnter"];
       pattern = [
-        "*.nix"
+        "*.py"
       ];
     }
   ];

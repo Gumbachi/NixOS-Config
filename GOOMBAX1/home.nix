@@ -23,12 +23,8 @@ in {
   };
 
   multimedia = {
-    youtube-music = {
-      enable = true;
-      extraConfig = {
-        plugins.discord.enabled = true;
-      };
-    };
+    youtube-music.enable = true;
+    vesktop.enable = true;
   };
 
 

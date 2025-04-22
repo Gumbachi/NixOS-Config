@@ -1,18 +1,31 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ pkgs, config, lib, ... }:
+
+with lib;
+
+let
   cfg = config.terminal;
 in {
+
   options.terminal = {
+
     # Tool replacements
-    eza.enable = lib.mkEnableOption "Enable eza replacement for ls.";
-    bat.enable = lib.mkEnableOption "Enable bat replacement for cat.";
+    eza = {
+      enable = mkEnableOption "Enable eza replacement for ls.";
+      createFishAlias = mkEnableOption "Alias ls to eza in fish";
+    };
+
+    bat = {
+      enable = mkEnableOption "Enable bat replacement for cat.";
+      createFishAlias = mkEnableOption "Alias cat to bat in fish";
+    };
+
+    ripgrep = {
+      enable = mkEnableOption "Enable ripgrep replacement for grep";
+      createFishAlias = mkEnableOption "Alias grep to rg in fish";
+    };
+
+    fd.enable = mkEnableOption "Enable fd replacement for find";
     zoxide.enable = lib.mkEnableOption "Enable zoxide replacement for cd.";
-    fd.enable = lib.mkEnableOption "Enable fd replacement for find";
-    ripgrep.enable = lib.mkEnableOption "Enable ripgrep replacement for grep";
 
     # Extra tools
     fastfetch.enable = lib.mkEnableOption "Enable fastfetch for system info.";
@@ -28,13 +41,33 @@ in {
     unrar.enable = lib.mkEnableOption "Enable unrar for rar archives.";
   };
 
-  config = lib.mkMerge [
+  config = mkMerge [
     # Tool Replacements
-    (lib.mkIf cfg.eza.enable {environment.systemPackages = [pkgs.eza];})
-    (lib.mkIf cfg.bat.enable {environment.systemPackages = [pkgs.bat];})
+    (mkIf cfg.eza.enable {
+      environment.systemPackages = [ pkgs.eza ];
+      programs.fish.shellAliases = mkIf cfg.eza.createFishAlias { 
+        ls = "eza --icons --color-scale";
+        lsa = "ls -a";
+        lsl = "ls -l";
+      };
+    })
+
+    (mkIf cfg.bat.enable {
+      environment.systemPackages = [ pkgs.bat ];
+      programs.fish.shellAliases = mkIf cfg.bat.createFishAlias {
+        cat = "bat";
+      };
+    })
+
+    (mkIf cfg.ripgrep.enable {
+      environment.systemPackages = [ pkgs.ripgrep ];
+      programs.fish.shellAliases = mkIf cfg.ripgrep.createFishAlias {
+        grep = "rg";
+      };
+    })
+
     (lib.mkIf cfg.zoxide.enable {environment.systemPackages = [pkgs.zoxide];})
     (lib.mkIf cfg.fd.enable {environment.systemPackages = [pkgs.fd];})
-    (lib.mkIf cfg.ripgrep.enable {environment.systemPackages = [pkgs.ripgrep];})
 
     # Extra tools
     (lib.mkIf cfg.fastfetch.enable {environment.systemPackages = [pkgs.eza];})

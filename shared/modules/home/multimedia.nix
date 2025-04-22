@@ -18,10 +18,10 @@ in {
     youtube-music = {
       enable = mkEnableOption "Add th-ch Youtube Music to packages.";
       extraConfig = mkOption {
-        type = pkgs.formats.json;
+        inherit (json) type;
         description = "Extra config / default config states for yt-music config.json";
         default = { };
-      }
+      };
     };
   };
 
@@ -29,12 +29,12 @@ in {
     lib.mkMerge [
       (mkIf cfg.vesktop.enable {
         home.packages = [ pkgs.vesktop ];
-        xdg.configFile."vesktop/settings/settings.json".text = builtins.toJSON cfg.vesktop.extraConfig;
+        # xdg.configFile."vesktop/settings/settings.json".text = cfg.vesktop.extraConfig;
       })
 
       (mkIf cfg.youtube-music.enable {
         home.packages = [ pkgs.youtube-music ];
-        xdg.configFile."YouTube Music/config.json".text = builtins.toJSON cfg.youtube-music.extraConfig;
+        # xdg.configFile."YouTube Music/config.json".text = cfg.youtube-music.extraConfig;
       })
     ];
 }

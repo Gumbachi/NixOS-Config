@@ -30,6 +30,8 @@
 
     power-profiles-daemon.enable = true;
 
+    smartd.enable = true;
+
   };
 
     # Syncthing 

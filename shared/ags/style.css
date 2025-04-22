@@ -60,7 +60,6 @@ button:hover {
   border-color: @mauve;
 }
 
-
 /***************\
 *** DASHBOARD ***
 \***************/
@@ -142,7 +141,7 @@ button:hover {
 .timers .timer button {
   border-width: 2px;
   font-size: 15px;
-  padding: .05em;
+  padding: 0.05em;
   min-height: 1.8em;
   min-width: 1.8em;
   border-radius: 10px;
@@ -152,7 +151,7 @@ button:hover {
   min-height: 1em;
   min-width: 1em;
   margin: 0px;
-  padding: .1em;
+  padding: 0.1em;
   border-width: 2px;
   border-radius: 100%;
 }
@@ -160,7 +159,6 @@ button:hover {
 .timers .timer .delete:hover {
   border-color: @red;
 }
-
 
 /**************\
 *** DATETIME ***
@@ -180,7 +178,7 @@ button:hover {
 \*******************/
 
 window.notification-popups box.notifications {
-  padding: .3em;
+  padding: 0.3em;
 }
 
 .icon {
@@ -226,8 +224,8 @@ window.notification-popups box.notifications {
 }
 
 .actions .action-button {
-  margin: 0 .4em;
-  margin-top: .8em;
+  margin: 0 0.4em;
+  margin-top: 0.8em;
 }
 
 .actions .action-button:first-child {
@@ -253,7 +251,7 @@ window.notification-popups box.notifications {
 .volume button {
   min-height: 1.2em;
   min-width: 1.2em;
-  padding: .3em;
+  padding: 0.3em;
   border-width: 2px;
   border-radius: 10px;
 }
@@ -308,7 +306,7 @@ window.notification-popups box.notifications {
 .workspaces button {
   min-height: 1.2em;
   min-width: 1.2em;
-  padding: .3em;
+  padding: 0.3em;
   border-width: 2px;
   border-radius: 100%;
 }
@@ -320,7 +318,7 @@ window.notification-popups box.notifications {
 .player {
   padding: 10px;
   min-width: 350px;
-  background-color: @base
+  background-color: @base;
 }
 
 .player .img {
@@ -334,17 +332,17 @@ window.notification-popups box.notifications {
 
 .player .title {
   font-size: 1.1em;
-  color: @text
+  color: @text;
 }
 
 .player .artist {
-  font-size: 1.0em;
+  font-size: 1em;
   color: @subtext0;
 }
 
 .player scale.position {
   padding: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .player scale.position trough {
@@ -365,11 +363,11 @@ window.notification-popups box.notifications {
 .player button {
   min-height: 1em;
   min-width: 1em;
-  padding: .3em;
+  padding: 0.3em;
   border-width: 2px;
   border-radius: 100%;
 }
 
 .player button.play-pause {
-  margin: 0 .3em;
+  margin: 0 0.3em;
 }
