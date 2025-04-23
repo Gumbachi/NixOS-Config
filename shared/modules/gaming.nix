@@ -21,6 +21,8 @@ in {
     mangohud = {
       enable = mkEnableOption "Install Mangohud.";
       config = mkOption {
+        type = types.str;
+        description = "Mangohud config environment variable.";
         default = "
           position=top-right,
           frame_timing=0,
@@ -30,8 +32,6 @@ in {
           background_alpha=0,
           table_columns=2
         ";
-        type = types.string;
-        description = "Mangohud config environment variable.";
       };
     };
 

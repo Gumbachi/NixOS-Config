@@ -3,18 +3,19 @@
 
   programs.vesktop = {
     enable = true;
+    settings = {
+      enableMenu = true;
+      disableMinSize = true;
+      hardwareAcceleration = true;
+    };
     vencord.settings = {
+      enabledThemes = [ "stylix.theme.css" ];
       autoUpdate = true;
       autoUpdateNotification = false;
       useQuickCss = true;
       disableMinSize = true;
       plugins = {
-        AlwaysAnimate.enabled = true;
-        AlwaysTrust = {
-          enabled = true;
-          domain = true;
-          file = true;
-        };
+        AlwaysTrust.enabled = true;
         ClearURLs.enabled = true;
         CopyFileContents.enabled = true;
         CrashHandler.enabled = true;
@@ -37,7 +38,5 @@
     };
 
   };
-
-
 
 }

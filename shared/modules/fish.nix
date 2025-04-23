@@ -31,7 +31,6 @@
 
     shellInit = ''
       set fish_greeting
-      fish_config theme choose "mocha"
 
       function yy
         set tmp (mktemp -t "yazi-cwd.XXXXXX")

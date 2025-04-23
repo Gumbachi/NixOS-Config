@@ -8,7 +8,7 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  stylix.targets.gtk.enable = true;
+  # stylix.targets.gtk.enable = true;
   
   programs.ags = {
     enable = true;

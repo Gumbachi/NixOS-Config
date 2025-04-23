@@ -7,11 +7,12 @@
     expandtab = true;
   };
 
-  programs.nvf.settings.vim.theme = {
-    enable = true;
-    name = "catppuccin";
-    style = "mocha";
-  };
+  # Managed By Stylix
+  # programs.nvf.settings.vim.theme = {
+  #   enable = true;
+  #   name = "catppuccin";
+  #   style = "mocha";
+  # };
 
   # Vim Settings
   programs.nvf.settings.vim = {
@@ -42,6 +43,7 @@
       indentscope.enable = true;
       pairs.enable = true;
       comment.enable = true;
+      surround.enable = true;
     };
 
     terminal.toggleterm = {
@@ -131,6 +133,9 @@
       event = ["BufEnter"];
       pattern = [
         "*.py"
+        "*.sass"
+        "*.scss"
+        "*.css"
       ];
     }
   ];

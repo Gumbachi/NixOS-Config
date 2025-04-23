@@ -6,7 +6,6 @@
     enable = true;
     interactiveOnly = false;
     settings = {
-      palette = "catppuccin_mocha";
       add_newline = true;
 
       # format = ''

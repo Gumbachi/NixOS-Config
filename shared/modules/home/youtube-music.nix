@@ -4,7 +4,6 @@ let
   jsonFormat = pkgs.formats.json { };
 in
 {
-
   options.programs.youtube-music = {
     enable = lib.mkEnableOption "YouTube Music desktop client";
     package = lib.mkPackageOption pkgs "youtube-music" { };
@@ -20,8 +19,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.vesktop ];
-    xdg.configFile."YouTube Music/config.json".source = jsonFormat.generate "youtube-music-settings" cfg.settings;
+    home.packages = [ pkgs.youtube-music ];
+    # xdg.configFile."YouTube Music/config.json" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink jsonFormat.generate "youtube-music-settings" cfg.settings;
+    # };
   };
 
 }

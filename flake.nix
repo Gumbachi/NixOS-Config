@@ -1,7 +1,7 @@
 {
   description = "Gumbachi NixOS Config";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # "github:nixos/nixpkgs/585f76290ed66a3fdc5aae0933b73f9fd3dca7e3"; #
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -27,11 +27,7 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: {
+  outputs = { nixpkgs, home-manager, ... } @ inputs: {
     # Host Name = <GOOMBA><X/S/L><Number>
     # GOOMBA = Name
     # X/S/L = Desktop, Server, Laptop
@@ -44,7 +40,6 @@
         ./GOOMBAX1/configuration.nix # Main Config
 
         # Hardware Support
-        # inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
         inputs.nixos-hardware.nixosModules.common-gpu-amd
 
@@ -59,19 +54,15 @@
 
           home-manager.users.jared.imports = [
             ./GOOMBAX1/home.nix
-            # inputs.ags.homeManagerModules.default
             inputs.catppuccin.homeManagerModules.catppuccin
           ];
         }
 
-        # Catppuccin
+        # Third Party
+        inputs.stylix.nixosModules.stylix
         inputs.catppuccin.nixosModules.catppuccin
-
-        # NVF
         inputs.nvf.nixosModules.default
 
-        # Nixvim
-        # inputs.nixvim.nixosModules.nixvim
       ];
     };
 
@@ -122,7 +113,6 @@
 
           home-manager.users.jared.imports = [
             ./GOOMBAX2/home.nix
-            # inputs.ags.homeManagerModules.default
           ];
         }
 
