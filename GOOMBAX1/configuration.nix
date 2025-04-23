@@ -25,6 +25,7 @@ in {
     (modulePath + /vr.nix)
     (modulePath + /catppuccin.nix)
     (modulePath + /lact.nix)
+    (modulePath + /stylix.nix)
 
     # Shared - The same across systems
     (sharedModulePath + /gaming.nix)

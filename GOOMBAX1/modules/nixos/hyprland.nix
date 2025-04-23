@@ -40,16 +40,16 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    HYPRCURSOR_SIZE = 32;
+    HYPRCURSOR_SIZE = 28;
     HYPRCURSOR_THEME = "catppuccin-mocha-mauve-cursors";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
+    # QT_QPA_PLATFORMTHEME = "qt6ct"; # Managed by stylix
     QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   # Greetd: Autostart Hyprland on boot
   services.greetd = let
     session = {
-      command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+      command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop > /dev/null";
       user = "jared";
     };
   in {

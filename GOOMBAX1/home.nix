@@ -9,8 +9,12 @@
   sharedHomeModules = ../shared/modules/home;
 in {
   imports = [
-    (homeModulesPath + /catppuccin.nix)
     (sharedHomeModules + /multimedia.nix)
+    (sharedHomeModules + /btop.nix)
+    (sharedHomeModules + /kitty.nix)
+    (sharedHomeModules + /rofi.nix)
+    (sharedHomeModules + /vesktop.nix)
+    (sharedHomeModules + /youtube-music.nix)
   ];
 
   home.username = "jared";
@@ -22,12 +26,15 @@ in {
     userEmail = "jaredremsberg@gmail.com";
   };
 
-  multimedia = {
-    youtube-music.enable = true;
-    vesktop.enable = true;
+  programs.youtube-music = {
+    enable = true;
+    settings = {
+      plugins = {
+        precise-volume.enabled = true;
+        exponential-volume.enabled = true;
+      };
+    };
   };
-
-
 
   ################
   ### SYMLINKS ###
@@ -37,17 +44,17 @@ in {
     # Hyprland, Hypridle, Hyprpaper, Hyprlock
     ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
 
-    # Rofi
-    ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
-
-    # Kitty
-    ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
-
-    # YouTube Music
+    # YouTube Music -- No home manager module yet
     ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
 
+    # Rofi
+    # ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
+
+    # Kitty
+    # ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
+
     # Vesktop
-    ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
+    # ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
 
     # AGS
     # ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/";
@@ -60,22 +67,22 @@ in {
     # ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/env.nu";
 
     # Btop -- Theme file is tracked with absolute path
-    ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
-    ".config/btop/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
+    # ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
+    # ".config/btop/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
 
     # Mako
     # ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
 
     # Fish -- config files have to be individual
-    ".config/fish/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
-    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
+    # ".config/fish/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
+    # ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
 
     # Yazi -- config files have to be individual
     # ".config/yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
     # ".config/yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
 
     # Helix
-    ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
+    # ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
 
     # Waybar
     # ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";

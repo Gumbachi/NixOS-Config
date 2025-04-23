@@ -45,7 +45,7 @@
 
   programs.java.enable = true;
   programs.thunar.enable = true;
-  # programs.firefox.enable = true;
+  programs.firefox.enable = true;
   programs.thunderbird.enable = true;
   programs.wireshark.enable = true;
 
@@ -55,10 +55,7 @@
 
     dotnet-sdk
 
-    ntfs3g
-    btrfs-progs
-    exfat
-    exfatprogs
+    cava
 
     smartmontools
 
@@ -92,7 +89,7 @@
     # qbittorrent # Bittorrent client
 
     keymapp # Moonlander Software
-    btop # System Monitor
+    # btop # System Monitor
 
     # imagemagick # Terminal Image Manipulation
     # parsec-bin # Desktop Streaming Client

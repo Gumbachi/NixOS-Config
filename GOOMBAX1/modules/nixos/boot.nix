@@ -15,21 +15,21 @@
       # "video=DP-3:2560x1440@144"
 
       # Silent Boot
-      # "quiet"
-      # "splash"
-      # "boot.shell_on_fail"
-      # "loglevel=3"
-      # "rd.systemd.show_status=false"
-      # "rd.udev.log_level=3"
-      # "udev.log_priority=3"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
     ];
 
-    # consoleLogLevel = 0;
-    # initrd.verbose = false;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
 
-    # plymouth.enable = false;
+    plymouth.enable = true;
 
-    # loader.timeout = 3;
+    loader.timeout = 0;
 
     # extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
   };
