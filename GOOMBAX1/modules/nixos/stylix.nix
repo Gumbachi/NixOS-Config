@@ -4,11 +4,11 @@
   stylix.autoEnable = true;
 
   # Doesnt really work with hyprland just use hyprpaper
-  stylix.image = ../../../images/wallpapers/nix-gray.png;
+  stylix.image = ../../../images/wallpapers/plants.png;
 
   stylix.polarity = "dark";
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
 
   stylix.fonts = {
     serif = {
