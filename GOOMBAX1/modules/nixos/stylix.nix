@@ -4,11 +4,13 @@
   stylix.autoEnable = true;
 
   # Doesnt really work with hyprland just use hyprpaper
-  stylix.image = ../../../images/wallpapers/plants.png;
-
+  stylix.image = ../../../images/wallpapers/hollowknight.jpg;
   stylix.polarity = "dark";
 
-  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/woodland.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/unikitty-dark.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
   stylix.fonts = {
     serif = {
@@ -40,11 +42,11 @@
   # Home Manager Options
   home-manager.sharedModules = [{
 
-    stylix.cursor = {
-      package = pkgs.catppuccin-cursors.mochaMauve;
-      name = "catppuccin-mocha-mauve-cursors";
-      size = 28;
-    };
+    # stylix.cursor = {
+    #   package = pkgs.bibata-cursors;
+    #   name = "Bibata-Modern-Ice";
+    #   size = 24;
+    # };
 
     stylix.targets = {
       qt.enable = true;
@@ -76,10 +78,10 @@
     };
 
     # Add a stylix youtube music theme
-    xdg.configFile."YouTube Music/stylix.css".text = '' 
+    xdg.configFile."YouTube Music/stylix.css".text = with config.lib.stylix.colors; '' 
       html:not(.style-scope)
       {
-        --ctp-base: #${config.lib.stylix.colors.base00};
+        --ctp-base: #${base00};
         --ctp-mantle: #${config.lib.stylix.colors.base01};
         --ctp-crust: #${config.lib.stylix.colors.base01};
 

@@ -15,6 +15,7 @@ in {
     (sharedHomeModules + /rofi.nix)
     (sharedHomeModules + /vesktop.nix)
     (sharedHomeModules + /youtube-music.nix)
+    (sharedHomeModules + /cursors.nix)
   ];
 
   home.username = "jared";
@@ -42,7 +43,9 @@ in {
 
   home.file = {
     # Hyprland, Hypridle, Hyprpaper, Hyprlock
-    ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
+    # ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
+    # ".config/hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hypridle.conf";
+    # ".config/hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hyprlock.conf";
 
     # YouTube Music -- No home manager module yet
     ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";

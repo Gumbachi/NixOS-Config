@@ -1145,11 +1145,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1745381159,
-        "narHash": "sha256-IzhppyNP06cVLQZPFwWGRwTOIxxdQbdwABxeu17Qyp8=",
+        "lastModified": 1745505857,
+        "narHash": "sha256-Pws+/0jhlFag3qh08r+8enacoSeZHOxyZnNEyQWN7zU=",
         "owner": "Gumbachi",
         "repo": "Overway",
-        "rev": "038ce7e76498551f2530a216178395d0ecfc2222",
+        "rev": "229f3022606e0bb59c2dcf30ab6a5b9b26f8b251",
         "type": "github"
       },
       "original": {

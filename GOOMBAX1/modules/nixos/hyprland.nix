@@ -1,10 +1,5 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ...}: {
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -12,8 +7,8 @@
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-  programs.hyprlock.enable = true;
-  services.hypridle.enable = true;
+  # programs.hyprlock.enable = true;
+  # services.hypridle.enable = true;
 
   ### Hyprland: Necessary Programs ###
   environment.systemPackages = with pkgs; [
@@ -22,7 +17,7 @@
     wl-clipboard # Clipboard backend
     rofi-wayland # Launcher
     hyprpicker # Color Picker
-    hyprpaper # Wallpaper Utility
+    # hyprpaper # Wallpaper Utility
     waypaper # Wallpaper GUI
     imv # Image Viewer
     kdePackages.gwenview # Simple Image Editor
@@ -40,8 +35,8 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    HYPRCURSOR_SIZE = 28;
-    HYPRCURSOR_THEME = "catppuccin-mocha-mauve-cursors";
+    # HYPRCURSOR_SIZE = 24;
+    # HYPRCURSOR_THEME = "Bibata Modern Ice";
     # QT_QPA_PLATFORMTHEME = "qt6ct"; # Managed by stylix
     QT_QPA_PLATFORM = "wayland;xcb";
   };
@@ -59,4 +54,14 @@
       default_session = session;
     };
   };
+
+
+  # Home Manager Options
+  home-manager.sharedModules = [
+    {
+      services.hyprpaper.enable = true; # Managed by stylix
+      services.hypridle.enable = true; 
+    }
+    ../home/hyprlock.nix
+  ];
 }

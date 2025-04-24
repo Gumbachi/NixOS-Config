@@ -1,11 +1,9 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ pkgs, ... }: 
+let
   modulePath = ./modules/nixos;
   sharedModulePath = ../shared/modules;
-in {
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -30,6 +28,7 @@ in {
     # Shared - The same across systems
     (sharedModulePath + /gaming.nix)
     (sharedModulePath + /terminal-tools.nix)
+    (sharedModulePath + /documentation.nix)
     (sharedModulePath + /emulation.nix)
     (sharedModulePath + /personalization.nix)
 
@@ -41,16 +40,6 @@ in {
     (sharedModulePath + /docker.nix)
     (sharedModulePath + /virtualization.nix)
   ];
-
-  wallpaper.waypaper = {
-    enable = true;
-    wallpaperDir = "~/NixOS-Config/images/wallpapers";
-    randomizeOnLaunch = true;
-    rotateWallpaper = {
-      enable = true;
-      interval = 20;
-    };
-  };
 
   emulation.gba.mgba.enable = true;
 
@@ -71,7 +60,6 @@ in {
     };
   };
 
-  # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
     rocmSupport = true;
@@ -81,22 +69,20 @@ in {
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jared = {
@@ -105,10 +91,12 @@ in {
     extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" "wireshark"];
   };
 
-  documentation.man.enable = false;
+  documentation = {
+    man.enable = false;
+    cheat.enable = true;
+    tldr.enable = true;
+  };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

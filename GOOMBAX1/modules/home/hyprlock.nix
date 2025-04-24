@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
-  textColor = if config.lib.stylix.enable then config.lib.stylix.colors.base05 else "cdd6f4";
-  accentColor = if config.lib.stylix.enable then config.lib.stylix.colors.base0D else "89b4fa";
+  textColor = if config.stylix.enable then config.lib.stylix.colors.base05 else "cdd6f4";
+  accentColor = if config.stylix.enable then config.lib.stylix.colors.base0D else "89b4fa";
   font = "Inter";
   monitor = "DP-1";
 in
@@ -82,7 +82,7 @@ in
         dots_size = 0.25;
         dots_spacing = 0.25;
         dots_center = true;
-        # outer_color = $accent;
+        outer_color = lib.mkForce "rgb(${accentColor})";
         # inner_color = $surface0;
         fade_on_empty = false;
         placeholder_text = "$USER";

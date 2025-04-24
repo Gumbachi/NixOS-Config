@@ -2,6 +2,11 @@
   
   services = {
 
+    # Printing
+    printing.enable = true;
+
+    openssh.enable = true;
+
     # Automatic firmware updater
     fwupd.enable = false;
 
