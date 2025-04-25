@@ -14,7 +14,7 @@ in
 
   config = mkMerge [
     (mkIf cfg.monokai.enabled {
-      # Import stylix.nix file
+      imports = [ ../themes/monokai.nix ];
     })
 
     (mkIf cfg.catppuccin-mocha.enabled {

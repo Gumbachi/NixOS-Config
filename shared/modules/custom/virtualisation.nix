@@ -6,7 +6,7 @@ let
   cfg = config.virtualisation;
 in {
 
-  options.virualisation = {
+  options.virtualisation = {
 
     docker.addUserToGroup = mkEnableOption ''Add user to "docker" group'';
     libvirtd.addUserToGroup = mkEnableOption ''Add user to "libvirtd" group'';
@@ -15,11 +15,11 @@ in {
 
   config = mkMerge [
 
-    (mkIf cfg.docker.enable && cfg.docker.addUserToGroup {
+    (mkIf (cfg.docker.enable && cfg.docker.addUserToGroup) {
       users.users.jared.extraGroups = [ "docker" ];
     })
 
-    (mkIf cfg.libvirtd.enable && cfg.libvirtd.addUserToGroup {
+    (mkIf (cfg.libvirtd.enable && cfg.libvirtd.addUserToGroup) {
       users.users.jared.extraGroups = [ "libvirtd" ];
     })
 

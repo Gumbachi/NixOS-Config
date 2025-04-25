@@ -1,6 +1,5 @@
 { pkgs, ... }: 
 let
-  modulePath = ./modules/nixos;
   sharedModulePath = ../shared/modules;
 in
 {
@@ -11,17 +10,10 @@ in
     # Extra Custom NixOS Options
     ../shared/modules/custom
 
-    # GOOMBAX1 -- Mandatory
-    (modulePath + /boot.nix)
-    (modulePath + /hyprland.nix)
-    (modulePath + /sound.nix)
-    (modulePath + /networking.nix)
+    # GOOMBX1 Modules
+    ./modules/nixos
 
-    # GOOMBAX1 -- Optional
-    (modulePath + /programs.nix)
-    (modulePath + /services.nix)
-    (modulePath + /stylix.nix)
-
+    # Shared Modules
     (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
@@ -29,6 +21,9 @@ in
   ];
 
   emulation.gba.mgba.enable = true;
+
+  # Set the system theme with stylix
+  theme.monokai.enable = true;
 
   users.defaultUserShell = pkgs.fish;
 
