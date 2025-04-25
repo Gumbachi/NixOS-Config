@@ -6,10 +6,12 @@ let
   cfg = config.gaming;
 in {
 
-  # TODO: Add options for VR
   options.gaming = {
     # Minecraft
     minecraft.enable = mkEnableOption "Install Prism Launcher for Minecraft.";
+
+    # VR
+    vr.enable = mkEnableOption "Enable VR with ALVR.";
 
     # Steam
     steam = {
@@ -51,7 +53,9 @@ in {
 
     # Mangohud
     (mkIf cfg.mangohud.enable {
-      environment.systemPackages = [pkgs.mangohud];
+      home-manager.sharedModules = [{
+        programs.mangohud.enable = true;
+      }];
       environment.sessionVariables.MANGOHUD_CONFIG = cfg.mangohud.config;
     })
 
@@ -63,6 +67,14 @@ in {
     # Minecraft
     (mkIf cfg.minecraft.enable {
       environment.systemPackages = [pkgs.prismlauncher];
+    })
+
+    # VR
+    (mkIf cfg.vr.enable {
+      programs.alvr = {
+        enable = true;
+        openFirewall = true;
+      };
     })
   ];
 }

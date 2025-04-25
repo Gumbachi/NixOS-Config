@@ -6,21 +6,11 @@
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     overway.url = "github:Gumbachi/Overway";
     astal.url = "github:aylur/astal";
-
     hyprland.url = "github:hyprwm/Hyprland";
-
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf.url = "github:notashelf/nvf";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +25,7 @@
 
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./GOOMBAX1/configuration.nix # Main Config
 
@@ -71,7 +61,6 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./GOOMBAS2/configuration.nix # Main Config
-        # inputs.nixvim.nixosModules.nixvim # Nixvim
         inputs.nvf.nixosModules.default # Neovim
         inputs.catppuccin.nixosModules.catppuccin # Catppuccin
 
@@ -127,7 +116,6 @@
       modules = [
         ./GOOMBAS1/configuration.nix
         inputs.nixos-hardware.nixosModules.raspberry-pi-4
-        # inputs.nixvim.nixosModules.nixvim
       ];
     };
   };

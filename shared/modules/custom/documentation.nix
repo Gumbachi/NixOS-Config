@@ -3,13 +3,13 @@
 with lib;
 
 let
-  cfg = config.documentation
+  cfg = config.documentation;
 in
 {
   options.documentation = {
     tldr.enable = mkEnableOption "Enable TLDR for short documentation.";
     cheat.enable = mkEnableOption "Enable Cheat for short documentation.";
-  }
+  };
 
   config = mkMerge [
 

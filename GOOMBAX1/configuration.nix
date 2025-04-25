@@ -8,9 +8,11 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    # Extra Custom NixOS Options
+    ../shared/modules/custom
+
     # GOOMBAX1 -- Mandatory
     (modulePath + /boot.nix)
-    (modulePath + /hardware.nix)
     (modulePath + /hyprland.nix)
     (modulePath + /sound.nix)
     (modulePath + /networking.nix)
@@ -18,32 +20,58 @@ in
     # GOOMBAX1 -- Optional
     (modulePath + /programs.nix)
     (modulePath + /services.nix)
-    (modulePath + /env.nix)
-    (modulePath + /android.nix)
-    (modulePath + /vr.nix)
-    (modulePath + /catppuccin.nix)
-    (modulePath + /lact.nix)
     (modulePath + /stylix.nix)
-
-    # Shared - The same across systems
-    (sharedModulePath + /gaming.nix)
-    (sharedModulePath + /terminal-tools.nix)
-    (sharedModulePath + /documentation.nix)
-    (sharedModulePath + /emulation.nix)
-    (sharedModulePath + /personalization.nix)
 
     (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
     (sharedModulePath + /starship.nix)
     (sharedModulePath + /fish.nix)
-    (sharedModulePath + /fonts.nix)
-    (sharedModulePath + /docker.nix)
-    (sharedModulePath + /virtualization.nix)
   ];
 
   emulation.gba.mgba.enable = true;
 
   users.defaultUserShell = pkgs.fish;
+
+  environment.sessionVariables = {
+    CONFIG = "/home/jared/NixOS-Config";
+    EDITOR = "nvim";
+  };
+
+  diagnostics.lact.enable = true;
+
+  programs.virt-manager.enable = true;
+  virtualisation = {
+    docker = {
+      enable = true;
+      addUserToGroup = true;
+    };
+    libvirtd = {
+      enable = true;
+      addUserToGroup = true;
+    };
+  };
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [ pkgs.rocmPackages.rocm-smi ];
+    };
+    cpu.amd.updateMicrocode = true;
+    keyboard.zsa.enable = true; 
+    logitech.wireless.enable = true; 
+  };
+
+  fonts = {
+    enableDefaultPackages = true; 
+    packages = with pkgs; [
+      nerd-fonts.blex-mono
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      inter
+      vistafonts # Calibri
+    ];
+  };
 
   nix = {
     settings = {
@@ -53,11 +81,6 @@ in
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     extraOptions = ''trusted-users = root jared ''; # Devenv shells
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
   };
 
   nixpkgs.config = {
@@ -69,26 +92,13 @@ in
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
-    };
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" "wireshark"];
+    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "syncthing" "wireshark"];
   };
 
   documentation = {
