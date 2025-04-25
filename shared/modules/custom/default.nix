@@ -6,7 +6,7 @@
     ./development.nix
     ./gaming.nix
     ./emulation.nix
-    ./terminal-tools.nix
+    ./terminal.nix
     ./theme.nix
     ./personalization.nix
     ./diagnostics.nix

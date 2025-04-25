@@ -31,7 +31,6 @@ in {
     fastfetch.enable = lib.mkEnableOption "Enable fastfetch for system info.";
     fzf.enable = lib.mkEnableOption "Enable fzf fuzzy finding.";
     systemctl-tui.enable = lib.mkEnableOption "Enable TUI for systemctl";
-    devenv.enable = lib.mkEnableOption "Enable devenv for reproducible dev shells";
     direnv.enable = lib.mkEnableOption "Enable direnv to automatically active dev shells";
     wget.enable = lib.mkEnableOption "Enable wget to make web requests";
 

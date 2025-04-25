@@ -43,7 +43,7 @@ in {
 
   home.file = {
     # Hyprland, Hypridle, Hyprpaper, Hyprlock
-    # ".config/hypr/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/";
+    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hyprland.conf";
     # ".config/hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hypridle.conf";
     # ".config/hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hyprlock.conf";
 

@@ -12,7 +12,7 @@ in
       type = lib.types.path;
       default = ../../../images/wallpapers/nix-gray.png;
     };
-    monkai.enable = mkEnableOption "Enable the monokai theme using stylix.";
+    monokai.enable = mkEnableOption "Enable the monokai theme using stylix.";
     catppuccin-mocha.enable = mkEnableOption "Enable the catppuccin mocha theme using stylix.";
   };
 
@@ -40,19 +40,23 @@ in
         serif = {
           package = pkgs.inter;
           name = "Inter";
-          size = 12;
         };
 
         sansSerif = {
           package = pkgs.inter;
           name = "Inter";
-          size = 12;
         };
 
         monospace = {
           package = pkgs.nerd-fonts.blex-mono;
           name = "BlexMono Nerd Font";
-          size = 13;
+        };
+
+        sizes = {
+          applications = 12;
+          desktop = 10;
+          popups = 8;
+          terminal = 12;
         };
 
       };
@@ -65,6 +69,8 @@ in
         #   name = "Bibata-Modern-Ice";
         #   size = 24;
         # };
+
+        stylix.targets.hyprland.enable = false;
 
         stylix.targets.gtk.extraCss = ''
           * button:focus {

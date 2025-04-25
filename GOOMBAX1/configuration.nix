@@ -4,14 +4,9 @@ let
 in
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
-    # Extra Custom NixOS Options
-    ../shared/modules/custom
-
-    # GOOMBX1 Modules
-    ./modules/nixos
+    ./modules/nixos # GOOMBAX1 Modules
+    ../shared/modules/custom # Custom Nix Options
 
     # Shared Modules
     (sharedModulePath + /nvf.nix)
@@ -25,7 +20,7 @@ in
   # Set the system theme with stylix
   theme = {
     wallpaper = ../images/wallpapers/pixeltree.png;
-    monokai.enable = true;
+    catppuccin-mocha.enable = true;
   };
 
   users.defaultUserShell = pkgs.fish;

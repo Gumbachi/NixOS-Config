@@ -19,7 +19,6 @@
     fastfetch.enable = true;
     fzf.enable = true;
     systemctl-tui.enable = true;
-    devenv.enable = true;
     direnv.enable = true;
     wget.enable = true;
     unar.enable = true;
@@ -34,6 +33,13 @@
     mangohud.enable = true;
     protonup.enable = true;
     minecraft.enable = true;
+  };
+
+  development = {
+    devenv.enable = true;
+    direnv.enable = true;
+    android.enable = false;
+    just.enable = true;
   };
 
   programs.nix-ld.enable = true;
@@ -60,9 +66,6 @@
     smartmontools
 
     wireguard-tools
-    qutebrowser
-
-    just
 
     # mgba
 
@@ -75,18 +78,16 @@
     losslesscut-bin
 
     inputs.zen-browser.packages.${system}.default # Browser
+    qutebrowser
 
     vlc # Video Player
     # youtube-music # Music App
-    # vesktop # Discord Client
 
     libreoffice # Office Software
     hunspell # Spellcheck for libreoffice
     hunspellDicts.en_US # US Dictionary for spellcheck
 
     # lutris # Game Launcher // Application shortcut creator
-
-    # qbittorrent # Bittorrent client
 
     keymapp # Moonlander Software
     # btop # System Monitor
