@@ -23,7 +23,10 @@ in
   emulation.gba.mgba.enable = true;
 
   # Set the system theme with stylix
-  theme.monokai.enable = true;
+  theme = {
+    wallpaper = ../images/wallpapers/pixeltree.png;
+    monokai.enable = true;
+  };
 
   users.defaultUserShell = pkgs.fish;
 
