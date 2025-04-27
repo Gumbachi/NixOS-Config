@@ -62,71 +62,85 @@ in
       };
 
       # Home Manager Options
-      home-manager.sharedModules = [{
+      home-manager.sharedModules = [
 
-        # stylix.cursor = {
-        #   package = pkgs.bibata-cursors;
-        #   name = "Bibata-Modern-Ice";
-        #   size = 24;
-        # };
+        # Theme Specific Settings
+        (mkIf cfg.monokai.enable {
+          programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/monokai.json";
+        })
 
-        stylix.targets.hyprland.enable = false;
+        (mkIf cfg.catppuccin-mocha.enable {
+          programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/catppuccin-mocha.json";
+        })
 
-        stylix.targets.gtk.extraCss = ''
-          * button:focus {
-            box-shadow: none; outline: none;
-          }
+        # Default home manager settings
+        {
 
-          * { outline: none; }
+          # stylix.cursor = {
+          #   package = pkgs.bibata-cursors;
+          #   name = "Bibata-Modern-Ice";
+          #   size = 24;
+          # };
 
-          scale slider {
-            border: 2px solid @accent_color;
-            background-color: @theme_bg_color;
-          }
-          
-          * scale:focus {
-            outline: none;
-            box-shadow: none;
-            border: none;
-          }
-        '';
+          stylix.targets.hyprland.enable = false;
+          stylix.targets.cava.rainbow.enable = true;
 
-        # Add a stylix youtube music theme
-        xdg.configFile."YouTube Music/stylix.css".text = with config.lib.stylix.colors; '' 
-          html:not(.style-scope)
-          {
-            --ctp-base: #${base00};
-            --ctp-mantle: #${base01};
-            --ctp-crust: #${base01};
+          stylix.targets.gtk.extraCss = ''
+            * button:focus {
+              box-shadow: none; outline: none;
+            }
 
-            --ctp-surface0: #${base02};
-            --ctp-surface1: #${base03};
-            --ctp-surface2: #${base04};
+            * { outline: none; }
 
-            --ctp-text: #${base05};
-            --ctp-subtext0: #${base05};
-            --ctp-subtext1: #${base05};
+            scale slider {
+              border: 2px solid @accent_color;
+              background-color: @theme_bg_color;
+            }
+            
+            * scale:focus {
+              outline: none;
+              box-shadow: none;
+              border: none;
+            }
+          '';
 
-            --ctp-rosewater: #${base06};
-            --ctp-lavender: #${base07};
-            --ctp-red: #${base08};
-            --ctp-peach: #${base09};
-            --ctp-yellow: #${base0A};
-            --ctp-green: #${base0B};
-            --ctp-teal: #${base0C};
-            --ctp-blue: #${base0D};
-            --ctp-mauve: #${base0E};
-            --ctp-flamingo: #${base0F};
+          # Add a stylix youtube music theme
+          xdg.configFile."YouTube Music/stylix.css".text = with config.lib.stylix.colors; '' 
+            html:not(.style-scope)
+            {
+              --ctp-base: #${base00};
+              --ctp-mantle: #${base01};
+              --ctp-crust: #${base01};
 
-            --ctp-accent: var(--ctp-blue);
+              --ctp-surface0: #${base02};
+              --ctp-surface1: #${base03};
+              --ctp-surface2: #${base04};
 
-            --unthemed-yet: inherit !important;
+              --ctp-text: #${base05};
+              --ctp-subtext0: #${base05};
+              --ctp-subtext1: #${base05};
 
-            --yt-spec-commerce-filled-hover: var(--ctp-accent) !important;
-          }
-        '' + builtins.readFile ../../../shared/styles/youtube-music.css;
+              --ctp-rosewater: #${base06};
+              --ctp-lavender: #${base07};
+              --ctp-red: #${base08};
+              --ctp-peach: #${base09};
+              --ctp-yellow: #${base0A};
+              --ctp-green: #${base0B};
+              --ctp-teal: #${base0C};
+              --ctp-blue: #${base0D};
+              --ctp-mauve: #${base0E};
+              --ctp-flamingo: #${base0F};
 
-      }];
+              --ctp-accent: var(--ctp-blue);
+
+              --unthemed-yet: inherit !important;
+
+              --yt-spec-commerce-filled-hover: var(--ctp-accent) !important;
+            }
+          '' + builtins.readFile ../../../shared/styles/youtube-music.css;
+
+        }
+      ];
     } 
   ];
 

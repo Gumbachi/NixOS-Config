@@ -8,8 +8,9 @@
     ./emulation.nix
     ./terminal.nix
     ./theme.nix
-    ./personalization.nix
     ./diagnostics.nix
+    ./boot.nix
+    ./networking.nix
   ];
 
 }

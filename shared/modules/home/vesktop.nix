@@ -6,6 +6,8 @@
     settings = {
       enableMenu = true;
       disableMinSize = true;
+      minimizeToTray = true;
+      tray = true;
       hardwareAcceleration = true;
     };
     vencord.settings = {
@@ -27,13 +29,13 @@
         NoOnboardingDelay.enabled = true;
         RoleColorEverywhere.enabled = true;
         ShowTimeoutDuration.enabled = true;
-        SkikiCodeblocks.enabled = true;
         TypingTweaks.enabled = true;
         Unindent.enabled = true;
         VolumeBooster.enabled = true;
         WebScreenShareFixes.enabled = true;
         WhoReacted.enabled = true;
         YoutubeAdblock.enabled = true;
+        ShikiCodeblocks.enabled = true;
       };
     };
 

@@ -27,6 +27,9 @@ in {
     userEmail = "jaredremsberg@gmail.com";
   };
 
+  programs.cava.enable = true;
+  services.hyprpaper.enable = true;
+
   programs.youtube-music = {
     enable = true;
     settings = {

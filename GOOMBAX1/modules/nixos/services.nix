@@ -22,6 +22,7 @@
       configDir = "/home/jared/.config/syncthing";
       user = "jared";
       group = "users";
+      openDefaultPorts = true;
     };
 
 
@@ -35,11 +36,19 @@
 
     power-profiles-daemon.enable = true;
 
-    smartd.enable = true;
+    smartd.enable = false;
+
+    # Helps speed up boot
+    journald.extraConfig = ''
+      Storage=volatile
+      SystemMaxFileSize=50M
+    '';
+
+    preload.enable = true; # load firefox for faster launch times
 
   };
 
-    # Syncthing 
-    networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-    networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  # Syncthing
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+
 }

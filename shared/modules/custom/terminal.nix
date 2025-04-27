@@ -31,7 +31,6 @@ in {
     fastfetch.enable = lib.mkEnableOption "Enable fastfetch for system info.";
     fzf.enable = lib.mkEnableOption "Enable fzf fuzzy finding.";
     systemctl-tui.enable = lib.mkEnableOption "Enable TUI for systemctl";
-    direnv.enable = lib.mkEnableOption "Enable direnv to automatically active dev shells";
     wget.enable = lib.mkEnableOption "Enable wget to make web requests";
 
     # Archive tools
@@ -41,6 +40,12 @@ in {
   };
 
   config = mkMerge [
+
+# environment.systemPackages =
+#       [ ]
+#       ++ lib.optional cfg.wireless.enable pkgs.ltunify
+#       ++ lib.optional cfg.wireless.enableGraphical pkgs.solaar;
+
     # Tool Replacements
     (mkIf cfg.eza.enable {
       environment.systemPackages = [ pkgs.eza ];
@@ -72,13 +77,6 @@ in {
     (lib.mkIf cfg.fastfetch.enable {environment.systemPackages = [pkgs.eza];})
     (lib.mkIf cfg.fzf.enable {environment.systemPackages = [pkgs.fzf];})
     (lib.mkIf cfg.systemctl-tui.enable {environment.systemPackages = [pkgs.systemctl-tui];})
-    (lib.mkIf cfg.devenv.enable {environment.systemPackages = [pkgs.devenv];})
-    (lib.mkIf cfg.direnv.enable {
-      programs.direnv = {
-        enable = true;
-        silent = true;
-      };
-    })
     (lib.mkIf cfg.wget.enable {environment.systemPackages = [pkgs.wget];})
 
     (lib.mkIf cfg.unar.enable {environment.systemPackages = [pkgs.unar];})

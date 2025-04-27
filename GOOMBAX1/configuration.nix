@@ -1,6 +1,7 @@
 { pkgs, ... }: 
 let
   sharedModulePath = ../shared/modules;
+  sharedHomeModules = ../shared/modules/home;
 in
 {
   imports = [
@@ -11,16 +12,40 @@ in
     # Shared Modules
     (sharedModulePath + /nvf.nix)
     (sharedModulePath + /yazi.nix)
-    (sharedModulePath + /starship.nix)
     (sharedModulePath + /fish.nix)
   ];
 
-  emulation.gba.mgba.enable = true;
+  home-manager.sharedModules = [
+    (sharedHomeModules + /multimedia.nix)
+    (sharedHomeModules + /btop.nix)
+    (sharedHomeModules + /kitty.nix)
+    (sharedHomeModules + /rofi.nix)
+    (sharedHomeModules + /vesktop.nix)
+    (sharedHomeModules + /youtube-music.nix)
+    (sharedHomeModules + /cursors.nix)
+
+    ./modules/home
+  ];
+
+  boot = {
+    quiet = true;
+    kernelPackages = pkgs.linuxPackages_zen;
+    loader.systemd-boot.enable = true;
+    plymouth.enable = true;
+  };
+
+  networking = {
+    hostName = "GOOMBAX1";
+    networkmanager.enable = true;
+    firewall.enable = true;
+    toolbox.enable = true;
+  };
 
   # Set the system theme with stylix
   theme = {
     wallpaper = ../images/wallpapers/pixeltree.png;
-    catppuccin-mocha.enable = true;
+    # catppuccin-mocha.enable = true;
+    monokai.enable = true;
   };
 
   users.defaultUserShell = pkgs.fish;
@@ -35,7 +60,7 @@ in
   programs.virt-manager.enable = true;
   virtualisation = {
     docker = {
-      enable = true;
+      enable = false;
       addUserToGroup = true;
     };
     libvirtd = {
@@ -50,9 +75,7 @@ in
       enable32Bit = true;
       extraPackages = [ pkgs.rocmPackages.rocm-smi ];
     };
-    cpu.amd.updateMicrocode = true;
     keyboard.zsa.enable = true; 
-    logitech.wireless.enable = true; 
   };
 
   fonts = {

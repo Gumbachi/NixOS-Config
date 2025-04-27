@@ -29,15 +29,6 @@ ln -s $cfg/ /etc/nixos
 echo Installing Icons
 wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="/home/$username/.local/share/icons" sh
 
-echo Installing Cursors
-cd /home/$username/.local/share/icons
-
-curl -OJL "https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-mauve-cursors.zip"
-unzip -o "catppuccin-mocha-mauve-cursors.zip"
-rm "catppuccin-mocha-mauve-cursors.zip"
-
-cd
-
 echo Rebuilding config ...
 nixos-rebuild boot --flake "$cfg#GOOMBAX1"
 read -p "Reboot to apply changes. Press any key to exit." tmp
