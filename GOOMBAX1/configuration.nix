@@ -37,7 +37,7 @@ in
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/monokai-alt.jpg;
+    wallpaper = ../images/wallpapers/monokai.png;
     monokai.enable = true;
     # catppuccin-mocha.enable = true;
   };
