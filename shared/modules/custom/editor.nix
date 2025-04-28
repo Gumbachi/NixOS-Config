@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -9,8 +9,7 @@ in
  
   options.editor = {
     nvf = {
-      inherit (programs.nvf) enable;
-      # enable = mkEnableOption "Enable nvim/nvf.";
+      enable = mkEnableOption "Enable nvim/nvf.";
       setDefault = mkEnableOption "Set the EDITOR environment variable to nvim";
       languages = mkOption {
         type = types.attrs;
@@ -31,7 +30,7 @@ in
     # Default Settings
     (mkIf cfg.nvf.enable {
 
-      environment.SessionVariables.EDITOR = mkIf cfg.nvf.setDefault "nvim";
+      environment.sessionVariables.EDITOR = mkIf cfg.nvf.setDefault "nvim";
 
       programs.nvf.enable = true;
 
@@ -39,6 +38,7 @@ in
         tabstop = 2;
         shiftwidth = 2;
         expandtab = true;
+        wrap = false;
       };
 
       # Managed By Stylix

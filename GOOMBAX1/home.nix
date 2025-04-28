@@ -29,15 +29,14 @@ in {
 
   programs.cava.enable = true;
   services.hyprpaper.enable = true;
+  programs.qutebrowser.enable = true;
+  programs.youtube-music.enable = true;
 
-  programs.youtube-music = {
+  programs.zoxide.enable = true;
+
+  programs.nh = {
     enable = true;
-    settings = {
-      plugins = {
-        precise-volume.enabled = true;
-        exponential-volume.enabled = true;
-      };
-    };
+    flake = "/home/jared/NixOS-Config";
   };
 
   ################
@@ -45,56 +44,12 @@ in {
   ################
 
   home.file = {
-    # Hyprland, Hypridle, Hyprpaper, Hyprlock
+    # Hyprland
     ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hyprland.conf";
-    # ".config/hypr/hypridle.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hypridle.conf";
-    # ".config/hypr/hyprlock.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hyprlock.conf";
 
     # YouTube Music -- No home manager module yet
     ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
 
-    # Rofi
-    # ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/rofi/";
-
-    # Kitty
-    # ".config/kitty/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/kitty/";
-
-    # Vesktop
-    # ".config/vesktop/settings/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/vesktop/settings/settings.json";
-
-    # AGS
-    # ".config/ags/".source = config.lib.file.mkOutOfStoreSymlink "${nixosConfig}/shared/ags/";
-
-    # Starship
-    # ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/starship.toml";
-
-    # Nushell
-    # ".config/nushell/config.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/config.nu";
-    # ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/nushell/env.nu";
-
-    # Btop -- Theme file is tracked with absolute path
-    # ".config/btop/btop.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/btop.conf";
-    # ".config/btop/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/btop/themes/mocha.theme";
-
-    # Mako
-    # ".config/mako/config".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/mako/config";
-
-    # Fish -- config files have to be individual
-    # ".config/fish/themes/mocha.theme".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/themes/mocha.theme";
-    # ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/fish/config.fish";
-
-    # Yazi -- config files have to be individual
-    # ".config/yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/theme.toml";
-    # ".config/yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/yazi/yazi.toml";
-
-    # Helix
-    # ".config/helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/helix/config.toml";
-
-    # Waybar
-    # ".config/waybar/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/waybar/";
-
-    # Kvantum
-    # ".config/Kvantum/".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/Kvantum/";
   };
 
   #######################

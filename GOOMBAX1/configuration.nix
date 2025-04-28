@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, lib, ... }: 
 let
   sharedModulePath = ../shared/modules;
   sharedHomeModules = ../shared/modules/home;
@@ -8,11 +8,6 @@ in
     ./hardware-configuration.nix
     ./modules/nixos # GOOMBAX1 Modules
     ../shared/modules/custom # Custom Nix Options
-
-    # Shared Modules
-    (sharedModulePath + /nvf.nix)
-    (sharedModulePath + /yazi.nix)
-    (sharedModulePath + /fish.nix)
   ];
 
   home-manager.sharedModules = [
@@ -38,22 +33,19 @@ in
     hostName = "GOOMBAX1";
     networkmanager.enable = true;
     firewall.enable = true;
-    toolbox.enable = true;
   };
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/pixeltree.png;
-    # catppuccin-mocha.enable = true;
+    wallpaper = ../images/wallpapers/monokai-alt.jpg;
     monokai.enable = true;
+    # catppuccin-mocha.enable = true;
   };
 
   users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 
-  environment.sessionVariables = {
-    CONFIG = "/home/jared/NixOS-Config";
-    EDITOR = "nvim";
-  };
+  environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
 
   diagnostics.lact.enable = true;
 
@@ -89,6 +81,16 @@ in
     ];
   };
 
+
+  services.pulseaudio.enable = lib.mkForce false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+  };
+
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -114,7 +116,7 @@ in
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "syncthing" "wireshark"];
+    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "syncthing" ];
   };
 
   documentation = {

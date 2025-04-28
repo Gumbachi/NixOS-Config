@@ -7,9 +7,6 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      # ls = "eza --icons --color-scale";
-      # lsa = "eza --icons --color-scale -a";
-      # lsl = "eza --icons --color-scale -l";
 
       edit = "nvim $CONFIG";
       rebuild = "sudo nixos-rebuild switch";

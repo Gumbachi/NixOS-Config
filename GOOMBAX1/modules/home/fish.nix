@@ -1,5 +1,10 @@
 { pkgs, config, ... }: {
 
+  home.packages = with pkgs.fishPlugins; [
+    transient-fish
+    sponge
+  ];
+
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -16,11 +21,6 @@
     };
 
     shellInit = ''set fish_greeting'';
-
-    plugins = with pkgs.fishPlugins; [
-      transient-fish
-      sponge
-    ];
   };
 
   # Integrations

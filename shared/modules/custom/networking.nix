@@ -16,7 +16,7 @@ in
     (mkIf cfg.toolbox.enable {
       programs.traceroute.enable = true;
       environment.systemPackages = [ pkgs.dig ];
-      programs.wireshark.enable = true;
+      programs.wireshark.enable = true; # wireshark available as tshark
       users.users.jared.extraGroups = [ "wireshark" ];
     })
 
