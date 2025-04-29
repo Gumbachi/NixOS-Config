@@ -10,17 +10,14 @@ in
     ../shared/modules/custom # Custom Nix Options
   ];
 
-  home-manager.sharedModules = [
-    (sharedHomeModules + /multimedia.nix)
-    (sharedHomeModules + /btop.nix)
-    (sharedHomeModules + /kitty.nix)
-    (sharedHomeModules + /rofi.nix)
-    (sharedHomeModules + /vesktop.nix)
-    (sharedHomeModules + /youtube-music.nix)
-    (sharedHomeModules + /cursors.nix)
+  home-manager.sharedModules = [ ./modules/home ];
 
-    ./modules/home
-  ];
+  # Set the system theme with stylix
+  theme = {
+    # wallpaper = ../images/wallpapers/monokai.png;
+    monokai.enable = true;
+    # catppuccin-mocha.enable = true;
+  };
 
   boot = {
     quiet = true;
@@ -33,13 +30,6 @@ in
     hostName = "GOOMBAX1";
     networkmanager.enable = true;
     firewall.enable = true;
-  };
-
-  # Set the system theme with stylix
-  theme = {
-    wallpaper = ../images/wallpapers/monokai.png;
-    monokai.enable = true;
-    # catppuccin-mocha.enable = true;
   };
 
   users.defaultUserShell = pkgs.fish;

@@ -1,22 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs, config, ... }:
+let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
   nixosConfig = "/home/jared/NixOS-Config";
   homeModulesPath = ./modules/home;
   sharedHomeModules = ../shared/modules/home;
-in {
-  imports = [
-    (sharedHomeModules + /multimedia.nix)
-    (sharedHomeModules + /btop.nix)
-    (sharedHomeModules + /kitty.nix)
-    (sharedHomeModules + /rofi.nix)
-    (sharedHomeModules + /vesktop.nix)
-    (sharedHomeModules + /youtube-music.nix)
-    (sharedHomeModules + /cursors.nix)
-  ];
+in
+{
 
   home.username = "jared";
   home.homeDirectory = "/home/jared";
@@ -30,9 +19,8 @@ in {
   programs.cava.enable = true;
   services.hyprpaper.enable = true;
   programs.qutebrowser.enable = true;
-  programs.youtube-music.enable = true;
-
   programs.zoxide.enable = true;
+  services.hyprpolkitagent.enable = true;
 
   programs.nh = {
     enable = true;
@@ -44,12 +32,8 @@ in {
   ################
 
   home.file = {
-    # Hyprland
-    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/hypr/hyprland.conf";
-
     # YouTube Music -- No home manager module yet
     ".config/YouTube Music/config.json".source = config.lib.file.mkOutOfStoreSymlink "${userConfig}/YouTube Music/config.json";
-
   };
 
   #######################

@@ -1,10 +1,17 @@
 { ... }: {
   
   imports = [
-    ./hyprlock.nix
-    ./hypridle.nix
-    ./starship.nix
+    ./btop.nix
+    ./cursors.nix
     ./fish.nix
+    ./hypridle.nix
+    ./hyprland.nix
+    ./hyprlock.nix
+    ./kitty.nix
+    ./mangohud.nix
+    ./rofi.nix
+    ./starship.nix
+    ./vesktop.nix
     ./yazi.nix
   ];
 

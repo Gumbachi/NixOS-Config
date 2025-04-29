@@ -23,8 +23,10 @@ in
       stylix.enable = true;
       stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
       stylix.polarity = "dark";
+      theme.wallpaper = mkDefault ../../../images/wallpapers/monokai.png;
       home-manager.sharedModules = [{
         programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/monokai.json";       
+        wayland.windowManager.hyprland.settings.env = [ "HYPRCURSOR_THEME,Bibata-Modern-Ice" ];
         home.pointerCursor = {
           package = pkgs.bibata-cursors;
           name = "Bibata-Modern-Ice";
@@ -36,12 +38,14 @@ in
       stylix.enable = true;
       stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       stylix.polarity = "dark";
+      theme.wallpaper = mkDefault ../../../images/wallpapers/catppuccin-nix.png;
       home-manager.sharedModules = [{
         programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/catppuccin-mocha.json";        
         home.pointerCursor = {
           package = pkgs.catppuccin-cursors.mochaBlue;
           name = "catppuccin-mocha-blue-cursors";
         };
+        wayland.windowManager.hyprland.settings.env = [ "HYPRCURSOR_THEME,catppuccin-mocha-blue-cursors" ];
       }];
     })
 
@@ -78,8 +82,6 @@ in
       # Home Manager Options
       home-manager.sharedModules = [{
 
-        gtk.enable = true;
-
         # Enable cursor theming
         home.pointerCursor = {
           enable = true;
@@ -89,7 +91,6 @@ in
           hyprcursor.enable = true;
         };
 
-        stylix.targets.hyprland.enable = false;
         stylix.targets.cava.rainbow.enable = true;
 
         stylix.targets.gtk.extraCss = ''

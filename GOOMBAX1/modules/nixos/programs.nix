@@ -1,29 +1,15 @@
 { inputs, pkgs, ... }: {
 
-  # Pretty much just a namespace see terminal-tools.nix for options
+  # shared/modules/custom/terminal.nix
   terminal = {
-    eza = {
-      enable = true;
-      createFishAlias = true;
-    };
-    bat = {
-      enable = true;
-      createFishAlias = true;
-    };
-    ripgrep = {
-      enable = true;
-      createFishAlias = true;
-    };
-    zoxide.enable = true;
-    fd.enable = true;
-    fastfetch.enable = true;
-    fzf.enable = true;
+    dropInUpgrades.enable = true; # eza, ripgrep, bat, etc..
+    ricing.enable = true; # fastfetch, cava, pipes, cbonsai
     systemctl-tui.enable = true;
-    wget.enable = true;
-    unar.enable = true;
-    unrar.enable = true;
+    unar.enable = true; # Zip archives
+    unrar.enable = true; # Rar archives
   };
 
+  # shared/modules/custom/gaming.nix
   gaming = {
     steam = {
       enable = true;
@@ -41,20 +27,22 @@
     just.enable = true;
   };
 
-  programs.nix-ld.enable = true;
-
-
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
+  programs = {
+    nix-ld.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+    };
+    java.enable = true;
+    thunar.enable = false;
+    firefox.enable = false;
+    thunderbird.enable = true;
   };
 
-  emulation.gba.mgba.enable = true;
-
-  programs.java.enable = true;
-  programs.thunar.enable = true;
-  programs.firefox.enable = true;
-  programs.thunderbird.enable = true;
+  emulation = {
+    gba.mgba.enable = true;
+    switch.ryubing.enable = true;
+  };
 
   editor.nvf = {
     enable = true;
@@ -67,52 +55,31 @@
         enable = true; 
         format.type = "biome";
       };
-      # rust.enable = true;
-      # csharp.enable = true;
     };
   };
-
-
 
   environment.systemPackages = with pkgs; [
     inputs.overway.packages.${system}.default
     inputs.astal.packages.${system}.default
 
-    dotnet-sdk
-
-    smartmontools
-
-    wireguard-tools
+    inputs.zen-browser.packages.${system}.default # Browser
 
     gimp3-with-plugins
 
-    # mgba
+    youtube-music
 
-    ryubing
-
-    obsidian # Notes
-
+    # Make an option for video tools
     handbrake
     losslesscut-bin
-
-    inputs.zen-browser.packages.${system}.default # Browser
-
     vlc # Video Player
-    # youtube-music # Music App
 
+    # Make a nice little optiosn for this
     libreoffice # Office Software
     hunspell # Spellcheck for libreoffice
     hunspellDicts.en_US # US Dictionary for spellcheck
 
-    # lutris # Game Launcher // Application shortcut creator
-
     keymapp # Moonlander Software
-    # btop # System Monitor
 
-    # imagemagick # Terminal Image Manipulation
-    # parsec-bin # Desktop Streaming Client
-
-    # bottles # Wine Prefix Manager
     r2modman # Thunderstore mod Manager
   ];
 }

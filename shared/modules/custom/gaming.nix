@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
-
-with lib;
-
 let
+  inherit (lib) mkIf mkMerge mkEnableOption;
   cfg = config.gaming;
 in {
 
@@ -20,22 +18,7 @@ in {
     };
 
     # Mangohud
-    mangohud = {
-      enable = mkEnableOption "Install Mangohud.";
-      config = mkOption {
-        type = types.str;
-        description = "Mangohud config environment variable.";
-        default = "
-          position=top-right,
-          frame_timing=0,
-          round_corners=10.0,
-          frametime=0,
-          hud_no_margin,
-          background_alpha=0,
-          table_columns=2
-        ";
-      };
-    };
+    mangohud.enable = mkEnableOption "Install Mangohud.";
 
     # ProtonUP
     protonup.enable = mkEnableOption "Install proton version manager.";
@@ -52,11 +35,11 @@ in {
     })
 
     # Mangohud
-    (mkIf cfg.mangohud.enable {
+    (mkIf cfg.mangohud.enable { 
+      environment.systemPackages = [pkgs.mangohud];
       home-manager.sharedModules = [{
         programs.mangohud.enable = true;
       }];
-      environment.sessionVariables.MANGOHUD_CONFIG = cfg.mangohud.config;
     })
 
     # ProtonUP

@@ -5,6 +5,9 @@
     sponge
   ];
 
+  # enable integrations
+  home.shell.enableFishIntegration = true;
+
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -22,10 +25,5 @@
 
     shellInit = ''set fish_greeting'';
   };
-
-  # Integrations
-  programs.starship.enableFishIntegration = config.programs.starship.enable;
-  programs.yazi.enableFishIntegration = config.programs.yazi.enable;
-  programs.zoxide.enableFishIntegration = config.programs.zoxide.enable;
 
 }

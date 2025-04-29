@@ -1,86 +1,145 @@
-{ pkgs, config, lib, ... }:
-
-with lib;
-
+{ pkgs, lib, config,  ... }:
 let
+  inherit (lib) mkEnableOption mkIf mkMerge;
   cfg = config.terminal;
 in {
 
   options.terminal = {
+    
+    dropInUpgrades.enable = mkEnableOption ''
+      Shorcut options to enable all drop in replacements.
+        ls => eza
+        cat => bat
+        cd => zoxide(z)
+        grep => ripgrep(rg)
+        grep => fzf
+        find => fd
+    '';
 
     # Tool replacements
-    eza = {
-      enable = mkEnableOption "Enable eza replacement for ls.";
-      createFishAlias = mkEnableOption "Alias ls to eza in fish";
-    };
-
-    bat = {
-      enable = mkEnableOption "Enable bat replacement for cat.";
-      createFishAlias = mkEnableOption "Alias cat to bat in fish";
-    };
-
-    ripgrep = {
-      enable = mkEnableOption "Enable ripgrep replacement for grep";
-      createFishAlias = mkEnableOption "Alias grep to rg in fish";
-    };
-
+    eza.enable = mkEnableOption "Enable eza replacement for ls.";
+    bat.enable = mkEnableOption "Enable bat replacement for cat.";
+    ripgrep.enable = mkEnableOption "Enable ripgrep replacement for grep";
     fd.enable = mkEnableOption "Enable fd replacement for find";
-    zoxide.enable = lib.mkEnableOption "Enable zoxide replacement for cd.";
+    zoxide.enable = mkEnableOption "Enable zoxide replacement for cd.";
+    fzf.enable = mkEnableOption "Enable fzf fuzzy finding.";
 
     # Extra tools
-    fastfetch.enable = lib.mkEnableOption "Enable fastfetch for system info.";
-    fzf.enable = lib.mkEnableOption "Enable fzf fuzzy finding.";
-    systemctl-tui.enable = lib.mkEnableOption "Enable TUI for systemctl";
-    wget.enable = lib.mkEnableOption "Enable wget to make web requests";
+    systemctl-tui.enable = mkEnableOption "Enable TUI for systemctl";
+    wget.enable = mkEnableOption "Enable wget to make web requests";
+    btop.enable = mkEnableOption "Enable btop system monitor.";
+
+    # Style related programs
+    ricing.enable = ''
+      Shorcut options to enable all style related programs.
+        - fastfetch
+        - cava
+        - pipes
+        - cbonsai
+    '';
+    fastfetch.enable = mkEnableOption "Enable fastfetch for system info.";
+    cava.enable = mkEnableOption "Enable cava for audio visualisation.";
+    pipes.enable = mkEnableOption "Enable pipes, a terminal screensave.";
+    cbonsai.enable = mkEnableOption "Enable cbonsai, to grow an ascii tree.";
+
 
     # Archive tools
-    unar.enable = lib.mkEnableOption "Enable unar for zip archives.";
-    unzip.enable = lib.mkEnableOption "Enable unzip for zip archives.";
-    unrar.enable = lib.mkEnableOption "Enable unrar for rar archives.";
+    unar.enable = mkEnableOption "Enable unar for zip archives.";
+    unzip.enable = mkEnableOption "Enable unzip for zip archives.";
+    unrar.enable = mkEnableOption "Enable unrar for rar archives.";
   };
 
   config = mkMerge [
 
-# environment.systemPackages =
-#       [ ]
-#       ++ lib.optional cfg.wireless.enable pkgs.ltunify
-#       ++ lib.optional cfg.wireless.enableGraphical pkgs.solaar;
+    (mkIf cfg.dropInUpgrades.enable {
+      terminal.eza.enable = true;
+      terminal.bat.enable = true;
+      terminal.zoxide.enable = true;
+      terminal.ripgrep.enable = true;
+      terminal.fd.enable = true;
+      terminal.fzf.enable = true;
+    })
 
-    # Tool Replacements
+    # Drop In Replacements
     (mkIf cfg.eza.enable {
       environment.systemPackages = [ pkgs.eza ];
-      programs.fish.shellAliases = mkIf cfg.eza.createFishAlias { 
-        ls = "eza --icons --color-scale";
-        lsa = "ls -a";
-        lsl = "ls -l";
-      };
+      home-manager.sharedModules = [{
+        programs.eza = {
+          enable = true;
+          color = "always";
+          icons = "always";
+        };
+      }];
     })
 
     (mkIf cfg.bat.enable {
       environment.systemPackages = [ pkgs.bat ];
-      programs.fish.shellAliases = mkIf cfg.bat.createFishAlias {
-        cat = "bat";
-      };
+      home-manager.sharedModules = [{ programs.bat.enable = true; }];
     })
 
     (mkIf cfg.ripgrep.enable {
       environment.systemPackages = [ pkgs.ripgrep ];
-      programs.fish.shellAliases = mkIf cfg.ripgrep.createFishAlias {
-        grep = "rg";
-      };
+      home-manager.sharedModules = [{ programs.ripgrep.enable = true; }];
     })
 
-    (lib.mkIf cfg.zoxide.enable {environment.systemPackages = [pkgs.zoxide];})
-    (lib.mkIf cfg.fd.enable {environment.systemPackages = [pkgs.fd];})
+    (mkIf cfg.zoxide.enable {
+      environment.systemPackages = [pkgs.zoxide];
+      home-manager.sharedModules = [{ programs.zoxide.enable = true; }];
+    })
 
-    # Extra tools
-    (lib.mkIf cfg.fastfetch.enable {environment.systemPackages = [pkgs.eza];})
-    (lib.mkIf cfg.fzf.enable {environment.systemPackages = [pkgs.fzf];})
-    (lib.mkIf cfg.systemctl-tui.enable {environment.systemPackages = [pkgs.systemctl-tui];})
-    (lib.mkIf cfg.wget.enable {environment.systemPackages = [pkgs.wget];})
+    (mkIf cfg.fd.enable {
+      environment.systemPackages = [pkgs.fd];
+      home-manager.sharedModules = [{ programs.fd.enable = true; }];
+    })
 
-    (lib.mkIf cfg.unar.enable {environment.systemPackages = [pkgs.unar];})
-    (lib.mkIf cfg.unzip.enable {environment.systemPackages = [pkgs.unzip];})
-    (lib.mkIf cfg.unrar.enable {environment.systemPackages = [pkgs.unrar];})
+    (mkIf cfg.fzf.enable {
+      environment.systemPackages = [pkgs.fzf];
+      home-manager.sharedModules = [{ programs.fzf.enable = true; }];
+    })
+
+    # Style tools
+    (mkIf cfg.ricing.enable {
+      terminal.fastfetch.enable = true;
+      terminal.cava.enable = true;
+      terminal.pipes.enable = true;
+      terminal.cbonsai.enable = true;
+    })
+
+    (mkIf cfg.fastfetch.enable {
+      environment.systemPackages = [pkgs.fastfetch];
+      home-manager.sharedModules = [{ programs.fastfetch.enable = true; }];
+    })
+
+    (mkIf cfg.cava.enable {
+      environment.systemPackages = [pkgs.cava];
+      home-manager.sharedModules = [{ programs.cava.enable = true; }];
+    })
+
+    (mkIf cfg.pipes.enable {
+      environment.systemPackages = [pkgs.pipes];
+    })
+
+    (mkIf cfg.cbonsai.enable {
+      environment.systemPackages = [pkgs.cbonsai];
+    })
+
+    # Extra Tools
+    (mkIf cfg.systemctl-tui.enable {
+      environment.systemPackages = [pkgs.systemctl-tui];
+    })
+
+    (mkIf cfg.wget.enable {
+      environment.systemPackages = [pkgs.wget];
+    })
+
+    (mkIf cfg.btop.enable {
+      environment.systemPackages = [pkgs.btop];
+      home-manager.sharedModules = [{ programs.btop.enable = true; }];
+    })
+
+
+    (mkIf cfg.unar.enable {environment.systemPackages = [pkgs.unar];})
+    (mkIf cfg.unzip.enable {environment.systemPackages = [pkgs.unzip];})
+    (mkIf cfg.unrar.enable {environment.systemPackages = [pkgs.unrar];})
   ];
 }
