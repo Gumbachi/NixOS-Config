@@ -30,7 +30,7 @@ in {
     btop.enable = mkEnableOption "Enable btop system monitor.";
 
     # Style related programs
-    ricing.enable = ''
+    ricing.enable = mkEnableOption ''
       Shorcut options to enable all style related programs.
         - fastfetch
         - cava
@@ -66,7 +66,7 @@ in {
       home-manager.sharedModules = [{
         programs.eza = {
           enable = true;
-          color = "always";
+          colors = "always";
           icons = "always";
         };
       }];

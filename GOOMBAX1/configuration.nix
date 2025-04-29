@@ -1,16 +1,10 @@
-{ pkgs, lib, ... }: 
-let
-  sharedModulePath = ../shared/modules;
-  sharedHomeModules = ../shared/modules/home;
-in
-{
-  imports = [
-    ./hardware-configuration.nix
-    ./modules/nixos # GOOMBAX1 Modules
-    ../shared/modules/custom # Custom Nix Options
-  ];
+{ pkgs, lib, ... }: {
 
-  home-manager.sharedModules = [ ./modules/home ];
+  imports = [
+    ./hardware-configuration.nix # Mandatory hardware config
+    ../shared/modules/custom # Custom Nix Options
+    ./modules # Modules declaring the system layout
+  ];
 
   # Set the system theme with stylix
   theme = {

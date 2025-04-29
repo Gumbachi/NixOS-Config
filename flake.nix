@@ -20,8 +20,8 @@
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
     # Host Name = <GOOMBA><X/S/L><Number>
     # GOOMBA = Name
-    # X/S/L = Desktop, Server, Laptop
-    # Number = ID Number I Guess
+    # X/S = Desktop/Laptop, Server
+    # Number = ID
 
     nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -29,28 +29,21 @@
       modules = [
         ./GOOMBAX1/configuration.nix # Main Config
 
-        # Hardware Support
-        inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-        # inputs.nixos-hardware.nixosModules.common-gpu-amd
-
         # Home Manager
-        home-manager.nixosModules.home-manager
-        {
+        home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hmbak";
           };
-
-          home-manager.users.jared.imports = [
-            ./GOOMBAX1/home.nix
-            inputs.catppuccin.homeManagerModules.catppuccin
-          ];
+          home-manager.users.jared.imports = [ ./GOOMBAX1/home.nix ];
         }
+
+        # Hardware Support
+        inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
 
         # Third Party
         inputs.stylix.nixosModules.stylix
-        inputs.catppuccin.nixosModules.catppuccin
         inputs.nvf.nixosModules.default
 
       ];
@@ -58,7 +51,7 @@
 
     nixosConfigurations.GOOMBAS2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./GOOMBAS2/configuration.nix # Main Config
         inputs.nvf.nixosModules.default # Neovim
@@ -85,13 +78,14 @@
       ];
     };
 
-    nixosConfigurations.GOOMBAL1 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.GOOMBAX2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
-        # NixOS Config
+        # Main Config
         ./GOOMBAX2/configuration.nix
 
+        # Home Manager
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -99,14 +93,12 @@
             useUserPackages = true;
             backupFileExtension = "hmbak";
           };
-
-          home-manager.users.jared.imports = [
-            ./GOOMBAX2/home.nix
-          ];
+          home-manager.users.jared.imports = [ ./GOOMBAX2/home.nix ];
         }
 
-        # Stylix
+        # Third Party Modules
         inputs.stylix.nixosModules.stylix
+        inputs.nvf.nixosModules.default
       ];
     };
 
