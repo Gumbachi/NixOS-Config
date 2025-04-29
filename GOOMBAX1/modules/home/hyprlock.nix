@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, osConfig, lib, ... }:
 let
   textColor = if config.stylix.enable then config.lib.stylix.colors.base05 else "cdd6f4";
   accentColor = if config.stylix.enable then config.lib.stylix.colors.base0D else "89b4fa";
@@ -50,7 +50,7 @@ in
         # GREETING
         {
           monitor = "${monitor}";
-          text = "${config.networking.hostName}";
+          text = "${osConfig.networking.hostName}";
           text_align = "center";
           color = "rgb(${textColor})";
           font_size = 60;
