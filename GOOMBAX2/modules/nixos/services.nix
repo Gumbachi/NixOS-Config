@@ -1,18 +1,19 @@
-{ ... }:
+{ ... }: {
 
-{
+  services = {
+
+    fwupd.enable = true;
+
+    blueman.enable = true;
+
+    playerctld.enable = true;
+
+    printing.enable = true;
+
+    power-profiles-daemon.enable = true;
+
+    openssh.enable = true;
+
+  };
   
-  # Flatpak
-  services.flatpak.enable = false;
-
-  services.thermald.enable = true;
-
-  services.fwupd.enable = true;
-
-  services.blueman.enable = true;
-
-  services.playerctld.enable = true;
-
-  services.gvfs.enable = true;
-
 }

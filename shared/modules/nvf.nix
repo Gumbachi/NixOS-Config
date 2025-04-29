@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.nvf.enable = true;
+  programs.nvf.enable = false;
 
   programs.nvf.settings.vim.options = {
     tabstop = 2;
@@ -106,7 +106,7 @@
       lsp.server = "nixd";
     };
     ts = {
-      enable = true; 
+      enable = true;
       format.type = "biome";
       format.enable = false;
     };

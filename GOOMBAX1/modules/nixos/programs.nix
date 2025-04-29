@@ -51,14 +51,20 @@
       python.enable = true;
       markdown.enable = true;
       css.enable = true;
+      nix = {
+        enable = true;
+        format.enable = false;
+        lsp.server = "nixd";
+      };
       ts = {
-        enable = true; 
+        enable = true;
         format.type = "biome";
       };
     };
   };
 
   environment.systemPackages = with pkgs; [
+
     inputs.overway.packages.${system}.default
     inputs.astal.packages.${system}.default
 

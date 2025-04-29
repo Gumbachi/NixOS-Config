@@ -1,21 +1,39 @@
-{ inputs, pkgs, ... }:
-
-{
-
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
+{ pkgs, config, lib, ...}: {
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    withUWSM = true;
   };
 
-  programs.hyprlock.enable = true;
-  security.pam.services.hyprlock = {};
+  ### Hyprland: Necessary Programs ###
+  environment.systemPackages = with pkgs; [
 
-  # Needed to make system file picker work
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    clipse # Clipboard Manager
+    wl-clipboard # Clipboard backend
+    rofi-wayland # Launcher
+    hyprpicker # Color Picker
+    waypaper # Wallpaper GUI
+    imv # Image Viewer
+    kdePackages.gwenview # Simple Image Editor
+    pavucontrol # Sound Settings
+    grimblast # Screenshots
+
+    nwg-look # GTK Style GUI
+
+  ];
+
+  # Greetd: Autostart Hyprland on boot
+  services.greetd = let
+    session = {
+      command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop > /dev/null";
+      user = "jared";
+    };
+  in {
+    enable = true;
+    settings = {
+      initial_session = session;
+      default_session = session;
+    };
+  };
 
 }

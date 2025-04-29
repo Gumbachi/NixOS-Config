@@ -71,9 +71,7 @@
             backupFileExtension = "hmbak";
           };
 
-          home-manager.users.jared.imports = [
-            ./GOOMBAS2/home.nix
-          ];
+          home-manager.users.jared.imports = [ ./GOOMBAS2/home.nix ];
         }
       ];
     };
@@ -84,6 +82,9 @@
       modules = [
         # Main Config
         ./GOOMBAX2/configuration.nix
+
+        # Hardware Config
+        inputs.nixos-hardware.nixosModules.dell-xps-15-9560
 
         # Home Manager
         home-manager.nixosModules.home-manager

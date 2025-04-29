@@ -28,9 +28,8 @@
     in { 
 
       monitor = [
-        "DP-1, 3840x2160@240, 2880x400, 1.5"
-        "DP-2, 2560x1440@144, 1440x0, 1, transform, 1"
-        "DP-3, 2560x1440@144, 0x0, 1, transform, 1" 
+        "eDP-1, 1920x1080@60, 0x0, 1"
+        "DP-1, 1920x1080@240, 1920x0, 1, vrr, 1"
       ];
 
       exec-once = [
@@ -39,8 +38,6 @@
         "uwsm app -- overway"
         "${clipboard}"
         "uwsm app -- steam -silent"
-        "[workspace 1 silent] ${systemMonitor}"
-        "[workspace 1 silent] ${terminal} cava"
         "[workspace 2 silent] uwsm app -- vesktop"
         "[workspace 2 silent] uwsm app -- youtube-music"
       ];
@@ -66,7 +63,7 @@
         };
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 3;
           passes = 1;
           vibrancy = 0.1696;
@@ -91,23 +88,12 @@
         preserve_split = true;
       };
 
-      xwayland = {
-        force_zero_scaling = true;
-      };
-
       misc = {
         force_default_wallpaper = 0; # disable anime wallpaper
         disable_hyprland_logo = true;
-        animate_manual_resizes = false;
-        vrr = 1;
-        focus_on_activate = false;
+        key_press_enables_dpms = true;
         enable_swallow = true;
         swallow_regex = "kitty";
-      };
-
-      cursor = {
-        default_monitor = "DP-1";
-        no_warps = true;
       };
 
       render = {
@@ -116,6 +102,15 @@
 
       input = {
         accel_profile = "flat";
+        touchpad = {
+          natural_scroll = true;
+          clickfinger_behavior = true; # enable 2 finger RMB and 3 finger MMB
+        };
+      };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_forever = true;
       };
 
       bind = [
@@ -177,11 +172,14 @@
       ];
 
       bindle = [
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
-      bindl = [
+      bindl = [    
+        ", switch:Lid Switch, exec, hyprlock" # Run hyprlock when closing lid
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioPlay, exec, playerctl play-pause" 
         ", XF86AudioNext, exec, playerctl next" 
@@ -189,46 +187,20 @@
       ];
 
       workspace = [
-        "1, monitor:DP-3, default:true, persistent:true"
-        "2, monitor:DP-2, default:true, persistent:true"
-        "3, monitor:DP-1, default:true, persistent:true"
-        "4, monitor:DP-1, decorate:false"
-        "5, monitor:DP-1"
+        "1, monitor:eDP-1, default:true, persistent:true"
+        "2, monitor:DP-1, default:true, persistent:true"
       ];
 
       windowrule = [
         "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
-
-        # Discord file upload
-        "float, title:(Open Files)"
-        "size 1200, 800, title:(Open Files)"
-
-        # firefox file upload
-        "center, title:(File Upload)"
+        # "size 622 652, class:(clipse)"
 
         "workspace 2, class:(com.github.th_ch.youtube_music)"
         "workspace 2, class:(vesktop)"
-
-        "workspace 10, class:.virt-manager-wrapped, title:^Windows10.*$"
-        "fullscreen, class:.virt-manager-wrapped, title:^Windows10.*$"
-
-        "float, title:(Authentication Required)"
-
-        # Jetbrains Fixes
-        "suppressevent fullscreen, class:^(jetbrains-studio)$"
   
-        "workspace 4, ${steamGameRegex}"
+        "workspace 3, ${steamGameRegex}"
         "fullscreen, ${steamGameRegex}" 
         "idleinhibit always, ${steamGameRegex}"
-
-        # Steam Game Overrides
-        "fullscreenstate 0 0, class:steam_app_1361210, title:^(Launcher)$"
-        "float, class:steam_app_1361210, title:^(Launcher)$"
-        "center, class:steam_app_1361210, title:^(Launcher)$"
-
-        # Steam UI
-        "monitor DP-1, class:^(steam)$"
 
         "suppressevent maximize, class:.*"
         "suppressevent fullscreen, class:vesktop"

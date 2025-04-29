@@ -1,9 +1,6 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 let
   userConfig = "/home/jared/NixOS-Config/GOOMBAX1/.config";
-  nixosConfig = "/home/jared/NixOS-Config";
-  homeModulesPath = ./modules/home;
-  sharedHomeModules = ../shared/modules/home;
 in
 {
 
@@ -13,13 +10,11 @@ in
   programs.git = {
     enable = true;
     userName = "Gumbachi";
-    userEmail = "jaredremsberg@gmail.com";
+    userEmail = "github@gumbachi.com";
   };
 
-  programs.cava.enable = true;
   services.hyprpaper.enable = true;
   programs.qutebrowser.enable = true;
-  programs.zoxide.enable = true;
   services.hyprpolkitagent.enable = true;
 
   programs.nh = {

@@ -1,12 +1,11 @@
-{ config, lib, ... }:
-
-with lib;
-
-let
-  cfg = config.editor;
-in
 {
- 
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.editor;
+in {
   options.editor = {
     nvf = {
       enable = mkEnableOption "Enable nvim/nvf.";
@@ -15,7 +14,7 @@ in
         type = types.attrs;
         description = "The whole block for programs.nvf.settings.vim.languages";
         example = "{ python.enable = true; }";
-        default = {  
+        default = {
           nix = {
             enable = true;
             lsp.server = "nixd";
@@ -26,10 +25,8 @@ in
   };
 
   config = mkMerge [
-
     # Default Settings
     (mkIf cfg.nvf.enable {
-
       environment.sessionVariables.EDITOR = mkIf cfg.nvf.setDefault "nvim";
 
       programs.nvf.enable = true;
@@ -102,7 +99,7 @@ in
           setupOpts = {
             show_hidden = true;
             manual_mode = false;
-            patterns = [ ".git" "Makefile" "package.json" "flake.nix" "cargo.toml" ];
+            patterns = [".git" "Makefile" "package.json" "flake.nix" "cargo.toml"];
           };
         };
       };
@@ -111,6 +108,7 @@ in
         enable = true;
         inlayHints.enable = true;
         lspSignature.enable = true;
+        formatOnSave = false;
       };
 
       # Languages
@@ -146,10 +144,6 @@ in
           ];
         }
       ];
-
-
-
-    }) 
+    })
   ];
-
 }

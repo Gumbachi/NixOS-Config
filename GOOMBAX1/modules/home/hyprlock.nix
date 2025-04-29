@@ -50,7 +50,7 @@ in
         # GREETING
         {
           monitor = "${monitor}";
-          text = "GOOMBAX1";
+          text = "${config.networking.hostName}";
           text_align = "center";
           color = "rgb(${textColor})";
           font_size = 60;
