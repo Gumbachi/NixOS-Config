@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
     inputs.overway.packages.${system}.default
