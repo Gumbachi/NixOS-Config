@@ -4,6 +4,7 @@
     ./btop.nix
     ./cursors.nix
     ./fish.nix
+    ./floorp.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix

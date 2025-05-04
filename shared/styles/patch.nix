@@ -66,7 +66,7 @@
 
         --yt-spec-commerce-filled-hover: var(--ctp-accent) !important;
       }
-    '' + builtins.readFile ../../../shared/styles/youtube-music.css;
+    '' + builtins.readFile ./youtube-music.css;
 
     xdg.configFile."YouTube Music/stylix.css".text = with config.lib.stylix.colors; '' 
 
@@ -74,32 +74,32 @@
       { 
         --cust-ytmusic-play-nav-color: #${base01};
         --cust-ytmusic-dark-background: #${base00};
-        --cust-ytmusic-dark-foreground: #${base01};
+        --cust-ytmusic-dark-foreground: #${base05};
         
-        --cust-ytmusic-light-text-1: #${base06};
-        --cust-ytmusic-light-2: #c8a1a1;
-        --cust-ytmusic-light-3: #d3bdbd;
-        --cust-ytmusic-light-4: #c6a9a985;
-        --cust-ytmusic-light-5: #d9b5b5;
+        --cust-ytmusic-light-text-1: #${base0D};
+        --cust-ytmusic-light-2: #${base0D};
+        --cust-ytmusic-light-3: #00FF00;
+        --cust-ytmusic-light-4: #${base06};
+        --cust-ytmusic-light-5: #00FFFF;
         
-        --cust-ytmusic-medium-1: #9e8b8bb8;
-        --cust-ytmusic-medium-2: #d5d0d0;
-        --cust-ytmusic-medium-3: #a68282;
-        --cust-ytmusic-medium-4: #8d8d8d;
-        --cust-ytmusic-medium-5: #4b2e2e;
+        --cust-ytmusic-medium-1: #${base06}b8;
+        --cust-ytmusic-medium-2: #0000FF;
+        --cust-ytmusic-medium-3: #${base0D};
+        --cust-ytmusic-medium-4: #FF0000;
+        --cust-ytmusic-medium-5: #${base0D};
         
-        --cust-ytmusic-subscribe-color: #a84949;
-        --cust-ytmusic-playbutton-color:#885454;
-        --cust-ytmusic-tertiary-nav-button-color: #8d5d5d;
-        --cust-ytmusic-nowplaying-color: #cc9d9d;
+        --cust-ytmusic-subscribe-color: #${base08};
+        --cust-ytmusic-playbutton-color:#${base0D};
+        --cust-ytmusic-tertiary-nav-button-color: #${base0D};
+        --cust-ytmusic-nowplaying-color: #${base0D};
         
         --cust-ytmusic-main-text-1: #${base05};
-        --cust-ytmusic-header-text-1: #ffffffc9;
-        --cust-ytmusic-header-text-2: #ffffffc7; 
+        --cust-ytmusic-header-text-1: #${base05}c9;
+        --cust-ytmusic-header-text-2: #${base05}c7; 
 
-        --cust-ytmusic-scroll-width: 2px;
+        --cust-ytmusic-scroll-width: 0px;
 
-    '' + builtins.readFile ../../../shared/styles/youtube-music.css;
+    '' + builtins.readFile ./youtube-music-alt.css;
   }];
 
 }

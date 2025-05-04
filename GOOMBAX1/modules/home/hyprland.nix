@@ -21,9 +21,10 @@
       menu = ''rofi -show drun -run-command "uwsm app -- {cmd}" '';
       editConfig = "${terminal} $EDITOR $CONFIG";
       screenshot = "grimblast copy area";
-      browser = "uwsm app -- zen-beta";
+      browser = "uwsm app -- floorp";
       clipboard = "uwsm app -- clipse -listen";
       systemMonitor = "${terminal} btop";
+      gameLauncher = "uwsm app -- steam";
       steamGameRegex = "class:^(steam_app_.*)$";
     in { 
 
@@ -38,11 +39,12 @@
         "hyprlock"
         "uwsm app -- overway"
         "${clipboard}"
-        "uwsm app -- steam -silent"
-        "[workspace 1 silent] ${systemMonitor}"
+        "${gameLauncher} -silent" 
         "[workspace 1 silent] ${terminal} cava"
-        "[workspace 2 silent] uwsm app -- vesktop"
+        "[workspace 1 silent] sleep 2; ${systemMonitor}"
         "[workspace 2 silent] uwsm app -- youtube-music"
+        "[workspace 2 silent] sleep 2; uwsm app -- vesktop"
+        "[workspace special:magic silent] ${browser}" # preload the browser so its quicker to launch
       ];
 
       general = {
@@ -101,7 +103,7 @@
         animate_manual_resizes = false;
         vrr = 1;
         focus_on_activate = false;
-        enable_swallow = true;
+        enable_swallow = false;
         swallow_regex = "kitty";
       };
 
@@ -135,15 +137,16 @@
         ", PRINT, exec, ${screenshot}"
         "${mainMod}, M, exec, ${systemMonitor}"
         "${mainMod}, D, exec, ${toggleDashboard}"
+        "${mainMod}, G, exec, ${gameLauncher}"
 
         "${mainMod}, H, movefocus, l"
-        "${mainMod}, L, movefocus, r"
-        "${mainMod}, K, movefocus, u"
         "${mainMod}, J, movefocus, d"
+        "${mainMod}, K, movefocus, u"
+        "${mainMod}, L, movefocus, r"
         "${mainMod} SHIFT, H, movewindow, l"
-        "${mainMod} SHIFT, L, movewindow, r"
-        "${mainMod} SHIFT, K, movewindow, u"
         "${mainMod} SHIFT, J, movewindow, d" 
+        "${mainMod} SHIFT, K, movewindow, u"
+        "${mainMod} SHIFT, L, movewindow, r"
  
         "${mainMod}, 1, workspace, 1"
         "${mainMod}, 2, workspace, 2"

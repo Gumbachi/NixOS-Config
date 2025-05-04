@@ -4,7 +4,7 @@
     ./virtualisation.nix
     ./documentation.nix
     ./development.nix
-    ./editor.nix
+    ./editors.nix
     ./gaming.nix
     ./emulation.nix
     ./terminal.nix

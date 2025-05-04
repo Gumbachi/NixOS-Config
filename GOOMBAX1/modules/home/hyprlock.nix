@@ -12,7 +12,6 @@ in
     settings = {
       # GENERAL
       general = {
-        disable_loading_bar = true;
         hide_cursor = true;
         ignore_empty_input = true;
       };
@@ -85,7 +84,7 @@ in
         outer_color = lib.mkForce "rgb(${accentColor})";
         # inner_color = $surface0;
         fade_on_empty = false;
-        placeholder_text = "$USER";
+        placeholder_text = "$DESC";
         hide_input = false;
         # check_color = $accent;
         # fail_color = $red

@@ -44,21 +44,24 @@
     switch.ryubing.enable = true;
   };
 
-  editor.nvf = {
-    enable = true;
-    setDefault = true;
-    languages = {
-      python.enable = true;
-      markdown.enable = true;
-      css.enable = true;
-      nix = {
-        enable = true;
-        format.enable = false;
-        lsp.server = "nixd";
-      };
-      ts = {
-        enable = true;
-        format.type = "biome";
+  editors = {
+    libreoffice.enable = true;
+    nvf = {
+      enable = true;
+      setDefault = true;
+      languages = {
+        python.enable = true;
+        markdown.enable = true;
+        css.enable = true;
+        nix = {
+          enable = true;
+          format.enable = false;
+          lsp.server = "nixd";
+        };
+        ts = {
+          enable = true;
+          format.enable = false;
+        };
       };
     };
   };
@@ -78,11 +81,6 @@
     handbrake
     losslesscut-bin
     vlc # Video Player
-
-    # Make a nice little optiosn for this
-    libreoffice # Office Software
-    hunspell # Spellcheck for libreoffice
-    hunspellDicts.en_US # US Dictionary for spellcheck
 
     keymapp # Moonlander Software
 

@@ -1,12 +1,10 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
-  cfg = config.editor;
+{ config, lib, pkgs, ... }:
+let
+  inherit (lib) mkEnableOption mkOption mkIf mkMerge types;
+  cfg = config.editors;
 in {
-  options.editor = {
+  options.editors = {
+    libreoffice.enable = mkEnableOption "Enable LibreOffice for edting.";
     nvf = {
       enable = mkEnableOption "Enable nvim/nvf.";
       setDefault = mkEnableOption "Set the EDITOR environment variable to nvim";
@@ -25,7 +23,15 @@ in {
   };
 
   config = mkMerge [
-    # Default Settings
+    
+    (mkIf cfg.libreoffice.enable {
+      environment.systemPackages = with pkgs; [
+        libreoffice # Office Software
+        hunspell # Spellcheck for libreoffice
+        hunspellDicts.en_US # US Dictionary for spellcheck
+      ];
+    })
+
     (mkIf cfg.nvf.enable {
       environment.sessionVariables.EDITOR = mkIf cfg.nvf.setDefault "nvim";
 

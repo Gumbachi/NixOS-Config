@@ -1,29 +1,29 @@
-{ ... }: {
+{ lib, ... }: {
 
 
   programs.vesktop = {
     enable = true;
     settings = {
+      discordBranch = "stable";
+      customTitleBar = false;
       enableMenu = true;
-      disableMinSize = true;
-      minimizeToTray = true;
+      minimizeToTray = false;
+      splashTheming = true;
       tray = true;
       hardwareAcceleration = true;
     };
     vencord.settings = {
-      enabledThemes = [ "stylix.theme.css" ];
-      autoUpdate = true;
+      autoUpdate = false;
       autoUpdateNotification = false;
+      notifyAboutUpdates = true;
       useQuickCss = true;
-      disableMinSize = true;
+
       plugins = {
         AlwaysTrust.enabled = true;
         ClearURLs.enabled = true;
         CopyFileContents.enabled = true;
-        CrashHandler.enabled = true;
         FixYoutubeEmbeds.enabled = true;
         FakeNitro.enabled = true;
-        LoadingQuotes.enabled = true;
         MentionAvatars.enabled = true;
         NoF1.enabled = true;
         NoOnboardingDelay.enabled = true;

@@ -5,19 +5,19 @@
 	},
 	"window-maximized": false,
 	"window-position": {
-		"x": 5294,
+		"x": 3854,
 		"y": 14
 	},
-	"url": "https://music.youtube.com/watch?v=jxoAbuEyuUQ&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=xsW0LzbYMI8&list=LM&index=0",
 	"options": {
 		"tray": true,
 		"appVisible": true,
-		"autoUpdates": true,
+		"autoUpdates": false,
 		"alwaysOnTop": false,
 		"hideMenu": true,
 		"hideMenuWarned": true,
 		"startAtLogin": false,
-		"disableHardwareAcceleration": true,
+		"disableHardwareAcceleration": false,
 		"removeUpgradeButton": true,
 		"restartOnConfigChanges": true,
 		"trayClickPlayPause": false,
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 40
+			"savedVolume": 30
 		},
 		"discord": {
 			"listenAlong": true,
@@ -208,7 +208,7 @@
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "3.8.0"
+			"version": "3.9.0"
 		}
 	}
 }

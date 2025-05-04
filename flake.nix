@@ -15,6 +15,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
@@ -45,6 +49,7 @@
         # Third Party
         inputs.stylix.nixosModules.stylix
         inputs.nvf.nixosModules.default
+        inputs.nur.modules.nixos.default
 
       ];
     };

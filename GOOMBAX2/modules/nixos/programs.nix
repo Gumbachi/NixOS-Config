@@ -24,7 +24,7 @@
     thunderbird.enable = true;
   };
 
-  editor = { 
+  editors = { 
     nvf = {
       enable = true;
       setDefault = true;

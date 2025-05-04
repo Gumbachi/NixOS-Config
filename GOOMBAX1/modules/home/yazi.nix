@@ -8,7 +8,7 @@
         opener = {
           play = [
             {
-              run = ''env -u DISPLAY vlc "$@"'';
+              run = ''mpv "$@"'';
               orphan = true;
               for = "unix";
             }
