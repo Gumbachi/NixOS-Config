@@ -6,6 +6,10 @@
         respond "Hi there. Nothing in here yet"
       '';
 
+      "chat.gumbachi.com".extraConfig = ''
+        reverse_proxy localhost:6167
+      '';
+
       "watch.gumbachi.com".extraConfig = ''
         reverse_proxy localhost:8096
       '';

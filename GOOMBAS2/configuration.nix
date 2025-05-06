@@ -21,6 +21,7 @@ in {
     (modulePath + /caddy.nix) # Reverse Proxy Server
     (modulePath + /adguardhome.nix) # Adblocking
     (modulePath + /jellyfin.nix) # Media Streaming / Requesting
+    (modulePath + /servarr.nix) # Media Streaming / Requesting
 
     # Dedicated Services
     (modulePath + /minecraft.nix)
@@ -70,6 +71,12 @@ in {
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
+  };
+
+  fileSystems."/home/jared/C" = {
+    device = "/dev/disk/by-uuid/928B-0238";
+    fsType = "exfat";
+    options = ["users" "nofail"];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’. I will.

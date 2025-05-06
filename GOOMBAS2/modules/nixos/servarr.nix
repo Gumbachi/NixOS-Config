@@ -1,32 +1,29 @@
 { pkgs, ... }: {
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "aspnetcore-runtime-6.0.36"
-    "aspnetcore-runtime-wrapped-6.0.36"
-    "dotnet-sdk-6.0.428"
-    "dotnet-sdk-wrapped-6.0.428"
-  ];
+  services = {
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+      settings.server.port = 9696;
+    };
 
-  services.flaresolverr = {
-    enable = false;
-  };
-  
-  services.prowlarr = {
-    enable = true;
-  };
+    radarr = {
+      enable = true;
+      openFirewall = true;
+      settings.server.port = 7878;
+      user = "jared";
+      group = "users";
 
-  services.sonarr = {
-    enable = true;
-  };
+    };
 
-  services.radarr = {
-    enable = true;
-  };
+    sonarr = {
+      enable = true;
+      openFirewall = true;
+      settings.server.port = 8989;
+      user = "jared";
+      group = "users";
+    };
 
-  services.lidarr = {
-    enable = true;
   };
-
-  environment.systemPackages = [ pkgs.qbittorrent ];
 
 }
