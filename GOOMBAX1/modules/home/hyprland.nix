@@ -1,14 +1,9 @@
 { ... }: {
+
+  # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
   
   # Just for insurance to not brick the system
   programs.kitty.enable = true;
-
-  # Hyprland environment variables
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
-  };
   
   wayland.windowManager.hyprland = {
     enable = true;

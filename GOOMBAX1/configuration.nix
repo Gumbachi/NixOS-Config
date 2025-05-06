@@ -51,7 +51,17 @@
       enable32Bit = true;
       extraPackages = [ pkgs.rocmPackages.rocm-smi ];
     };
-    keyboard.zsa.enable = true; 
+
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+
+    keyboard.zsa = {
+      enable = true; 
+      keymapp.enable = true;
+      kontroll.enable = true;
+    };
   };
 
   fonts = {

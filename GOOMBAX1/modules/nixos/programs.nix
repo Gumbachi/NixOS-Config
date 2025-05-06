@@ -1,5 +1,23 @@
 { inputs, pkgs, ... }: {
 
+  environment.systemPackages = with pkgs; [
+    inputs.overway.packages.${system}.default
+    inputs.astal.packages.${system}.default
+
+    # inputs.zen-browser.packages.${system}.default # Browser
+
+    gimp3-with-plugins
+
+    youtube-music
+
+    # Make an option for video tools
+    handbrake
+    losslesscut-bin
+    vlc # Video Player
+
+    r2modman # Thunderstore mod Manager
+  ];
+
   # shared/modules/custom/terminal.nix
   terminal = {
     dropInUpgrades.enable = true; # eza, ripgrep, bat, etc..
@@ -66,24 +84,4 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-
-    inputs.overway.packages.${system}.default
-    inputs.astal.packages.${system}.default
-
-    inputs.zen-browser.packages.${system}.default # Browser
-
-    gimp3-with-plugins
-
-    youtube-music
-
-    # Make an option for video tools
-    handbrake
-    losslesscut-bin
-    vlc # Video Player
-
-    keymapp # Moonlander Software
-
-    r2modman # Thunderstore mod Manager
-  ];
 }
