@@ -4,21 +4,16 @@
     inputs.overway.packages.${system}.default
     inputs.astal.packages.${system}.default
 
-    # inputs.zen-browser.packages.${system}.default # Browser
-
-    gimp3-with-plugins
-
     youtube-music
 
+    element-desktop
+
     # Make an option for video tools
-    handbrake
-    losslesscut-bin
     vlc # Video Player
 
     r2modman # Thunderstore mod Manager
   ];
 
-  # shared/modules/custom/terminal.nix
   terminal = {
     dropInUpgrades.enable = true; # eza, ripgrep, bat, etc..
     ricing.enable = true; # fastfetch, cava, pipes, cbonsai
@@ -27,7 +22,6 @@
     unrar.enable = true; # Rar archives
   };
 
-  # shared/modules/custom/gaming.nix
   gaming = {
     steam = {
       enable = true;
@@ -53,7 +47,6 @@
     };
     java.enable = true;
     thunar.enable = false;
-    firefox.enable = false;
     thunderbird.enable = true;
   };
 
@@ -63,8 +56,20 @@
   };
 
   editors = {
+
     libreoffice.enable = true;
-    nvf = {
+
+    image = {
+      gimp.enable = true;
+      krita.enable = true;
+    };
+
+    video = {
+      handbrake.enable = true;
+      losslesscut.enable = true;
+    };
+
+    text.nvf = {
       enable = true;
       setDefault = true;
       languages = {
@@ -82,6 +87,7 @@
         };
       };
     };
+
   };
 
 }

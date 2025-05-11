@@ -5,6 +5,8 @@
     ./cursors.nix
     ./fish.nix
     ./floorp.nix
+    ./fuzzel.nix
+    ./git.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix

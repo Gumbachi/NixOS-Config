@@ -54,6 +54,7 @@
           {"url":"http://192.168.69.2:8989","label":"Sonarr"},
           {"url":"http://192.168.69.2:3080","label":"Adguard"},
           {"url":"https://porkbun.com","label":"Porkbun"},
+          {"url":"https://purelymail.com","label":"Mail"},
           {"url":"https://www.nexusmods.com/","label":"Nexus Mods"},
           {"url":"https://zoom.us/join","label":"Zoom"},
           {"url":"https://labsimapp.testout.com/v6_0_662/index.html/my-courses","label":"Testout"},

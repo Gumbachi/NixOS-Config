@@ -95,16 +95,15 @@
       misc = {
         force_default_wallpaper = 0; # disable anime wallpaper
         disable_hyprland_logo = true;
-        animate_manual_resizes = false;
         vrr = 1;
-        focus_on_activate = false;
+        focus_on_activate = true;
         enable_swallow = false;
         swallow_regex = "kitty";
       };
 
       cursor = {
         default_monitor = "DP-1";
-        no_warps = true;
+        # no_warps = true;
       };
 
       render = {
