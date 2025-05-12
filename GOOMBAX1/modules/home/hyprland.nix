@@ -13,7 +13,7 @@
       terminal = "uwsm app -- kitty";
       toggleDashboard = "astal -t overway -i overway";
       fileManager = "${terminal} yazi";
-      menu = ''rofi -show drun -run-command "uwsm app -- {cmd}" '';
+      menu = ''fuzzel --launch-prefix="uwsm app -- "'';
       editConfig = "${terminal} $EDITOR $CONFIG";
       screenshot = "grimblast copy area";
       browser = "uwsm app -- floorp";

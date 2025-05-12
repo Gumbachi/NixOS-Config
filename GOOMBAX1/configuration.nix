@@ -107,12 +107,11 @@
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = [ "networkmanager" "wheel" "video" "minecraft" "syncthing" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "syncthing" ];
   };
 
   documentation = {
-    man.enable = false;
-    cheat.enable = true;
+    man.enable = true;
     tldr.enable = true;
   };
 

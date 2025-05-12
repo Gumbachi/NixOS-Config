@@ -16,6 +16,9 @@ in {
         find => fd
         df => dysk
         more,less => most
+        man => batman
+        diff => batdiff
+        watch => batwatch
     '';
 
     # Tool replacements
@@ -70,6 +73,23 @@ in {
         enable = true;
         extras.enable = true;
       };
+
+      # Fish Aliases
+      home-manager.sharedModules = [{
+        programs.fish.shellAliases = {
+          # ls = "eza" # This one is covered by the eza fish integration in home manager
+          cat = "bat";
+          # cd = "z"; # Disabled because z is easier than cd anyways
+          # grep = "rg"; # Similar as above ^^^^^^^^^^^^^^^^^^^^^^^^^
+          find = "fd";
+          df = "dysk -f 'mp <> /boot'";
+          more = "most";
+          less = "most";
+          man = "batman";
+          diff = "batdiff";
+          watch = "batwatch --color -x";
+        };
+      }];
     })
 
     # Drop In Replacements
@@ -119,12 +139,6 @@ in {
 
     (mkIf cfg.dysk.enable {
       environment.systemPackages = [pkgs.dysk];
-      home-manager.sharedModules = [{ programs.fish.shellAliases.df = "dysk -f 'mp <> /boot'"; }];
-    })
-
-    (mkIf cfg.dysk.enable {
-      environment.systemPackages = [pkgs.dysk];
-      home-manager.sharedModules = [{ programs.fish.shellAliases.df = "dysk -f 'mp <> /boot'"; }];
     })
 
     (mkIf cfg.dysk.enable {
