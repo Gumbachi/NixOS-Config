@@ -13,13 +13,11 @@
 
   ### Hyprland: Necessary Programs ###
   environment.systemPackages = with pkgs; [
-
     clipse # Clipboard Manager
     wl-clipboard # Clipboard backend
-    rofi-wayland # Launcher
     hyprpicker # Color Picker
     # hyprpaper # Wallpaper Utility
-    waypaper # Wallpaper GUI
+    # waypaper # Wallpaper GUI
     imv # Image Viewer
     kdePackages.gwenview # Simple Image Editor
     pavucontrol # Sound Settings
@@ -27,10 +25,6 @@
 
     nwg-look # GTK Style GUI
     kdePackages.qt6ct # QT Style GUI
-    kdePackages.qtstyleplugin-kvantum # QT Plugin for better Styling
-
-    hyprsunset # Blue Light Filter
-
   ];
 
   # Greetd: Autostart Hyprland on boot
