@@ -3,7 +3,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
-    base16.url = "github:SenchoPens/base16.nix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -48,7 +47,6 @@
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
 
         # Third Party
-        inputs.base16.nixosModule
         inputs.stylix.nixosModules.stylix
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
