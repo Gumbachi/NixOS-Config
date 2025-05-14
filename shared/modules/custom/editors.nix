@@ -159,7 +159,6 @@ in {
         {
           # Language Defaults
           enableTreesitter = false;
-          enableLSP = true;
           enableFormat = true;
         }
         cfg.text.nvf.languages

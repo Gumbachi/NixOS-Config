@@ -7,8 +7,10 @@ let
 in
 {
 
-  imports = [ ../../styles/patch.nix ]; # Nix file for patching css
- 
+  imports = [ 
+    ../../styles/patch.nix # Nix file for patching css
+    ../../themes # Import theme modifications 
+  ];  
   options.theme = {
     wallpaper = mkOption {
       type = lib.types.path;
@@ -20,36 +22,22 @@ in
 
   config = mkMerge [
 
-    # Theme Specific Settings
-    (mkIf cfg.monokai.enable {
-      stylix.enable = true;
-      stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
-      stylix.polarity = "dark";
-      theme.wallpaper = mkDefault ../../../images/wallpapers/monokai.png;
-      home-manager.sharedModules = [{
-        programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/monokai.json";       
-        wayland.windowManager.hyprland.settings.env = [ "HYPRCURSOR_THEME,Bibata-Modern-Ice" ];
-        home.pointerCursor = {
-          package = pkgs.bibata-cursors;
-          name = "Bibata-Modern-Ice";
-        };
-      }];
-    })
+    # # Theme Specific Settings
+    # (mkIf cfg.monokai.enable {
+    #   stylix.enable = true;
+    #   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+    #   stylix.polarity = "dark";
+    #   theme.wallpaper = mkDefault ../../../images/wallpapers/monokai.png;
+    #   home-manager.sharedModules = [{
+    #     programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/monokai.json";       
+    #     wayland.windowManager.hyprland.settings.env = [ "HYPRCURSOR_THEME,Bibata-Modern-Ice" ];
+    #     home.pointerCursor = {
+    #       package = pkgs.bibata-cursors;
+    #       name = "Bibata-Modern-Ice";
+    #     };
+    #   }];
+    # })
 
-    (mkIf cfg.catppuccin-mocha.enable {
-      stylix.enable = true;
-      stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-      stylix.polarity = "dark";
-      theme.wallpaper = mkDefault ../../../images/wallpapers/catppuccin-nix.png;
-      home-manager.sharedModules = [{
-        programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/catppuccin-mocha.json";        
-        home.pointerCursor = {
-          package = pkgs.catppuccin-cursors.mochaBlue;
-          name = "catppuccin-mocha-blue-cursors";
-        };
-        wayland.windowManager.hyprland.settings.env = [ "HYPRCURSOR_THEME,catppuccin-mocha-blue-cursors" ];
-      }];
-    })
 
     # Default Settings
     {
