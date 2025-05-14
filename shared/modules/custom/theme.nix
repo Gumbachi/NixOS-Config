@@ -1,8 +1,6 @@
 { pkgs, config, lib, ... }:
-
-with lib;
-
 let
+  inherit (lib) mkIf mkEnableOption mkOption;
   cfg = config.theme;
 in
 {
@@ -10,7 +8,8 @@ in
   imports = [ 
     ../../styles/patch.nix # Nix file for patching css
     ../../themes # Import theme modifications 
-  ];  
+  ];
+
   options.theme = {
     wallpaper = mkOption {
       type = lib.types.path;
@@ -24,7 +23,7 @@ in
     zenbones.enable = mkEnableOption "Enable the zenbones theme using stylix.";
   };
 
-  config = {
+  config = mkIf {
     # Default theme settings: applicable to all themes
     stylix.autoEnable = true;
     stylix.image = cfg.wallpaper;
