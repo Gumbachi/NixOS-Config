@@ -10,7 +10,8 @@
   theme = {
     # wallpaper = ../images/wallpapers/monokai.png;
     # monokai.enable = true;
-    catppuccin-mocha.enable = true;
+    sunset.enable = true;
+    # catppuccin-mocha.enable = true;
   };
 
   boot = {
