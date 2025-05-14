@@ -18,7 +18,10 @@ in
     };
     monokai.enable = mkEnableOption "Enable the monokai theme using stylix.";
     catppuccin-mocha.enable = mkEnableOption "Enable the catppuccin mocha theme using stylix.";
+    catppuccin-latte.enable = mkEnableOption "Enable the catppuccin latte theme using stylix.";
     sunset.enable = mkEnableOption "Enable my custom sunset theme using stylix.";
+    woodland.enable = mkEnableOption "Enable the woodland theme using stylix.";
+    zenbones.enable = mkEnableOption "Enable the zenbones theme using stylix.";
   };
 
   config = {

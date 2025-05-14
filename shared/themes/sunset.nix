@@ -28,10 +28,10 @@ in
         base07 = "D89AF6"; # lavender
         base08 = "DF2A4B"; # red
         base09 = "B847EF"; # mauve
-        base0A = "FCB421"; # yellow
+        base0A = "F76028"; # orange
         base0B = "46FB64"; # green
         base0C = "94e2d5"; # teal
-        base0D = "F76028"; # orange # Primary Accent
+        base0D = "FCB421"; # yellow # Primary Accent
         base0E = "46BFFB"; # blue # Alternate Accent
         base0F = "F27499"; # flamingo
       };

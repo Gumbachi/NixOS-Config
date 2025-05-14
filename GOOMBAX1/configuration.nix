@@ -10,7 +10,10 @@
   theme = {
     # wallpaper = ../images/wallpapers/monokai.png;
     # monokai.enable = true;
-    sunset.enable = true;
+    # sunset.enable = true;
+    catppuccin-latte.enable = true;
+    # woodland.enable = true;
+    # zenbones.enable = true;
     # catppuccin-mocha.enable = true;
   };
 
