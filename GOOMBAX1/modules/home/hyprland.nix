@@ -15,7 +15,7 @@
       fileManager = "${terminal} yazi";
       menu = ''fuzzel --launch-prefix="uwsm app -- "'';
       editConfig = "${terminal} $EDITOR $CONFIG";
-      screenshot = "grimblast copy area";
+      screenshot = "uwsm app -- hyprshot -m region --clipboard-only";
       browser = "uwsm app -- floorp";
       clipboard = "uwsm app -- clipse -listen";
       systemMonitor = "${terminal} btop";

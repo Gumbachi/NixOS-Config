@@ -90,9 +90,6 @@ in {
 
       # Vim Settings
       programs.nvf.settings.vim = {
-        useSystemClipboard = true;
-
-        # Plugins
         statusline.lualine.enable = true;
         binds.whichKey.enable = true;
         ui.colorizer.enable = true;
@@ -145,6 +142,11 @@ in {
             patterns = [".git" "Makefile" "package.json" "flake.nix" "cargo.toml"];
           };
         };
+      };
+
+
+      programs.nvf.settings.vim.clipboard = {
+        enable = true;
       };
 
       programs.nvf.settings.vim.lsp = {

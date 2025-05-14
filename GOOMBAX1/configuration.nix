@@ -12,7 +12,8 @@
     # monokai.enable = true;
     # sunset.enable = true;
     # catppuccin-latte.enable = true;
-    woodland.enable = true;
+    # woodland.enable = true;
+    gruvbox-light.enable = true;
     # zenbones.enable = true;
     # catppuccin-mocha.enable = true;
   };

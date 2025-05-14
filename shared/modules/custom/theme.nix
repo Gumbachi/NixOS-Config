@@ -20,10 +20,11 @@ in
     catppuccin-latte.enable = mkEnableOption "Enable the catppuccin latte theme using stylix.";
     sunset.enable = mkEnableOption "Enable my custom sunset theme using stylix.";
     woodland.enable = mkEnableOption "Enable the woodland theme using stylix.";
+    gruvbox-light.enable = mkEnableOption "Enable the gruvbox-light-hard theme using stylix.";
     zenbones.enable = mkEnableOption "Enable the zenbones theme using stylix.";
   };
 
-  config = mkIf {
+  config = {
     # Default theme settings: applicable to all themes
     stylix.autoEnable = true;
     stylix.image = cfg.wallpaper;
