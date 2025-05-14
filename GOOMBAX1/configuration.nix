@@ -9,8 +9,8 @@
   # Set the system theme with stylix
   theme = {
     # wallpaper = ../images/wallpapers/monokai.png;
-    monokai.enable = true;
-    # catppuccin-mocha.enable = true;
+    # monokai.enable = true;
+    catppuccin-mocha.enable = true;
   };
 
   boot = {
