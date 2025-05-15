@@ -16,6 +16,7 @@
     ./rofi.nix
     ./starship.nix
     ./vesktop.nix
+    ./wlsunset.nix
     ./yazi.nix
   ];
 

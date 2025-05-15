@@ -14,7 +14,7 @@ in
         scheme = "Steam";
 
         # Background colors
-        base00 = "#24282F"; # default background
+        base00 = "#2A2D34"; # default background
         base01 = "#171D25"; # status bar color
         base02 = "#3E4E69"; # selection background
         base03 = "#60686E"; # comments/invisibles
@@ -27,17 +27,17 @@ in
 
         # Main Colors
         base08 = "#DF2A4B"; # red
-        base09 = "#C37F00"; # peach
+        base09 = "#1999FF"; # peach
 
-        base0A = "#FFC82C"; # yellow
-        base0B = "#59BF40"; # green
+        base0A = "#1999FF"; # yellow
+        base0B = "#1999FF"; # green
 
-        base0C = "#94e2d5"; # teal
+        base0C = "#4CB0FF"; # teal
         base0D = "#1A9FFF"; # blue # Primary Accent
 
-        base0E = "#AD66BB"; # mauve # Alternate Accent
+        base0E = "#1A9FFF"; # mauve # Alternate Accent
 
-        base0F = "#F27499"; # flamingo
+        base0F = "#1A9FFF"; # flamingo
       };
       polarity = "dark"; 
     };
