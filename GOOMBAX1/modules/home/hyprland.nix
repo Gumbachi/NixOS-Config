@@ -25,8 +25,8 @@
 
       monitor = [
         "DP-1, 3840x2160@240, 2880x400, 1.5"
-        "DP-2, 2560x1440@144, 1440x0, 1, transform, 1"
-        "DP-3, 2560x1440@144, 0x0, 1, transform, 1" 
+        "DP-2, 2560x1440@120, 1440x0, 1, transform, 1"
+        "DP-3, 2560x1440@120, 0x0, 1, transform, 1" 
       ];
 
       exec-once = [
@@ -117,6 +117,7 @@
       bind = [
         "${mainMod}, Q, exec, ${terminal}"
         "${mainMod}, C, killactive,"
+        "${mainMod} SHIFT, C, exec, hyprpicker | wl-copy"
         "${mainMod} SHIFT, M, exec, pkill Hyprland,"
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod}, V, togglefloating,"

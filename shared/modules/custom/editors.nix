@@ -92,11 +92,18 @@ in {
       programs.nvf.settings.vim = {
         statusline.lualine.enable = true;
         binds.whichKey.enable = true;
-        ui.colorizer.enable = true;
         visuals.rainbow-delimiters.enable = true;
         dashboard.dashboard-nvim.enable = true;
         telescope.enable = true;
         treesitter.enable = true;
+
+
+        ui.colorizer = {
+          enable = true;
+          setupOpts.filetypes = {
+            "*" = { }; # Enable on all file types
+          };
+        };
 
         autocomplete.nvim-cmp = {
           enable = true;

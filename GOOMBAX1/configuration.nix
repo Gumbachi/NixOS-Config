@@ -13,7 +13,8 @@
     # sunset.enable = true;
     # catppuccin-latte.enable = true;
     # woodland.enable = true;
-    gruvbox-light.enable = true;
+    steam.enable = true;
+    # gruvbox-light.enable = true;
     # zenbones.enable = true;
     # catppuccin-mocha.enable = true;
   };

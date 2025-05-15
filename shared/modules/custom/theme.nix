@@ -22,6 +22,7 @@ in
     woodland.enable = mkEnableOption "Enable the woodland theme using stylix.";
     gruvbox-light.enable = mkEnableOption "Enable the gruvbox-light-hard theme using stylix.";
     zenbones.enable = mkEnableOption "Enable the zenbones theme using stylix.";
+    steam.enable = mkEnableOption "Enable a theme meant to replicate steams UI since steam doesnt play nice.";
   };
 
   config = {
