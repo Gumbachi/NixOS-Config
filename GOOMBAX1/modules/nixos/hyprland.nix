@@ -17,15 +17,12 @@
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
     # hyprpaper # Wallpaper Utility
-    # waypaper # Wallpaper GUI
     imv # Image Viewer
     kdePackages.gwenview # Simple Image Editor
     pavucontrol # Sound Settings
-    # grimblast # Screenshots
     hyprshot
 
     nwg-look # GTK Style GUI
-    kdePackages.qt6ct # QT Style GUI
   ];
 
   # Greetd: Autostart Hyprland on boot

@@ -10,10 +10,8 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
-    ./hyprsunset.nix
     ./kitty.nix
     ./mangohud.nix
-    ./rofi.nix
     ./starship.nix
     ./vesktop.nix
     ./wlsunset.nix

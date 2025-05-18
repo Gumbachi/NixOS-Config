@@ -44,8 +44,6 @@
       SystemMaxFileSize=50M
     '';
 
-    preload.enable = true; # load firefox for faster launch times
-
   };
 
   # Syncthing
