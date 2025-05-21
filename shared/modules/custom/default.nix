@@ -8,6 +8,7 @@
     ./diagnostics.nix
     ./documentation.nix
     ./editors.nix
+    ./email.nix
     ./emulation.nix
     ./gaming.nix
     ./hardware.nix

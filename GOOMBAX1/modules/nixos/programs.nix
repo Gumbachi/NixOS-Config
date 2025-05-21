@@ -20,6 +20,7 @@
     wayland.windowManager.hyprland.enable = true;
     programs.hyprlock.enable = true;
     programs.yazi.enable = true;
+    programs.vesktop.enable = true;
   }];
 
   cli-tools = {
@@ -38,6 +39,11 @@
     mangohud.enable = true;
     protonup.enable = true;
     minecraft.enable = true;
+  };
+
+  email = {
+    thunderbird.enable = true;
+    aerc.enable = true;
   };
 
   development = {
@@ -60,7 +66,6 @@
     };
     java.enable = true;
     thunar.enable = false;
-    thunderbird.enable = true;
   };
 
   diagnostics = {
