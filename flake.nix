@@ -27,9 +27,14 @@
     # X/S = Desktop/Laptop, Server
     # Number = ID
 
-    nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.GOOMBAX1 = let 
+      user = "jared";
+    in nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { 
+        inherit inputs;
+        inherit user;
+      };
       modules = [
         ./GOOMBAX1/configuration.nix # Main Config
 
@@ -40,7 +45,7 @@
             useUserPackages = true;
             backupFileExtension = "hmbak";
           };
-          home-manager.users.jared.imports = [ ./GOOMBAX1/home.nix ];
+          home-manager.users.${user}.imports = [ ./GOOMBAX1/home.nix ];
         }
 
         # Hardware Support

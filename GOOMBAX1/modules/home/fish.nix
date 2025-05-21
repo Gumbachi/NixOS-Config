@@ -1,5 +1,6 @@
 { pkgs, config, ... }: {
 
+  # TODO: Conditional import this
   home.packages = with pkgs.fishPlugins; [
     transient-fish
     sponge
@@ -9,7 +10,6 @@
   home.shell.enableFishIntegration = true;
 
   programs.fish = {
-    enable = true;
     shellAliases = {
       edit = "$EDITOR $CONFIG";
       rebuild = "nh os switch";

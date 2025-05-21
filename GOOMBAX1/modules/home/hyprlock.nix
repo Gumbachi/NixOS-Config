@@ -8,15 +8,13 @@ in
 {
 
   programs.hyprlock = {
-    enable = true;
     settings = {
-      # GENERAL
+
       general = {
         hide_cursor = true;
         ignore_empty_input = true;
       };
 
-      # BACKGROUND
       background = {
         blur_passes = 2;
       };
@@ -73,7 +71,6 @@ in
       };
 
 
-      # INPUT FIELD
       input-field = {
         monitor = "${monitor}";
         size = "500, 100";

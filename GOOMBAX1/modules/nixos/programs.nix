@@ -14,10 +14,18 @@
     r2modman # Thunderstore mod Manager
   ];
 
-  terminal = {
-    dropInUpgrades.enable = true; # eza, ripgrep, bat, etc..
-    ricing.enable = true; # fastfetch, cava, pipes, cbonsai
-    systemctl-tui.enable = true;
+  # Home manager programs
+  home-manager.sharedModules = [{
+    programs.fuzzel.enable = true;
+    wayland.windowManager.hyprland.enable = true;
+    programs.hyprlock.enable = true;
+    programs.yazi.enable = true;
+  }];
+
+  cli-tools = {
+    upgrades.enable = true; # Upgrade common tools like ls,cat,etc
+    ricing.enable = true; # Enable for fun style tools like cava
+    starship.enable = true;
     unar.enable = true; # Zip archives
     unrar.enable = true; # Rar archives
   };
@@ -39,6 +47,11 @@
     just.enable = true;
   };
 
+  browsers = {
+    floorp.enable = true;
+    ladybird.enable = false;
+  };
+
   programs = {
     nix-ld.enable = true;
     obs-studio = {
@@ -48,6 +61,12 @@
     java.enable = true;
     thunar.enable = false;
     thunderbird.enable = true;
+  };
+
+  diagnostics = {
+    lact.enable = true;
+    btop.enable = true;
+    systemctl-tui.enable = true;
   };
 
   emulation = {

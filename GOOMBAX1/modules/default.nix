@@ -1,4 +1,4 @@
-{ ... }: {
+{ user, ... }: {
 
   # This file mostly just serves as a shortcut to keep imports looking clean in configuration.nix
 
@@ -6,6 +6,6 @@
   imports = [ ./nixos ];
 
   # Import all home manager related submodules
-  home-manager.sharedModules = [ ./home ];
+  home-manager.users.${user}.imports = [ ./home ];
 
 }

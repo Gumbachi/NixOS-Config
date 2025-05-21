@@ -9,6 +9,7 @@ in {
     floorp.enable = mkEnableOption "Enable floorp browser.";
     zen.enable = mkEnableOption "Enable zen browser.";
     chromium.enable = mkEnableOption "Enable chromium browser.";
+    ladybird.enable = mkEnableOption "Enable the ladybird browser.";
   };
 
   config = mkMerge [
@@ -30,6 +31,10 @@ in {
 
     (mkIf cfg.zen.enable {
       environment.systemPackages = [ inputs.zen-browser.packages.${pkgs.system}.default ];
+    })
+
+    (mkIf cfg.ladybird.enable {
+      programs.ladybird.enable = true;
     })
 
   ];

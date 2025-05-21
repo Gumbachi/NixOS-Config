@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ user, pkgs, config, lib, ... }:
 
 with lib;
 
@@ -18,12 +18,13 @@ in
 
     (mkIf cfg.android.enable {
       programs.adb.enable = true;
-      users.users.jared.extraGroups = [ "adbusers" "kvm" ];
+      users.users.${user}.extraGroups = [ "adbusers" "kvm" ];
       environment.systemPackages = [ pkgs.android-studio ];
     })
 
     (mkIf cfg.devenv.enable {
       environment.systemPackages = [ pkgs.devenv ];
+      nix.extraOptions = ''trusted-users = root ${user}''; # Devenv shells
     })
 
     {

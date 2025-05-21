@@ -1,7 +1,6 @@
 {pkgs, ...}: {
 
   programs.yazi = {
-    enable = true;
     settings = {
       yazi = {
         manager.show_hidden = false;

@@ -1,18 +1,20 @@
 { ... }: {
 
   imports = [
-    ./virtualisation.nix
-    ./documentation.nix
+    ./boot.nix
+    ./browsers.nix
+    ./cli-tools.nix
     ./development.nix
+    ./diagnostics.nix
+    ./documentation.nix
     ./editors.nix
+    ./emulation.nix
     ./gaming.nix
     ./hardware.nix
-    ./emulation.nix
+    ./networking.nix
     ./terminal.nix
     ./theme.nix
-    ./diagnostics.nix
-    ./boot.nix
-    ./networking.nix
+    ./virtualisation.nix
   ];
 
 }

@@ -1,7 +1,6 @@
 { lib, ... }: {
 
   programs.mangohud = {
-    enable = true;
     settings = {
       position = "top-right";
       frametime = 0;

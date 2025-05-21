@@ -1,12 +1,11 @@
-{ ... }: {
+{ config, ... }: {
 
   # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
   
   # Just for insurance to not brick the system
-  programs.kitty.enable = true;
+  programs.kitty.enable = config.wayland.windowManager.hyprland.enable;
   
   wayland.windowManager.hyprland = {
-    enable = true;
     systemd.enable = false; # Disabled for UWSM compatibility
     settings = let
       mainMod = "SUPER";
@@ -116,6 +115,7 @@
 
       bind = [
         "${mainMod}, Q, exec, ${terminal}"
+        "${mainMod}, T, exec, ${terminal}"
         "${mainMod}, C, killactive,"
         "${mainMod} SHIFT, C, exec, hyprpicker | wl-copy"
         "${mainMod} SHIFT, M, exec, pkill Hyprland,"

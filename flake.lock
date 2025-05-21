@@ -1076,11 +1076,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1747285046,
-        "narHash": "sha256-Gc6Kwd8HpYJNTWq//jOr6Vwp+qMU4v27pCJgSBw9PxU=",
+        "lastModified": 1747627931,
+        "narHash": "sha256-ucltbc48UhZZKv/ycKpGsrOGt4RVw/qli+V5kAkqa+8=",
         "owner": "Gumbachi",
         "repo": "Overway",
-        "rev": "5022397b829ef55b4d994f85d7cc5956fbd73460",
+        "rev": "5f813a2dd29e4ce02ab7e62821f18d0c2481d5a4",
         "type": "github"
       },
       "original": {
