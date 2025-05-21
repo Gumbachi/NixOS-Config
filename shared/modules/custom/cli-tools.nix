@@ -61,7 +61,7 @@ in {
 
   config = mkMerge [
 
-    (mkIf cfg.dropInUpgrades.enable {
+    (mkIf cfg.upgrades.enable {
       terminal.eza.enable = true;
       terminal.zoxide.enable = true;
       terminal.ripgrep.enable = true;
