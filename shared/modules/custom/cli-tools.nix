@@ -1,10 +1,11 @@
 { pkgs, lib, config,  ... }:
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
-  cfg = config.cli-tools;
+  module = "cli-tools";
+  cfg = config.${module};
 in {
 
-  options.cli-tools = {
+  options.${module} = {
     
     upgrades.enable = mkEnableOption ''
       Shorcut options to enable all drop in replacements.
@@ -47,7 +48,7 @@ in {
     '';
     fastfetch.enable = mkEnableOption "Enable fastfetch for system info.";
     cava.enable = mkEnableOption "Enable cava for audio visualisation.";
-    pipes.enable = mkEnableOption "Enable pipes, a terminal screensave.";
+    pipes.enable = mkEnableOption "Enable pipes, a terminal screensaver.";
     cbonsai.enable = mkEnableOption "Enable cbonsai, to grow an ascii tree.";
 
     starship.enable = mkEnableOption "Enable starship for shell prompt customization.";
@@ -62,16 +63,18 @@ in {
   config = mkMerge [
 
     (mkIf cfg.upgrades.enable {
-      terminal.eza.enable = true;
-      terminal.zoxide.enable = true;
-      terminal.ripgrep.enable = true;
-      terminal.fd.enable = true;
-      terminal.fzf.enable = true;
-      terminal.dysk.enable = true;
-      terminal.most.enable = true;
-      terminal.bat = {
-        enable = true;
-        extras.enable = true;
+      ${module} = { 
+        eza.enable = true;
+        zoxide.enable = true;
+        ripgrep.enable = true;
+        fd.enable = true;
+        fzf.enable = true;
+        dysk.enable = true;
+        most.enable = true;
+        bat = {
+          enable = true;
+          extras.enable = true;
+        };
       };
 
       # Fish Aliases
@@ -147,10 +150,12 @@ in {
 
     # Style tools
     (mkIf cfg.ricing.enable {
-      terminal.fastfetch.enable = true;
-      terminal.cava.enable = true;
-      terminal.pipes.enable = true;
-      terminal.cbonsai.enable = true;
+      ${module} = {
+        fastfetch.enable = true;
+        cava.enable = true;
+        pipes.enable = true;
+        cbonsai.enable = true;
+      };
     })
 
     (mkIf cfg.fastfetch.enable {

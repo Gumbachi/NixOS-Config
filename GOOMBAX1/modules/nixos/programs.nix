@@ -84,6 +84,7 @@
       enableVirtualCamera = true;
     };
     java.enable = true;
+    nm-applet.enable = true;
   };
 
   diagnostics = {

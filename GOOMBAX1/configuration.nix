@@ -28,8 +28,11 @@
 
   networking = {
     hostName = "GOOMBAX1";
-    networkmanager.enable = true;
     firewall.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = [ pkgs.networkmanager-openvpn ];
+    };
   };
 
   environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";

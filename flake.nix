@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
+    agenix.url = "github:ryantm/agenix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -55,6 +56,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
+        inputs.agenix.nixosModules.deafult
 
       ];
     };
