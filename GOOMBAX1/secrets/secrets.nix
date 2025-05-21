@@ -3,6 +3,5 @@ let
   x1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPUzNdd3sIqC2EziqUGF+TYhUI7tOFftElDn8nWAp4uF";
 in
 {
-  "pia.user.age".publicKeys = [ jared x1 ];
-  "pia.pass.age".publicKeys = [ jared x1 ];
+  "pia.age".publicKeys = [ jared x1 ];
 }
