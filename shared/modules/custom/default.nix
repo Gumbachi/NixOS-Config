@@ -10,10 +10,12 @@
     ./editors.nix
     ./email.nix
     ./emulation.nix
+    ./file-managers.nix
     ./gaming.nix
     ./hardware.nix
     ./networking.nix
-    ./terminal.nix
+    ./shells.nix
+    ./terminals.nix
     ./theme.nix
     ./virtualisation.nix
   ];

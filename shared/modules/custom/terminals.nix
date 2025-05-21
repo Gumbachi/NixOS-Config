@@ -1,10 +1,14 @@
 { pkgs, lib, config,  ... }:
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
-  cfg = config.terminal;
+  cfg = config.terminals;
 in {
 
-  options.terminal = {
+  options.terminals = {
+
+    kitty.enable = mkEnableOption "Enable kitty terminal";
+    wezterm.enable = mkEnableOption "Enable wezterm terminal";
+    alacritty.enable = mkEnableOption "Enable alacritty terminal";
     
     dropInUpgrades.enable = mkEnableOption ''
       Shorcut options to enable all drop in replacements.
@@ -61,34 +65,24 @@ in {
 
   config = mkMerge [
 
-    (mkIf cfg.dropInUpgrades.enable {
-      terminal.eza.enable = true;
-      terminal.zoxide.enable = true;
-      terminal.ripgrep.enable = true;
-      terminal.fd.enable = true;
-      terminal.fzf.enable = true;
-      terminal.dysk.enable = true;
-      terminal.most.enable = true;
-      terminal.bat = {
-        enable = true;
-        extras.enable = true;
-      };
-
-      # Fish Aliases
+    (mkIf cfg.kitty.enable {
+      environment.systemPackages = [ pkgs.kitty ];
       home-manager.sharedModules = [{
-        programs.fish.shellAliases = {
-          # ls = "eza" # This one is covered by the eza fish integration in home manager
-          cat = "bat";
-          # cd = "z"; # Disabled because z is easier than cd anyways
-          # grep = "rg"; # Similar as above ^^^^^^^^^^^^^^^^^^^^^^^^^
-          find = "fd";
-          df = "dysk -f 'mp <> /boot'";
-          more = "most";
-          less = "most";
-          man = "batman";
-          diff = "batdiff";
-          watch = "batwatch --color -x";
-        };
+        programs.kitty.enable = true;
+      }];
+    })
+
+    (mkIf cfg.wezterm.enable {
+      environment.systemPackages = [ pkgs.wezterm ];
+      home-manager.sharedModules = [{
+        programs.wezterm.enable = true;
+      }];
+    })
+
+    (mkIf cfg.alacritty.enable {
+      environment.systemPackages = [ pkgs.alacritty ];
+      home-manager.sharedModules = [{
+        programs.alacritty.enable = true;
       }];
     })
 

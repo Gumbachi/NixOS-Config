@@ -21,7 +21,26 @@
     programs.hyprlock.enable = true;
     programs.yazi.enable = true;
     programs.vesktop.enable = true;
+    programs.mpv.enable = true;
+
+    programs.nh = {
+      enable = true;
+      flake = "/home/jared/NixOS-Config";
+    };
   }];
+
+  terminals.kitty.enable = true;
+
+  shells = {
+    default = pkgs.fish;
+    fish.enable = true;
+    nushell.enable = true;
+  };
+
+  file-managers = {
+    yazi.enable = true;
+    thunar.enable = false;
+  };
 
   cli-tools = {
     upgrades.enable = true; # Upgrade common tools like ls,cat,etc
@@ -65,7 +84,6 @@
       enableVirtualCamera = true;
     };
     java.enable = true;
-    thunar.enable = false;
   };
 
   diagnostics = {

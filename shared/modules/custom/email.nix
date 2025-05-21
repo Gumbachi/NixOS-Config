@@ -12,7 +12,8 @@ in
   config = mkMerge [
 
     (mkIf cfg.thunderbird.enable {
-      home-manager.sharedModules = [{ programs.thunderbird.enable = true; }];
+      programs.thunderbird.enable = true;
+      # home-manager.sharedModules = [{ programs.thunderbird.enable = true; }];
     })
 
     # Cheat

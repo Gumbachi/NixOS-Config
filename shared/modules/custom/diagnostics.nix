@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ user, config, lib, pkgs, ... }:
 let
   inherit (lib) mkEnableOption mkMerge mkIf;
   cfg = config.diagnostics;
@@ -9,6 +9,7 @@ in
     lact.enable = mkEnableOption "Enabled lact and the daemon.";
     btop.enable = mkEnableOption "Enable btop system monitor.";
     systemctl-tui.enable = mkEnableOption "Enable TUI for systemctl";
+    networking-tools.enable = mkEnableOption "Enable wireshark, dig, traceroute.";
   };
 
   config = mkMerge [
@@ -26,6 +27,13 @@ in
 
     (mkIf cfg.systemctl-tui.enable {
       environment.systemPackages = [pkgs.systemctl-tui];
+    })
+
+    (mkIf cfg.networking-tools.enable {
+      programs.traceroute.enable = true;
+      environment.systemPackages = [ pkgs.dig ];
+      programs.wireshark.enable = true; # wireshark available as tshark
+      users.users.${user}.extraGroups = [ "wireshark" ];
     })
 
   ];

@@ -7,15 +7,6 @@ in
   home.username = "jared";
   home.homeDirectory = "/home/jared";
 
-  services.hyprpaper.enable = true;
-  services.hyprpolkitagent.enable = true;
-  programs.mpv.enable = true;
-
-  programs.nh = {
-    enable = true;
-    flake = "/home/jared/NixOS-Config";
-  };
-
   ################
   ### SYMLINKS ###
   ################

@@ -46,6 +46,14 @@
 
   };
 
+  # Home manager programs
+  home-manager.sharedModules = [{
+    services = {
+      hyprpaper.enable = true;
+      hyprpolkitagent.enable = true;
+    };
+  }];
+
   # Syncthing
   networking.firewall.allowedTCPPorts = [ 8384 ];
 

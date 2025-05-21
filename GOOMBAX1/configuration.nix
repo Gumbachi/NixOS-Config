@@ -2,7 +2,7 @@
 
   imports = [
     ./hardware-configuration.nix # Mandatory hardware config
-    ../shared/modules/custom # Custom Nix Options
+    ../shared/modules/custom # Custom nix option definitions. Does not install anything
     ./modules # Modules declaring the system layout
   ];
 
@@ -32,14 +32,10 @@
     firewall.enable = true;
   };
 
-  users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
-
   environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
 
-
-  programs.virt-manager.enable = true;
   virtualisation = {
+    virt-manager.enable = true;
     docker = {
       enable = false;
       addUserToGroup = true;
