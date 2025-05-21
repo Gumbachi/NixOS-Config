@@ -56,7 +56,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
-        inputs.agenix.nixosModules.deafult
+        inputs.agenix.nixosModules.default
 
       ];
     };

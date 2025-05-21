@@ -4,6 +4,8 @@
     inputs.overway.packages.${system}.default
     inputs.astal.packages.${system}.default
 
+    inputs.agenix.packages.${system}.default
+
     youtube-music
 
     element-desktop
