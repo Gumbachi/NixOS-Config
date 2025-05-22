@@ -66,30 +66,37 @@
       ];
     };
 
-    nixosConfigurations.GOOMBAS2 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.GOOMBAS2 = let 
+      user = "jared";
+    in nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { 
+        inherit inputs;
+        inherit user;
+      };
       modules = [
         ./GOOMBAS2/configuration.nix # Main Config
-        inputs.nvf.nixosModules.default # Neovim
-        inputs.catppuccin.nixosModules.catppuccin # Catppuccin
+
+        # Home Manager
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "hmbak";
+          };
+          home-manager.users.${user}.imports = [ ./GOOMBAS2/home.nix ];
+        }
 
         # Hardware Support
         inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
         # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
 
-        # Home Manager
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "hmbak";
-          };
+        # Third Party
+        inputs.nvf.nixosModules.default # Neovim
+        inputs.catppuccin.nixosModules.catppuccin # Catppuccin
+        inputs.stylix.nixosModules.stylix
 
-          home-manager.users.jared.imports = [ ./GOOMBAS2/home.nix ];
-        }
       ];
     };
 

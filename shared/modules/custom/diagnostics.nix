@@ -10,6 +10,7 @@ in
     btop.enable = mkEnableOption "Enable btop system monitor.";
     systemctl-tui.enable = mkEnableOption "Enable TUI for systemctl";
     networking-tools.enable = mkEnableOption "Enable wireshark, dig, traceroute.";
+    lm-sensors.enable = mkEnableOption "install lm-sensors";
   };
 
   config = mkMerge [
@@ -34,6 +35,10 @@ in
       environment.systemPackages = [ pkgs.dig ];
       programs.wireshark.enable = true; # wireshark available as tshark
       users.users.${user}.extraGroups = [ "wireshark" ];
+    })
+
+    (mkIf cfg.lm-sensors.enable {
+      environment.systemPackages = [ pkgs.lm_sensors ];
     })
 
   ];

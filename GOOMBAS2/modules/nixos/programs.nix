@@ -1,18 +1,7 @@
 { pkgs, ... }: {
   
-  programs.nix-ld.enable = true;
-  programs.tmux.enable = true;
-
   environment.systemPackages = with pkgs; [
-    kitty # Terminal
-
-    fastfetch # System Info
-    tldr # Better Command Help
-    unzip # Unzipper
     speedtest-cli # Network Speed CLI
-    systemctl-tui # Systemctl UI
-
-    helix # Text Editor
 
     # DV recording Tools
     dvgrab
@@ -25,27 +14,67 @@
     openssl
     dnsutils
 
-    # jdk8 # Java 8
-
     wget # Web Fetch
-    ripgrep # Fast search
-    fd # Another fast search
-    eza # better ls
     
-    lm_sensors # Sensors
-    btop # System Monitor
-
-    # starship # Terminal Styling
-    # yazi # Terminal File Manager
-
     yt-dlp # YoutubeDL
 
     nvtopPackages.full # Nvidia Monitoring
 
     jdk # Java 21
     jdk8 # Java 8
-
  
   ];
+
+   
+  terminals.kitty.enable = true;
+
+  shells = {
+    default = pkgs.fish;
+    fish.enable = true;
+  };
+
+  file-managers.yazi.enable = true;
+
+  documentation = {
+    man.enable = true;
+    tldr.enable = true;
+  };
+
+  cli-tools = {
+    upgrades.enable = true; # Upgrade common tools like ls,cat,etc
+    starship.enable = true;
+    fastfetch.enable = true;
+    unar.enable = true; # Zip archives
+    unrar.enable = true; # Rar archives
+  };
+
+  development = {
+    devenv.enable = true;
+    direnv.enable = true;
+    just.enable = true;
+  };
+
+  programs = {
+    nix-ld.enable = true;
+  };
+
+  diagnostics = {
+    btop.enable = true;
+    systemctl-tui.enable = true;
+    networking-tools.enable = true;
+    lm-sensors.enable = true;
+  };
+
+  editors.text.nvf = {
+    enable = true;
+    setDefault = true;
+    languages = {
+      nix = {
+        enable = true;
+        format.enable = false;
+        lsp.server = "nixd";
+      };
+    };
+  };
 
 }

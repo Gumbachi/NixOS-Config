@@ -1,40 +1,65 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs, config, ... }: let
   modulePath = ./modules/nixos;
   sharedModulePath = ../shared/modules;
 in {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-
-    # System Specific
-    (modulePath + /networking.nix)
-    (modulePath + /boot.nix)
-    (modulePath + /programs.nix)
-    (modulePath + /services.nix)
-    (modulePath + /env.nix)
-
-    # Server stuff
-    (modulePath + /caddy.nix) # Reverse Proxy Server
-    (modulePath + /adguardhome.nix) # Adblocking
-    (modulePath + /jellyfin.nix) # Media Streaming / Requesting
-    (modulePath + /servarr.nix) # Media Streaming / Requesting
-
-    # Dedicated Services
-    (modulePath + /minecraft.nix)
-    # (modulePath + /mullvad.nix)
-    # (modulePath + /deluge.nix)
-
-    # Shared - The same across systems
-    (sharedModulePath + /nvf.nix)
-    (sharedModulePath + /fish.nix)
-    (sharedModulePath + /starship.nix)
-    (sharedModulePath + /yazi.nix)
-    (sharedModulePath + /docker.nix)
+    ./hardware-configuration.nix # Hardware config
+    ../shared/modules/custom # Custom nix options. Does not install anything
+    ./modules # System Config
   ];
+
+  virtualisation = {
+    docker = {
+      enable = true;
+      addUserToGroup = true;
+    };
+  };
+
+  networking = {
+    hostName = "GOOMBAS2";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 
+        8123 # No idead
+        43002 # Sky Factory
+        22000 # Syncthing
+      ];
+      allowedUDPPorts = [ 
+        8123 # No clue
+        43002 # Sky factory
+        22000 21027 # Syncthing
+      ];
+    };
+  };
+
+  environment.sessionVariables = {
+    CONFIG = "/home/jared/NixOS-Config";
+    EDITOR="nvim";
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "btop";
+        user = "jared";
+      };
+      default_session = initial_session;
+    };
+  };
+
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+
+    swraid = {
+      enable = true;
+      mdadmConf = "MAILADDR mdadm@gumbachi.com";
+    };
+
+    kernelParams = [ "video=DP-1:1024x1280@60,rotate=90" ];
+  };
 
   boot.initrd.luks.mitigateDMAAttacks = false;
 
@@ -42,11 +67,12 @@ in {
 
   services.getty.autologinUser = "jared";
 
-  catppuccin.enable = true;
-
   services.xserver.videoDrivers = ["nvidia"];
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      extraPackages = [ pkgs.nvtopPackages.nvidia ];
+    };
     nvidia-container-toolkit.enable = true;
     nvidia = {
       modesetting.enable = true;
@@ -57,21 +83,8 @@ in {
   };
 
   time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   fileSystems."/home/jared/C" = {
     device = "/dev/disk/by-uuid/928B-0238";
@@ -79,7 +92,6 @@ in {
     options = ["users" "nofail"];
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’. I will.
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
