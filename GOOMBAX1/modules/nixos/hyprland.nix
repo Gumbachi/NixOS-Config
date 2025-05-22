@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ...}: {
+{ ... }: {
 
   programs.hyprland = {
     enable = true;
@@ -10,19 +10,6 @@
     MOZ_ENABLE_WAYLAND = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
   };
-
-  ### Hyprland: Necessary Programs ###
-  environment.systemPackages = with pkgs; [
-    clipse # Clipboard Manager
-    wl-clipboard # Clipboard backend
-    hyprpicker # Color Picker
-    # hyprpaper # Wallpaper Utility
-    kdePackages.gwenview # Simple Image Editor
-    pavucontrol # Sound Settings
-    hyprshot
-
-    nwg-look # GTK Style GUI
-  ];
 
   # Greetd: Autostart Hyprland on boot
   services.greetd = let

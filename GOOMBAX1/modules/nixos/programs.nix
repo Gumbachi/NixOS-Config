@@ -8,6 +8,13 @@
 
     youtube-music
     # r2modman # Thunderstore mod Manager
+
+    clipse # Clipboard Manager
+    wl-clipboard # Clipboard backend
+    hyprpicker # Color Picker
+    pavucontrol # Sound Settings
+    hyprshot
+    nwg-look # GTK Style GUI
   ];
 
   # Home manager programs
