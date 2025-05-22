@@ -7,13 +7,7 @@
     inputs.agenix.packages.${system}.default
 
     youtube-music
-
-    element-desktop
-
-    # Make an option for video tools
-    vlc # Video Player
-
-    r2modman # Thunderstore mod Manager
+    # r2modman # Thunderstore mod Manager
   ];
 
   # Home manager programs
@@ -21,9 +15,6 @@
     programs.fuzzel.enable = true;
     wayland.windowManager.hyprland.enable = true;
     programs.hyprlock.enable = true;
-    programs.yazi.enable = true;
-    programs.vesktop.enable = true;
-    programs.mpv.enable = true;
 
     programs.nh = {
       enable = true;
@@ -33,10 +24,21 @@
 
   terminals.kitty.enable = true;
 
+  viewers = {
+    qimgv.enable = true;
+    imv.enable = true;
+    mpv.enable = true;
+    vlc.enable = true;
+  };
+
+  social = {
+    vesktop.enable = true;
+  };
+
   shells = {
     default = pkgs.fish;
     fish.enable = true;
-    nushell.enable = true;
+    nushell.enable = false;
   };
 
   file-managers = {
@@ -86,7 +88,6 @@
       enableVirtualCamera = true;
     };
     java.enable = true;
-    nm-applet.enable = true;
   };
 
   diagnostics = {
@@ -97,7 +98,7 @@
 
   emulation = {
     gba.mgba.enable = true;
-    switch.ryubing.enable = true;
+    switch.ryubing.enable = false;
   };
 
   editors = {
@@ -106,12 +107,12 @@
 
     image = {
       gimp.enable = true;
-      krita.enable = true;
+      krita.enable = false;
     };
 
     video = {
-      handbrake.enable = true;
-      losslesscut.enable = true;
+      handbrake.enable = false;
+      losslesscut.enable = false;
     };
 
     text.nvf = {

@@ -20,6 +20,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pia = {
+      url = "github:Fuwn/pia.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
@@ -57,6 +61,7 @@
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
         inputs.agenix.nixosModules.default
+        inputs.pia.nixosModules."x86_64-linux".default
 
       ];
     };

@@ -17,7 +17,6 @@
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
     # hyprpaper # Wallpaper Utility
-    imv # Image Viewer
     kdePackages.gwenview # Simple Image Editor
     pavucontrol # Sound Settings
     hyprshot

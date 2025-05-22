@@ -15,8 +15,10 @@
     ./hardware.nix
     ./networking.nix
     ./shells.nix
+    ./social.nix
     ./terminals.nix
     ./theme.nix
+    ./viewers.nix
     ./virtualisation.nix
   ];
 
