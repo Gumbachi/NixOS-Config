@@ -1,6 +1,11 @@
-{ pkgs, ... }: {
+{ ... }: {
   
   services = {
+
+    # Printing
+    printing.enable = true;
+
+    openssh.enable = true;
 
     # Automatic firmware updater
     fwupd.enable = false;
@@ -17,6 +22,7 @@
       configDir = "/home/jared/.config/syncthing";
       user = "jared";
       group = "users";
+      openDefaultPorts = true;
     };
 
 
@@ -30,11 +36,25 @@
 
     power-profiles-daemon.enable = true;
 
-    smartd.enable = true;
+    smartd.enable = false;
+
+    # Helps speed up boot
+    journald.extraConfig = ''
+      Storage=volatile
+      SystemMaxFileSize=50M
+    '';
 
   };
 
-    # Syncthing 
-    networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-    networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  # Home manager programs
+  home-manager.sharedModules = [{
+    services = {
+      hyprpaper.enable = true;
+      hyprpolkitagent.enable = true;
+    };
+  }];
+
+  # Syncthing
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+
 }

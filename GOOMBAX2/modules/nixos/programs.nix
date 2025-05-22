@@ -1,85 +1,62 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }: {
 
-{
-  # Options
-
-  # programs.partition-manager.enable = true;
-  # programs.kdeconnect.enable = true;
-  programs.thunar.enable = true;
-  programs.dconf.enable = true;
-
-  # User Packages
-  users.users.jared.packages = with pkgs; [
-    # Command line tools
-    fastfetch
-    tldr
-    kitty
-    unzip
-    speedtest-cli
-
-    # Media/Social
-    vlc
-    youtube-music
-    vesktop
-
-    helix
-
-    # Browsers
-    floorp
-    # firefox
-
-    # Other
-    keymapp
-  ];  
-
-  # System Packages
   environment.systemPackages = with pkgs; [
-    wget
+    inputs.overway.packages.${system}.default
+    inputs.astal.packages.${system}.default
 
-    # Notifications
-    mako
-    libnotify
-    glib
+    inputs.zen-browser.packages.${system}.default # Browser
 
-    # Hyprland Stuff
-    waybar
-    rofi-wayland
-    hyprcursor
-    hyprpaper
-    hypridle # the option doesnt work
-    hyprpicker
-
-    imv # Image Viewer
-    pavucontrol # Sound Settings
-    grimblast # Screenshot Utility
-    lm_sensors # Sensors
-    btop # System Monitor
-    xorg.xeyes # Xwayland check
-    kdePackages.ark
-
-    # QT and GTK style
-    kdePackages.qtwayland
-    kdePackages.qt6ct
-    kdePackages.qtstyleplugin-kvantum
-    kdePackages.qtsvg
-    nwg-look
+    youtube-music
+    vlc # Video Player
 
     brightnessctl
 
-    starship
-    yazi
-
-    # Lanuage Servers
-    typescript-language-server # TS/JS
-    vscode-langservers-extracted # CSS/JSON/HTML
-    marksman # Markdown
-    nil # Nix
-    dockerfile-language-server-nodejs # Dockerfile
-    python312Packages.python-lsp-ruff # Python
-    python312Packages.python-lsp-server
-    rust-analyzer # Rust
-    taplo # TOML
-
+    # Make a nice little option for this
+    libreoffice # Office Software
+    hunspell # Spellcheck for libreoffice
+    hunspellDicts.en_US # US Dictionary for spellcheck
   ];
+
+  programs = {
+    nix-ld.enable = true;
+    thunar.enable = false;
+    firefox.enable = false;
+    thunderbird.enable = true;
+  };
+
+  editors = { 
+    nvf = {
+      enable = true;
+      setDefault = true;
+      languages = {
+        nix = {
+          enable = true;
+          format.enable = false;
+          lsp.server = "nixd";
+        };
+        markdown.enable = true;
+      };
+    };
+  };
+
+  terminal = {
+    dropInUpgrades.enable = true; # eza, ripgrep, bat, etc..
+    systemctl-tui.enable = true;
+    btop.enable = true;
+    unar.enable = true; # Zip archives
+    unrar.enable = true; # Rar archives
+  };
+
+  gaming = {
+    steam.enable = true;
+    mangohud.enable = true;
+    protonup.enable = true;
+  };
+
+  development = {
+    devenv.enable = true;
+    direnv.enable = true;
+    just.enable = true;
+  };
 
 }

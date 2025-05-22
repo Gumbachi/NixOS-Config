@@ -1,29 +1,64 @@
 { inputs, pkgs, ... }: {
 
-  # Pretty much just a namespace see terminal-tools.nix for options
-  terminal = {
-    eza = {
+  environment.systemPackages = with pkgs; [
+    inputs.overway.packages.${system}.default
+    inputs.astal.packages.${system}.default
+
+    inputs.agenix.packages.${system}.default
+
+    youtube-music
+    # r2modman # Thunderstore mod Manager
+
+    clipse # Clipboard Manager
+    wl-clipboard # Clipboard backend
+    hyprpicker # Color Picker
+    pavucontrol # Sound Settings
+    hyprshot
+    nwg-look # GTK Style GUI
+  ];
+
+  # Home manager programs
+  home-manager.sharedModules = [{
+    programs.fuzzel.enable = true;
+    wayland.windowManager.hyprland.enable = true;
+    programs.hyprlock.enable = true;
+
+    programs.nh = {
       enable = true;
-      createFishAlias = true;
+      flake = "/home/jared/NixOS-Config";
     };
-    bat = {
-      enable = true;
-      createFishAlias = true;
-    };
-    ripgrep = {
-      enable = true;
-      createFishAlias = true;
-    };
-    zoxide.enable = true;
-    fd.enable = true;
-    fastfetch.enable = true;
-    fzf.enable = true;
-    systemctl-tui.enable = true;
-    devenv.enable = true;
-    direnv.enable = true;
-    wget.enable = true;
-    unar.enable = true;
-    unrar.enable = true;
+  }];
+
+  terminals.kitty.enable = true;
+
+  viewers = {
+    qimgv.enable = true;
+    imv.enable = true;
+    mpv.enable = true;
+    vlc.enable = true;
+  };
+
+  social = {
+    vesktop.enable = true;
+  };
+
+  shells = {
+    default = pkgs.fish;
+    fish.enable = true;
+    nushell.enable = false;
+  };
+
+  file-managers = {
+    yazi.enable = true;
+    thunar.enable = false;
+  };
+
+  cli-tools = {
+    upgrades.enable = true; # Upgrade common tools like ls,cat,etc
+    ricing.enable = true; # Enable for fun style tools like cava
+    starship.enable = true;
+    unar.enable = true; # Zip archives
+    unrar.enable = true; # Rar archives
   };
 
   gaming = {
@@ -36,68 +71,76 @@
     minecraft.enable = true;
   };
 
-  programs.nix-ld.enable = true;
-
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
+  email = {
+    thunderbird.enable = true;
+    aerc.enable = true;
   };
 
-  programs.java.enable = true;
-  programs.thunar.enable = true;
-  # programs.firefox.enable = true;
-  programs.thunderbird.enable = true;
-  programs.wireshark.enable = true;
+  development = {
+    devenv.enable = true;
+    direnv.enable = true;
+    android.enable = false;
+    just.enable = true;
+  };
 
-  environment.systemPackages = with pkgs; [
-    inputs.overway.packages.${system}.default
-    inputs.astal.packages.${system}.default
+  browsers = {
+    floorp.enable = true;
+    ladybird.enable = false;
+  };
 
-    dotnet-sdk
+  programs = {
+    nix-ld.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+    };
+    java.enable = true;
+  };
 
-    ntfs3g
-    btrfs-progs
-    exfat
-    exfatprogs
+  diagnostics = {
+    lact.enable = true;
+    btop.enable = true;
+    systemctl-tui.enable = true;
+  };
 
-    smartmontools
+  emulation = {
+    gba.mgba.enable = true;
+    switch.ryubing.enable = false;
+  };
 
-    wireguard-tools
-    qutebrowser
+  editors = {
 
-    just
+    libreoffice.enable = true;
 
-    # mgba
+    image = {
+      gimp.enable = true;
+      krita.enable = false;
+    };
 
-    ryubing
+    video = {
+      handbrake.enable = false;
+      losslesscut.enable = false;
+    };
 
-    obsidian # Notes
-    wireshark
+    text.nvf = {
+      enable = true;
+      setDefault = true;
+      languages = {
+        python.enable = true;
+        markdown.enable = true;
+        css.enable = true;
+        nix = {
+          enable = true;
+          format.enable = false;
+          lsp.server = "nixd";
+        };
+        ts = {
+          enable = true;
+          format.enable = false;
+        };
+      };
+    };
 
-    handbrake
-    losslesscut-bin
+  };
 
-    inputs.zen-browser.packages.${system}.default # Browser
-
-    vlc # Video Player
-    # youtube-music # Music App
-    # vesktop # Discord Client
-
-    libreoffice # Office Software
-    hunspell # Spellcheck for libreoffice
-    hunspellDicts.en_US # US Dictionary for spellcheck
-
-    # lutris # Game Launcher // Application shortcut creator
-
-    # qbittorrent # Bittorrent client
-
-    keymapp # Moonlander Software
-    btop # System Monitor
-
-    # imagemagick # Terminal Image Manipulation
-    # parsec-bin # Desktop Streaming Client
-
-    # bottles # Wine Prefix Manager
-    r2modman # Thunderstore mod Manager
-  ];
 }

@@ -1,59 +1,93 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  modulePath = ./modules/nixos;
-  sharedModulePath = ../shared/modules;
-in {
+{ user, pkgs, lib, ... }: {
+
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-
-    # GOOMBAX1 -- Mandatory
-    (modulePath + /boot.nix)
-    (modulePath + /hardware.nix)
-    (modulePath + /hyprland.nix)
-    (modulePath + /sound.nix)
-    (modulePath + /networking.nix)
-
-    # GOOMBAX1 -- Optional
-    (modulePath + /programs.nix)
-    (modulePath + /services.nix)
-    (modulePath + /env.nix)
-    (modulePath + /android.nix)
-    (modulePath + /vr.nix)
-    (modulePath + /catppuccin.nix)
-    (modulePath + /lact.nix)
-
-    # Shared - The same across systems
-    (sharedModulePath + /gaming.nix)
-    (sharedModulePath + /terminal-tools.nix)
-    (sharedModulePath + /emulation.nix)
-    (sharedModulePath + /personalization.nix)
-
-    (sharedModulePath + /nvf.nix)
-    (sharedModulePath + /yazi.nix)
-    (sharedModulePath + /starship.nix)
-    (sharedModulePath + /fish.nix)
-    (sharedModulePath + /fonts.nix)
-    (sharedModulePath + /docker.nix)
-    (sharedModulePath + /virtualization.nix)
+    ./hardware-configuration.nix # Mandatory hardware config
+    ../shared/modules/custom # Custom nix option definitions. Does not install anything
+    ./modules # Modules declaring the system layout
   ];
 
-  wallpaper.waypaper = {
-    enable = true;
-    wallpaperDir = "~/NixOS-Config/images/wallpapers";
-    randomizeOnLaunch = true;
-    rotateWallpaper = {
+  # Set the system theme with stylix
+  theme = {
+    # wallpaper = ../images/wallpapers/monokai.png;
+    # monokai.enable = true;
+    # sunset.enable = true;
+    # catppuccin-latte.enable = true;
+    woodland.enable = true;
+    # steam.enable = true;
+    # gruvbox-light.enable = true;
+    # zenbones.enable = true;
+    # catppuccin-mocha.enable = true;
+  };
+
+  boot = {
+    quiet = true;
+    kernelPackages = pkgs.linuxPackages_zen;
+    loader.systemd-boot.enable = true;
+    plymouth.enable = true;
+  };
+
+  networking = {
+    hostName = "GOOMBAX1";
+    firewall.enable = true;
+    networkmanager = {
       enable = true;
-      interval = 20;
+      plugins = [ pkgs.networkmanager-openvpn ];
     };
   };
 
-  emulation.gba.mgba.enable = true;
+  environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
 
-  users.defaultUserShell = pkgs.fish;
+  virtualisation = {
+    virt-manager.enable = true;
+    docker = {
+      enable = false;
+      addUserToGroup = true;
+    };
+    libvirtd = {
+      enable = true;
+      addUserToGroup = true;
+    };
+  };
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [ pkgs.rocmPackages.rocm-smi ];
+    };
+
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+
+    keyboard.zsa = {
+      enable = true; 
+      keymapp.enable = true;
+      kontroll.enable = true;
+    };
+  };
+
+  fonts = {
+    enableDefaultPackages = true; 
+    packages = with pkgs; [
+      nerd-fonts.blex-mono
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      inter
+      vistafonts # Calibri
+    ];
+  };
+
+
+  services.pulseaudio.enable = lib.mkForce false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+  };
 
   nix = {
     settings = {
@@ -62,58 +96,26 @@ in {
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
-    extraOptions = ''trusted-users = root jared ''; # Devenv shells
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
   };
 
-  # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
     rocmSupport = true;
   };
 
-  # Set your time zone.
   time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jared = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "Jared";
-    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "syncthing" "wireshark"];
+    description = user;
+    extraGroups = [ "networkmanager" "wheel" "video" ];
   };
 
-  documentation.man.enable = false;
+  documentation = {
+    man.enable = true;
+    tldr.enable = true;
+  };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment? yes
 }

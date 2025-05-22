@@ -1,86 +1,76 @@
 {
   description = "Gumbachi NixOS Config";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # "github:nixos/nixpkgs/585f76290ed66a3fdc5aae0933b73f9fd3dca7e3"; #
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
+    agenix.url = "github:ryantm/agenix";
     catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     overway.url = "github:Gumbachi/Overway";
     astal.url = "github:aylur/astal";
-
     hyprland.url = "github:hyprwm/Hyprland";
-
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf.url = "github:notashelf/nvf";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pia = {
+      url = "github:Fuwn/pia.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: {
+  outputs = { nixpkgs, home-manager, ... } @ inputs: {
     # Host Name = <GOOMBA><X/S/L><Number>
     # GOOMBA = Name
-    # X/S/L = Desktop, Server, Laptop
-    # Number = ID Number I Guess
+    # X/S = Desktop/Laptop, Server
+    # Number = ID
 
-    nixosConfigurations.GOOMBAX1 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.GOOMBAX1 = let 
+      user = "jared";
+    in nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = { 
+        inherit inputs;
+        inherit user;
+      };
       modules = [
         ./GOOMBAX1/configuration.nix # Main Config
 
-        # Hardware Support
-        # inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
-        inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-        inputs.nixos-hardware.nixosModules.common-gpu-amd
-
         # Home Manager
-        home-manager.nixosModules.home-manager
-        {
+        home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hmbak";
           };
-
-          home-manager.users.jared.imports = [
-            ./GOOMBAX1/home.nix
-            # inputs.ags.homeManagerModules.default
-            inputs.catppuccin.homeManagerModules.catppuccin
-          ];
+          home-manager.users.${user}.imports = [ ./GOOMBAX1/home.nix ];
         }
 
-        # Catppuccin
-        inputs.catppuccin.nixosModules.catppuccin
+        # Hardware Support
+        inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
 
-        # NVF
+        # Third Party
+        inputs.stylix.nixosModules.stylix
         inputs.nvf.nixosModules.default
+        inputs.nur.modules.nixos.default
+        inputs.agenix.nixosModules.default
+        inputs.pia.nixosModules."x86_64-linux".default
 
-        # Nixvim
-        # inputs.nixvim.nixosModules.nixvim
       ];
     };
 
     nixosConfigurations.GOOMBAS2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./GOOMBAS2/configuration.nix # Main Config
-        # inputs.nixvim.nixosModules.nixvim # Nixvim
         inputs.nvf.nixosModules.default # Neovim
         inputs.catppuccin.nixosModules.catppuccin # Catppuccin
 
@@ -98,20 +88,22 @@
             backupFileExtension = "hmbak";
           };
 
-          home-manager.users.jared.imports = [
-            ./GOOMBAS2/home.nix
-          ];
+          home-manager.users.jared.imports = [ ./GOOMBAS2/home.nix ];
         }
       ];
     };
 
-    nixosConfigurations.GOOMBAL1 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.GOOMBAX2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
-        # NixOS Config
+        # Main Config
         ./GOOMBAX2/configuration.nix
 
+        # Hardware Config
+        inputs.nixos-hardware.nixosModules.dell-xps-15-9560
+
+        # Home Manager
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -119,15 +111,12 @@
             useUserPackages = true;
             backupFileExtension = "hmbak";
           };
-
-          home-manager.users.jared.imports = [
-            ./GOOMBAX2/home.nix
-            # inputs.ags.homeManagerModules.default
-          ];
+          home-manager.users.jared.imports = [ ./GOOMBAX2/home.nix ];
         }
 
-        # Stylix
+        # Third Party Modules
         inputs.stylix.nixosModules.stylix
+        inputs.nvf.nixosModules.default
       ];
     };
 
@@ -137,7 +126,6 @@
       modules = [
         ./GOOMBAS1/configuration.nix
         inputs.nixos-hardware.nixosModules.raspberry-pi-4
-        # inputs.nixvim.nixosModules.nixvim
       ];
     };
   };

@@ -1,60 +1,54 @@
-# My NixOS/Hyprland Config
+# My NixOS Config
 
+NixOS Config for all of my machines
 
-| Function       | Package      |
-| -------------- | ------------ |
-| Window Manager | Hyprland     |
-| Editor         | NixVim       |
-| Notifications  | AGS          |
-| Menu           | Rofi-Wayland |
-| System Monitor | Btop         |
-| File Manager   | Yazi         |
-| Lock Screen    | Hyprlock     |
-| Wallpapers     | Waypaper     |
+## Pre-Flake-Install
 
-## Steps
+1. `nix-shell -p git vim fish --run fish`
 
-1. `nix-shell -p git`
-2. `git clone https://github.com/Gumbachi/NixOS-Config.git`
-3. `sudo sh ~/NixOS-Config/scripts/symlinkconfig.sh`
-4. `reboot`
-5. Sound Devices need to be configured
-   1. Open Pavucontrol and go to config
-   2. Disable GPU devices and set Astro A50 to game output and Yeti to Analog Stereo Input
-6. Icons & Cursors
-   1. `./NixOS-Config/scripts/papirus-icons.sh`
-   2. `./NixOS-Config/scripts/catppuccin-cursors.sh`
-   3. Open nwg-look
-      1. Mouse cursor > Catppuccin-Mauve Size 32
-      2. Icon theme > Papirus-Dark
-7. Extra Drives
-   1. Check drives with `sudo fdisk -l`
-   2. `sudo mount /dev/<drive_id> <Drive Location>`
-   3. Regenerate hardware config
-      1. `nixos-generate-config`
-      2. `rm NixOS-Config/configuration.nix` not needed
-      3. `mv NixOS-Config/hardware-configuration.nix NixOS-Config/GOOMBAX1/hardware-configuration.nix`
-   4. `sudo nixos-rebuild switch` drives should auto-mount now
-8. Some apps need to be manually configured
-    1. Sound Devices
-    2. Floorp
-       1. Extensions: Bitwarden, Ublock, Firefox Color
-    3. YouTube Music
-       1. Login with password from bitwarden
-    4. Vesktop
-       1. Login with QR Code
-       2. Settings > Voice > Disable AGC and Echo Cancellation
-    5. ProtonUp
-       1. Launch and install latest GE Proton
-    6. Steam
-       1. Settings > Interface > Start Location: Library > Choose Beta > Restart
-       2. Settings > Compatibility > Enable Proton > Restart > Set to GE Proton
-       3. Settings > Downloads > Allow downloads during gameplay > Allow background processing of vulkan shaders
-       4. Settings > Storage > Add storage locations
-       5. Rocket League > Force Use of Proton
-       6. Add desktop files as needed
-9. Set up Git SSH and change origin
-    1. `ssh-keygen -t ed25519 -a 100 -C "github"`
-    2. `cat ~/.ssh/id_ed25519.pub`
-    3. Copy output and add to Github SSH Tokens
-    4. `z NixOS-Config` and `git remote set-url origin git@github.com:Gumbachi/NixOS-Config.git`
+   > In the following commands, replace HOST with the correct host e.g. GOOMBAX1
+
+2. `sudo mv /etc/nixos/hardware-configuration.nix ~/NixOS-Config/HOST/hardware-configuration.nix`
+3. Configure Extra Drives
+   1. Check drives with `sudo blkid -o list`
+
+   > Copy the UUID and remember the fs_type
+
+   2. Add the following to configuration.nix
+
+      ```nix
+      # ~/NixOS-Config/HOST/configuration.nix
+
+      fileSystems.<name> = { # Replace <name> with the desired mount point e.g "~/Drives/A" 
+        device = "/dev/disk/by-uuid/<UUID>"; # Replace <UUID> with the UUID Copied from earlier
+        fsType = <FS_TYPE>; # Replace <FS_TYPE> with the fs_type from earlier (Usually "ext4" or "exfat")
+        neededForBoot = false; # Should the computer still boot if this disk isnt present?
+      };
+      ```
+   3. Repeat for extra drives
+4. `sudo nixos-rebuild boot --flake ~/NixOS-Config#HOST`
+5. `reboot`
+
+## Post-Flake-Install
+
+1. Sound Devices may need to be configured
+
+   > Use pavucontrol
+
+2. Some apps that probably need to be manually configured
+
+   - YouTube Music
+   - Vesktop
+     - Disable Automatic Gain Control and Echo Cancellation
+   - Steam
+     - Enable proton in compatibility
+     - Allow background shader processing
+     - Add external storage locations
+
+3. Set up Git SSH and change origin
+
+   1. `ssh-keygen -t ed25519 -a 100 -C "github"`
+   2. `cat ~/.ssh/id_ed25519.pub`
+   3. Copy output and add to Github SSH Tokens
+   4. `cd ~/NixOS-Config` and
+      `git remote set-url origin git@github.com:Gumbachi/NixOS-Config.git`

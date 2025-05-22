@@ -1,1 +1,0 @@
-waypaper --random

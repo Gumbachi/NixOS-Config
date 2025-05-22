@@ -1,23 +1,23 @@
 {
 	"window-size": {
-		"width": 1412,
-		"height": 1257
+		"width": 2560,
+		"height": 1440
 	},
-	"window-maximized": false,
+	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=E4rEMKNB8To&list=LM&index=0",
+	"url": "https://music.youtube.com/watch?v=uWLxYRAIIeg&list=LM&index=0",
 	"options": {
 		"tray": true,
 		"appVisible": true,
-		"autoUpdates": true,
+		"autoUpdates": false,
 		"alwaysOnTop": false,
 		"hideMenu": true,
 		"hideMenuWarned": true,
 		"startAtLogin": false,
-		"disableHardwareAcceleration": true,
+		"disableHardwareAcceleration": false,
 		"removeUpgradeButton": true,
 		"restartOnConfigChanges": true,
 		"trayClickPlayPause": false,
@@ -29,7 +29,7 @@
 		"overrideUserAgent": false,
 		"usePodcastParticipantAsArtist": false,
 		"themes": [
-			"/home/jared/NixOS-Config/GOOMBAX1/.config/YouTube Music/mocha.css"
+			"/home/jared/.config/YouTube Music/stylix.css"
 		]
 	},
 	"plugins": {
@@ -49,7 +49,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 32
+			"savedVolume": 25
 		},
 		"discord": {
 			"listenAlong": true,
@@ -186,7 +186,7 @@
 			"enabled": false
 		},
 		"synced-lyrics": {
-			"enabled": true,
+			"enabled": false,
 			"preciseTiming": true,
 			"showLyricsEvenIfInexact": true,
 			"showTimeCodes": false,
@@ -204,11 +204,14 @@
 		},
 		"unobtrusive-player": {
 			"enabled": true
+		},
+		"performance-improvement": {
+			"enabled": false
 		}
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "3.8.0"
+			"version": "3.9.0"
 		}
 	}
 }
