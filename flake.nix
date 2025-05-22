@@ -80,6 +80,7 @@
         # Home Manager
         home-manager.nixosModules.home-manager {
           home-manager = {
+            extraSpecialArgs = { inherit user; };
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hmbak";
