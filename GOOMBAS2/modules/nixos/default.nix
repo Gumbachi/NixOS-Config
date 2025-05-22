@@ -9,7 +9,6 @@
     ./jellyfin.nix
     ./matrix.nix
     ./minecraft.nix
-    ./networking.nix
     ./servarr.nix
   ];
 

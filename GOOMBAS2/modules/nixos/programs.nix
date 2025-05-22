@@ -25,6 +25,12 @@
  
   ];
 
+  home-manager.sharedModules = [{
+    programs.nh = {
+      enable = true;
+      flake = "/home/jared/NixOS-Config";
+    };
+  }];
    
   terminals.kitty.enable = true;
 

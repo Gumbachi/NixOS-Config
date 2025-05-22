@@ -1,12 +1,12 @@
-{ pkgs, config, ... }: let
-  modulePath = ./modules/nixos;
-  sharedModulePath = ../shared/modules;
-in {
+{ pkgs, config, ... }: {
+
   imports = [
     ./hardware-configuration.nix # Hardware config
     ../shared/modules/custom # Custom nix options. Does not install anything
     ./modules # System Config
   ];
+
+  theme.gruvbox-light.enable = true;
 
   virtualisation = {
     docker = {
@@ -105,11 +105,6 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  documentation.man.enable = false;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment? Yep
 }
