@@ -16,14 +16,13 @@ in
 
     # Set a default wallpaper
     theme.wallpaper = mkDefault ../../images/wallpapers/bisbiswas13.jpg;
+    cursors.bibata-modern-ice.enable = true;
 
     # Set home manager configurations
     home-manager.sharedModules = [{
       
       # Theme code blocks in vencord
       # programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "${shikiThemes}/catppuccin-mocha.json";        
-
-      cursors.bibata-modern-ice.enable = true;
 
       # Set XCursor
       home.pointerCursor = {

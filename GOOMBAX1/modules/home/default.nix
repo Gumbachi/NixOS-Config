@@ -2,7 +2,7 @@
   
   imports = [
     ./btop.nix
-    ./cursors.nix
+    # ./cursors.nix
     ./fish.nix
     ./floorp.nix
     ./fuzzel.nix
