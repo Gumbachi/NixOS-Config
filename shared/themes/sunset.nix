@@ -47,6 +47,8 @@ in
       # Theme code blocks in vencord
       # programs.vesktop.vencord.settings.plugins.ShikiCodeblocks.theme = "${shikiThemes}/monokai.json";        
 
+      cursors.bibata-modern-ice.enable = true;
+
       # Set XCursor
       home.pointerCursor = {
         package = pkgs.bibata-cursors;
