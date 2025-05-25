@@ -8,15 +8,8 @@
 
   # Set the system theme with stylix
   theme = {
-    # wallpaper = ../images/wallpapers/monokai.png;
-    # monokai.enable = true;
-    # sunset.enable = true;
-    # catppuccin-latte.enable = true;
-    woodland.enable = true;
-    # steam.enable = true;
-    # gruvbox-light.enable = true;
-    # zenbones.enable = true;
-    # catppuccin-mocha.enable = true;
+    wallpaper = ../images/wallpapers/bisbiswas05.jpg;
+    monokai.enable = true;
   };
 
   boot = {

@@ -1,7 +1,13 @@
 { ... }: {
 
   programs.librewolf = {
-    settings = {};
+    profiles.default.extensions.force = true;
+    settings = {
+      "sidebar.verticalTabs" = true;
+      "browser.toolbars.bookmarks.visibility" = "never";
+
+      "browser.newtabpage.activity-stream.showSearch" = false;
+    };
   };
 
 }

@@ -74,6 +74,11 @@ in
         profileNames = [ "default" ];
       };
 
+      stylix.targets.librewolf = {
+        colorTheme.enable = true;
+        profileNames = [ "default" ];
+      };
+
     }];
   };
 }

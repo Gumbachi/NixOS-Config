@@ -11,6 +11,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./kitty.nix
+    ./librewolf.nix
     ./mangohud.nix
     ./starship.nix
     ./vesktop.nix

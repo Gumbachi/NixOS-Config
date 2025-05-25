@@ -85,6 +85,7 @@
 
   browsers = {
     floorp.enable = true;
+    librewolf.enable = false;
     ladybird.enable = false;
   };
 

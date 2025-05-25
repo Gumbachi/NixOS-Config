@@ -46,7 +46,7 @@
         gaps_out = 10;
         border_size = 4; 
         resize_on_border = false; # Click and drag on borders to resize
-        allow_tearing = true;
+        allow_tearing = false;
         layout = "dwindle";
       };
 
