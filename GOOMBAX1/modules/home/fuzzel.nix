@@ -13,6 +13,7 @@
         inner-pad = 10;
         line-height = 25;
         letter-spacing = 1;
+        hide-before-typing = true;
         font = lib.mkForce "BlexMono Nerd Font SemiBold:size=18";
         icon-theme = "Papirus";
       };
