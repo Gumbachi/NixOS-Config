@@ -41,10 +41,12 @@ in {
 
     # Extra tools
     wget.enable = mkEnableOption "Enable wget to make web requests";
+    tokei.enable = mkEnableOption "Enable tokei to count lines of code.";
 
     # Style related programs
     ricing.enable = mkEnableOption ''
       Shorcut options to enable all style related programs.
+        - starship
         - fastfetch
         - cava
         - pipes
@@ -54,7 +56,6 @@ in {
     cava.enable = mkEnableOption "Enable cava for audio visualisation.";
     pipes.enable = mkEnableOption "Enable pipes, a terminal screensaver.";
     cbonsai.enable = mkEnableOption "Enable cbonsai, to grow an ascii tree.";
-
     starship.enable = mkEnableOption "Enable starship for shell prompt customization.";
 
 
@@ -165,6 +166,7 @@ in {
     # Style tools
     (mkIf cfg.ricing.enable {
       ${module} = {
+        starship.enable = true;
         fastfetch.enable = true;
         cava.enable = true;
         pipes.enable = true;
@@ -199,6 +201,10 @@ in {
 
     (mkIf cfg.wget.enable {
       environment.systemPackages = [pkgs.wget];
+    })
+
+    (mkIf cfg.tokei.enable {
+      environment.systemPackages = [ pkgs.tokei ];
     })
 
     (mkIf cfg.unar.enable {environment.systemPackages = [pkgs.unar];})

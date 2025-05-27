@@ -56,7 +56,7 @@
   cli-tools = {
     upgrades.enable = true; # Upgrade common tools like ls,cat,etc
     ricing.enable = true; # Enable for fun style tools like cava
-    starship.enable = true;
+    tokei.enable = true; # Line counter
     unar.enable = true; # Zip archives
     unrar.enable = true; # Rar archives
   };
