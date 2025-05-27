@@ -1,13 +1,13 @@
 { pkgs, config, lib, ... }:
 let
-  inherit (lib) mkIf mkEnableOption mkOption;
+  inherit (lib) mkEnableOption mkOption;
   cfg = config.theme;
 in
 {
 
   imports = [ 
     ../../styles/patch.nix # Nix file for patching css
-    ../../themes # Import theme modifications 
+    ../themes # Import theme modifications for the options below 
   ];
 
   options.theme = {

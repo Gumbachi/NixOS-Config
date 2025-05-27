@@ -20,6 +20,8 @@ in {
         man => batman
         diff => batdiff
         watch => batwatch
+        curl => xh
+        du => dua
     '';
 
     # Tool replacements
@@ -34,6 +36,8 @@ in {
     fzf.enable = mkEnableOption "Enable fzf fuzzy finding.";
     dysk.enable = mkEnableOption "Enable dysk for disk usage.";
     most.enable = mkEnableOption "Enable most to replace more and less.";
+    xh.enable = mkEnableOption "Enable XH, an upgraded curl.";
+    dua.enable = mkEnableOption "Enable Dua disk usage analyzer.";
 
     # Extra tools
     wget.enable = mkEnableOption "Enable wget to make web requests";
@@ -71,6 +75,8 @@ in {
         fzf.enable = true;
         dysk.enable = true;
         most.enable = true;
+        xh.enable = true;
+        dua.enable = true;
         bat = {
           enable = true;
           extras.enable = true;
@@ -81,7 +87,7 @@ in {
       home-manager.sharedModules = [{
         programs.fish.shellAliases = {
           # ls = "eza" # This one is covered by the eza fish integration in home manager
-          cat = "bat";
+          # cat = "bat"; # Not needed
           # cd = "z"; # Disabled because z is easier than cd anyways
           # grep = "rg"; # Similar as above ^^^^^^^^^^^^^^^^^^^^^^^^^
           find = "fd";
@@ -90,7 +96,7 @@ in {
           less = "most";
           man = "batman";
           diff = "batdiff";
-          watch = "batwatch --color -x";
+          # watch = "batwatch -x";
         };
       }];
     })
@@ -110,12 +116,12 @@ in {
     (mkIf cfg.bat.enable {
       programs.bat = {
         enable = true;
-        extraPackages = with pkgs.bat-extras; [ batdiff batman batwatch prettybat ];
+        extraPackages = with pkgs.bat-extras; [ batdiff batman batwatch ];
       };
       home-manager.sharedModules = [{ 
         programs.bat = {
           enable = true;
-          extraPackages = with pkgs.bat-extras; [ batdiff batman batwatch prettybat ];
+          extraPackages = with pkgs.bat-extras; [ batdiff batman batwatch ];
         };
       }];
     })
@@ -146,6 +152,14 @@ in {
 
     (mkIf cfg.dysk.enable {
       environment.systemPackages = [pkgs.most];
+    })
+
+    (mkIf cfg.xh.enable {
+      environment.systemPackages = [ pkgs.xh ];
+    })
+
+    (mkIf cfg.dua.enable {
+      environment.systemPackages = [ pkgs.dua ];
     })
 
     # Style tools

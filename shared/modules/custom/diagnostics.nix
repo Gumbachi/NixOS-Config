@@ -22,12 +22,11 @@ in
     })
 
     (mkIf cfg.btop.enable {
-      environment.systemPackages = [pkgs.btop];
       home-manager.sharedModules = [{ programs.btop.enable = true; }];
     })
 
     (mkIf cfg.systemctl-tui.enable {
-      environment.systemPackages = [pkgs.systemctl-tui];
+      environment.systemPackages = [ pkgs.systemctl-tui ];
     })
 
     (mkIf cfg.networking-tools.enable {
