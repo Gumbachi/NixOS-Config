@@ -19,7 +19,6 @@
 
   # Home manager programs
   home-manager.sharedModules = [{
-    programs.fuzzel.enable = true;
     wayland.windowManager.hyprland.enable = true;
     programs.hyprlock.enable = true;
 
@@ -28,6 +27,11 @@
       flake = "/home/jared/NixOS-Config";
     };
   }];
+
+  launchers = {
+    fuzzel.enable = true;
+    anyrun.enable = true;
+  };
 
   terminals.kitty.enable = true;
 

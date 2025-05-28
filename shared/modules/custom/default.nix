@@ -15,6 +15,7 @@
     ./gaming.nix
     ./hardware.nix
     ./icons.nix
+    ./launchers.nix
     ./networking.nix
     ./shells.nix
     ./social.nix

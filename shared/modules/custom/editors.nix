@@ -86,6 +86,7 @@ in {
         shiftwidth = 2;
         expandtab = true;
         wrap = false;
+        scrolloff = 10;
       };
 
       # Vim Settings
@@ -97,6 +98,24 @@ in {
         telescope.enable = true;
         treesitter.enable = true;
 
+        tabline.nvimBufferline = {
+          enable = true;
+          setupOpts.options = {
+            style_preset = "no_italic";
+            numbers = "none";
+            tab_size = 14;
+            show_buffer_close_icons = false;
+            separator_style = "thick";
+            middle_mouse_command = {
+              _type = "lua-inline";
+              expr = ''
+                function(bufnum)
+                  require("bufdelete").bufdelete(bufnum, false)
+                end
+              '';
+            };
+          };
+        };
 
         ui.colorizer = {
           enable = true;
@@ -138,7 +157,7 @@ in {
 
         utility.preview.markdownPreview = {
           enable = true;
-          autoStart = true;
+          autoStart = false;
         };
 
         projects.project-nvim = {

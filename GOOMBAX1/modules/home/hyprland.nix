@@ -10,7 +10,7 @@
     settings = let
       mainMod = "SUPER";
       terminal = "uwsm app -- kitty";
-      toggleDashboard = "astal -t overway -i overway";
+      toggleDashboard = "astal -i overway -t overway";
       fileManager = "${terminal} yazi";
       menu = ''fuzzel --launch-prefix="uwsm app -- "'';
       editConfig = "${terminal} $EDITOR $CONFIG";

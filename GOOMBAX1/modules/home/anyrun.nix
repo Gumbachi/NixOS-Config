@@ -1,0 +1,9 @@
+{ ... }: {
+
+  programs.anyrun = {
+    config = {
+      
+    };
+  };
+
+}

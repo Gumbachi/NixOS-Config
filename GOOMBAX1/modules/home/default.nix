@@ -1,8 +1,8 @@
 { ... }: {
   
   imports = [
+    ./anyrun.nix
     ./btop.nix
-    # ./cursors.nix
     ./fish.nix
     ./floorp.nix
     ./fuzzel.nix
