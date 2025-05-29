@@ -20,6 +20,8 @@
       flake = "/home/jared/NixOS-Config";
     };
   }];
+
+  launchers.walker.enable = false;
    
   terminals.kitty.enable = true;
 

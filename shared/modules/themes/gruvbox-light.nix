@@ -15,7 +15,7 @@ in
     };
 
     # Set a default wallpaper
-    theme.wallpaper = mkDefault ../../images/wallpapers/pixeltree.png;
+    theme.wallpaper = mkDefault ../../../images/wallpapers/pixeltree.png;
     cursors.bibata-modern-ice.enable = true;
 
     # Set home manager configurations

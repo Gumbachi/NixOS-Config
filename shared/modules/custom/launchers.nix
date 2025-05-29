@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ inputs, config, lib, ... }:
 let
   inherit (lib) mkEnableOption;
   module = "launchers";
@@ -14,10 +14,14 @@ in {
 
   config = {
     home-manager.sharedModules = [{
+
+      imports = [ inputs.walker.homeManagerModules.default ];
+
       programs.rofi.enable = cfg.rofi.enable;
       programs.fuzzel.enable = cfg.fuzzel.enable;
       programs.walker.enable = cfg.walker.enable;
       programs.anyrun.enable = cfg.anyrun.enable;
+
     }];
   };
  

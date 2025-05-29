@@ -15,7 +15,7 @@ in
     };
 
     # Set a default wallpaper
-    theme.wallpaper = mkDefault ../../images/wallpapers/tall-grass-forest.jpg;
+    theme.wallpaper = mkDefault ../../../images/wallpapers/tall-grass-forest.jpg;
 
     # Set home manager configurations
     home-manager.sharedModules = [{

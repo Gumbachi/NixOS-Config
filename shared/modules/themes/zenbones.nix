@@ -15,7 +15,7 @@ in
     };
 
     # Set a default wallpaper
-    theme.wallpaper = mkDefault ../../images/wallpapers/bisbiswas13.jpg;
+    theme.wallpaper = mkDefault ../../../images/wallpapers/bisbiswas13.jpg;
     cursors.bibata-modern-ice.enable = true;
 
     # Set home manager configurations
