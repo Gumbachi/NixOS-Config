@@ -6,19 +6,8 @@
     # DV recording Tools
     dvgrab
     ffmpeg-headless
-
-    pciutils
-    lshw
-
-    # Networking Tools
-    openssl
-    dnsutils
-
-    wget # Web Fetch
-    
+ 
     yt-dlp # YoutubeDL
-
-    nvtopPackages.full # Nvidia Monitoring
 
     jdk # Java 21
     jdk8 # Java 8
