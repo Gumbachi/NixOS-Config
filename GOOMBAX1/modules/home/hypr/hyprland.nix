@@ -12,11 +12,10 @@
       terminal = "uwsm app -- kitty";
       toggleDashboard = "astal -i overway -t overway";
       fileManager = "${terminal} yazi";
-      menu = ''fuzzel --launch-prefix="uwsm app -- "'';
+      menu = ''walker'';
       editConfig = "${terminal} $EDITOR $CONFIG";
       screenshot = "uwsm app -- hyprshot -m region --clipboard-only";
       browser = "uwsm app -- floorp";
-      clipboard = "uwsm app -- clipse -listen";
       systemMonitor = "${terminal} btop";
       gameLauncher = "uwsm app -- steam";
       steamGameRegex = "class:^(steam_app_.*)$";
@@ -32,7 +31,6 @@
         "uwsm finalize"
         "hyprlock"
         "uwsm app -- overway"
-        "${clipboard}"
         "${gameLauncher} -silent" 
         "[workspace 1 silent] ${terminal} cava"
         "[workspace 1 silent] sleep 2; ${systemMonitor}"
@@ -121,7 +119,6 @@
         "${mainMod} SHIFT, M, exec, pkill Hyprland,"
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod}, V, togglefloating,"
-        "${mainMod} SHIFT, V, exec, ${terminal} --class clipse -e 'clipse'"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, P, pseudo, # dwindle"
         "${mainMod}, Y, togglesplit, # dwindle"

@@ -3,13 +3,10 @@
   environment.systemPackages = with pkgs; [
     inputs.overway.packages.${system}.default
     inputs.astal.packages.${system}.default
-
     inputs.agenix.packages.${system}.default
 
     youtube-music
-    # r2modman # Thunderstore mod Manager
 
-    clipse # Clipboard Manager
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
     pavucontrol # Sound Settings
@@ -31,6 +28,7 @@
   launchers = {
     fuzzel.enable = true;
     anyrun.enable = true;
+    walker.enable = true;
   };
 
   terminals.kitty.enable = true;
@@ -44,6 +42,7 @@
 
   social = {
     vesktop.enable = true;
+    element.enable = true;
   };
 
   shells = {
@@ -89,6 +88,7 @@
 
   browsers = {
     floorp.enable = true;
+    chromium.enable = true;
     librewolf.enable = false;
     ladybird.enable = false;
   };

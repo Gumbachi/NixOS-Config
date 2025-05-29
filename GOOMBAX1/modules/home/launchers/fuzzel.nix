@@ -1,7 +1,6 @@
 { pkgs, lib, ... }: {
 
   programs.fuzzel = {
-    enable = true;
     settings = {
 
       main = {

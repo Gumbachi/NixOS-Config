@@ -49,6 +49,7 @@
   # Home manager programs
   home-manager.sharedModules = [{
     services = {
+      hypridle.enable = true;
       hyprpaper.enable = true;
       hyprpolkitagent.enable = true;
     };

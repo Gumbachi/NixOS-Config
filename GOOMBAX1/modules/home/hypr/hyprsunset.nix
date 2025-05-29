@@ -1,7 +1,6 @@
 { ... }: {
 
   services.hyprsunset = {
-    enable = false;
     transitions = {
 
       sunrise = {

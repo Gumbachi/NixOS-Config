@@ -1,21 +1,32 @@
 { ... }: {
   
   imports = [
-    ./anyrun.nix
+
+    # Browsers
+    ./browsers/chromium.nix
+    ./browsers/floorp.nix
+    ./browsers/librewolf.nix
+
+    # Launchers
+    ./launchers/anyrun.nix
+    ./launchers/fuzzel.nix
+    ./launchers/rofi.nix
+    ./launchers/walker.nix
+
+    # Hypr Ecosystem
+    ./hypr/hyprland.nix
+    ./hypr/hypridle.nix
+    ./hypr/hyprlock.nix
+    ./hypr/hyprsunset.nix
+
+    # Other
     ./btop.nix
     ./fish.nix
-    ./floorp.nix
-    ./fuzzel.nix
     ./git.nix
-    ./hypridle.nix
-    ./hyprland.nix
-    ./hyprlock.nix
     ./kitty.nix
-    ./librewolf.nix
     ./mangohud.nix
     ./starship.nix
     ./vesktop.nix
-    ./walker.nix
     ./wlsunset.nix
     ./yazi.nix
   ];
