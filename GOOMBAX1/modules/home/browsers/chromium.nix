@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   programs.chromium = {
-    package = pkgs.ungoogled-chromium;
+    package = pkgs.chromium;
   };
 
 }
