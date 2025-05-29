@@ -12,6 +12,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nvf.url = "github:notashelf/nvf";
+    walker.url = "github:abenz1267/walker";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,8 +21,8 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pia = {
-      url = "github:Fuwn/pia.nix";
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -49,6 +50,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hmbak";
+            extraSpecialArgs = { inherit inputs; };
           };
           home-manager.users.${user}.imports = [ ./GOOMBAX1/home.nix ];
         }
@@ -61,7 +63,6 @@
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
         inputs.agenix.nixosModules.default
-        inputs.pia.nixosModules."x86_64-linux".default
 
       ];
     };

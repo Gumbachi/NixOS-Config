@@ -15,6 +15,7 @@
     ./mangohud.nix
     ./starship.nix
     ./vesktop.nix
+    ./walker.nix
     ./wlsunset.nix
     ./yazi.nix
   ];
