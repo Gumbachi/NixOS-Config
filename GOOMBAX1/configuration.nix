@@ -30,6 +30,15 @@
 
   environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
 
+  default-apps = {
+    enable = true;
+    browser = [ "floorp.desktop" "chromium.desktop" ];
+    editor = [ "nvim.desktop" ];
+    audio = [ "mpv.desktop" ];
+    video = [ "mpv.desktop" ];
+    image = [ "qimgv.desktop" ];
+  };
+
   virtualisation = {
     virt-manager.enable = true;
     docker = {
