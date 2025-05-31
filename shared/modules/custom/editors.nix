@@ -170,9 +170,9 @@ in {
         };
       };
 
-
       programs.nvf.settings.vim.clipboard = {
         enable = true;
+        registers = "unnamedplus";
       };
 
       programs.nvf.settings.vim.lsp = {

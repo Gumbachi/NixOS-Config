@@ -1,6 +1,6 @@
-{ config, lib, ... }:
+{ inputs, config, lib, ... }:
 let
-  inherit (lib) mkEnableOption;
+  inherit (lib) mkEnableOption mkIf;
   module = "launchers";
   cfg = config.${module};
 in {
@@ -13,12 +13,19 @@ in {
   };
 
   config = {
-    home-manager.sharedModules = [{
-      programs.rofi.enable = cfg.rofi.enable;
-      programs.fuzzel.enable = cfg.fuzzel.enable;
-      programs.walker.enable = cfg.walker.enable;
-      programs.anyrun.enable = cfg.anyrun.enable;
-    }];
+    home-manager.sharedModules = [
+      { 
+        programs.rofi.enable = cfg.rofi.enable;
+        programs.fuzzel.enable = cfg.fuzzel.enable;
+        programs.anyrun.enable = cfg.anyrun.enable;
+      }
+
+      (mkIf cfg.walker.enable {
+        imports = [ inputs.walker.homeManagerModules.default ];
+        programs.walker.enable = cfg.walker.enable;
+      })
+
+    ];
   };
  
 }
