@@ -6,7 +6,7 @@
     ./modules # System Config
   ];
 
-  theme.gruvbox-light.enable = true;
+  theme.catppuccin-mocha.enable = true;
 
   virtualisation = {
     docker = {

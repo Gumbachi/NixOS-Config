@@ -81,10 +81,13 @@
         # Home Manager
         home-manager.nixosModules.home-manager {
           home-manager = {
-            extraSpecialArgs = { inherit user; };
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hmbak";
+            extraSpecialArgs = { 
+              inherit inputs;
+              inherit user; 
+            };
           };
           home-manager.users.${user}.imports = [ ./GOOMBAS2/home.nix ];
         }
