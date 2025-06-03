@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ user, config, ... }: {
 
   # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
   
@@ -30,13 +30,13 @@
       exec-once = [
         "uwsm finalize"
         "hyprlock"
-        "uwsm app -- overway"
         "${gameLauncher} -silent" 
         "[workspace 1 silent] ${terminal} cava"
-        "[workspace 1 silent] sleep 2; ${systemMonitor}"
+        "[workspace 1 silent] sleep 3; ${systemMonitor}"
         "[workspace 2 silent] uwsm app -- youtube-music"
         "[workspace 2 silent] sleep 2; uwsm app -- vesktop"
         "[workspace special:magic silent] ${browser}" # preload the browser so its quicker to launch
+        "uwsm app -- overway"
       ];
 
       general = {
@@ -99,7 +99,7 @@
       };
 
       cursor = {
-        default_monitor = "DP-1";
+        # default_monitor = "DP-1";
         # no_warps = true;
       };
 

@@ -14,7 +14,7 @@
   # Greetd: Autostart Hyprland on boot
   services.greetd = let
     session = {
-      command = "uwsm start hyprland-uwsm.desktop";
+      command = "uwsm start hyprland-uwsm.desktop > /dev/null";
       user = "jared";
     };
   in {

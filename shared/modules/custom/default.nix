@@ -5,6 +5,7 @@
     ./browsers.nix
     ./cli-tools.nix
     ./cursors.nix
+    ./default-apps.nix
     ./development.nix
     ./diagnostics.nix
     ./documentation.nix

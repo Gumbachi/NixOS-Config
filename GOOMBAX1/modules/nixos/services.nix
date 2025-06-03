@@ -52,6 +52,7 @@
       hypridle.enable = true;
       hyprpaper.enable = true;
       hyprpolkitagent.enable = true;
+      clipse.enable = true;
     };
   }];
 
