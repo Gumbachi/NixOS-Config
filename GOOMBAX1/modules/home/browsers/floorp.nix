@@ -61,7 +61,7 @@
         "browser.newtabpage.pinned" = [
           {
             label = "Nixpkgs";
-            url = "https://search.nixos.org/options?";
+            url = "https://search.nixos.org/options?channel=unstable";
             customScreenshotURL = "https://wiki.nixos.org/nixos.png";
           }
           {

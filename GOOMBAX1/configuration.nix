@@ -8,7 +8,7 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/bisbiswas05.jpg;
+    wallpaper = ../images/wallpapers/hollowknight.jpg;
     monokai.enable = true;
   };
 
@@ -92,6 +92,7 @@
   };
 
   nix = {
+    package = pkgs.lix;
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];

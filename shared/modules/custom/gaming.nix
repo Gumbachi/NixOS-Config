@@ -1,10 +1,11 @@
 { config, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkMerge mkEnableOption;
-  cfg = config.gaming;
+  module = "gaming";
+  cfg = config.${module};
 in {
 
-  options.gaming = {
+  options.${module} = {
     # Minecraft
     minecraft.enable = mkEnableOption "Install Prism Launcher for Minecraft.";
 
@@ -19,6 +20,9 @@ in {
 
     # Mangohud
     mangohud.enable = mkEnableOption "Install Mangohud.";
+
+    # Gamescope
+    gamescope.enable = mkEnableOption "Install gamescope.";
 
     # ProtonUP
     protonup.enable = mkEnableOption "Install proton version manager.";
@@ -40,6 +44,15 @@ in {
       home-manager.sharedModules = [{
         programs.mangohud.enable = true;
       }];
+    })
+
+    # Gamescope
+    (mkIf cfg.gamescope.enable {
+      programs.gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
+      # programs.steam.enableGamescopeSession = true;
     })
 
     # ProtonUP
