@@ -30,6 +30,8 @@ in
     stylix.autoEnable = true;
     stylix.image = cfg.wallpaper;
 
+    stylix.targets.gnome.enable = false;
+
     stylix.fonts = {
       serif = {
         package = pkgs.inter;

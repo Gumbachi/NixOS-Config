@@ -6,6 +6,7 @@
 
     ./adguardhome.nix
     ./caddy.nix
+    ./dashy.nix
     ./jellyfin.nix
     ./matrix.nix
     ./minecraft.nix
