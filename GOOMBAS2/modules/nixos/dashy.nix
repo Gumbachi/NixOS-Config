@@ -1,7 +1,0 @@
-{ ... }: {
-
-  services.dashy = {
-    enable = true;
-  };
-
-}
