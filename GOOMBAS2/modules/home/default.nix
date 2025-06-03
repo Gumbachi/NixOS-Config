@@ -7,6 +7,7 @@ in
   imports = [
 
     ./btop.nix
+    ./podman.nix
 
     # Use modules from GOOMBAX1
     (GOOMBAX1 + /fish.nix)

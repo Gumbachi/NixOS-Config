@@ -205,21 +205,6 @@
         "type": "github"
       }
     },
-    "catppuccin": {
-      "locked": {
-        "lastModified": 1729730584,
-        "narHash": "sha256-iPrs6bLWdp7qdFRba2AfiHj604SpxC6AGASx7I692Lo=",
-        "owner": "ryand56",
-        "repo": "catppuccin-nix",
-        "rev": "037e2f091a2144433566c5122f385a388cb5d5d3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ryand56",
-        "repo": "catppuccin-nix",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -715,11 +700,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1748808233,
-        "narHash": "sha256-8ODprnZklafpJ5f2aLsZf8Lo3pP6z75NR4ArkwlH6cI=",
+        "lastModified": 1748888571,
+        "narHash": "sha256-iyZNR6VSJ4zlJ3hMt8+c3MHNeQrXDjsdwFlHdKDxc9A=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "16c62a6dbb5f8eee4dcfe903e743f6f144971c06",
+        "rev": "b1d0a727cc594e5329c5971d73391c7529e1c80e",
         "type": "github"
       },
       "original": {
@@ -914,7 +899,7 @@
         "narHash": "sha256-11R4K3iAx4tLXjUs+hQ5K90JwDABD/XHhsM9nkeS5N8=",
         "rev": "cd2a9c028df820a83ca2807dc6c6e7abc3dfa7fc",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/cd2a9c028df820a83ca2807dc6c6e7abc3dfa7fc.tar.gz"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/cd2a9c028df820a83ca2807dc6c6e7abc3dfa7fc.tar.gz?rev=cd2a9c028df820a83ca2807dc6c6e7abc3dfa7fc"
       },
       "original": {
         "type": "tarball",
@@ -983,11 +968,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1748570485,
-        "narHash": "sha256-oDnEc/rxyDf+uUXO56Z2TJtrrQoBe0Z4MCIRaY6lVZ0=",
+        "lastModified": 1748916347,
+        "narHash": "sha256-eIy97tvwFpLYsKX9uuALUyheoab+1HvIG0DHjxuY1bE=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "6c961ee42ff2301ee61c75aa42cbe8c8adecf3c8",
+        "rev": "ba53b41891daed8bea64bb32c12a98f159bcca9b",
         "type": "github"
       },
       "original": {
@@ -1196,11 +1181,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1748869999,
-        "narHash": "sha256-CwC2sW5FfWuQehQFdS22zNgS5AHNOJAoLmljNvt1ABs=",
+        "lastModified": 1748921828,
+        "narHash": "sha256-SvCX2aD/kPzC7tyuA59lw4FyFphCY4N2HgWoFcPcaes=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "637eb5ac8472d6cb48bba6dc068656ba8db49375",
+        "rev": "88e5879dd0059b643602fd43af99a57ec2a87b25",
         "type": "github"
       },
       "original": {
@@ -1305,7 +1290,6 @@
         "agenix": "agenix",
         "anyrun": "anyrun",
         "astal": "astal",
-        "catppuccin": "catppuccin",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "lix": "lix",
@@ -1364,11 +1348,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1748803004,
-        "narHash": "sha256-dLGywKYxge3rzD6AqtVP0UmMHONdQNCWXj6i0lfm/UM=",
+        "lastModified": 1748887638,
+        "narHash": "sha256-AExfT8rMb6Ya37Gm3dimm+e4eeLGzya55JS6VWb3nfQ=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "5f841056ca60bea7312aeade957da084cd95b26e",
+        "rev": "3ca2c4478a1e984d2007c57467c6986bcdcb2629",
         "type": "github"
       },
       "original": {
@@ -1702,11 +1686,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1748834461,
-        "narHash": "sha256-1OfK7Ec2EIqwf/EhNikMp8DcdOcQG1CBS5CK4cAPMjs=",
+        "lastModified": 1748920570,
+        "narHash": "sha256-m7EshkqPxa3IxN/qwxP1LlMlRdn37aiK0hghDieho8A=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "2527ce862b0a80c3c4bd87e6717c7ac0fee1c456",
+        "rev": "ff5bf0bcf588e8c1d0f5fcd635b0c8e1cce8aee5",
         "type": "github"
       },
       "original": {

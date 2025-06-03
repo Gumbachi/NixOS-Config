@@ -9,6 +9,7 @@
   theme.catppuccin-mocha.enable = true;
 
   virtualisation = {
+    podman.enable = true; 
     docker = {
       enable = true;
       addUserToGroup = true;
@@ -61,26 +62,18 @@
     kernelParams = [ "video=DP-1:1024x1280@60,rotate=90" ];
   };
 
+  # This is for firewire. Enable when no longer needed
   boot.initrd.luks.mitigateDMAAttacks = false;
-
-  users.defaultUserShell = pkgs.fish;
-
-  services.getty.autologinUser = "jared";
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware = {
-    graphics = {
-      enable = true;
-      extraPackages = [ pkgs.nvtopPackages.nvidia ];
-    };
-    nvidia-container-toolkit.enable = true;
+    graphics.enable = true;
     nvidia = {
-      modesetting.enable = true;
-      powerManagement.finegrained = false;
+      modesetting.enable = false;
       open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
+
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";

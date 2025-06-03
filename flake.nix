@@ -4,7 +4,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
     agenix.url = "github:ryantm/agenix";
-    catppuccin.url = "github:ryand56/catppuccin-nix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     overway.url = "github:Gumbachi/Overway";
@@ -100,11 +99,9 @@
         # Hardware Support
         inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-        # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
 
         # Third Party
         inputs.nvf.nixosModules.default # Neovim
-        inputs.catppuccin.nixosModules.catppuccin # Catppuccin
         inputs.stylix.nixosModules.stylix
 
       ];
