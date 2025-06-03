@@ -2,11 +2,13 @@
 
   services.podman = {
     enable = true;
-    builds = {
-      "gumbotchi" = {
-        file = "/home/jared/Services/GumBOTchi/docker-compose.yml";
-      };
-    };
+    # containers = {
+    #   "gumbotchi" = {
+    #     image = "https://github.com/Gumbachi/GumBOTchi/blob/main/Dockerfile";
+    #     environmentFile = [ "/home/jared/B/Config/GumBOTchi/.env" ];
+    #     autoStart = true;
+    #   };
+    # };
   };
 
 }

@@ -9,6 +9,7 @@
   theme.catppuccin-mocha.enable = true;
 
   virtualisation = {
+    podman.enable = true; 
     docker = {
       enable = true;
       addUserToGroup = true;
