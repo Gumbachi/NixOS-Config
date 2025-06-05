@@ -12,6 +12,9 @@
     jdk # Java 21
     jdk8 # Java 8
 
+    rsync
+    fdupes
+
     podman-compose
     docui
  

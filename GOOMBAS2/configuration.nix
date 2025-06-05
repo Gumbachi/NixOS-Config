@@ -79,11 +79,11 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
 
-  fileSystems."/home/jared/C" = {
-    device = "/dev/disk/by-uuid/928B-0238";
-    fsType = "exfat";
-    options = ["users" "nofail"];
-  };
+  # fileSystems."/home/jared/C" = {
+  #   device = "/dev/disk/by-uuid/928B-0238";
+  #   fsType = "exfat";
+  #   options = ["users" "nofail"];
+  # };
 
   users.users.jared = {
     isNormalUser = true;
