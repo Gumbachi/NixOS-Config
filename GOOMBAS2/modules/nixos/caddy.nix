@@ -8,12 +8,10 @@
         respond "Hi there. Nothing in here yet"
       '';
 
-      "howdy.gumbachi.com".extraConfig = ''
-        respond "Howdy"
-      '';
+      "howdy.gumbachi.com".extraConfig = ''respond "Howdy"'';
 
       # # Matrix
-      # # "chat.gumbachi.com".extraConfig = ''
+      # # "chat.gumbachi.com".extraConfig = '
       # #   reverse_proxy localhost:6167
       # # '';
       #
@@ -32,10 +30,11 @@
         serverAliases = [ "immich.gumbachi.com" ];
       };
 
-      # Adguard Dashbaord
-      "adguard.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:3080
-      '';
+      # Calibre
+      "read.gumbachi.com" = {
+        extraConfig = ''reverse_proxy localhost:9292'';
+        serverAliases = [ "calibre.gumbachi.com" ];
+      };
 
       # Jellyfin
       "watch.gumbachi.com" = {
@@ -50,34 +49,28 @@
       };
 
       # Deluge
-      "deluge.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:8112
-      '';
+      "sail.gumbachi.com" = {
+        extraConfig = ''reverse_proxy localhost:8112'';
+        serverAliases = [ "deluge.gumbachi.com" ];
+      };
+
+      # Adguard Dashbaord
+      "adguard.gumbachi.com".extraConfig = ''reverse_proxy localhost:3080'';
 
       # Prowlarr
-      "prowlarr.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:9696
-      '';
+      "prowlarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:9696'';
 
       # Radarr
-      "radarr.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:7878
-      '';
+      "radarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:7878'';
 
       # Sonarr
-      "sonarr.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:8989
-      '';
+      "sonarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:8989'';
 
       # Bazarr
-      "bazarr.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:6767
-      '';
+      "bazarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:6767'';
       
       # Readarr
-      "readarr.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:8787
-      '';
+      "readarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:8787'';
     };
   };
 
