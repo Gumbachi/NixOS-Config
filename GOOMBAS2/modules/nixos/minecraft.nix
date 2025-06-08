@@ -12,8 +12,8 @@
       Type = "simple";
       RestartSec = "60";
       Environment = "JAVA_HOME=${pkgs.jdk8}";
-      WorkingDirectory = "/home/jared/B/Servers/Minecraft/SkyFactory-4_Server_4_2_4";
-      ExecStart = "/home/jared/B/Servers/Minecraft/SkyFactory-4_Server_4_2_4/start.sh";
+      WorkingDirectory = "/mnt/main/Servers/Minecraft/SkyFactory-4_Server_4_2_4";
+      ExecStart = "/mnt/main/Servers/Minecraft/SkyFactory-4_Server_4_2_4/start.sh";
     };
   };
 
@@ -26,8 +26,8 @@
       Type = "simple";
       RestartSec = "60";
       Environment = "JAVA_HOME=${pkgs.jdk}";
-      WorkingDirectory = "/home/jared/B/Servers/Minecraft/DawnCraft";
-      ExecStart = "/home/jared/B/Servers/Minecraft/DawnCraft/start.sh";
+      WorkingDirectory = "/mnt/main/Servers/Minecraft/DawnCraft";
+      ExecStart = "/mnt/main/Servers/Minecraft/DawnCraft/start.sh";
     };
   };
 

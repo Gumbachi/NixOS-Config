@@ -2,11 +2,12 @@
 
   services.immich = {
     enable = true;
+    group = "media";
     openFirewall = true;
-    user = "jared";
-    group = "users";
-    mediaLocation = /home/jared/B/Photos;
+    mediaLocation = "/mnt/main/Photos/Immich";
     accelerationDevices = null;
   };
+
+  users.users.immich.extraGroups = [ "video" "render" "media" ];
 
 }

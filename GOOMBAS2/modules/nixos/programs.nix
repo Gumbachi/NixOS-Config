@@ -1,12 +1,9 @@
 { pkgs, ... }: {
   
   environment.systemPackages = with pkgs; [
-    speedtest-cli # Network Speed CLI
-
     # DV recording Tools
     dvgrab
-    ffmpeg-headless
- 
+    ffmpeg-headless 
     yt-dlp # YoutubeDL
 
     jdk # Java 21
@@ -16,7 +13,8 @@
     fdupes
 
     podman-compose
-    docui
+
+    btrfs-progs
  
   ];
 

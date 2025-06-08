@@ -53,12 +53,6 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-
-    swraid = {
-      enable = true;
-      mdadmConf = "MAILADDR mdadm@gumbachi.com";
-    };
-
     kernelParams = [ "video=DP-1:1024x1280@60,rotate=90" ];
   };
 
@@ -78,17 +72,31 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # Main Media Storage FS
+  fileSystems."/mnt/main" = {
+    device = "/dev/disk/by-uuid/e597d037-9a36-49b0-a974-db80fd65fb9f";
+    fsType = "btrfs";
+    options = ["users" "nofail"];
+  };
 
-  # fileSystems."/home/jared/C" = {
-  #   device = "/dev/disk/by-uuid/928B-0238";
-  #   fsType = "exfat";
-  #   options = ["users" "nofail"];
-  # };
+  # Backup FS
+  fileSystems."/mnt/backup" = {
+    device = "/dev/disk/by-uuid/928B-0238";
+    fsType = "exfat";
+    options = ["users" "nofail"];
+  };
+
+
+  # Access groups
+  users.groups = {
+    media = {};
+    backup = {};
+  };
 
   users.users.jared = {
     isNormalUser = true;
     description = "Jared";
-    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker"];
+    extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "media" "backup" ];
   };
 
   nix.settings.experimental-features = [
