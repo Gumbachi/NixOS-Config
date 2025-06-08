@@ -11,8 +11,8 @@
     ./jellyfin.nix
     ./matrix.nix
     ./minecraft.nix
-    ./nextcloud.nix
     ./servarr.nix
+    ./syncthing.nix
   ];
 
 }

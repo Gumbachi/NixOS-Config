@@ -54,6 +54,12 @@
         serverAliases = [ "deluge.gumbachi.com" ];
       };
 
+      # Syncthing
+      "sync.gumbachi.com" = {
+        extraConfig = ''reverse_proxy localhost:8384'';
+        serverAliases = [ "syncthing.gumbachi.com" ];
+      };
+
       # Adguard Dashbaord
       "adguard.gumbachi.com".extraConfig = ''reverse_proxy localhost:3080'';
 
