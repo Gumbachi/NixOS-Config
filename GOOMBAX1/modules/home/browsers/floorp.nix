@@ -35,28 +35,6 @@
         "browser.newtabpage.activity-stream.floorp.newtab.releasenote.hide" = true;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.showSearch" = false;
-        # "browser.newtabpage.pinned" = ''[
-        #   {"url":"https://search.nixos.org/options?","label":"NixOS Search","customScreenshotURL":"https://wiki.nixos.org/nixos.png"},
-        #   {"url":"https://home-manager-options.extranix.com/?query=&release=master","label":"HM Options"},
-        #   {"url":"https://github.com","label":"GitHub"},
-        #   {"url":"https://codeberg.org","label":"Codeberg"},
-        #   {"url":"https://youtube.com","label":"YouTube"},
-        #   {"url":"https://reddit.com","label":"Reddit"},
-        #   {"url":"https://steamdb.info/","label":"SteamDB"},
-        #   {"url":"https://www.protondb.com/","label":"ProtonDB"},
-        #   {"url":"https://photos.gumbachi.com","label":"Immich"},
-        #   {"url":"https://watch.gumbachi.com","label":"Jellyfin"},
-        #   {"url":"http://192.168.69.2:8112","label":"Deluge"},
-        #   {"url":"https://request.gumbachi.com","label":"Jellyseerr"},
-        #   {"url":"http://192.168.69.2:9696","label":"Prowlarr"},
-        #   {"url":"http://192.168.69.2:7878","label":"Radarr"},
-        #   {"url":"http://192.168.69.2:8989","label":"Sonarr"},
-        #   {"url":"http://192.168.69.2:3080","label":"Adguard"},
-        #   {"url":"https://porkbun.com","label":"Porkbun"},
-        #   {"url":"https://purelymail.com","label":"Mail"},
-        #   {"url":"https://amazon.com","label":"Amazon"},
-        #   {"url":"https://www.nexusmods.com/","label":"Nexus Mods"}
-        # ]'';
 
         "browser.newtabpage.pinned" = [
           {
@@ -92,7 +70,6 @@
             label = "ProtonDB";
             url = "https://protondb.com";
           }
-
           {
             label = "Photos";
             url = "https://photos.gumbachi.com";
@@ -107,7 +84,7 @@
           }
           {
             label = "Deluge";
-            url = "http://192.168.69.2:8112";
+            url = "https://deluge.gumbachi.com";
           }
           {
             label = "Porkbun";
