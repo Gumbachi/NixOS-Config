@@ -4,7 +4,7 @@
     enable = true;
     group = "media";
     openFirewall = true;
-    mediaLocation = "/mnt/main/Photos/Immich";
+    mediaLocation = "/mnt/main/Media/Photos/Immich";
     accelerationDevices = null;
   };
 

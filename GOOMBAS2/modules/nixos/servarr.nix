@@ -5,6 +5,7 @@
     bazarr = {
       enable = true;
       openFirewall = true;
+      listenPort = 6767; # Bazarr gotta be different for some reason
       group = "media";
       dataDir = "/mnt/main/Config/Bazarr";
     };
@@ -30,6 +31,14 @@
       settings.server.port = 8989;
       group = "media";
       dataDir = "/mnt/main/Config/Sonarr";
+    };
+
+    readarr = {
+      enable = true;
+      openFirewall = true;
+      settings.server.port = 8787;
+      group = "media";
+      dataDir = "/mnt/main/Config/Readarr";
     };
 
   };

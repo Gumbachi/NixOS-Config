@@ -73,6 +73,11 @@
       "bazarr.gumbachi.com".extraConfig = ''
         reverse_proxy localhost:6767
       '';
+      
+      # Readarr
+      "readarr.gumbachi.com".extraConfig = ''
+        reverse_proxy localhost:8787
+      '';
     };
   };
 
