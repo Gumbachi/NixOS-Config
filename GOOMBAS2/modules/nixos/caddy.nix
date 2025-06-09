@@ -56,7 +56,8 @@
 
       # Syncthing
       "sync.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:8384'';
+        # Cant use localhost since multiple syncthing hosts on same network 
+        extraConfig = ''reverse_proxy 192.168.69.2:8384'';
         serverAliases = [ "syncthing.gumbachi.com" ];
       };
 

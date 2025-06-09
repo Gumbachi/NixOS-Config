@@ -14,7 +14,8 @@
       enable = true;
       openFirewall = true;
       settings.server.port = 9696;
-      dataDir = "/mnt/main/Config/Prowlarr";
+      # This settings gets the DB to lock too often just hold off until nixified
+      # dataDir = "/mnt/main/Config/Prowlarr";
     };
 
     radarr = {
