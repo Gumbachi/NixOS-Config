@@ -48,11 +48,14 @@
         serverAliases = [ "jellyseerr.gumbachi.com" "jellyseer.gumbachi.com" ];
       };
 
-      # Deluge
+      # Deluge - VPN
       "sail.gumbachi.com" = {
         extraConfig = ''reverse_proxy localhost:8112'';
         serverAliases = [ "deluge.gumbachi.com" ];
       };
+
+      # Deluge - NoVPN
+      "open-deluge.gumbachi.com".extraConfig = ''reverse_proxy localhost:8111'';
 
       # Syncthing
       "sync.gumbachi.com" = {

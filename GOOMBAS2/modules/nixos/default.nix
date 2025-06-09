@@ -9,6 +9,7 @@
     ./calibre.nix
     ./immich.nix
     ./jellyfin.nix
+    ./open-deluge.nix
     ./matrix.nix
     ./minecraft.nix
     ./servarr.nix
