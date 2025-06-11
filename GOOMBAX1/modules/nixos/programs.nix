@@ -6,6 +6,7 @@
     inputs.agenix.packages.${system}.default
 
     youtube-music
+    hexchat
 
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
@@ -131,20 +132,6 @@
     text.nvf = {
       enable = true;
       setDefault = true;
-      languages = {
-        python.enable = true;
-        markdown.enable = true;
-        css.enable = true;
-        nix = {
-          enable = true;
-          format.enable = false;
-          lsp.server = "nixd";
-        };
-        ts = {
-          enable = true;
-          format.enable = false;
-        };
-      };
     };
 
   };

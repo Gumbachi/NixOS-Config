@@ -87,6 +87,22 @@
             url = "https://deluge.gumbachi.com";
           }
           {
+            label = "Open Deluge";
+            url = "https://open-deluge.gumbachi.com";
+          }
+          {
+            label = "Prowlarr";
+            url = "https://prowlarr.gumbachi.com";
+          }
+          {
+            label = "Radarr";
+            url = "https://radarr.gumbachi.com";
+          }
+          {
+            label = "Sonarr";
+            url = "https://sonarr.gumbachi.com";
+          }
+          {
             label = "Porkbun";
             url = "https://porkbun.com";
           }
