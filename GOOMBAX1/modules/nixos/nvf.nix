@@ -109,11 +109,7 @@
     };
 
     languages = {
-      python = {
-        enable = true;
-        format.enable = true;
-        format.type = "ruff";
-      };
+      yaml.enable = true; # Doesn't have a format option
       ts.enable = true;
       css.enable = true;
       nix = {
@@ -125,6 +121,15 @@
         treesitter.enable = true;
         format.enable = true;
       }; 
+      python = {
+        enable = true;
+        format.enable = true;
+        format.type = "ruff";
+      };
+      bash = {
+        enable = true;
+        format.enable = true;
+      };
     };
 
     keymaps = [
