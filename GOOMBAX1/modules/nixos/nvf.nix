@@ -6,7 +6,6 @@
     statusline.lualine.enable = true;
     binds.whichKey.enable = true;
     visuals.rainbow-delimiters.enable = true;
-    dashboard.dashboard-nvim.enable = true;
     telescope.enable = true;
     treesitter.enable = true;
     mini.indentscope.enable = true;
@@ -14,9 +13,12 @@
     mini.comment.enable = true;
     mini.surround.enable = true;
 
-    formatter.conform-nvim = {
+    dashboard.startify = {
       enable = true;
-      setupOpts.formatters_by_ft.md = [ "markdownfmt" ];
+      bookmarks = [
+        { c = "~/NixOS-Config"; }
+        { n = "~/Sync/Notes"; }
+      ];
     };
 
     tabline.nvimBufferline = {
@@ -103,10 +105,15 @@
       enable = true;
       inlayHints.enable = true;
       lspSignature.enable = true;
+      formatOnSave = true;
     };
 
     languages = {
-      python.enable = true;
+      python = {
+        enable = true;
+        format.enable = true;
+        format.type = "ruff";
+      };
       ts.enable = true;
       css.enable = true;
       nix = {
@@ -133,21 +140,27 @@
         silent = true;
         action = ":MarkdownPreview<CR>";
       }
-    ];
-
-    autocmds = [
       {
-        desc = "4 Spacers";
-        command = "setlocal shiftwidth=4 | setlocal tabstop=4";
-        event = ["BufEnter"];
-        pattern = [
-          "*.py"
-          "*.sass"
-          "*.scss"
-          "*.css"
-        ];
+        key = "<leader>h";
+        mode = "n";
+        silent = true;
+        action = ":Startify<CR>";
       }
     ];
+
+    # autocmds = [
+    #   {
+    #     desc = "4 Spacers";
+    #     command = "setlocal shiftwidth=4 | setlocal tabstop=4";
+    #     event = ["BufEnter"];
+    #     pattern = [
+    #       "*.py"
+    #       "*.sass"
+    #       "*.scss"
+    #       "*.css"
+    #     ];
+    #   }
+    # ];
     
   };
 
