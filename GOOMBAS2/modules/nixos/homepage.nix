@@ -1,6 +1,7 @@
 { config, ... }:
 let
   port = 8082;
+  imageSrc = "https://codeberg.org/Gumbachi/NixOS-Config/raw/branch/main/images/wallpapers";
 in
 {
   # Reverse proxy
@@ -31,7 +32,7 @@ in
       theme = "dark";
       color = "slate";
       background = {
-        image = "https://w.wallhaven.cc/full/5g/wallhaven-5g8r55.jpg";
+        image = "${imageSrc}/nix-gray.png";
         blur = "md";
       };
     };

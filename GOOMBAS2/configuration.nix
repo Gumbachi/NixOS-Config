@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
 
   imports = [
     ./hardware-configuration.nix # Hardware config
@@ -99,10 +99,13 @@
     extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "media" "backup" ];
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    package = pkgs.lix;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
