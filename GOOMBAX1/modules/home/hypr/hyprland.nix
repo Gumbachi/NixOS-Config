@@ -13,7 +13,9 @@
       toggleDashboard = "astal -i overway -t overway";
       fileManager = "${terminal} yazi";
       menu = ''walker'';
-      editConfig = "${terminal} $EDITOR $CONFIG";
+      editor = "${terminal} $EDITOR";
+      editConfig = "${editor} $CONFIG";
+      editNotes = "${editor} /home/jared/Sync/Notes";
       screenshot = "uwsm app -- hyprshot -m region --clipboard-only";
       browser = "uwsm app -- floorp";
       systemMonitor = "${terminal} btop";
@@ -122,7 +124,7 @@
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, P, pseudo, # dwindle"
         "${mainMod}, Y, togglesplit, # dwindle"
-        "${mainMod}, N, exec, ${editConfig}"
+        "${mainMod}, N, exec, ${editor}"
         "${mainMod} SHIFT, F, fullscreen, 1"
         "${mainMod}, F, fullscreen, 0"
         "${mainMod}, B, exec, ${browser}"
