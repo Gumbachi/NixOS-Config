@@ -6,8 +6,10 @@
 
     ./adguardhome.nix
     ./caddy.nix
+    ./homepage.nix
     ./immich.nix
     ./jellyfin.nix
+    ./jellyseerr.nix
     ./open-deluge.nix
     ./matrix.nix
     ./minecraft.nix

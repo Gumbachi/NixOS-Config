@@ -1,7 +1,16 @@
-{...}: {
+{ ... }:
+let
+  port = "3080";
+in
+{
+
   networking.firewall = {
-    allowedTCPPorts = [53 5443];
-    allowedUDPPorts = [53 5443];
+    allowedTCPPorts = [ 53 5443 ];
+    allowedUDPPorts = [ 53 5443 ];
+  };
+
+  services.caddy.virtualHosts."adguard.gumbachi.com" = {
+    extraConfig = ''reverse_proxy localhost:${port}'';
   };
 
   services.adguardhome = {
@@ -9,7 +18,7 @@
     openFirewall = true;
     port = 3080;
     settings = {
-      http.address = "0.0.0.0:3080"; 
+      http.address = "0.0.0.0:${port}"; 
       users = [
         {
           name = "Gumbachi";

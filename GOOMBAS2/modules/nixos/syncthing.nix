@@ -1,10 +1,17 @@
 { config, lib, ... }:
 let
   storage = "/mnt/main";
+  port = 8384;
 in
 {
   # Automatically open port if syncthing is enabled
-  networking.firewall.allowedTCPPorts = lib.mkIf config.services.syncthing.enable [ 8384 ];
+  networking.firewall.allowedTCPPorts = lib.mkIf config.services.syncthing.enable [ port ];
+
+  services.caddy.virtualHosts."sync.gumbachi.com" = {
+    # Cant use localhost since multiple syncthing hosts on same network 
+    extraConfig = ''reverse_proxy 192.168.69.2:${toString port}'';
+    serverAliases = [ "syncthing.gumbachi.com" ];
+  };
 
   services.syncthing = {
     enable = true;
@@ -15,7 +22,7 @@ in
     configDir = "${storage}/Config/Syncthing";
     overrideDevices = true;     # overrides any devices added or deleted through the WebUI
     overrideFolders = true;     # overrides any folders added or deleted through the WebUI
-    guiAddress = "0.0.0.0:8384";
+    guiAddress = "0.0.0.0:${toString port}";
     settings = {
 
       # Notes - Knowledge Base

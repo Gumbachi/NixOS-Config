@@ -1,14 +1,18 @@
-{ config, ... }: {
+{ ... }: {
+
+  networking.firewall.allowedTCPPorts = [80 443];
 
   services.caddy = {
     enable = true;
     virtualHosts = {
 
-      "localhost".extraConfig = ''
-        respond "Hi there. Nothing in here yet"
-      '';
+      "gumbachi.com".extraConfig = ''respond "Howdy"'';
 
-      "howdy.gumbachi.com".extraConfig = ''respond "Howdy"'';
+      # Deluge - VPN
+      "sail.gumbachi.com" = {
+        extraConfig = ''reverse_proxy localhost:8112'';
+        serverAliases = [ "deluge.gumbachi.com" ];
+      };
 
       # # Matrix
       # # "chat.gumbachi.com".extraConfig = '
@@ -24,59 +28,53 @@
       #   respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://chat.gumbachi.com"}}`
       # '';
 
-      # Immich
-      "photos.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:2283'';
-        serverAliases = [ "immich.gumbachi.com" ];
-      };
+      # # Immich
+      # "photos.gumbachi.com" = {
+      #   extraConfig = ''reverse_proxy localhost:2283'';
+      #   serverAliases = [ "immich.gumbachi.com" ];
+      # };
 
-      # Jellyfin
-      "watch.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:8096'';
-        serverAliases = [ "jellyfin.gumbachi.com" ];
-      };
+      # # Jellyfin
+      # "watch.gumbachi.com" = {
+      #   extraConfig = ''reverse_proxy localhost:8096'';
+      #   serverAliases = [ "jellyfin.gumbachi.com" ];
+      # };
 
-      # Jellyseerr
-      "request.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:5055'';
-        serverAliases = [ "jellyseerr.gumbachi.com" "jellyseer.gumbachi.com" ];
-      };
+      # # Jellyseerr
+      # "request.gumbachi.com" = {
+      #   extraConfig = ''reverse_proxy localhost:5055'';
+      #   serverAliases = [ "jellyseerr.gumbachi.com" "jellyseer.gumbachi.com" ];
+      # };
 
-      # Deluge - VPN
-      "sail.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:8112'';
-        serverAliases = [ "deluge.gumbachi.com" ];
-      };
 
-      # Deluge - NoVPN
-      "open-deluge.gumbachi.com".extraConfig = ''reverse_proxy localhost:8111'';
+      # # Deluge - NoVPN
+      # "open-deluge.gumbachi.com".extraConfig = ''reverse_proxy localhost:8111'';
 
       # Syncthing
-      "sync.gumbachi.com" = {
-        # Cant use localhost since multiple syncthing hosts on same network 
-        extraConfig = ''reverse_proxy 192.168.69.2:8384'';
-        serverAliases = [ "syncthing.gumbachi.com" ];
-      };
+      # "sync.gumbachi.com" = {
+      #   # Cant use localhost since multiple syncthing hosts on same network 
+      #   extraConfig = ''reverse_proxy 192.168.69.2:8384'';
+      #   serverAliases = [ "syncthing.gumbachi.com" ];
+      # };
 
-      # Adguard Dashbaord
-      "adguard.gumbachi.com".extraConfig = ''reverse_proxy localhost:3080'';
+      # # Adguard Dashbaord
+      # "adguard.gumbachi.com".extraConfig = ''reverse_proxy localhost:3080'';
 
-      # Prowlarr
-      "prowlarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:9696'';
-
-      # Radarr
-      "radarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:7878'';
-
-      # Sonarr
-      "sonarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:8989'';
-
-      # Bazarr
-      "bazarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:6767'';
-      
-      # Readarr
-      "readarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:8787'';
+      # # Prowlarr
+      # "prowlarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:9696'';
+      #
+      # # Radarr
+      # "radarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:7878'';
+      #
+      # # Sonarr
+      # "sonarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:8989'';
+      #
+      # # Bazarr
+      # "bazarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:6767'';
+      #
+      # # Readarr
+      # "readarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:8787'';
     };
   };
 
-  networking.firewall.allowedTCPPorts = [80 443];
 }
