@@ -103,6 +103,7 @@
         # Third Party
         inputs.nvf.nixosModules.default # Neovim
         inputs.stylix.nixosModules.stylix
+        inputs.agenix.nixosModules.default
 
       ];
     };

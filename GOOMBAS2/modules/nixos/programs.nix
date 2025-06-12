@@ -1,6 +1,9 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   
   environment.systemPackages = with pkgs; [
+ 
+    inputs.agenix.packages.${system}.default
+
     # DV recording Tools
     dvgrab
     ffmpeg-headless 
@@ -36,7 +39,7 @@
   file-managers.yazi.enable = true;
 
   documentation = {
-    man.enable = true;
+    man.enable = false;
     tldr.enable = true;
   };
 

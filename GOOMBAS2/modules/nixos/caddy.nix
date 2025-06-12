@@ -4,6 +4,9 @@
 
   services.caddy = {
     enable = true;
+    globalConfig = ''
+      auto_https disable_redirects
+    '';
     virtualHosts = {
 
       "gumbachi.com".extraConfig = ''respond "Howdy"'';

@@ -12,9 +12,12 @@ in
   # Reverse Proxy
   services.caddy.virtualHosts = {
     "prowlarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:${toString ports.prowlarr}'';
-    "radarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:${toString ports.radarr}'';
     "sonarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:${toString ports.sonarr}'';
     "bazarr.gumbachi.com".extraConfig = ''reverse_proxy localhost:${toString ports.bazarr}'';
+    "radarr.gumbachi.com:80" = {
+      extraConfig = ''reverse_proxy localhost:${toString ports.radarr}'';
+      serverAliases = [ "radarr.gumbachi.com" ];
+    };
   };
 
   services = {
