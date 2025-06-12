@@ -30,12 +30,6 @@
         serverAliases = [ "immich.gumbachi.com" ];
       };
 
-      # Calibre
-      "read.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:9292'';
-        serverAliases = [ "calibre.gumbachi.com" ];
-      };
-
       # Jellyfin
       "watch.gumbachi.com" = {
         extraConfig = ''reverse_proxy localhost:8096'';

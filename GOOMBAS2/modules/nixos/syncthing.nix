@@ -19,27 +19,48 @@ in
     settings = {
 
       # Notes - Knowledge Base
-      folders."${storage}/Documents/Notes" = {
+      folders."${storage}/Sync/Notes" = {
         label = "Notes";
         id = "notes";
-        devices = [ "pixel" "GOOMBAX1" ];
+        devices = [ "pixel" "GOOMBAX1" "Go7" ];
       };
 
-      # 
-      folders."${storage}/Documents/Shared" = {
+      # General Shared Files
+      folders."${storage}/Sync/Shared" = {
         label = "Shared Files";
         id = "shared";
-        devices = [ "pixel" "GOOMBAX1" ];
+        devices = [ "pixel" "GOOMBAX1" "Go7" ];
       };
 
-      # Pixel 8 - Phone
+      # Torrents
+      folders."${storage}/Sync/Torrents" = {
+        label = "Torrents";
+        id = "torrents";
+        devices = [ "GOOMBAX1" ];
+      };
+
+      # Books
+      folders."${storage}/Media/Books" = {
+        label = "Books";
+        id = "books";
+        devices = [ "Go7" ];
+      };
+
+      # Phone
       devices.pixel = {
         id = "RZWUQVJ-F3ETA27-2WNE7IF-Q5RIKRC-TU3BPKJ-V7RAX2F-IJYCEM2-PTB2XAY";
         autoAcceptFolders = false;
       };
-
+      
+      # Main Desktop
       devices.GOOMBAX1 = {
         id = "A3EODPJ-UEDWGN5-ULBOGU3-YK2Q6IK-RLURJQV-5KGCCQ4-3IZPKPS-NAAPLQV";
+        autoAcceptFolders = false;
+      };
+      
+      # E-Reader
+      devices.Go7 = {
+        id = "GKNIIKZ-6P7TNMQ-X4FDQPI-75UH404-J664KC2-MVU3SVQ-BFYQL5V-4WC4WAF";
         autoAcceptFolders = false;
       };
 

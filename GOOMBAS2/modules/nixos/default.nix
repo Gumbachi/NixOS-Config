@@ -6,7 +6,6 @@
 
     ./adguardhome.nix
     ./caddy.nix
-    ./calibre.nix
     ./immich.nix
     ./jellyfin.nix
     ./open-deluge.nix
@@ -14,6 +13,10 @@
     ./minecraft.nix
     ./servarr.nix
     ./syncthing.nix
+
+    # Snatched from X1
+    ../../../GOOMBAX1/modules/nixos/nvf.nix
+
   ];
 
 }
