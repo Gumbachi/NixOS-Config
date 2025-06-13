@@ -21,7 +21,7 @@
         "extensions.autoDisableScopes" = 0; # Auto enable plugins
 
         "browser.startup.page" = 1;
-        "browser.startup.homepage" = "about:home";
+        "browser.startup.homepage" = "https://homepage.gumbachi.com";
         "browser.aboutwelcome.enabled" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.proton.toolbar.version" = 3;

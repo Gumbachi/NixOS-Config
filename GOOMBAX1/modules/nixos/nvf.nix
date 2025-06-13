@@ -3,6 +3,7 @@
   # Plugins
   programs.nvf.settings.vim = {
 
+    ui.nvim-ufo.enable = true;
     statusline.lualine.enable = true;
     binds.whichKey.enable = true;
     visuals.rainbow-delimiters.enable = true;

@@ -1,4 +1,4 @@
-{ user, config, ... }: {
+{ config, ... }: {
 
   # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
   
@@ -14,8 +14,6 @@
       fileManager = "${terminal} yazi";
       menu = ''walker'';
       editor = "${terminal} $EDITOR";
-      editConfig = "${editor} $CONFIG";
-      editNotes = "${editor} /home/jared/Sync/Notes";
       screenshot = "uwsm app -- hyprshot -m region --clipboard-only";
       browser = "uwsm app -- floorp";
       systemMonitor = "${terminal} btop";
@@ -114,8 +112,8 @@
       };
 
       bind = [
-        "${mainMod}, Q, exec, ${terminal}"
         "${mainMod}, T, exec, ${terminal}"
+        "${mainMod} SHIFT, T, exec, ${terminal} ssh jared@192.168.69.2"
         "${mainMod}, C, killactive,"
         "${mainMod} SHIFT, C, exec, hyprpicker | wl-copy"
         "${mainMod} SHIFT, M, exec, pkill Hyprland,"
