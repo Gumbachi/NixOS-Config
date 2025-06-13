@@ -95,6 +95,7 @@
       expandtab = true;
       wrap = false;
       scrolloff = 10;
+      foldlevel = 99;
     };
 
     clipboard = {
