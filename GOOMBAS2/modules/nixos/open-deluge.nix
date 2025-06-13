@@ -5,10 +5,6 @@ let
 in
 {
 
-  # To achieve connectable status
-  networking.firewall.allowedTCPPorts = [ 55380 ];
-  networking.firewall.allowedUDPPorts = [ 55380 ];
-
   # Reverse Proxy
   services.caddy.virtualHosts."open-deluge.gumbachi.com" = {
     extraConfig = ''reverse_proxy localhost:8111'';

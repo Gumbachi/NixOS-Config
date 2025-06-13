@@ -1,11 +1,13 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
+  inherit (lib) mkIf; 
+  cfg = config.services.homepage-dashboard;
   port = 8082;
   imageSrc = "https://codeberg.org/Gumbachi/NixOS-Config/raw/branch/main/images/wallpapers";
 in
 {
   # Reverse proxy
-  services.caddy.virtualHosts."homepage.gumbachi.com" = {
+  services.caddy.virtualHosts."homepage.gumbachi.com" = mkIf cfg.enable {
     extraConfig = ''reverse_proxy localhost:${toString port}'';
     serverAliases = [ "dashboard.gumbachi.com" ];
   };
@@ -21,84 +23,240 @@ in
   services.homepage-dashboard = {
     enable = true;
     listenPort = port;
+    openFirewall = true;
     allowedHosts = "homepage.gumbachi.com,dashboard.gumbachi.com";
     environmentFile = config.age.secrets.dashboard.path;
-    # environmentFile = "/mnt/main/config/homepage/homepage.env";
 
     # Settings - https://gethomepage.dev/configs/settings/
     settings = {
-      title = "GOOMBAS2 Homepage";
-      description = "My personal home server";
+      title = "Dashboard";
+      description = "GOOMBAS2 Dashboard";
       theme = "dark";
-      color = "slate";
+      useEqualHeights = true;
+      hideVersion = true;
+      fullWidth = true;
+      statusStyle = "dot";
+      cardBlur = "xl";
       background = {
-        image = "${imageSrc}/nix-gray.png";
+        image = "${imageSrc}/plants.png";
         blur = "md";
       };
+      layout.Media = {
+        style = "row";
+        columns = 3;
+      };
+      layout.Other = {
+        style = "row";
+        columns = 2;
+      };
     };
-
-    # Bookmarks - https://gethomepage.dev/configs/bookmarks/
-    bookmarks = [];
 
     # Widgets - https://gethomepage.dev/configs/info-widgets/
     widgets = [
       {
+        search = {
+          provider = "duckduckgo";
+          focus = false;
+          showSearchSuggestions = false;
+          target = "_blank";
+        };
+      }
+      {
         resources = {
           cpu = true;
           memory = true;
-          uptime = true;
-          network = true;
           disk = "/mnt/main";
+          network = true;
         };
       }
     ];
 
     # Services - https://gethomepage.dev/configs/services/
     services = [
-      {
+
+      # Media Group
+      { 
         "Media" = [
           {
-            "Radarr" = let
-              url = "http://192.168.69.2:7878";
-            in {
-              icon = "radarr.png";
-              description = "Movies";
-              href = url;
+            "Jellyfin" = {
+              icon = "jellyfin.png";
+              description = "Better than Plex";
+              href = "https://watch.gumbachi.com";
+              siteMonitor = "https://watch.gumbachi.com";
               widget = {
-                type = "radarr";
-                url = url;
-                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
+                type = "jellyfin";
+                url = "http://localhost:8096";
+                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
+                enableBlocks = false;
+                showEpisodeNumber = true;
               };
             };
           }
+
+          { 
+            "Radarr" = {
+              icon = "radarr.png";
+              description = "Movies";
+              href = "https://radarr.gumbachi.com";
+              siteMonitor = "https://radarr.gumbachi.com";
+              widget = {
+                type = "radarr";
+                url = "http://localhost:7878";
+                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
+                fields = [ "wanted" "queued" "movies" ];
+                enableQueue = true;
+              };
+            };
+          }
+
           {
-            "Sonarr" = let
-              url = "http://192.168.69.2:8989"; # THis is correct no touchy
-            in {
+            "Sonarr" = {
               icon = "sonarr.png";
               description = "Shows";
-              href = url;
+              href = "https://sonarr.gumbachi.com";
+              siteMonitor = "https://sonarr.gumbachi.com";
               widget = {
                 type = "sonarr";
-                url = url;
+                url = "http://localhost:8989";
                 key = "{{HOMEPAGE_VAR_SONARR_KEY}}";
               };
             };
           }
-        ];
-      }
-      {
-        "My Second Group" = [
+
           {
-            "My Second Service" = {
-              description = "Homepage is the best";
-              href = "http://localhost/";
+            "Jellyseerr" = {
+              icon = "jellyseerr.png";
+              description = "Better than Overseerr";
+              href = "https://request.gumbachi.com";
+              siteMonitor = "https://request.gumbachi.com";
+              widget = {
+                type = "jellyseerr";
+                url = "http://localhost:5055";
+                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
+              };
             };
           }
+
+          {
+            "Deluge VPN" = {
+              icon = "deluge.png";
+              description = "Bittorrent";
+              href = "https://sail.gumbachi.com";
+              siteMonitor = "https://sail.gumbachi.com";
+              widget = {
+                type = "deluge";
+                url = "http://localhost:8112";
+                password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+                enableLeechProgress = true;
+                fields = [ "leech" "seed" "download" "upload" ];
+              };
+            };
+          }
+
+        ];
+      }
+
+      # Network Group
+      {
+        "Other" = [
+
+          # AdguardHome
+          {
+            "Adguard" = {
+              icon = "adguard-home.png";
+              description = "DNS ad-blocking";
+              href = "https://adguard.gumbachi.com";
+              siteMonitor = "https://adguard.gumbachi.com";
+              widget = {
+                type = "adguard";
+                url = "http://localhost:3080";
+                username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
+                password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
+                fields = [ "queries" "blocked" "latency" ];
+              };
+            };
+          }
+
+
+          # Immich
+          {
+            "Immich" = {
+              icon = "immich.png";
+              description = "Cloud Photos";
+              href = "https://photos.gumbachi.com";
+              siteMonitor = "https://photos.gumbachi.com";
+              widget = {
+                type = "immich";
+                version = 2;
+                url = "http://localhost:2283";
+                key = "{{HOMEPAGE_VAR_IMMICH_KEY}}";
+                fields = [ "photos" "videos" "storage" ];
+              };
+            };
+          }
+
         ];
       }
     ];
 
+    # Bookmarks - https://gethomepage.dev/configs/bookmarks/
+    bookmarks = [
+      {
+        "Developer" = [
+          {
+            "GitHub" = [{
+              abbr = "GH";
+              href = "https://github.com/";
+              icon = "github-light.png";
+            }];
+          }
+          {
+            "Codeberg" = [{
+              abbr = "CB";
+              href = "https://codeberg.org";
+              icon = "codeberg.png";
+            }];
+          }
+        ];
+      }
+      {
+        "Nix" = [
+          {
+            "NixOS Search" = [{
+              abbr = "NX";
+              href = "https://search.nixos.org/options?channel=unstable";
+              icon = "nixos.png";
+            }];
+          }
+          {
+            "Home Manager" = [{
+              abbr = "HM";
+              href = "https://home-manager-options.extranix.com/?query=&release=master";
+              description = "extranix.com";
+              icon = "nixos.png";
+            }];
+          }
+        ];
+      }
+      {
+        "Web Portals" = [
+          {
+            "PurelyMail" = [{
+              abbr = "PM";
+              href = "https://purelymail.com";
+              icon = "purelymail.png";
+            }];
+          }
+          {
+            "Porkbun" = [{
+              abbr = "PB";
+              href = "https://porkbun.com";
+              icon = "porkbun.png";
+            }];
+          }
+        ];
+      }
+    ];
 
   };
 

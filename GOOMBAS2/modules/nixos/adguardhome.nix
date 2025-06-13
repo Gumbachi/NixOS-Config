@@ -15,7 +15,6 @@ in
 
   services.adguardhome = {
     enable = true;
-    openFirewall = true;
     port = 3080;
     settings = {
       http.address = "0.0.0.0:${port}"; 

@@ -1,18 +1,14 @@
 { ... }: {
   
   services = {
-
-    # Automatic firmware updater
-    fwupd.enable = false;
-
-    # Power Profiles
+    # System Services
     power-profiles-daemon.enable = true;
-
-    # Enable CUPS to print documents.
     printing.enable = false;
-
-    # Enable the OpenSSH daemon.
     openssh.enable = true;
+
+    # Self-hosted Services
+    uptime-kuma.enable = true;
+
 
   };
 }

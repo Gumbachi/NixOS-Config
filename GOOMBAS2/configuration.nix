@@ -19,19 +19,8 @@
   networking = {
     hostName = "GOOMBAS2";
     networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 
-        8123 # No idead
-        43002 # Sky Factory
-        22000 # Syncthing
-      ];
-      allowedUDPPorts = [ 
-        8123 # No clue
-        43002 # Sky factory
-        22000 21027 # Syncthing
-      ];
-    };
+    firewall.enable = true;
+    enableIPv6 = false;
   };
 
   environment.sessionVariables = {
@@ -72,19 +61,19 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Main Media Storage FS
-  fileSystems."/mnt/main" = {
-    device = "/dev/disk/by-uuid/e597d037-9a36-49b0-a974-db80fd65fb9f";
-    fsType = "btrfs";
-    options = ["users" "nofail"];
-  };
-
-  # Backup FS
-  fileSystems."/mnt/backup" = {
-    device = "/dev/disk/by-uuid/928B-0238";
-    fsType = "exfat";
-    options = ["users" "nofail"];
-  };
+  # # Main Media Storage FS
+  # fileSystems."/mnt/main" = {
+  #   device = "/dev/disk/by-uuid/e597d037-9a36-49b0-a974-db80fd65fb9f";
+  #   fsType = "btrfs";
+  #   options = ["users" "nofail"];
+  # };
+  #
+  # # Backup FS
+  # fileSystems."/mnt/backup" = {
+  #   device = "/dev/disk/by-uuid/928B-0238";
+  #   fsType = "exfat";
+  #   options = ["users" "nofail"];
+  # };
 
 
   # Access groups
@@ -97,14 +86,13 @@
     isNormalUser = true;
     description = "Jared";
     extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "media" "backup" ];
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvJ/mvigyGpxh0SNRWqxYLS3HcsBhGPG1Pat7ldit+T jared@GOOMBAX1"];
   };
 
-  nix = {
-    package = pkgs.lix;
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-    };
+  nix.package = pkgs.lix;
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = ["nix-command" "flakes"];
   };
 
   # Allow unfree packages

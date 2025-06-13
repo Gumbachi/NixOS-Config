@@ -15,6 +15,7 @@
     ./minecraft.nix
     ./servarr.nix
     ./syncthing.nix
+    ./uptime-kuma.nix
 
     # Snatched from X1
     ../../../GOOMBAX1/modules/nixos/nvf.nix
