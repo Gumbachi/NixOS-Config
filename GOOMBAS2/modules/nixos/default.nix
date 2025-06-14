@@ -1,9 +1,16 @@
 { ... }: {
-  
-  imports = [
-    ./programs.nix
-    ./services.nix
 
+  # These are just configs they do not enable the programs themselves
+  # That should be done in programs.nix or services.nix
+  imports = [
+
+    # Programs
+    ../../../GOOMBAX1/modules/nixos/nvf.nix
+      
+    # System Services
+    ./greetd.nix
+
+    # Homelab services
     ./adguardhome.nix
     ./caddy.nix
     ./homepage.nix
@@ -16,9 +23,6 @@
     ./servarr.nix
     ./syncthing.nix
     ./uptime-kuma.nix
-
-    # Snatched from X1
-    ../../../GOOMBAX1/modules/nixos/nvf.nix
 
   ];
 

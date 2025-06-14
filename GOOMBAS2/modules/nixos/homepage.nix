@@ -1,13 +1,12 @@
 { config, lib, ... }:
 let
-  inherit (lib) mkIf; 
   cfg = config.services.homepage-dashboard;
   port = 8082;
   imageSrc = "https://codeberg.org/Gumbachi/NixOS-Config/raw/branch/main/images/wallpapers";
 in
 {
   # Reverse proxy
-  services.caddy.virtualHosts."homepage.gumbachi.com" = mkIf cfg.enable {
+  services.caddy.virtualHosts."homepage.gumbachi.com" = lib.mkIf cfg.enable {
     extraConfig = ''reverse_proxy localhost:${toString port}'';
     serverAliases = [ "dashboard.gumbachi.com" ];
   };
@@ -21,7 +20,6 @@ in
   };
 
   services.homepage-dashboard = {
-    enable = true;
     listenPort = port;
     openFirewall = true;
     allowedHosts = "homepage.gumbachi.com,dashboard.gumbachi.com";
@@ -160,7 +158,6 @@ in
       {
         "Other" = [
 
-          # AdguardHome
           {
             "Adguard" = {
               icon = "adguard-home.png";
@@ -177,8 +174,6 @@ in
             };
           }
 
-
-          # Immich
           {
             "Immich" = {
               icon = "immich.png";
@@ -191,6 +186,21 @@ in
                 url = "http://localhost:2283";
                 key = "{{HOMEPAGE_VAR_IMMICH_KEY}}";
                 fields = [ "photos" "videos" "storage" ];
+              };
+            };
+          }
+
+          {
+            "Uptime" = {
+              icon = "uptime-kuma.png";
+              description = "Uptime Stats";
+              href = "https://uptime.gumbachi.com";
+              siteMonitor = "https://uptime.gumbachi.com";
+              widget = {
+                type = "uptimekuma";
+                url = "http://localhost:3180";
+                slug = "all";
+                fields = [ "up" "down" "uptime" ];
               };
             };
           }

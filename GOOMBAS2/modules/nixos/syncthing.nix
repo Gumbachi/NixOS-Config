@@ -1,20 +1,20 @@
 { config, lib, ... }:
 let
+  cfg = config.services.syncthing;
   storage = "/mnt/main";
   port = 8384;
 in
 {
   # Automatically open port if syncthing is enabled
-  networking.firewall.allowedTCPPorts = lib.mkIf config.services.syncthing.enable [ port ];
+  networking.firewall.allowedTCPPorts = lib.mkIf cfg.enable [ port ];
 
-  services.caddy.virtualHosts."sync.gumbachi.com" = {
+  services.caddy.virtualHosts."sync.gumbachi.com" = lib.mkIf cfg.enable {
     # Cant use localhost since multiple syncthing hosts on same network 
     extraConfig = ''reverse_proxy 192.168.69.2:${toString port}'';
     serverAliases = [ "syncthing.gumbachi.com" ];
   };
 
   services.syncthing = {
-    enable = true;
     user = "jared"; # makes the most sense to run as me
     group = "users";
     openDefaultPorts = true;

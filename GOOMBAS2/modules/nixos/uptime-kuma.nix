@@ -1,6 +1,5 @@
 { config, lib, ... }:
 let
-  inherit (lib) mkIf;
   cfg = config.services.uptime-kuma;
   dashboard-cfg = config.services.homepage-dashboard;
   host = "127.0.0.1";
@@ -13,25 +12,26 @@ in
     settings = {
       HOST = host;
       PORT = port;
-      DATA_DIR = "/mnt/main/config/uptime-kuma";
     };
   };
 
   # Reverse Proxy
-  services.caddy.virtualHosts.${url} = mkIf cfg.enable { 
+  services.caddy.virtualHosts.${url} = lib.mkIf cfg.enable { 
     extraConfig = ''reverse_proxy ${host}:${port}'';
   };
 
-  # Homepage Dashboard Service
-  services.homepage-dashboard.services = mkIf dashboard-cfg.enable [{
-    "Other" = [{
-      "Uptime" = {
-        icon = "uptime-kuma.png";
-        description = "Uptime Stats";
-        href = "https://${url}";
-        siteMonitor = "https://${url}";
-      };
-    }];
-  }];
+  # # Homepage Dashboard Service
+  # services.homepage-dashboard.services = lib.mkIf dashboard-cfg.enable [{
+  #   "Other" = [
+  #     {
+  #       "Uptime" = {
+  #         icon = "uptime-kuma.png";
+  #         description = "Uptime Stats";
+  #         href = "https://${url}";
+  #         siteMonitor = "https://${url}";
+  #       };
+  #     }
+  #   ] ++ (lib.lists.findFirst (x: x ? "Other") { "Other" = []; } dashboard-cfg.services)."Other";
+  # }];
 
 }
