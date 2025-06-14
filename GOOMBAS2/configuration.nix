@@ -35,7 +35,7 @@
     kernelParams = [ "video=DP-1:1024x1280@60,rotate=90" ];
   };
 
-  # services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia"]; # You need this
   hardware = {
     graphics.enable = true;
     nvidia = {
