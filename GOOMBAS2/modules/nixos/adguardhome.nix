@@ -1,20 +1,29 @@
-{...}: {
-  networking.firewall = {
-    allowedTCPPorts = [53 5443];
-    allowedUDPPorts = [53 5443];
+{ lib, config, ... }:
+let
+  cfg = config.services.adguardhome;
+  port = "3080";
+in
+{
+
+  # Important Firewall Ports
+  networking.firewall = lib.mkIf cfg.enable {
+    allowedTCPPorts = [ 53 5443 ];
+    allowedUDPPorts = [ 53 5443 ];
+  };
+
+  # Reverse Proxy
+  services.caddy.virtualHosts."adguard.gumbachi.com" = lib.mkIf cfg.enable {
+    extraConfig = ''reverse_proxy localhost:${port}'';
   };
 
   services.adguardhome = {
-    enable = true;
-    openFirewall = true;
     port = 3080;
     settings = {
-      http.address = "0.0.0.0:3080"; 
+      http.address = "0.0.0.0:${port}"; 
       users = [
         {
           name = "Gumbachi";
-          # This is a hash. It is safe to leave
-          password = "$2a$10$Z3ZX/e/VBObnsrLynWkD8uUv5H26nVimsv4LDBAbjnuLQ5MTOVvGC";
+          password = "$2a$10$Z3ZX/e/VBObnsrLynWkD8uUv5H26nVimsv4LDBAbjnuLQ5MTOVvGC"; # This is a hash. It is safe to leave
         }
       ];
       dns = {

@@ -1,0 +1,273 @@
+{ config, lib, ... }:
+let
+  cfg = config.services.homepage-dashboard;
+  port = 8082;
+  imageSrc = "https://codeberg.org/Gumbachi/NixOS-Config/raw/branch/main/images/wallpapers";
+in
+{
+  # Reverse proxy
+  services.caddy.virtualHosts."homepage.gumbachi.com" = lib.mkIf cfg.enable {
+    extraConfig = ''reverse_proxy localhost:${toString port}'';
+    serverAliases = [ "dashboard.gumbachi.com" ];
+  };
+
+  # Secrets
+  age.secrets.dashboard = {
+    file = ../../secrets/dashboard.age;
+    owner = "root";
+    group = "users";
+    mode = "400";
+  };
+
+  services.homepage-dashboard = {
+    listenPort = port;
+    openFirewall = true;
+    allowedHosts = "homepage.gumbachi.com,dashboard.gumbachi.com";
+    environmentFile = config.age.secrets.dashboard.path;
+
+    # Settings - https://gethomepage.dev/configs/settings/
+    settings = {
+      title = "Dashboard";
+      description = "GOOMBAS2 Dashboard";
+      theme = "dark";
+      useEqualHeights = true;
+      hideVersion = true;
+      fullWidth = true;
+      statusStyle = "dot";
+      cardBlur = "xl";
+      background = {
+        image = "${imageSrc}/plants.png";
+        blur = "md";
+      };
+      layout.Media = {
+        style = "row";
+        columns = 3;
+      };
+      layout.Other = {
+        style = "row";
+        columns = 2;
+      };
+    };
+
+    # Widgets - https://gethomepage.dev/configs/info-widgets/
+    widgets = [
+      {
+        search = {
+          provider = "duckduckgo";
+          focus = false;
+          showSearchSuggestions = false;
+          target = "_blank";
+        };
+      }
+      {
+        resources = {
+          cpu = true;
+          memory = true;
+          disk = "/mnt/main";
+          network = true;
+        };
+      }
+    ];
+
+    # Services - https://gethomepage.dev/configs/services/
+    services = [
+
+      # Media Group
+      { 
+        "Media" = [
+          {
+            "Jellyfin" = {
+              icon = "jellyfin.png";
+              description = "Better than Plex";
+              href = "https://watch.gumbachi.com";
+              siteMonitor = "https://watch.gumbachi.com";
+              widget = {
+                type = "jellyfin";
+                url = "http://localhost:8096";
+                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
+                enableBlocks = false;
+                showEpisodeNumber = true;
+              };
+            };
+          }
+
+          { 
+            "Radarr" = {
+              icon = "radarr.png";
+              description = "Movies";
+              href = "https://radarr.gumbachi.com";
+              siteMonitor = "https://radarr.gumbachi.com";
+              widget = {
+                type = "radarr";
+                url = "http://localhost:7878";
+                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
+                fields = [ "wanted" "queued" "movies" ];
+                enableQueue = true;
+              };
+            };
+          }
+
+          {
+            "Sonarr" = {
+              icon = "sonarr.png";
+              description = "Shows";
+              href = "https://sonarr.gumbachi.com";
+              siteMonitor = "https://sonarr.gumbachi.com";
+              widget = {
+                type = "sonarr";
+                url = "http://localhost:8989";
+                key = "{{HOMEPAGE_VAR_SONARR_KEY}}";
+              };
+            };
+          }
+
+          {
+            "Jellyseerr" = {
+              icon = "jellyseerr.png";
+              description = "Better than Overseerr";
+              href = "https://request.gumbachi.com";
+              siteMonitor = "https://request.gumbachi.com";
+              widget = {
+                type = "jellyseerr";
+                url = "http://localhost:5055";
+                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
+              };
+            };
+          }
+
+          {
+            "Deluge VPN" = {
+              icon = "deluge.png";
+              description = "Bittorrent";
+              href = "https://sail.gumbachi.com";
+              siteMonitor = "https://sail.gumbachi.com";
+              widget = {
+                type = "deluge";
+                url = "http://localhost:8112";
+                password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+                enableLeechProgress = true;
+                fields = [ "leech" "seed" "download" "upload" ];
+              };
+            };
+          }
+
+        ];
+      }
+
+      # Network Group
+      {
+        "Other" = [
+
+          {
+            "Adguard" = {
+              icon = "adguard-home.png";
+              description = "DNS ad-blocking";
+              href = "https://adguard.gumbachi.com";
+              siteMonitor = "https://adguard.gumbachi.com";
+              widget = {
+                type = "adguard";
+                url = "http://localhost:3080";
+                username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
+                password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
+                fields = [ "queries" "blocked" "latency" ];
+              };
+            };
+          }
+
+          {
+            "Immich" = {
+              icon = "immich.png";
+              description = "Cloud Photos";
+              href = "https://photos.gumbachi.com";
+              siteMonitor = "https://photos.gumbachi.com";
+              widget = {
+                type = "immich";
+                version = 2;
+                url = "http://localhost:2283";
+                key = "{{HOMEPAGE_VAR_IMMICH_KEY}}";
+                fields = [ "photos" "videos" "storage" ];
+              };
+            };
+          }
+
+          {
+            "Uptime" = {
+              icon = "uptime-kuma.png";
+              description = "Uptime Stats";
+              href = "https://uptime.gumbachi.com";
+              siteMonitor = "https://uptime.gumbachi.com";
+              widget = {
+                type = "uptimekuma";
+                url = "http://localhost:3180";
+                slug = "all";
+                fields = [ "up" "down" "uptime" ];
+              };
+            };
+          }
+
+        ];
+      }
+    ];
+
+    # Bookmarks - https://gethomepage.dev/configs/bookmarks/
+    bookmarks = [
+      {
+        "Developer" = [
+          {
+            "GitHub" = [{
+              abbr = "GH";
+              href = "https://github.com/";
+              icon = "github-light.png";
+            }];
+          }
+          {
+            "Codeberg" = [{
+              abbr = "CB";
+              href = "https://codeberg.org";
+              icon = "codeberg.png";
+            }];
+          }
+        ];
+      }
+      {
+        "Nix" = [
+          {
+            "NixOS Search" = [{
+              abbr = "NX";
+              href = "https://search.nixos.org/options?channel=unstable";
+              icon = "nixos.png";
+            }];
+          }
+          {
+            "Home Manager" = [{
+              abbr = "HM";
+              href = "https://home-manager-options.extranix.com/?query=&release=master";
+              description = "extranix.com";
+              icon = "nixos.png";
+            }];
+          }
+        ];
+      }
+      {
+        "Web Portals" = [
+          {
+            "PurelyMail" = [{
+              abbr = "PM";
+              href = "https://purelymail.com";
+              icon = "purelymail.png";
+            }];
+          }
+          {
+            "Porkbun" = [{
+              abbr = "PB";
+              href = "https://porkbun.com";
+              icon = "porkbun.png";
+            }];
+          }
+        ];
+      }
+    ];
+
+  };
+
+}

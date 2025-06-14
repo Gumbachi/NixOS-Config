@@ -1,6 +1,9 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   
   environment.systemPackages = with pkgs; [
+ 
+    inputs.agenix.packages.${system}.default
+
     # DV recording Tools
     dvgrab
     ffmpeg-headless 
@@ -15,6 +18,7 @@
     podman-compose
 
     btrfs-progs
+    immich-cli
  
   ];
 
@@ -24,8 +28,6 @@
       flake = "/home/jared/NixOS-Config";
     };
   }];
-
-  launchers.walker.enable = false;
    
   terminals.kitty.enable = true;
 
@@ -37,7 +39,7 @@
   file-managers.yazi.enable = true;
 
   documentation = {
-    man.enable = true;
+    man.enable = false;
     tldr.enable = true;
   };
 
@@ -69,13 +71,6 @@
   editors.text.nvf = {
     enable = true;
     setDefault = true;
-    languages = {
-      nix = {
-        enable = true;
-        format.enable = false;
-        lsp.server = "nixd";
-      };
-    };
   };
 
 }

@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "firewire_ohci" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "firewire_ohci" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -24,6 +24,12 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  fileSystems."/mnt/main" =
+    { device = "/dev/disk/by-uuid/e597d037-9a36-49b0-a974-db80fd65fb9f";
+      fsType = "btrfs";
+    };
+
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -31,12 +37,14 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-84ab3ce75479.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-215c228ea7d8.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-6173dae09652.useDHCP = lib.mkDefault true;
   # networking.interfaces.br-e606d3c434de.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.veth45ffe21.useDHCP = lib.mkDefault true;
-  # networking.interfaces.vethd2cb7e7.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth23eae7d.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethc6d5d54.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethe1d9509.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

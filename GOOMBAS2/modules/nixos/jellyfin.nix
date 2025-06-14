@@ -1,17 +1,18 @@
-{...}: {
-  services.jellyfin = {
-    enable = true;
-    openFirewall = false;
-    group = "media";
-    configDir = "/mnt/main/Config/Jellyfin";
-    # configDir = "/mnt/main/Config/JellyfinAlt";
+{ config, lib, ... }:
+let
+  cfg = config.services.jellyfin;
+in
+{
+
+  # Reverse Proxy
+  services.caddy.virtualHosts."watch.gumbachi.com" = lib.mkIf cfg.enable {
+    extraConfig = ''reverse_proxy localhost:8096'';
+    serverAliases = [ "jellyfin.gumbachi.com" ];
   };
 
-  services.jellyseerr = {
-    enable = true;
-    port = 5055;
-    openFirewall = false;
-    # I cant get the below to function Readonly fs error
-    # configDir = "/mnt/main/Config";
+  services.jellyfin = {
+    group = "media";
+    configDir = "/mnt/main/Config/Jellyfin";
   };
+ 
 }
