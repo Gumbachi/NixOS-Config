@@ -7,7 +7,6 @@
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           bitwarden 
-          darkreader
         ];
       };
 
@@ -145,7 +144,6 @@
               "urlbar-container",
               "downloads-button",
               "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
-              "addon_darkreader_org-browser-action",
               "ublock0_raymondhill_net-browser-action",
               "unified-extensions-button"
             ],
@@ -154,7 +152,7 @@
             "PersonalToolbar":["import-button","personal-bookmarks"],
             "statusBar":["status-text"]
           },
-          "seen":["developer-button","sidebar-reverse-position-toolbar","undo-closed-tab","profile-manager","workspaces-toolbar-button","firefoxcolor_mozilla_com-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action"],
+          "seen":["developer-button","sidebar-reverse-position-toolbar","undo-closed-tab","profile-manager","workspaces-toolbar-button","firefoxcolor_mozilla_com-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","ublock0_raymondhill_net-browser-action"],
           "dirtyAreaCache":["nav-bar","statusBar","PersonalToolbar","TabsToolbar","unified-extensions-area","toolbar-menubar"],
           "currentVersion":20,
           "newElementCount":10
