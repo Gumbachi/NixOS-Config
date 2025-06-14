@@ -33,19 +33,19 @@ in
     radarr = {
       settings.server.port = ports.radarr;
       group = "media";
-      dataDir = "/mnt/main/Config/Radarr";
+      dataDir = "/mnt/main/config/radarr";
     };
 
     sonarr = {
       settings.server.port = ports.sonarr;
       group = "media";
-      dataDir = "/mnt/main/Config/Sonarr";
+      dataDir = "/mnt/main/config/sonarr";
     };
 
     bazarr = {
-      listenPort = ports.bazarr; # Bazarr gotta be different for some reason
+      listenPort = ports.bazarr; # Bazarr option gotta be different for some reason
       group = "media";
-      dataDir = "/mnt/main/Config/Bazarr";
+      dataDir = "/mnt/main/config/bazarr";
     };
 
   };

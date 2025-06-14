@@ -12,7 +12,7 @@ in
 
   services.jellyfin = {
     group = "media";
-    configDir = "/mnt/main/Config/Jellyfin";
+    configDir = "/mnt/main/config/jellyfin";
   };
  
 }

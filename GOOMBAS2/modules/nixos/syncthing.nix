@@ -19,7 +19,7 @@ in
     group = "users";
     openDefaultPorts = true;
     dataDir = "${storage}";
-    configDir = "${storage}/Config/Syncthing";
+    configDir = "${storage}/config/syncthing";
     overrideDevices = true;     # overrides any devices added or deleted through the WebUI
     overrideFolders = true;     # overrides any folders added or deleted through the WebUI
     guiAddress = "0.0.0.0:${toString port}";

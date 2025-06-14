@@ -1,10 +1,18 @@
 { config, lib, ... }:
 let
   cfg = config.services.deluge;
-  dataDir = "/mnt/main/Config/Deluge";
+  dataDir = "/mnt/main/config/deluge";
   port = 8111;
 in
 {
+
+  # Secrets
+  age.secrets.deluge-auth = {
+    file = ../../secrets/deluge-auth.age;
+    owner = "deluge";
+    group = "media";
+    mode = "440";
+  };
 
   # Reverse Proxy
   services.caddy.virtualHosts."open-deluge.gumbachi.com" = lib.mkIf cfg.enable {
@@ -21,7 +29,7 @@ in
     };
 
     declarative = true; # Force config
-    authFile = "${dataDir}/auth"; # File should be plaintext as user:pass:level
+    authFile = config.age.secrets.deluge-auth.path; # File should be plaintext as user:pass:level
 
     # Find config here https://git.deluge-torrent.org/deluge/tree/deluge/core/preferencesmanager.py#n41
     config = {
