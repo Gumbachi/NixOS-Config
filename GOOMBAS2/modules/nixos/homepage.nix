@@ -151,6 +151,20 @@ in
             };
           }
 
+          {
+            "Prowlarr" = {
+              icon = "prowlarr.png";
+              description = "Indexer Management";
+              href = "https://prowlarr.gumbachi.com";
+              siteMonitor = "https://prowlarr.gumbachi.com";
+              widget = {
+                type = "prowlarr";
+                url = "http://localhost:9696";
+                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
+              };
+            };
+          }
+
         ];
       }
 
@@ -205,6 +219,22 @@ in
             };
           }
 
+          {
+            "Deluge Open" = {
+              icon = "deluge.png";
+              description = "Bittorrent";
+              href = "https://open-deluge.gumbachi.com";
+              siteMonitor = "https://open-deluge.gumbachi.com";
+              widget = {
+                type = "deluge";
+                url = "http://localhost:8111";
+                password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+                enableLeechProgress = true;
+                fields = [ "leech" "seed" "download" "upload" ];
+              };
+            };
+          }
+
         ];
       }
     ];
@@ -213,6 +243,21 @@ in
     bookmarks = [
       {
         "Developer" = [
+          {
+            "NixOS Search" = [{
+              abbr = "NX";
+              href = "https://search.nixos.org/options?channel=unstable";
+              icon = "nixos.png";
+            }];
+          }
+          {
+            "Home Manager" = [{
+              abbr = "HM";
+              href = "https://home-manager-options.extranix.com/?query=&release=master";
+              description = "extranix.com";
+              icon = "nixos.png";
+            }];
+          }
           {
             "GitHub" = [{
               abbr = "GH";
@@ -230,26 +275,35 @@ in
         ];
       }
       {
-        "Nix" = [
+        "Other" = [
           {
-            "NixOS Search" = [{
-              abbr = "NX";
-              href = "https://search.nixos.org/options?channel=unstable";
-              icon = "nixos.png";
+            "YouTube" = [{
+              abbr = "YT";
+              href = "https://youtube.com";
+              icon = "youtube.png";
             }];
           }
           {
-            "Home Manager" = [{
-              abbr = "HM";
-              href = "https://home-manager-options.extranix.com/?query=&release=master";
-              description = "extranix.com";
-              icon = "nixos.png";
+            "Reddit" = [{
+              abbr = "RD";
+              href = "https://reddit.com";
+              icon = "reddit.png";
             }];
           }
-        ];
-      }
-      {
-        "Web Portals" = [
+          {
+            "SteamDB" = [{
+              abbr = "SD";
+              href = "https://steamdb.info";
+              icon = "steam.png";
+            }];
+          }
+          {
+            "ProtonDB" = [{
+              abbr = "PD";
+              href = "https://protondb.com";
+              icon = "steam.png";
+            }];
+          }
           {
             "PurelyMail" = [{
               abbr = "PM";

@@ -34,11 +34,14 @@ in
     # Find config here https://git.deluge-torrent.org/deluge/tree/deluge/core/preferencesmanager.py#n41
     config = {
       download_location = "${dataDir}/torrents";
+      dont_count_slow_torrents = false;
       allow_remote = true;
       daemon_port = 58847;
       listen_ports = [ 6882 6890 ];
+      # These below options rename the torrent file to be unreadable
+      # copy_torrent_file = true;
+      # torrentfiles_location = "/mnt/main/Sync/Torrents";
     };
-
   };
 
 }
