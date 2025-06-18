@@ -23,5 +23,9 @@
     sonarr.enable = true; # Show Manager
     bazarr.enable = true; # Subtitle Manager
 
+    # Containerized
+    gumbotchi.enable = true; # The goat
+    vibrant.enable = true; # Color bot
+
   };
 }

@@ -13,7 +13,7 @@ in
     age.secrets.gumbotchi.file = ../../secrets/gumbotchi.age;
 
     virtualisation.oci-containers.containers.gumbotchi = {
-      image = "hub.docker.com/gumbachi/gumbotchi:latest";
+      image = "docker.io/gumbachi/gumbotchi";
       environmentFiles = [ config.age.secrets.gumbotchi.path ];
     };    
 
