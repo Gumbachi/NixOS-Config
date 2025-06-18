@@ -13,6 +13,7 @@
     # Homelab services
     ./adguardhome.nix
     ./caddy.nix
+    ./deluge-vpn.nix
     ./gumbotchi.nix
     ./homepage.nix
     ./immich.nix
@@ -24,6 +25,7 @@
     ./servarr.nix
     ./syncthing.nix
     ./uptime-kuma.nix
+    ./vibrant.nix
 
   ];
 
