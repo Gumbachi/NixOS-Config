@@ -27,17 +27,19 @@ in
 
     # Settings - https://gethomepage.dev/configs/settings/
     settings = {
-      title = "Dashboard";
+      title = "Home";
       description = "GOOMBAS2 Dashboard";
-      theme = "dark";
+      # theme = "dark";
       useEqualHeights = true;
       hideVersion = true;
+      target = "_self"; # Open in place of homepage
       fullWidth = true;
       statusStyle = "dot";
       cardBlur = "xl";
+      favicon = "https://files.gumbachi.com/icons/home.png";
       background = {
         # image = "${imageSrc}/plants.png";
-        image = "https://files.gumbachi.com/plants.png";
+        image = "https://files.gumbachi.com/wallpapers/nix-gray.png";
         blur = "md";
       };
       layout.Media = {
@@ -57,7 +59,7 @@ in
           provider = "duckduckgo";
           focus = false;
           showSearchSuggestions = false;
-          target = "_blank";
+          target = "_self";
         };
       }
       {

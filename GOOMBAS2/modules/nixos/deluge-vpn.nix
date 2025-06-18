@@ -32,10 +32,10 @@ in
         DELUGE_ENABLE_WEBUI_PASSWORD = "yes";
         VPN_INPUT_PORTS = "1234"; 
         VPN_OUTPUT_PORTS = "5678"; 
-        DEBUG = false;
-        PUID = 0;
-        PGID = 0;
-        UMASK = 000;
+        DEBUG = "false";
+        PUID = "0";
+        PGID = "0";
+        UMASK = "000";
       };
       ports = [
         "8112:8112" 
