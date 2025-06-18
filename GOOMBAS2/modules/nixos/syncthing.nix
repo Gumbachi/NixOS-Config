@@ -26,21 +26,21 @@ in
     settings = {
 
       # Notes - Knowledge Base
-      folders."${storage}/Sync/Notes" = {
+      folders."${storage}/sync/notes" = {
         label = "Notes";
         id = "notes";
         devices = [ "pixel" "GOOMBAX1" "Go7" ];
       };
 
       # General Shared Files
-      folders."${storage}/Sync/Shared" = {
+      folders."${storage}/sync/shared" = {
         label = "Shared Files";
         id = "shared";
         devices = [ "pixel" "GOOMBAX1" "Go7" ];
       };
 
       # Torrents
-      folders."${storage}/Sync/Torrents" = {
+      folders."${storage}/sync/torrents" = {
         label = "Torrents";
         id = "torrents";
         devices = [ "GOOMBAX1" ];

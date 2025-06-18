@@ -36,7 +36,8 @@ in
       statusStyle = "dot";
       cardBlur = "xl";
       background = {
-        image = "${imageSrc}/plants.png";
+        # image = "${imageSrc}/plants.png";
+        image = "https://files.gumbachi.com/plants.png";
         blur = "md";
       };
       layout.Media = {
@@ -161,6 +162,7 @@ in
                 type = "prowlarr";
                 url = "http://localhost:9696";
                 key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
+                fields = [ "numberOfGrabs" "numberOfQueries" ];
               };
             };
           }
@@ -225,13 +227,6 @@ in
               description = "Bittorrent";
               href = "https://open-deluge.gumbachi.com";
               siteMonitor = "https://open-deluge.gumbachi.com";
-              widget = {
-                type = "deluge";
-                url = "http://localhost:8111";
-                password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
-                enableLeechProgress = true;
-                fields = [ "leech" "seed" "download" "upload" ];
-              };
             };
           }
 
@@ -275,7 +270,7 @@ in
         ];
       }
       {
-        "Other" = [
+        "Misc" = [
           {
             "YouTube" = [{
               abbr = "YT";

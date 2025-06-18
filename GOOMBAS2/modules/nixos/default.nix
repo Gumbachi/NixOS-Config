@@ -13,6 +13,7 @@
     # Homelab services
     ./adguardhome.nix
     ./caddy.nix
+    ./gumbotchi.nix
     ./homepage.nix
     ./immich.nix
     ./jellyfin.nix

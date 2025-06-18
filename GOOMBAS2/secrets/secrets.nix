@@ -5,4 +5,5 @@ in
 {
   "dashboard.age".publicKeys = [ user system ];
   "deluge-auth.age".publicKeys = [ user system ];
+  "gumbotchi.age".publicKeys = [ user system ];
 }
