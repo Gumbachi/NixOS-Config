@@ -27,8 +27,8 @@
   }];
 
   launchers = {
-    fuzzel.enable = true;
-    anyrun.enable = true;
+    fuzzel.enable = false;
+    anyrun.enable = false;
     walker.enable = true;
   };
 
@@ -36,7 +36,7 @@
 
   viewers = {
     qimgv.enable = true;
-    imv.enable = true;
+    imv.enable = false;
     mpv.enable = true;
     vlc.enable = true;
   };
@@ -113,6 +113,7 @@
   emulation = {
     gba.mgba.enable = true;
     switch.ryubing.enable = false;
+    retroarch.enable = true;
   };
 
   editors = {

@@ -1,6 +1,10 @@
 { user, pkgs, lib, ... }: {
 
   imports = [
+      
+    ./programs.nix
+    ./services.nix
+
     ./hardware-configuration.nix # Mandatory hardware config
     ../shared/modules/custom # Custom nix option definitions. Does not install anything
     ./modules # Modules declaring the system layout
@@ -8,7 +12,7 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/hollowknight.jpg;
+    wallpaper = ../images/wallpapers/bisbiswas06.jpg;
     monokai.enable = true;
   };
 
@@ -22,10 +26,8 @@
   networking = {
     hostName = "GOOMBAX1";
     firewall.enable = true;
-    networkmanager = {
-      enable = true;
-      plugins = [ pkgs.networkmanager-openvpn ];
-    };
+    networkmanager.enable = true;
+    enableIPv6 = false;
   };
 
   environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
