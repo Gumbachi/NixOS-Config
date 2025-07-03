@@ -17,6 +17,7 @@
     gvfs.enable = true;
 
     syncthing.enable = true;
+    sunshine.enable = true;
 
     power-profiles-daemon.enable = true;
 

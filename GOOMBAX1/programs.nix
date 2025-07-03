@@ -84,7 +84,7 @@
   development = {
     devenv.enable = true;
     direnv.enable = true;
-    android.enable = false;
+    android.enable = true;
     just.enable = true;
   };
 

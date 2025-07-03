@@ -1,5 +1,7 @@
 { ... }: {
 
+  # Note: Prepend_* has higher priority
+
   programs.yazi = {
     initLua = ''
       -- This is for adding group:user to status bar
@@ -17,6 +19,18 @@
         }
       end, 500, Status.RIGHT)
     '';
+    theme = {
+      icon = {
+        prepend_dirs = [
+          { name = "games"; text = "󰸿"; }
+          { name = "code"; text = "󰅴"; }
+          { name = "NixOS-Config"; text = "󱄅"; }
+          { name = "Sync"; text = "󰓦"; }
+          { name = "Downloads"; text = "󰮏"; }
+          { name = "Documents"; text = "󰧮"; }
+        ];
+      }; 
+    };
     settings = {
       yazi = {
         manager.show_hidden = false;

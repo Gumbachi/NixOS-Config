@@ -3,7 +3,7 @@
   # Syncthing
   networking.firewall.allowedTCPPorts = [ 8384 ];
 
-  syncthing = {
+  services.syncthing = {
     dataDir = "/home/jared/Sync";
     configDir = "/home/jared/.config/syncthing";
     user = "jared";
@@ -13,7 +13,7 @@
     overrideDevices = true;
     settings = {
       devices.GOOMBAS2.id = "2VD6JZS-NF7AWWM-XZYU6Z2-TAZLQ3J-LEUUDBO-SSLYVXW-LA5JTEH-AO766A4";
-      devices.GOOMBAM1.id = "RZWUQVJ-F3ETA27-2WNE7IF-Q5RIKRC-TU3BPKJ-V7RAX2F-IJYCEM2-PTB2XAY";
+      devices.GOOMBAM1.id = "VTVTPAN-QXGZNSD-FLSI4UR-LIJY6O2-SJOLELJ-6EBOEHV-6MYCVWE-OQEG7Q7";
       devices.Go7.id = "GKNIIKZ-6P7TNMQ-X4FDQPI-75UH4O4-J664KC2-MVU3SVQ-BFYQL5V-4WC4WAF";
 
       folders."/home/jared/Sync/Notes" = {

@@ -12,8 +12,9 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/bisbiswas06.jpg;
-    monokai.enable = true;
+    # wallpaper = ../images/wallpapers/bisbiswas09.jpg;
+    woodland.enable = true;
+    # sunset.enable = true;
   };
 
   boot = {
