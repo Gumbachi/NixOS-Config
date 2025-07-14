@@ -1,4 +1,4 @@
-{ inputs, config, osConfig, ... }:
+{ config, osConfig, ... }:
 let
   colors = if config.stylix.enable then with config.lib.stylix.colors.withHashtag; {
     text = base05;
