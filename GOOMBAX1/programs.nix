@@ -6,7 +6,6 @@
     inputs.agenix.packages.${system}.default
 
     youtube-music
-    hexchat
 
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
@@ -27,8 +26,8 @@
   }];
 
   launchers = {
-    fuzzel.enable = true;
-    anyrun.enable = true;
+    fuzzel.enable = false;
+    anyrun.enable = false;
     walker.enable = true;
   };
 
@@ -36,7 +35,7 @@
 
   viewers = {
     qimgv.enable = true;
-    imv.enable = true;
+    imv.enable = false;
     mpv.enable = true;
     vlc.enable = true;
   };
@@ -70,9 +69,10 @@
       enable = true;
       forceDesktopScaling = true;
     };
-    gamescope.enable = true;
+    gamescope.enable = false;
+    gamemode.enable = true;
     mangohud.enable = true;
-    protonup.enable = true;
+    protonplus.enable = true;
     minecraft.enable = true;
   };
 
@@ -84,7 +84,7 @@
   development = {
     devenv.enable = true;
     direnv.enable = true;
-    android.enable = false;
+    android.enable = true;
     just.enable = true;
   };
 
@@ -111,8 +111,9 @@
   };
 
   emulation = {
-    gba.mgba.enable = true;
+    gba.mgba.enable = false;
     switch.ryubing.enable = false;
+    retroarch.enable = true;
   };
 
   editors = {

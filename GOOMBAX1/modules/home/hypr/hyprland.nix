@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, osConfig, ... }: {
 
   # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
   

@@ -24,8 +24,14 @@ in {
     # Gamescope
     gamescope.enable = mkEnableOption "Install gamescope.";
 
+    # Gamemode
+    gamemode.enable = mkEnableOption "Install gamemode.";
+
     # ProtonUP
     protonup.enable = mkEnableOption "Install proton version manager.";
+
+    # Proton Plus manager 
+    protonplus.enable = mkEnableOption "Install proton plus prefix manager.";
   };
 
   config = mkMerge [
@@ -55,9 +61,19 @@ in {
       # programs.steam.enableGamescopeSession = true;
     })
 
+    # Gamemode
+    (mkIf cfg.gamemode.enable { 
+      programs.gamemode.enable = true;
+    })
+
     # ProtonUP
     (mkIf cfg.protonup.enable {
       environment.systemPackages = [pkgs.protonup-qt];
+    })
+
+    # ProtonPlus
+    (mkIf cfg.protonplus.enable {
+      environment.systemPackages = [ pkgs.protonplus ];
     })
 
     # Minecraft
