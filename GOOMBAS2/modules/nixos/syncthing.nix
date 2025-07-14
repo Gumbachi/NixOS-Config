@@ -29,14 +29,14 @@ in
       folders."${storage}/sync/notes" = {
         label = "Notes";
         id = "notes";
-        devices = [ "pixel" "GOOMBAX1" "Go7" ];
+        devices = [ "GOOMBAM1" "GOOMBAX1" "Go7" ];
       };
 
       # General Shared Files
       folders."${storage}/sync/shared" = {
         label = "Shared Files";
         id = "shared";
-        devices = [ "pixel" "GOOMBAX1" "Go7" ];
+        devices = [ "GOOMBAM1" "GOOMBAX1" "Go7" ];
       };
 
       # Torrents
@@ -53,9 +53,23 @@ in
         devices = [ "Go7" ];
       };
 
+      # Romm Assets / Saves
+      folders."${storage}/sync/emulation/saves" = {
+        label = "Emulation Saves";
+        id = "emulation-saves";
+        devices = [ "GOOMBAX1" "GOOMBAM1" ];
+      };
+
+      # Romm Roms
+      folders."${storage}/config/romm/library" = {
+        label = "Emulation Library";
+        id = "emulation-library";
+        devices = [ "GOOMBAX1" ];
+      };
+
       # Phone
-      devices.pixel = {
-        id = "RZWUQVJ-F3ETA27-2WNE7IF-Q5RIKRC-TU3BPKJ-V7RAX2F-IJYCEM2-PTB2XAY";
+      devices.GOOMBAM1 = {
+        id = "VTVTPAN-QXGZNSD-FLSI4UR-LIJY6O2-SJOLELJ-6EBOEHV-6MYCVWE-OQEG7Q7";
         autoAcceptFolders = false;
       };
       
@@ -67,7 +81,7 @@ in
       
       # E-Reader
       devices.Go7 = {
-        id = "GKNIIKZ-6P7TNMQ-X4FDQPI-75UH404-J664KC2-MVU3SVQ-BFYQL5V-4WC4WAF";
+        id = "GKNIIKZ-6P7TNMQ-X4FDQPI-75UH4O4-J664KC2-MVU3SVQ-BFYQL5V-4WC4WAF";
         autoAcceptFolders = false;
       };
 

@@ -7,35 +7,35 @@ in
   networking.firewall.allowedTCPPorts = lib.mkIf cfg.enable [ 80 443 ];
 
   services.caddy = {
-    # globalConfig = ''
-    #   auto_https disable_redirects
-    # '';
     virtualHosts = {
+
+      # ! README !
+      #
+      # Most caddy hosts configuration is found in the services respective module
+      # in hostname/modules/nixos/
       
+      # Base Domain - For profile page eventually
       "gumbachi.com".extraConfig = ''
         respond "Howdy"
       '';
 
+      # Simple file server for image hosting mostly
       "files.gumbachi.com".extraConfig = ''
         root * /mnt/main/config/caddy/srv
         file_server browse
       '';
 
-      # Deluge - VPN
-      "sail.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:8112'';
-        serverAliases = [ "deluge.gumbachi.com" ];
-      };
+      # Simple wallpaper file server
+      "wallpapers.gumbachi.com".extraConfig = ''
+        root * /home/jared/NixOS-Config/images/wallpapers
+        file_server
+      '';
 
-      # Container Registry
-      "registry.gumbachi.com" = {
-        extraConfig = ''reverse_proxy localhost:5000'';
-      };
+      # RomM
+      "romm.gumbachi.com".extraConfig = ''
+        reverse_proxy localhost:5823
+      '';
 
-      # ! README !
-      #
-      # Most caddy configuration is found in the services respective module
-      # in hostname/modules/nixos/
 
     };
   };

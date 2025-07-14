@@ -22,7 +22,6 @@
     ./open-deluge.nix
     ./matrix.nix
     ./minecraft.nix
-    ./romm.nix
     ./servarr.nix
     ./syncthing.nix
     ./uptime-kuma.nix

@@ -8,6 +8,13 @@ in
 
   config = lib.mkIf cfg.enable {
 
+    # Reverse Proxy
+    services.caddy.virtualHosts."sail.gumbachi.com" = {
+      extraConfig = ''reverse_proxy localhost:8112'';
+      serverAliases = [ "deluge.gumbachi.com" ];
+    };
+
+    # Secrets
     age.secrets.deluge-vpn.file = ../../secrets/deluge-vpn.age;
 
     virtualisation.oci-containers.containers.deluge-vpn = {
@@ -39,14 +46,17 @@ in
       };
       ports = [
         "8112:8112" 
-        "8118:8118" 
-        "9118:9118" 
+        # "8118:8118" # Privoxy
+        # "9118:9118" # Socks
         "58846:58846" 
         "58946:58946" 
         "58946:58946/udp" 
       ];
       volumes = [  
-        "/mnt/main/config/deluge-vpn/torrents:/torrents"
+        # This line must match on both sides or the arrs freak out
+        "/mnt/main/config/deluge-vpn/torrents:/mnt/main/config/deluge-vpn/torrents"
+
+        # These dont have to match
         "/mnt/main/config/deluge-vpn/data:/data"
         "/mnt/main/config/deluge-vpn/config:/config"
       ];

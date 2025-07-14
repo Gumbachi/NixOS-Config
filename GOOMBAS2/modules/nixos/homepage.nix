@@ -38,18 +38,28 @@ in
       cardBlur = "xl";
       favicon = "https://files.gumbachi.com/icons/home.png";
       background = {
-        # image = "${imageSrc}/plants.png";
         image = "https://files.gumbachi.com/wallpapers/nix-gray.png";
         blur = "md";
       };
-      layout.Media = {
-        style = "row";
-        columns = 3;
+      layout = {
+        Sites = {
+          style = "row";
+          columns = 4;
+        };
+        Bookmarks = {
+          style = "row";
+          columns = 4;
+        };
+        Media = {
+          style = "row";
+          columns = 3;
+        };
+        Other = {
+          style = "row";
+          columns = 3;
+        };
       };
-      layout.Other = {
-        style = "row";
-        columns = 2;
-      };
+        
     };
 
     # Widgets - https://gethomepage.dev/configs/info-widgets/
@@ -94,6 +104,20 @@ in
             };
           }
 
+          {
+            "Jellyseerr" = {
+              icon = "jellyseerr.png";
+              description = "Better than Overseerr";
+              href = "https://request.gumbachi.com";
+              siteMonitor = "https://request.gumbachi.com";
+              widget = {
+                type = "jellyseerr";
+                url = "http://localhost:5055";
+                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
+              };
+            };
+          }
+
           { 
             "Radarr" = {
               icon = "radarr.png";
@@ -124,19 +148,6 @@ in
             };
           }
 
-          {
-            "Jellyseerr" = {
-              icon = "jellyseerr.png";
-              description = "Better than Overseerr";
-              href = "https://request.gumbachi.com";
-              siteMonitor = "https://request.gumbachi.com";
-              widget = {
-                type = "jellyseerr";
-                url = "http://localhost:5055";
-                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
-              };
-            };
-          }
 
           {
             "Deluge VPN" = {
@@ -207,7 +218,6 @@ in
               };
             };
           }
-
           {
             "Uptime" = {
               icon = "uptime-kuma.png";
@@ -222,13 +232,121 @@ in
               };
             };
           }
+        ];
+      }
 
+      # Uptime Checks
+      {
+        "Sites" = [
+          {
+            "File Server" = {
+              icon = "files.png";
+              description = "File Browser";
+              href = "https://files.gumbachi.com";
+              siteMonitor = "https://files.gumbachi.com";
+            };
+          }
+          {
+            "Romm" = {
+              icon = "romm.png";
+              description = "ROM manager";
+              href = "https://romm.gumbachi.com";
+              siteMonitor = "https://romm.gumbachi.com";
+            };
+          }
+          {
+            "Syncthing" = {
+              icon = "syncthing.png";
+              description = "File Sync";
+              href = "https://sync.gumbachi.com";
+              siteMonitor = "https://sync.gumbachi.com";
+            };
+          }
           {
             "Deluge Open" = {
               icon = "deluge.png";
               description = "Bittorrent";
               href = "https://open-deluge.gumbachi.com";
               siteMonitor = "https://open-deluge.gumbachi.com";
+            };
+          }
+          {
+            "Adguard" = {
+              icon = "adguard-home.png";
+              description = "DNS ad-blocking";
+              href = "https://adguard.gumbachi.com";
+              siteMonitor = "https://adguard.gumbachi.com";
+            };
+          }
+
+          {
+            "Immich" = {
+              icon = "immich.png";
+              description = "Cloud Photos";
+              href = "https://photos.gumbachi.com";
+              siteMonitor = "https://photos.gumbachi.com";
+            };
+          }
+
+          {
+            "Uptime" = {
+              icon = "uptime-kuma.png";
+              description = "Uptime Stats";
+              href = "https://uptime.gumbachi.com";
+              siteMonitor = "https://uptime.gumbachi.com";
+            };
+          }
+          {
+            "Jellyfin" = {
+              icon = "jellyfin.png";
+              description = "Better than Plex";
+              href = "https://watch.gumbachi.com";
+              siteMonitor = "https://watch.gumbachi.com";
+            };
+          }
+
+          { 
+            "Radarr" = {
+              icon = "radarr.png";
+              description = "Movies";
+              href = "https://radarr.gumbachi.com";
+              siteMonitor = "https://radarr.gumbachi.com";
+            };
+          }
+
+          {
+            "Sonarr" = {
+              icon = "sonarr.png";
+              description = "Shows";
+              href = "https://sonarr.gumbachi.com";
+              siteMonitor = "https://sonarr.gumbachi.com";
+            };
+          }
+
+          {
+            "Jellyseerr" = {
+              icon = "jellyseerr.png";
+              description = "Better than Overseerr";
+              href = "https://request.gumbachi.com";
+              siteMonitor = "https://request.gumbachi.com";
+            };
+          }
+
+          {
+            "Deluge VPN" = {
+              icon = "deluge.png";
+              description = "Bittorrent";
+              href = "https://sail.gumbachi.com";
+              siteMonitor = "https://sail.gumbachi.com";
+            };
+          }
+
+          {
+            "Prowlarr" = {
+              icon = "prowlarr.png";
+              description = "Indexer Management";
+              href = "https://prowlarr.gumbachi.com";
+              siteMonitor = "https://prowlarr.gumbachi.com";
             };
           }
 
@@ -238,8 +356,9 @@ in
 
     # Bookmarks - https://gethomepage.dev/configs/bookmarks/
     bookmarks = [
+
       {
-        "Developer" = [
+        "Bookmarks" = [
           {
             "NixOS Search" = [{
               abbr = "NX";
@@ -269,10 +388,6 @@ in
               icon = "codeberg.png";
             }];
           }
-        ];
-      }
-      {
-        "Misc" = [
           {
             "YouTube" = [{
               abbr = "YT";
@@ -317,6 +432,7 @@ in
           }
         ];
       }
+
     ];
 
   };

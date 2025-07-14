@@ -1,16 +1,15 @@
 { ... }: {
   
   services = {
-
     # System Services
     power-profiles-daemon.enable = true;
     printing.enable = false;
     openssh.enable = true;
     greetd.enable = true;
 
-    # Homelab Services
+    # Outward Services
     caddy.enable = true; # Auto HTTPS and Reverse Proxy
-    uptime-kuma.enable = true; # Uptime WebUI
+    uptime-kuma.enable = false; # Uptime WebUI
     adguardhome.enable = true; # DNS Adblocking
     homepage-dashboard.enable = true; # Homepage for service overview
     immich.enable = true; # Photos backup and WebUI
