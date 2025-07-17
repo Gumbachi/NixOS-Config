@@ -8,7 +8,6 @@
     ./browsers/librewolf.nix
 
     # Launchers
-    ./launchers/anyrun.nix
     ./launchers/fuzzel.nix
     ./launchers/rofi.nix
     ./launchers/walker.nix

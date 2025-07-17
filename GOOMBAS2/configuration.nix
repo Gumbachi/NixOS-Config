@@ -69,7 +69,6 @@
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvJ/mvigyGpxh0SNRWqxYLS3HcsBhGPG1Pat7ldit+T jared@GOOMBAX1"];
   };
 
-  nix.package = pkgs.lix;
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = ["nix-command" "flakes"];

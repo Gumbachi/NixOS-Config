@@ -27,7 +27,6 @@
 
   launchers = {
     fuzzel.enable = false;
-    anyrun.enable = false;
     walker.enable = true;
   };
 
