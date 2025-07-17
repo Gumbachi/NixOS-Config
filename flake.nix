@@ -4,28 +4,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
     agenix.url = "github:ryantm/agenix";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     overway.url = "github:Gumbachi/Overway";
     astal.url = "github:aylur/astal";
-    hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nvf.url = "github:notashelf/nvf";
     walker.url = "github:abenz1267/walker";
-    lix = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };   
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
       url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -66,7 +56,6 @@
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
         inputs.agenix.nixosModules.default
-        inputs.lix.nixosModules.default
 
       ];
     };
@@ -104,7 +93,6 @@
         inputs.nvf.nixosModules.default # Neovim
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
-        inputs.lix.nixosModules.default
 
       ];
     };

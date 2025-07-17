@@ -27,14 +27,12 @@ in
       nix.extraOptions = ''trusted-users = root ${user}''; # Devenv shells
     })
 
-    {
-      programs.direnv = {
-        enable = cfg.direnv.enable;
-        silent = true;
-      };
-    }
-
     (mkIf cfg.direnv.enable {
+      home-manager.sharedModules = [{
+        programs.direnv = {
+          enable = true;
+        };
+      }];
     })
 
     (mkIf cfg.just.enable {
