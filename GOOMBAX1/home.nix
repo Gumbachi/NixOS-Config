@@ -22,28 +22,6 @@ in
     "Games/ext".source = config.lib.file.mkOutOfStoreSymlink "/mnt/ext/steam-library/steamapps";
   };
 
-  #######################
-  ### DESKTOP ENTRIES ###
-  #######################
-
-  xdg.desktopEntries = {
-    yazi = {
-      name = "Yazi";
-      genericName = "File Explorer";
-      exec = "yazi";
-      terminal = true;
-      mimeType = ["inode/directory"];
-      icon = "system-file-manager";
-    };
-
-    vlc = {
-      name = "VLC";
-      genericName = "Media Player";
-      exec = "env -u DISPLAY vlc";
-      icon = "vlc";
-    };
-  };
-
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 }
