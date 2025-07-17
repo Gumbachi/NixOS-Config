@@ -1,7 +1,4 @@
-{ inputs, pkgs, lib, config, ... }: {
-
-  imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
-  nixpkgs.overlays = [inputs.nix-minecraft.overlay];
+{ pkgs, config, lib, ... }: {
 
   # Sky Factory 4 Minecraft Server
   systemd.services.sky-factory-4 = {
@@ -31,5 +28,5 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 43002 ];
+  networking.firewall.allowedTCPPorts = lib.mkIf config.systemd.services.sky-factory-4.enable [ 43002 ];
 }
