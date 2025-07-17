@@ -25,12 +25,6 @@ in
         file_server browse
       '';
 
-      # Simple wallpaper file server
-      "wallpapers.gumbachi.com".extraConfig = ''
-        root * /home/jared/NixOS-Config/images/wallpapers
-        file_server
-      '';
-
       # RomM
       "romm.gumbachi.com".extraConfig = ''
         reverse_proxy localhost:5823

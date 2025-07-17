@@ -29,7 +29,7 @@
   environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
 
   boot = {
-    initrd.luks.mitigateDMAAttacks = false; # This is for firewire. enable when no longer needed
+    initrd.luks.mitigateDMAAttacks = true; # This is for firewire. enable when no longer needed
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     kernelParams = [ "video=DP-1:1024x1280@60,rotate=90" ];

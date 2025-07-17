@@ -85,159 +85,173 @@ in
     # Services - https://gethomepage.dev/configs/services/
     services = [
 
-      # Media Group
-      { 
-        "Media" = [
-          {
-            "Jellyfin" = {
-              icon = "jellyfin.png";
-              description = "Better than Plex";
-              href = "https://watch.gumbachi.com";
-              siteMonitor = "https://watch.gumbachi.com";
-              widget = {
-                type = "jellyfin";
-                url = "http://localhost:8096";
-                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
-                enableBlocks = false;
-                showEpisodeNumber = true;
-              };
-            };
-          }
+      # # Media Group
+      # { 
+      #   "Media" = [
+      #     {
+      #       "Jellyfin" = {
+      #         icon = "jellyfin.png";
+      #         description = "Better than Plex";
+      #         href = "https://watch.gumbachi.com";
+      #         siteMonitor = "https://watch.gumbachi.com";
+      #         widget = {
+      #           type = "jellyfin";
+      #           url = "http://localhost:8096";
+      #           key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
+      #           enableBlocks = false;
+      #           showEpisodeNumber = true;
+      #         };
+      #       };
+      #     }
+      #
+      #     {
+      #       "Jellyseerr" = {
+      #         icon = "jellyseerr.png";
+      #         description = "Better than Overseerr";
+      #         href = "https://request.gumbachi.com";
+      #         siteMonitor = "https://request.gumbachi.com";
+      #         widget = {
+      #           type = "jellyseerr";
+      #           url = "http://localhost:5055";
+      #           key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
+      #         };
+      #       };
+      #     }
+      #
+      #     { 
+      #       "Radarr" = {
+      #         icon = "radarr.png";
+      #         description = "Movies";
+      #         href = "https://radarr.gumbachi.com";
+      #         siteMonitor = "https://radarr.gumbachi.com";
+      #         widget = {
+      #           type = "radarr";
+      #           url = "http://localhost:7878";
+      #           key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
+      #           fields = [ "wanted" "queued" "movies" ];
+      #           enableQueue = true;
+      #         };
+      #       };
+      #     }
+      #
+      #     {
+      #       "Sonarr" = {
+      #         icon = "sonarr.png";
+      #         description = "Shows";
+      #         href = "https://sonarr.gumbachi.com";
+      #         siteMonitor = "https://sonarr.gumbachi.com";
+      #         widget = {
+      #           type = "sonarr";
+      #           url = "http://localhost:8989";
+      #           key = "{{HOMEPAGE_VAR_SONARR_KEY}}";
+      #         };
+      #       };
+      #     }
+      #
+      #
+      #     {
+      #       "Deluge VPN" = {
+      #         icon = "deluge.png";
+      #         description = "Bittorrent";
+      #         href = "https://sail.gumbachi.com";
+      #         siteMonitor = "https://sail.gumbachi.com";
+      #         widget = {
+      #           type = "deluge";
+      #           url = "http://localhost:8112";
+      #           password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+      #           enableLeechProgress = true;
+      #           fields = [ "leech" "seed" "download" "upload" ];
+      #         };
+      #       };
+      #     }
+      #
+      #     {
+      #       "Prowlarr" = {
+      #         icon = "prowlarr.png";
+      #         description = "Indexer Management";
+      #         href = "https://prowlarr.gumbachi.com";
+      #         siteMonitor = "https://prowlarr.gumbachi.com";
+      #         widget = {
+      #           type = "prowlarr";
+      #           url = "http://localhost:9696";
+      #           key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
+      #           fields = [ "numberOfGrabs" "numberOfQueries" ];
+      #         };
+      #       };
+      #     }
+      #
+      #   ];
+      # }
+
+      # # Network Group
+      # {
+      #   "Other" = [
+      #
+      #     {
+      #       "Adguard" = {
+      #         icon = "adguard-home.png";
+      #         description = "DNS ad-blocking";
+      #         href = "https://adguard.gumbachi.com";
+      #         siteMonitor = "https://adguard.gumbachi.com";
+      #         widget = {
+      #           type = "adguard";
+      #           url = "http://localhost:3080";
+      #           username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
+      #           password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
+      #           fields = [ "queries" "blocked" "latency" ];
+      #         };
+      #       };
+      #     }
+      #
+      #     {
+      #       "Immich" = {
+      #         icon = "immich.png";
+      #         description = "Cloud Photos";
+      #         href = "https://photos.gumbachi.com";
+      #         siteMonitor = "https://photos.gumbachi.com";
+      #         widget = {
+      #           type = "immich";
+      #           version = 2;
+      #           url = "http://localhost:2283";
+      #           key = "{{HOMEPAGE_VAR_IMMICH_KEY}}";
+      #           fields = [ "photos" "videos" "storage" ];
+      #         };
+      #       };
+      #     }
+      #   ];
+      # }
+
+      # Uptime Checks
+      {
+        "Sites" = [
 
           {
             "Jellyseerr" = {
               icon = "jellyseerr.png";
               description = "Better than Overseerr";
               href = "https://request.gumbachi.com";
-              siteMonitor = "https://request.gumbachi.com";
-              widget = {
-                type = "jellyseerr";
-                url = "http://localhost:5055";
-                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
-              };
-            };
-          }
-
-          { 
-            "Radarr" = {
-              icon = "radarr.png";
-              description = "Movies";
-              href = "https://radarr.gumbachi.com";
-              siteMonitor = "https://radarr.gumbachi.com";
-              widget = {
-                type = "radarr";
-                url = "http://localhost:7878";
-                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
-                fields = [ "wanted" "queued" "movies" ];
-                enableQueue = true;
-              };
+              siteMonitor = "http://localhost:5055";
             };
           }
 
           {
-            "Sonarr" = {
-              icon = "sonarr.png";
-              description = "Shows";
-              href = "https://sonarr.gumbachi.com";
-              siteMonitor = "https://sonarr.gumbachi.com";
-              widget = {
-                type = "sonarr";
-                url = "http://localhost:8989";
-                key = "{{HOMEPAGE_VAR_SONARR_KEY}}";
-              };
+            "Jellyfin" = {
+              icon = "jellyfin.png";
+              description = "Better than Plex";
+              href = "https://watch.gumbachi.com";
+              siteMonitor = "http://localhost:8096";
             };
           }
-
 
           {
             "Deluge VPN" = {
               icon = "deluge.png";
               description = "Bittorrent";
               href = "https://sail.gumbachi.com";
-              siteMonitor = "https://sail.gumbachi.com";
-              widget = {
-                type = "deluge";
-                url = "http://localhost:8112";
-                password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
-                enableLeechProgress = true;
-                fields = [ "leech" "seed" "download" "upload" ];
-              };
+              siteMonitor = "http://localhost:8112";
             };
           }
 
-          {
-            "Prowlarr" = {
-              icon = "prowlarr.png";
-              description = "Indexer Management";
-              href = "https://prowlarr.gumbachi.com";
-              siteMonitor = "https://prowlarr.gumbachi.com";
-              widget = {
-                type = "prowlarr";
-                url = "http://localhost:9696";
-                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
-                fields = [ "numberOfGrabs" "numberOfQueries" ];
-              };
-            };
-          }
-
-        ];
-      }
-
-      # Network Group
-      {
-        "Other" = [
-
-          {
-            "Adguard" = {
-              icon = "adguard-home.png";
-              description = "DNS ad-blocking";
-              href = "https://adguard.gumbachi.com";
-              siteMonitor = "https://adguard.gumbachi.com";
-              widget = {
-                type = "adguard";
-                url = "http://localhost:3080";
-                username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
-                password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
-                fields = [ "queries" "blocked" "latency" ];
-              };
-            };
-          }
-
-          {
-            "Immich" = {
-              icon = "immich.png";
-              description = "Cloud Photos";
-              href = "https://photos.gumbachi.com";
-              siteMonitor = "https://photos.gumbachi.com";
-              widget = {
-                type = "immich";
-                version = 2;
-                url = "http://localhost:2283";
-                key = "{{HOMEPAGE_VAR_IMMICH_KEY}}";
-                fields = [ "photos" "videos" "storage" ];
-              };
-            };
-          }
-          {
-            "Uptime" = {
-              icon = "uptime-kuma.png";
-              description = "Uptime Stats";
-              href = "https://uptime.gumbachi.com";
-              siteMonitor = "https://uptime.gumbachi.com";
-              widget = {
-                type = "uptimekuma";
-                url = "http://localhost:3180";
-                slug = "all";
-                fields = [ "up" "down" "uptime" ];
-              };
-            };
-          }
-        ];
-      }
-
-      # Uptime Checks
-      {
-        "Sites" = [
           {
             "File Server" = {
               icon = "files.png";
@@ -246,71 +260,13 @@ in
               siteMonitor = "https://files.gumbachi.com";
             };
           }
-          {
-            "Romm" = {
-              icon = "romm.png";
-              description = "ROM manager";
-              href = "https://romm.gumbachi.com";
-              siteMonitor = "https://romm.gumbachi.com";
-            };
-          }
-          {
-            "Syncthing" = {
-              icon = "syncthing.png";
-              description = "File Sync";
-              href = "https://sync.gumbachi.com";
-              siteMonitor = "https://sync.gumbachi.com";
-            };
-          }
-          {
-            "Deluge Open" = {
-              icon = "deluge.png";
-              description = "Bittorrent";
-              href = "https://open-deluge.gumbachi.com";
-              siteMonitor = "https://open-deluge.gumbachi.com";
-            };
-          }
-          {
-            "Adguard" = {
-              icon = "adguard-home.png";
-              description = "DNS ad-blocking";
-              href = "https://adguard.gumbachi.com";
-              siteMonitor = "https://adguard.gumbachi.com";
-            };
-          }
-
-          {
-            "Immich" = {
-              icon = "immich.png";
-              description = "Cloud Photos";
-              href = "https://photos.gumbachi.com";
-              siteMonitor = "https://photos.gumbachi.com";
-            };
-          }
-
-          {
-            "Uptime" = {
-              icon = "uptime-kuma.png";
-              description = "Uptime Stats";
-              href = "https://uptime.gumbachi.com";
-              siteMonitor = "https://uptime.gumbachi.com";
-            };
-          }
-          {
-            "Jellyfin" = {
-              icon = "jellyfin.png";
-              description = "Better than Plex";
-              href = "https://watch.gumbachi.com";
-              siteMonitor = "https://watch.gumbachi.com";
-            };
-          }
 
           { 
             "Radarr" = {
               icon = "radarr.png";
               description = "Movies";
               href = "https://radarr.gumbachi.com";
-              siteMonitor = "https://radarr.gumbachi.com";
+              siteMonitor = "http://localhost:7878";
             };
           }
 
@@ -319,25 +275,16 @@ in
               icon = "sonarr.png";
               description = "Shows";
               href = "https://sonarr.gumbachi.com";
-              siteMonitor = "https://sonarr.gumbachi.com";
+              siteMonitor = "http://localhost:8989";
             };
           }
 
           {
-            "Jellyseerr" = {
-              icon = "jellyseerr.png";
-              description = "Better than Overseerr";
-              href = "https://request.gumbachi.com";
-              siteMonitor = "https://request.gumbachi.com";
-            };
-          }
-
-          {
-            "Deluge VPN" = {
-              icon = "deluge.png";
-              description = "Bittorrent";
-              href = "https://sail.gumbachi.com";
-              siteMonitor = "https://sail.gumbachi.com";
+            "Bazarr" = {
+              icon = "bazarr.png";
+              description = "Subtitles";
+              href = "https://bazarr.gumbachi.com";
+              siteMonitor = "http://localhost:6767";
             };
           }
 
@@ -346,9 +293,53 @@ in
               icon = "prowlarr.png";
               description = "Indexer Management";
               href = "https://prowlarr.gumbachi.com";
-              siteMonitor = "https://prowlarr.gumbachi.com";
+              siteMonitor = "http://localhost:9696";
             };
           }
+
+          {
+            "Romm" = {
+              icon = "romm.png";
+              description = "ROM manager";
+              href = "https://romm.gumbachi.com";
+              siteMonitor = "http://localhost:5823";
+            };
+          }
+          {
+            "Syncthing" = {
+              icon = "syncthing.png";
+              description = "File Sync";
+              href = "https://sync.gumbachi.com";
+              siteMonitor = "http://localhost:8384";
+            };
+          }
+          {
+            "Deluge Open" = {
+              icon = "deluge.png";
+              description = "Bittorrent";
+              href = "https://open-deluge.gumbachi.com";
+              siteMonitor = "http://localhost:8111";
+            };
+          }
+
+          {
+            "Adguard" = {
+              icon = "adguard-home.png";
+              description = "DNS ad-blocking";
+              href = "https://adguard.gumbachi.com";
+              siteMonitor = "http://localhost:3080";
+            };
+          }
+
+          {
+            "Immich" = {
+              icon = "immich.png";
+              description = "Cloud Photos";
+              href = "https://photos.gumbachi.com";
+              siteMonitor = "http://localhost:2283";
+            };
+          }
+
 
         ];
       }
@@ -430,6 +421,16 @@ in
               icon = "porkbun.png";
             }];
           }
+
+          {
+            "Achievements" = [{
+              abbr = "RA";
+              href = "https://retroachievements.org/";
+              description = "retroachievements";
+              icon = "si-retroarch";
+            }];
+          }
+
         ];
       }
 
