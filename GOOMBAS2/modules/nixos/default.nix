@@ -9,6 +9,7 @@
       
     # System Services
     ./greetd.nix
+    ./ssh.nix
 
     # Homelab services
     ./adguardhome.nix

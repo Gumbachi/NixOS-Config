@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
 
   imports = [
     ./hardware-configuration.nix # Hardware config
@@ -66,7 +66,6 @@
     isNormalUser = true;
     description = "Jared";
     extraGroups = ["networkmanager" "wheel" "video" "minecraft" "docker" "media" "backup" ];
-    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvJ/mvigyGpxh0SNRWqxYLS3HcsBhGPG1Pat7ldit+T jared@GOOMBAX1"];
   };
 
   nix.settings = {
