@@ -16,9 +16,38 @@
 
     dashboard.startify = {
       enable = true;
+      lists = [
+        {
+          header = [ "Bookmarks" ];
+          type = "bookmarks";
+        }
+        {
+          header = [ "MRU" ];
+          type = "dir";
+        }
+        # {
+        #   header = [
+        #     "MRU Current Directory"
+        #   ];
+        #   type = "dir";
+        # }
+        # {
+        #   header = [
+        #     "Sessions"
+        #   ];
+        #   type = "sessions";
+        # }
+        {
+          header = [ "Commands" ];
+          type = "commands";
+        }
+      ];
       bookmarks = [
         { c = "~/NixOS-Config"; }
         { n = "~/Sync/Notes"; }
+        { i = "~/Code/Icosearch"; }
+        { o = "~/Code/Overway"; }
+        { g = "~/Code/GumBOTchi"; }
       ];
     };
 
@@ -132,6 +161,7 @@
         enable = true;
         format.enable = true;
       };
+      rust.enable = true;
     };
 
     keymaps = [

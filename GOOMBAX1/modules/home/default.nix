@@ -20,6 +20,7 @@
 
     # Other
     ./btop.nix
+    ./desktop-entries.nix
     ./fish.nix
     ./git.nix
     ./kitty.nix

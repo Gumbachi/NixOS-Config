@@ -1,4 +1,4 @@
-{ config, osConfig, ... }: {
+{ config, ... }: {
 
   # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
   
@@ -15,7 +15,7 @@
       menu = ''walker'';
       editor = "${terminal} $EDITOR";
       screenshot = "uwsm app -- hyprshot -m region --clipboard-only";
-      browser = "uwsm app -- floorp";
+      browser = "uwsm app -- chromium";
       systemMonitor = "${terminal} btop";
       gameLauncher = "uwsm app -- steam";
       steamGameRegex = "class:^(steam_app_.*)$";
@@ -187,7 +187,7 @@
         "1, monitor:DP-3, default:true, persistent:true"
         "2, monitor:DP-2, default:true, persistent:true"
         "3, monitor:DP-1, default:true, persistent:true"
-        "4, monitor:DP-1, decorate:false"
+        "4, monitor:DP-1, decorate:false, border:false"
         "5, monitor:DP-1"
       ];
 
