@@ -1,4 +1,27 @@
-{ ... }: {
+{ ... }:
+let
+  mkDisabledDesktopEntry = name: {
+    "${name}" = {
+      name = name;
+      exec = "";
+      noDisplay = true;
+    };
+  };
+
+  disabled = map mkDisabledDesktopEntry [
+    "Proton EasyAntiCheat Runtime"
+    "btop++"
+    "NixOS Manual"
+    "Qt5 Settings"
+    "Qt6 Settings"
+    "Yazi"
+    "fish"
+    "kitty"
+    "uuctl" 
+    "Neovim"
+  ];
+in
+{
 
   xdg.desktopEntries = {
 
@@ -22,10 +45,15 @@
       name = "Immich";
       genericName = "Photo Manager";
       exec = "xdg-open https://photos.gumbachi.com";
-      icon = "immich";
+      icon = "multimedia-photo-viewer";
     };
 
-
+    jellyfin = {
+      name = "Jellyfin";
+      genericName = "Jellyfin";
+      exec = "xdg-open https://watch.gumbachi.com";
+      icon = "jellyfin";
+    };
 
   };
 

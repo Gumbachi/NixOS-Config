@@ -12,6 +12,7 @@
     pavucontrol # Sound Settings
     hyprshot
     nwg-look # GTK Style GUI
+    wally-cli
   ];
 
   # Home manager programs
