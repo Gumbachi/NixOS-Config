@@ -3,7 +3,7 @@
   programs.git = {
     enable = true;
     userName = "Gumbachi";
-    userEmail = "codeberg@gumbachi.com";
+    userEmail = "github@gumbachi.com";
     extraConfig = {
       merge.ff = true;
     };
