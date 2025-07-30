@@ -4,7 +4,7 @@
   networking.firewall.allowedTCPPorts = [ 8384 ];
 
   services.syncthing = {
-    dataDir = "/home/jared/Sync";
+    dataDir = "/home/jared/sync";
     configDir = "/home/jared/.config/syncthing";
     user = "jared";
     group = "users";
@@ -16,31 +16,31 @@
       devices.GOOMBAM1.id = "VTVTPAN-QXGZNSD-FLSI4UR-LIJY6O2-SJOLELJ-6EBOEHV-6MYCVWE-OQEG7Q7";
       devices.Go7.id = "GKNIIKZ-6P7TNMQ-X4FDQPI-75UH4O4-J664KC2-MVU3SVQ-BFYQL5V-4WC4WAF";
 
-      folders."/home/jared/Sync/Notes" = {
+      folders."/home/jared/sync/Notes" = {
         id = "notes";
         label = "Notes";
         devices = [ "GOOMBAS2" "GOOMBAM1" "Go7" ];
       };
 
-      folders."/home/jared/Sync/Shared" = {
+      folders."/home/jared/sync/Shared" = {
         id = "shared";
         label = "Shared Files";
         devices = [ "GOOMBAS2" "GOOMBAM1" "Go7" ];
       };
 
-      folders."/home/jared/Sync/Torrents" = {
+      folders."/home/jared/sync/Torrents" = {
         id = "torrents";
         label = "Torrents";
         devices = [ "GOOMBAS2" ];
       };
 
-      folders."/home/jared/Sync/Emulation/Saves" = {
+      folders."/home/jared/sync/Emulation/Saves" = {
         id = "emulation-saves";
         label = "Emulation Saves";
         devices = [ "GOOMBAS2" "GOOMBAM1" ];
       };
 
-      folders."/home/jared/Sync/Emulation/Library" = {
+      folders."/home/jared/sync/Emulation/Library" = {
         id = "emulation-library";
         label = "Emulation Library";
         devices = [ "GOOMBAS2" ];

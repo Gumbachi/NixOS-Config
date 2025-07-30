@@ -43,11 +43,11 @@
         }
       ];
       bookmarks = [
-        { c = "~/NixOS-Config"; }
-        { n = "~/Sync/Notes"; }
-        { i = "~/Code/Icosearch"; }
-        { o = "~/Code/Overway"; }
-        { g = "~/Code/GumBOTchi"; }
+        { c = "~/nixos-onfig"; }
+        { n = "~/sync/Notes"; }
+        { i = "~/code/Icosearch"; }
+        { o = "~/code/Overway"; }
+        { g = "~/code/GumBOTchi"; }
       ];
     };
 

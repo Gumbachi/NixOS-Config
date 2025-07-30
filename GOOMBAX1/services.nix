@@ -36,6 +36,7 @@
       hyprpaper.enable = true;
       hyprpolkitagent.enable = true;
       clipse.enable = true;
+      wlsunset.enable = true;
     };
   }];
 

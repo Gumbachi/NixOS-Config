@@ -2,7 +2,6 @@
 let
   cfg = config.services.homepage-dashboard;
   port = 8082;
-  imageSrc = "https://codeberg.org/Gumbachi/NixOS-Config/raw/branch/main/images/wallpapers";
 in
 {
   # Reverse proxy

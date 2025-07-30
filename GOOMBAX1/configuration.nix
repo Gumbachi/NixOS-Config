@@ -31,7 +31,7 @@
     enableIPv6 = false;
   };
 
-  environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
+  environment.sessionVariables.CONFIG = "/home/jared/nixos-config";
 
   default-apps = {
     enable = true;

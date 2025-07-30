@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
 
   imports = [
     ./hardware-configuration.nix # Hardware config
@@ -26,7 +26,7 @@
     enableIPv6 = false;
   };
 
-  environment.sessionVariables.CONFIG = "/home/jared/NixOS-Config";
+  environment.sessionVariables.CONFIG = "/home/jared/nixos-config";
 
   boot = {
     initrd.luks.mitigateDMAAttacks = true; # This is for firewire. enable when no longer needed
