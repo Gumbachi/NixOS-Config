@@ -14,11 +14,6 @@
 
   theme.catppuccin-mocha.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    addUserToGroup = true;
-  };
-
   networking = {
     hostName = "GOOMBAS2";
     networkmanager.enable = true;

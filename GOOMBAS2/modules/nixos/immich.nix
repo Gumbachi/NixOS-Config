@@ -16,7 +16,8 @@ in
   services.immich = {
     group = "media";
     port = port;
-    mediaLocation = "/mnt/main/Media/Photos/Immich"; # Wouldnt touch this. It aint worth the hassle
+    # mediaLocation = "/mnt/main/Media/Photos/Immich"; # Wouldnt touch this. It aint worth the hassle
+    mediaLocation = "/mnt/main/media/photos-and-videos/immich"; 
     accelerationDevices = null;
   };
 

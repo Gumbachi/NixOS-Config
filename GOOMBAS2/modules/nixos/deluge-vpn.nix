@@ -41,7 +41,7 @@ in
         VPN_OUTPUT_PORTS = "5678"; 
         DEBUG = "false";
         PUID = "0";
-        PGID = "0";
+        PGID = "0"; # Media Group
         UMASK = "000";
       };
       ports = [
@@ -54,7 +54,7 @@ in
       ];
       volumes = [  
         # This line must match on both sides or the arrs freak out
-        "/mnt/main/config/deluge-vpn/torrents:/mnt/main/config/deluge-vpn/torrents"
+        "/mnt/main/torrents/vpn:/mnt/main/torrents/vpn"
 
         # These dont have to match
         "/mnt/main/config/deluge-vpn/data:/data"

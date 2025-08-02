@@ -298,14 +298,6 @@ in
           }
 
           {
-            "Romm" = {
-              icon = "romm.png";
-              description = "ROM manager";
-              href = "https://romm.gumbachi.com";
-              siteMonitor = "http://localhost:5823";
-            };
-          }
-          {
             "Syncthing" = {
               icon = "syncthing.png";
               description = "File Sync";

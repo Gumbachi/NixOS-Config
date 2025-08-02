@@ -15,8 +15,6 @@
     rsync
     fdupes
 
-    podman-compose
-
     btrfs-progs
     immich-cli
  

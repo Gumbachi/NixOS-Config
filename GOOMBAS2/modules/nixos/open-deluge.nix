@@ -1,7 +1,6 @@
 { config, lib, ... }:
 let
   cfg = config.services.deluge;
-  dataDir = "/mnt/main/config/deluge";
   port = 8111;
 in
 {
@@ -33,7 +32,7 @@ in
 
     # Find config here https://git.deluge-torrent.org/deluge/tree/deluge/core/preferencesmanager.py#n41
     config = {
-      download_location = "${dataDir}/torrents";
+      download_location = "/mnt/main/torrents/open";
       dont_count_slow_torrents = false;
       allow_remote = true;
       daemon_port = 58847;

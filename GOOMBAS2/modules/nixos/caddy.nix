@@ -25,12 +25,6 @@ in
         file_server browse
       '';
 
-      # RomM
-      "romm.gumbachi.com".extraConfig = ''
-        reverse_proxy localhost:5823
-      '';
-
-
     };
   };
 
