@@ -1,7 +1,7 @@
 { ... }: {
   
   environment.sessionVariables = {
-    CONFIG = "/home/jared/NixOS-Config";
+    CONFIG = "/home/jared/nixos-config";
     EDITOR = "hx";
   };
   

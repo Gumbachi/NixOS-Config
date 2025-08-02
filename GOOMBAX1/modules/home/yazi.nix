@@ -21,13 +21,14 @@
     '';
     theme = {
       icon = {
-        prepend_dirs = [
+        append_dirs = [
           { name = "games"; text = "󰸿"; }
           { name = "code"; text = "󰅴"; }
-          { name = "NixOS-Config"; text = "󱄅"; }
-          { name = "Sync"; text = "󰓦"; }
+          { name = "nixos-config"; text = "󱄅"; }
+          { name = "sync"; text = "󰓦"; }
+          { name = "downloads"; text = "󰮏"; }
           { name = "Downloads"; text = "󰮏"; }
-          { name = "Documents"; text = "󰧮"; }
+          { name = "documents"; text = "󰧮"; }
         ];
       }; 
     };

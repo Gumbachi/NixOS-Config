@@ -1,23 +1,32 @@
 {
   description = "Gumbachi NixOS Config";
   inputs = {
+    
+    # Default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # System
     stylix.url = "github:danth/stylix";
     agenix.url = "github:ryantm/agenix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Applications
     overway.url = "github:Gumbachi/Overway";
     astal.url = "github:aylur/astal";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nvf.url = "github:notashelf/nvf";
     walker.url = "github:abenz1267/walker";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    # Temp fix - Remove when https://github.com/NixOS/nixpkgs/issues/418473 is merged
+    floorp-disable-lto.url = "github:NixOS/nixpkgs?ref=pull/422814/head";
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
