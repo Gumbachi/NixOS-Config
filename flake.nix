@@ -37,6 +37,7 @@
 
     nixosConfigurations.GOOMBAX1 = let 
       user = "jared";
+      configPath = "/home/${user}/nixos-config";
     in nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { 
@@ -52,7 +53,10 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hmbak";
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = { 
+              inherit inputs; 
+              inherit configPath;
+            };
           };
           home-manager.users.${user}.imports = [ ./GOOMBAX1/home.nix ];
         }

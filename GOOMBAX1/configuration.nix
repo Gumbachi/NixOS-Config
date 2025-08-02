@@ -12,7 +12,7 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/bisbiswas07.jpg;
+    wallpaper = ../images/wallpapers/bisbiswas06.jpg;
     monokai.enable = true;
     # sunset.enable = true;
   };

@@ -43,7 +43,7 @@
         }
       ];
       bookmarks = [
-        { c = "~/nixos-onfig"; }
+        { c = "~/nixos-config"; }
         { n = "~/sync/Notes"; }
         { i = "~/code/Icosearch"; }
         { o = "~/code/Overway"; }
