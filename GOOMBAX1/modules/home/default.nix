@@ -24,6 +24,7 @@
     ./fish.nix
     ./git.nix
     ./kitty.nix
+    ./lutris.nix
     ./mangohud.nix
     ./starship.nix
     ./vesktop.nix

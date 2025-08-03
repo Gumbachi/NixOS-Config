@@ -18,6 +18,12 @@ in {
       forceDesktopScaling = mkEnableOption "Set an environment variable to force desktop scaling to 1.5x";
     };
 
+    # Heroic Launcher
+    heroic.enable = mkEnableOption "Install Heroic Launcher.";
+
+    # Lutris Launcher
+    lutris.enable = mkEnableOption "Install Lutris Launcher.";
+
     # Mangohud
     mangohud.enable = mkEnableOption "Install Mangohud.";
 
@@ -42,6 +48,18 @@ in {
       environment.sessionVariables = mkIf cfg.steam.forceDesktopScaling {
         STEAM_FORCE_DESKTOPUI_SCALING = "1.5";
       };
+    })
+
+    # Heroic
+    (mkIf cfg.heroic.enable {
+      environment.systemPackages = [ pkgs.heroic ];
+    })
+
+    # Lutris
+    (mkIf cfg.lutris.enable { 
+      home-manager.sharedModules = [{
+        programs.lutris.enable = true;
+      }];
     })
 
     # Mangohud

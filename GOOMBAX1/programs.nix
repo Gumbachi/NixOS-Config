@@ -69,8 +69,8 @@
       enable = true;
       forceDesktopScaling = true;
     };
-    gamescope.enable = false;
-    gamemode.enable = true;
+    lutris.enable = true;
+    heroic.enable = true;
     mangohud.enable = true;
     protonplus.enable = true;
     minecraft.enable = true;
