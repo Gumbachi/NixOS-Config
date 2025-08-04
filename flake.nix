@@ -66,6 +66,12 @@
           home-manager.users.${user}.imports = [ ./GOOMBAX1/home.nix ];
         }
 
+        # Overlays
+        { nixpkgs.overlays = [ 
+          inputs.niri.overlays.niri 
+        ];}
+
+
         # Hardware Support
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
 
@@ -74,6 +80,7 @@
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
         inputs.agenix.nixosModules.default
+        inputs.niri.nixosModules.niri
 
       ];
     };

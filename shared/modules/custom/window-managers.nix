@@ -52,9 +52,11 @@ in {
     # Niri
     (mkIf cfg.niri.enable { 
 
-      imports = [ inputs.niri.nixosModules.niri ];
-      nixpkgs.overlays = [ inputs.niri.overlays.niri ];
       programs.niri.package = pkgs.niri;
+
+      environment.systemPackages = with pkgs; [
+        xwayland-satellite
+      ];
 
       environment.sessionVariables = {
         NIXOS_OZONE_WL = "1";

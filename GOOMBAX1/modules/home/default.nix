@@ -26,6 +26,7 @@
     ./kitty.nix
     ./lutris.nix
     ./mangohud.nix
+    ./niri.nix
     ./starship.nix
     ./vesktop.nix
     ./wlsunset.nix
