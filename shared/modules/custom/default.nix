@@ -24,6 +24,7 @@
     ./theme.nix
     ./viewers.nix
     ./virtualisation.nix
+    ./window-managers.nix
   ];
 
 }

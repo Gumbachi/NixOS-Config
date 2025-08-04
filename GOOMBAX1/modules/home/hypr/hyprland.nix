@@ -1,10 +1,7 @@
-{ config, ... }: {
+{ ... }: {
 
   # System Hyprland config in GOOMBAX1/modules/nixos/hyprland.nix
-  
-  # Just for insurance to not brick the system
-  programs.kitty.enable = config.wayland.windowManager.hyprland.enable;
-  
+    
   wayland.windowManager.hyprland = {
     systemd.enable = false; # Disabled for UWSM compatibility
     settings = let
