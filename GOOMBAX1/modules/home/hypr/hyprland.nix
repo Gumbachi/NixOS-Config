@@ -29,9 +29,9 @@
         "hyprlock"
         "${gameLauncher} -silent" 
         "[workspace 1 silent] ${terminal} cava"
-        "[workspace 1 silent] sleep 3; ${systemMonitor}"
         "[workspace 2 silent] uwsm app -- youtube-music"
-        "[workspace 2 silent] sleep 2; uwsm app -- vesktop"
+        "[workspace 1 silent] ${systemMonitor}"
+        "[workspace 2 silent] uwsm app -- vesktop"
         "[workspace special:magic silent] ${browser}" # preload the browser so its quicker to launch
         "uwsm app -- overway"
       ];
@@ -46,7 +46,7 @@
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 4;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
 

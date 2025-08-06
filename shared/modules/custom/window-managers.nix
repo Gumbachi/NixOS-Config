@@ -1,4 +1,4 @@
-{ config, lib, inputs, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkMerge mkEnableOption mkDefault;
   module = "window-managers";
@@ -52,6 +52,7 @@ in {
     # Niri
     (mkIf cfg.niri.enable { 
 
+      programs.niri.enable = true;
       programs.niri.package = pkgs.niri;
 
       environment.systemPackages = with pkgs; [
@@ -67,7 +68,7 @@ in {
       # Greetd: Autostart Niri on boot
       services.greetd = let
         session = {
-          command = "niri > /dev/null";
+          command = "niri-session";
           user = "jared";
         };
       in {
@@ -80,7 +81,6 @@ in {
 
       # Home Manager
       home-manager.sharedModules = [{
-        programs.niri.enable = true;
         programs.alacritty.enable = mkDefault true;
         programs.fuzzel.enable = mkDefault true;
       }];

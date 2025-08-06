@@ -18,6 +18,8 @@ in {
       forceDesktopScaling = mkEnableOption "Set an environment variable to force desktop scaling to 1.5x";
     };
 
+    steam-tui.enable = mkEnableOption "Install steam-tui.";
+
     # Heroic Launcher
     heroic.enable = mkEnableOption "Install Heroic Launcher.";
 
@@ -45,9 +47,15 @@ in {
     # Steam
     (mkIf cfg.steam.enable {
       programs.steam.enable = true;
+      programs.steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];      
       environment.sessionVariables = mkIf cfg.steam.forceDesktopScaling {
         STEAM_FORCE_DESKTOPUI_SCALING = "1.5";
       };
+    })
+
+    # Steam-TUI
+    (mkIf cfg.steam-tui.enable { 
+      environment.systemPackages = [ pkgs.steam-tui ];
     })
 
     # Heroic

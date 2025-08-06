@@ -65,13 +65,11 @@
   };
 
   gaming = {
-    steam = {
-      enable = true;
-      forceDesktopScaling = true;
-    };
-    lutris.enable = true;
-    heroic.enable = true;
+    steam.enable = true;
     mangohud.enable = true;
+    steam-tui.enable = true;
+    lutris.enable = true;
+    heroic.enable = false;
     protonplus.enable = true;
     minecraft.enable = true;
   };
@@ -84,6 +82,7 @@
   development = {
     devenv.enable = true;
     direnv.enable = true;
+    direnv.silent = true;
     android.enable = true;
     just.enable = true;
   };
