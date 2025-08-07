@@ -2,7 +2,7 @@
 
   programs.floorp = {
     # Temp fix - Remove when https://github.com/NixOS/nixpkgs/issues/418473 is merged
-    package = inputs.floorp-disable-lto.legacyPackages.x86_64-linux.floorp;
+    # package = inputs.floorp-disable-lto.legacyPackages.x86_64-linux.floorp;
     profiles.default = {
       extensions = {
         force = true;

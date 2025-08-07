@@ -19,8 +19,7 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # Applications
-    overway.url = "github:Gumbachi/Overway";
-    astal.url = "github:aylur/astal";
+    overway.url = "github:Gumbachi/overway/gtk4-rewrite";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -29,9 +28,6 @@
     nvf.url = "github:notashelf/nvf";
 
     walker.url = "github:abenz1267/walker";
-
-    # Temp fix - Remove when https://github.com/NixOS/nixpkgs/issues/418473 is merged
-    floorp-disable-lto.url = "github:NixOS/nixpkgs?ref=pull/422814/head";
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
