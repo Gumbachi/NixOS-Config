@@ -75,6 +75,7 @@
 
     nixosConfigurations.GOOMBAS2 = let 
       user = "jared";
+      configPath = "/home/${user}/nixos-config";
     in nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { 
@@ -93,6 +94,7 @@
             extraSpecialArgs = { 
               inherit inputs;
               inherit user; 
+              inherit configPath;
             };
           };
           home-manager.users.${user}.imports = [ ./GOOMBAS2/home.nix ];
