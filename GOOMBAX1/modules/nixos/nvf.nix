@@ -25,18 +25,6 @@
           header = [ "MRU" ];
           type = "dir";
         }
-        # {
-        #   header = [
-        #     "MRU Current Directory"
-        #   ];
-        #   type = "dir";
-        # }
-        # {
-        #   header = [
-        #     "Sessions"
-        #   ];
-        #   type = "sessions";
-        # }
         {
           header = [ "Commands" ];
           type = "commands";
@@ -45,9 +33,9 @@
       bookmarks = [
         { c = "~/nixos-config"; }
         { n = "~/sync/Notes"; }
-        { i = "~/code/Icosearch"; }
-        { o = "~/code/Overway"; }
-        { g = "~/code/GumBOTchi"; }
+        { i = "~/code/icosearch"; }
+        { o = "~/code/overway"; }
+        { g = "~/code/gumbotchi"; }
       ];
     };
 
@@ -134,7 +122,8 @@
 
     lsp = {
       enable = true;
-      inlayHints.enable = true;
+      null-ls.enable = true;
+      inlayHints.enable = false;
       lspSignature.enable = true;
       formatOnSave = true;
     };

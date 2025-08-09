@@ -23,6 +23,7 @@
     ./desktop-entries.nix
     ./fish.nix
     ./git.nix
+    ./helix.nix
     ./kitty.nix
     ./lutris.nix
     ./mangohud.nix

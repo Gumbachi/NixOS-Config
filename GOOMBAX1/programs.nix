@@ -128,6 +128,8 @@
       losslesscut.enable = false;
     };
 
+    text.helix.enable = true;
+
     text.nvf = {
       enable = true;
       setDefault = true;

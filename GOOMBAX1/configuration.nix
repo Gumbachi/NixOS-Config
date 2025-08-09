@@ -12,7 +12,7 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/fields-and-mountain.png;
+    wallpaper = ../images/wallpapers/aurora.png;
     monokai.enable = true;
     # sunset.enable = true;
   };
