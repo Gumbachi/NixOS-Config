@@ -15,7 +15,7 @@
     immich.enable = true; # Photos backup and WebUI
     jellyfin.enable = true; # WebUI for serving movies and shows
     jellyseerr.enable = true; # WebUI for requesting movies and shows
-    deluge.enable = true; # Deluge Bittorrent Manager
+    # deluge.enable = false; # Deluge Bittorrent Manager
     syncthing.enable = true; # Sync files across devices
     prowlarr.enable = true; # Indexer manager
     radarr.enable = true; # Movie manager

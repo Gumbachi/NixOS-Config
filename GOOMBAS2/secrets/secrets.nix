@@ -4,7 +4,6 @@ let
 in
 {
   "dashboard.age".publicKeys = [ user system ];
-  "deluge-auth.age".publicKeys = [ user system ];
   "gumbotchi.age".publicKeys = [ user system ];
   "vibrant.age".publicKeys = [ user system ];
   "deluge-vpn.age".publicKeys = [ user system ];

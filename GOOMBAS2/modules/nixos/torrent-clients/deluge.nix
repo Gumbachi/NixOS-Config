@@ -7,7 +7,7 @@ in
 
   # Secrets
   age.secrets.deluge-auth = {
-    file = ../../secrets/deluge-auth.age;
+    file = ../../secrets/deluge.age;
     owner = "deluge";
     group = "media";
     mode = "440";
