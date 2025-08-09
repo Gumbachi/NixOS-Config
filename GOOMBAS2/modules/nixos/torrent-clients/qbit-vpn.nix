@@ -15,7 +15,7 @@ in
     };
 
     # Secrets
-    age.secrets.qbit-vpn.file = ../../secrets/qbit-vpn.age;
+    age.secrets.qbit-vpn.file = ../../../secrets/qbit-vpn.age;
 
     virtualisation.oci-containers.containers.qbit-vpn = {
       image = "docker.io/binhex/arch-qbittorrentvpn:latest";

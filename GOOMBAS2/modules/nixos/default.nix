@@ -12,7 +12,7 @@
     ./ssh.nix
 
     # Torrent Clients
-    # ./torrent-clients/deluge.nix
+    ./torrent-clients/deluge.nix
     ./torrent-clients/deluge-vpn.nix
     ./torrent-clients/qbit-vpn.nix
 

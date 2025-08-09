@@ -6,6 +6,7 @@ in
   "dashboard.age".publicKeys = [ user system ];
   "gumbotchi.age".publicKeys = [ user system ];
   "vibrant.age".publicKeys = [ user system ];
+  "deluge.age".publicKeys = [ user system ];
   "deluge-vpn.age".publicKeys = [ user system ];
   "qbit-vpn.age".publicKeys = [ user system ];
 

@@ -15,7 +15,7 @@ in
     };
 
     # Secrets
-    age.secrets.deluge-vpn.file = ../../secrets/deluge-vpn.age;
+    age.secrets.deluge-vpn.file = ../../../secrets/deluge-vpn.age;
 
     virtualisation.oci-containers.containers.deluge-vpn = {
       image = "docker.io/binhex/arch-delugevpn:latest";
