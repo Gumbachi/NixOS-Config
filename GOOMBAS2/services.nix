@@ -25,7 +25,8 @@
     # Containerized
     gumbotchi.enable = true; # The goat
     vibrant.enable = true; # Color bot
-    deluge-vpn.enable = true; # Deluge running under a vpn in a container
+    deluge-vpn.enable = false; # Deluge running under a vpn in a container
+    qbit-vpn.enable = true; # Qbit under a vpn in a container
 
   };
 }

@@ -8,6 +8,7 @@ in
   "gumbotchi.age".publicKeys = [ user system ];
   "vibrant.age".publicKeys = [ user system ];
   "deluge-vpn.age".publicKeys = [ user system ];
+  "qbit-vpn.age".publicKeys = [ user system ];
 
   "radarr.age".publicKeys = [ user system ];
   "sonarr.age".publicKeys = [ user system ];

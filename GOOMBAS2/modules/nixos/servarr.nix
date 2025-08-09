@@ -32,22 +32,22 @@ in
 
   services = {
     prowlarr = {
-      dataDir = "/mnt/main/config/prowlarr";
-      environmentFiles = config.age.secrets.prowlarr.path;
+      # dataDir = "/mnt/main/config/prowlarr";
+      environmentFiles = [ config.age.secrets.prowlarr.path ];
       settings.server.port = ports.prowlarr;
-      setings.auth = {
-        authenticationmethod = "Forms";
-        authenticationrequired = "Enabled";
-      };
+      # settings.auth = {
+      #   authenticationmethod = "Forms";
+      #   authenticationrequired = "Enabled";
+      # };
       # This settings gets the DB to lock too often just hold off until nixified
     };
 
     radarr = {
       group = "media";
       dataDir = "/mnt/main/config/radarr";
-      environmentFiles = config.age.secrets.radarr.path;
+      environmentFiles = [ config.age.secrets.radarr.path ];
       settings.server.port = ports.radarr;
-      setings.auth = {
+      settings.auth = {
         authenticationmethod = "Forms";
         authenticationrequired = "Enabled";
       };
@@ -56,9 +56,9 @@ in
     sonarr = {
       group = "media";
       dataDir = "/mnt/main/config/sonarr";
-      environmentFiles = config.age.secrets.sonarr.path;
+      environmentFiles = [ config.age.secrets.sonarr.path ];
       settings.server.port = ports.sonarr;
-      setings.auth = {
+      settings.auth = {
         authenticationmethod = "Forms";
         authenticationrequired = "Enabled";
       };

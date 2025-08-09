@@ -11,16 +11,19 @@
     ./greetd.nix
     ./ssh.nix
 
+    # Torrent Clients
+    ./torrent-clients/deluge.nix
+    ./torrent-clients/deluge-vpn.nix
+    ./torrent-clients/qbit-vpn.nix
+
     # Homelab services
     ./adguardhome.nix
     ./caddy.nix
-    ./deluge-vpn.nix
     ./gumbotchi.nix
     ./homepage.nix
     ./immich.nix
     ./jellyfin.nix
     ./jellyseerr.nix
-    ./open-deluge.nix
     ./matrix.nix
     ./minecraft.nix
     ./servarr.nix
