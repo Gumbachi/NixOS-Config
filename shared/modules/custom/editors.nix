@@ -66,8 +66,10 @@ in {
 
     (mkIf cfg.text.helix.enable {
       environment.systemPackages = [ pkgs.helix ];
-      environment.sessionVariables.EDITOR = mkIf cfg.text.helix.setDefault "helix";
-      home-manager.sharedModules = [{ programs.helix.enable = true; }];
+      home-manager.sharedModules = [{ 
+        programs.helix.enable = true;
+        programs.helix.defaultEditor = cfg.text.helix.setDefault;
+      }];
     })
 
     (mkIf cfg.text.nvf.enable {

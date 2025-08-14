@@ -28,6 +28,8 @@
     nvf.url = "github:notashelf/nvf";
 
     walker.url = "github:abenz1267/walker";
+
+    caelestia.url = "github:caelestia-dots/shell";
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
@@ -66,7 +68,6 @@
         { nixpkgs.overlays = [ 
           inputs.niri.overlays.niri 
         ];}
-
 
         # Hardware Support
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate

@@ -12,7 +12,7 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/aurora.png;
+    wallpaper = ../images/wallpapers/swan.jpg;
     monokai.enable = true;
     # sunset.enable = true;
   };
@@ -78,6 +78,8 @@
       kontroll.enable = false;
     };
   };
+
+  qt.enable = true;
 
   fonts = {
     enableDefaultPackages = true; 

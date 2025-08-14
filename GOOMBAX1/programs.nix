@@ -4,7 +4,10 @@
     inputs.overway.packages.${system}.default
     inputs.agenix.packages.${system}.default
 
+    inputs.caelestia.packages.${system}.default
+
     youtube-music
+    quickshell
 
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
@@ -128,11 +131,14 @@
       losslesscut.enable = false;
     };
 
-    text.helix.enable = true;
+    text.helix = {
+      enable = true;
+      setDefault = true;
+    };
 
     text.nvf = {
       enable = true;
-      setDefault = true;
+      setDefault = false;
     };
 
   };
