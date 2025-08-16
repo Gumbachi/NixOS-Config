@@ -11,7 +11,7 @@ in
 
     # Reverse Proxy
     services.caddy.virtualHosts."qbit-vpn.gumbachi.com" = {
-      extraConfig = ''reverse_proxy localhost:${toString port}'';
+      extraConfig = ''reverse_proxy localhost:8668'';
     };
 
     # Secrets
@@ -39,13 +39,14 @@ in
         DELUGE_ENABLE_WEBUI_PASSWORD = "yes";
         VPN_INPUT_PORTS = "1234"; 
         VPN_OUTPUT_PORTS = "5678"; 
+        WEBUI_PORT = "8668";
         DEBUG = "false";
         PUID = "1000";
         PGID = "986"; # Media Group
         UMASK = "000";
       };
       ports = [
-        "${toString port}:${toString port}" 
+        "8668:8668" 
         # "8118:8118" # Privoxy
         # "9118:9118" # Socks
         "58946:58946" 

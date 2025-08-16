@@ -11,6 +11,7 @@ in
     android.enable = mkEnableOption "Enable the required tools for Android development."; 
     devenv.enable = mkEnableOption "Enable devenv for declarative, reproducible dev environments.";
     direnv.enable = mkEnableOption "Enable direnv for to automatically activate dev environments when entering directory.";
+    direnv.silent = mkEnableOption "Silence direnv output";
     just.enable = mkEnableOption "Enable just for easily running commands.";
   };
 
@@ -31,6 +32,7 @@ in
       home-manager.sharedModules = [{
         programs.direnv = {
           enable = true;
+          silent = cfg.direnv.silent;
         };
       }];
     })

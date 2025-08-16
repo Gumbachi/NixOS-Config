@@ -23,8 +23,11 @@
     ./desktop-entries.nix
     ./fish.nix
     ./git.nix
+    ./helix.nix
     ./kitty.nix
+    ./lutris.nix
     ./mangohud.nix
+    ./niri.nix
     ./starship.nix
     ./vesktop.nix
     ./wlsunset.nix

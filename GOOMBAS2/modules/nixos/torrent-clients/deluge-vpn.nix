@@ -48,9 +48,9 @@ in
         "8112:8112" 
         # "8118:8118" # Privoxy
         # "9118:9118" # Socks
-        "58846:58846" 
-        "58946:58946" 
-        "58946:58946/udp" 
+        "58847:58846" 
+        "58947:58946" 
+        "58947:58946/udp" 
       ];
       volumes = [  
         # This line must match on both sides or the arrs freak out

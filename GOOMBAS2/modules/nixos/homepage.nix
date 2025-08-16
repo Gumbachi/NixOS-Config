@@ -242,12 +242,20 @@ in
             };
           }
 
+          # {
+          #   "Deluge VPN" = {
+          #     icon = "deluge.png";
+          #     description = "Bittorrent";
+          #     href = "https://sail.gumbachi.com";
+          #     siteMonitor = "http://localhost:8112";
+          #   };
+          # }
           {
-            "Deluge VPN" = {
-              icon = "deluge.png";
+            "Qbit VPN" = {
+              icon = "qbittorrent.png";
               description = "Bittorrent";
-              href = "https://sail.gumbachi.com";
-              siteMonitor = "http://localhost:8112";
+              href = "https://qbit-vpn.gumbachi.com";
+              siteMonitor = "http://localhost:8668";
             };
           }
 

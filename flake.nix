@@ -4,29 +4,32 @@
     
     # Default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # System
     stylix.url = "github:danth/stylix";
+
     agenix.url = "github:ryantm/agenix";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # Applications
-    overway.url = "github:Gumbachi/Overway";
-    astal.url = "github:aylur/astal";
+    overway.url = "github:Gumbachi/overway/gtk4-rewrite";
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    niri.url = "github:sodiboo/niri-flake";
+
     nvf.url = "github:notashelf/nvf";
+
     walker.url = "github:abenz1267/walker";
 
-    # Temp fix - Remove when https://github.com/NixOS/nixpkgs/issues/418473 is merged
-    floorp-disable-lto.url = "github:NixOS/nixpkgs?ref=pull/422814/head";
+    caelestia.url = "github:caelestia-dots/shell";
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: {
@@ -61,6 +64,11 @@
           home-manager.users.${user}.imports = [ ./GOOMBAX1/home.nix ];
         }
 
+        # Overlays
+        { nixpkgs.overlays = [ 
+          inputs.niri.overlays.niri 
+        ];}
+
         # Hardware Support
         inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
 
@@ -69,6 +77,7 @@
         inputs.nvf.nixosModules.default
         inputs.nur.modules.nixos.default
         inputs.agenix.nixosModules.default
+        inputs.niri.nixosModules.niri
 
       ];
     };
@@ -139,13 +148,5 @@
       ];
     };
 
-    nixosConfigurations.GOOMBAS1 = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./GOOMBAS1/configuration.nix
-        inputs.nixos-hardware.nixosModules.raspberry-pi-4
-      ];
-    };
   };
 }

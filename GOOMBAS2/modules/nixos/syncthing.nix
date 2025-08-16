@@ -47,24 +47,17 @@ in
       };
 
       # Books
-      folders."${storage}/Media/Books" = {
+      folders."${storage}/media/books" = {
         label = "Books";
         id = "books";
         devices = [ "Go7" ];
       };
 
-      # Romm Assets / Saves
+      # Emulator Saves
       folders."${storage}/sync/emulation/saves" = {
         label = "Emulation Saves";
         id = "emulation-saves";
         devices = [ "GOOMBAX1" "GOOMBAM1" ];
-      };
-
-      # Romm Roms
-      folders."${storage}/config/romm/library" = {
-        label = "Emulation Library";
-        id = "emulation-library";
-        devices = [ "GOOMBAX1" ];
       };
 
       # Phone

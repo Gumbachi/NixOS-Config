@@ -2,10 +2,14 @@
 
   environment.systemPackages = with pkgs; [
     inputs.overway.packages.${system}.default
-    inputs.astal.packages.${system}.default
     inputs.agenix.packages.${system}.default
 
+    inputs.caelestia.packages.${system}.default
+
     youtube-music
+    quickshell
+
+    playerctl
 
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
@@ -65,13 +69,11 @@
   };
 
   gaming = {
-    steam = {
-      enable = true;
-      forceDesktopScaling = true;
-    };
-    gamescope.enable = false;
-    gamemode.enable = true;
+    steam.enable = true;
     mangohud.enable = true;
+    steam-tui.enable = true;
+    lutris.enable = true;
+    heroic.enable = false;
     protonplus.enable = true;
     minecraft.enable = true;
   };
@@ -84,6 +86,7 @@
   development = {
     devenv.enable = true;
     direnv.enable = true;
+    direnv.silent = true;
     android.enable = true;
     just.enable = true;
   };
@@ -130,9 +133,14 @@
       losslesscut.enable = false;
     };
 
-    text.nvf = {
+    text.helix = {
       enable = true;
       setDefault = true;
+    };
+
+    text.nvf = {
+      enable = true;
+      setDefault = false;
     };
 
   };

@@ -12,9 +12,14 @@
 
   # Set the system theme with stylix
   theme = {
-    wallpaper = ../images/wallpapers/bisbiswas06.jpg;
+    wallpaper = ../images/wallpapers/swan.jpg;
     monokai.enable = true;
     # sunset.enable = true;
+  };
+
+  window-managers = {
+    hyprland.enable = true;
+    niri.enable = false;
   };
 
   boot = {
@@ -69,10 +74,12 @@
     keyboard.zsa = {
       enable = true; 
       disableJoystick = false;
-      keymapp.enable = false;
+      keymapp.enable = true;
       kontroll.enable = false;
     };
   };
+
+  qt.enable = true;
 
   fonts = {
     enableDefaultPackages = true; 
