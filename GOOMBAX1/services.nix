@@ -11,7 +11,7 @@
     fwupd.enable = false;
 
     # Media Control Service
-    playerctld.enable = true;
+    playerctld.enable = false;
 
     # Gnome Virtual File System - needed for AGS images
     gvfs.enable = true;

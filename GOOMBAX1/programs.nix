@@ -9,6 +9,8 @@
     youtube-music
     quickshell
 
+    playerctl
+
     wl-clipboard # Clipboard backend
     hyprpicker # Color Picker
     pavucontrol # Sound Settings
